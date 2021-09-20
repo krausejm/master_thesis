@@ -1,0 +1,334 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{pdg2010}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{2}{}{%
+        {{hash=4eea7085eaa05715b19a05077bd8a97c}{%
+           family={{Particle Data Group}},
+           familyi={P\bibinitperiod}}}%
+        {{hash=5c3dabad2510efba9299b354d41adff4}{%
+           family={Nakamura},
+           familyi={N\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{569ffed8f802925c602449f9703d911c}
+      \strng{fullhash}{569ffed8f802925c602449f9703d911c}
+      \strng{bibnamehash}{569ffed8f802925c602449f9703d911c}
+      \strng{authorbibnamehash}{569ffed8f802925c602449f9703d911c}
+      \strng{authornamehash}{569ffed8f802925c602449f9703d911c}
+      \strng{authorfullhash}{569ffed8f802925c602449f9703d911c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. Phys. G}
+      \field{title}{{Review of Particle Physics}}
+      \field{volume}{37}
+      \field{year}{2010}
+      \field{pages}{075021}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb http://pdg.lbl.gov
+      \endverb
+      \verb{url}
+      \verb http://pdg.lbl.gov
+      \endverb
+    \endentry
+    \entry{thesis-guide}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7781a307943b838689bc8d50badc087d}{%
+           family={Brock},
+           familyi={B\bibinitperiod},
+           given={Ian\bibnamedelima C.},
+           giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{7781a307943b838689bc8d50badc087d}
+      \strng{fullhash}{7781a307943b838689bc8d50badc087d}
+      \strng{bibnamehash}{7781a307943b838689bc8d50badc087d}
+      \strng{authorbibnamehash}{7781a307943b838689bc8d50badc087d}
+      \strng{authornamehash}{7781a307943b838689bc8d50badc087d}
+      \strng{authorfullhash}{7781a307943b838689bc8d50badc087d}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Users Guide to Writing a Thesis in a Physics/Astronomy Institute of the Universität Bonn}}
+      \field{urlday}{1}
+      \field{urlmonth}{7}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://pi.physik.uni-bonn.de/pi_only/thesis.php
+      \endverb
+      \verb{url}
+      \verb http://pi.physik.uni-bonn.de/pi_only/thesis.php
+      \endverb
+    \endentry
+    \entry{Aad:2010ey}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ebfe6052e5f504e4a3579c49c44afe41}{%
+           family={{ATLAS Collaboration}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{fullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{bibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
+      \field{journaltitle}{Eur. Phys. J. C}
+      \field{title}{Measurement of the top quark-pair production cross section with {ATLAS} in $pp$ collisions at $\sqrt{s} = 7\;\mbox{TeV}$}
+      \field{volume}{71}
+      \field{year}{2011}
+      \field{pages}{1577}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1140/epjc/s10052-011-1577-6
+      \endverb
+      \verb{eprint}
+      \verb 1012.1792
+      \endverb
+    \endentry
+    \entry{Halzen:1984mc}{book}{}
+      \name{author}{2}{}{%
+        {{hash=616dab19583d0b70606acd4c3da049f3}{%
+           family={Halzen},
+           familyi={H\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=c7d41634b7cdb6bdac12657da02ea2c8}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={Alan\bibnamedelima D.},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{5495afdcaf5d740ba6562bd42d981115}
+      \strng{fullhash}{5495afdcaf5d740ba6562bd42d981115}
+      \strng{bibnamehash}{5495afdcaf5d740ba6562bd42d981115}
+      \strng{authorbibnamehash}{5495afdcaf5d740ba6562bd42d981115}
+      \strng{authornamehash}{5495afdcaf5d740ba6562bd42d981115}
+      \strng{authorfullhash}{5495afdcaf5d740ba6562bd42d981115}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780471887416}
+      \field{title}{{Quarks and Leptons: An Introductory Course in Modern Particle Physics}}
+      \field{year}{1984}
+    \endentry
+    \entry{tlodd:2012}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=1342eb8b94b6d26cd2c6aa0567117abc}{%
+           family={Loddenkötter},
+           familyi={L\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {University of Bonn}%
+      }
+      \strng{namehash}{1342eb8b94b6d26cd2c6aa0567117abc}
+      \strng{fullhash}{1342eb8b94b6d26cd2c6aa0567117abc}
+      \strng{bibnamehash}{1342eb8b94b6d26cd2c6aa0567117abc}
+      \strng{authorbibnamehash}{1342eb8b94b6d26cd2c6aa0567117abc}
+      \strng{authornamehash}{1342eb8b94b6d26cd2c6aa0567117abc}
+      \strng{authorfullhash}{1342eb8b94b6d26cd2c6aa0567117abc}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{BONN-IR-2012-06}
+      \field{title}{Implementation of a kinematic fit of single top-quark production in association with a $W$ boson and its application in a neural-network-based analysis in {ATLAS}}
+      \field{type}{PhD Thesis}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://hss.ulb.uni-bonn.de/diss_online
+      \endverb
+      \verb{url}
+      \verb http://hss.ulb.uni-bonn.de/diss_online
+      \endverb
+    \endentry
+    \entry{mergelmeyer:2011}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=131fe7a87f66e1c316a95bd99f808c18}{%
+           family={Mergelmeyer},
+           familyi={M\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Universität Bonn}%
+      }
+      \strng{namehash}{131fe7a87f66e1c316a95bd99f808c18}
+      \strng{fullhash}{131fe7a87f66e1c316a95bd99f808c18}
+      \strng{bibnamehash}{131fe7a87f66e1c316a95bd99f808c18}
+      \strng{authorbibnamehash}{131fe7a87f66e1c316a95bd99f808c18}
+      \strng{authornamehash}{131fe7a87f66e1c316a95bd99f808c18}
+      \strng{authorfullhash}{131fe7a87f66e1c316a95bd99f808c18}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{BONN-IB-2011-01}
+      \field{title}{$\textrm{D}^{*}$-Photoproduktion mit assoziierten Jets und Vertices bei {ZEUS}}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb http://brock.physik.uni-bonn.de/zeus_pub.php
+      \endverb
+      \verb{url}
+      \verb http://brock.physik.uni-bonn.de/zeus_pub.php
+      \endverb
+    \endentry
+    \entry{lhc:vol1}{collection}{}
+      \name{editor}{7}{}{%
+        {{hash=c9a324bb9a73322510ce6491007589ce}{%
+           family={Brüning},
+           familyi={B\bibinitperiod},
+           given={Oliver\bibnamedelima Sim},
+           giveni={O\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=27c0d70e2ccc0d27aad2e650cc1a8f50}{%
+           family={Collier},
+           familyi={C\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2582fc5d66afe2e9d4441336bf6f8fd5}{%
+           family={Lebrun},
+           familyi={L\bibinitperiod},
+           given={P},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5989faab9323b87eba26b48446d8993d}{%
+           family={Myers},
+           familyi={M\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=004c382fdaca31e6f614dceccc6c4763}{%
+           family={Ostojic},
+           familyi={O\bibinitperiod},
+           given={Ranko},
+           giveni={R\bibinitperiod}}}%
+        {{hash=859574ed2024b812bcae7c9de5af7895}{%
+           family={Poole},
+           familyi={P\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f0740a01ded863cafc5c5a8c10fc9e7b}{%
+           family={Proudlock},
+           familyi={P\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {CERN}%
+      }
+      \list{location}{1}{%
+        {Geneva}%
+      }
+      \strng{namehash}{8f17260326e9957cf9e7df8d39e7952f}
+      \strng{fullhash}{bd6370d8800b3fed4a534892c9929e09}
+      \strng{bibnamehash}{8f17260326e9957cf9e7df8d39e7952f}
+      \strng{editorbibnamehash}{8f17260326e9957cf9e7df8d39e7952f}
+      \strng{editornamehash}{8f17260326e9957cf9e7df8d39e7952f}
+      \strng{editorfullhash}{bd6370d8800b3fed4a534892c9929e09}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{number}{CERN-2004-003-V-1, CERN-2004-003}
+      \field{title}{{LHC Design Report. 1. The LHC Main Ring}}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb https://cdsweb.cern.ch/record/782076
+      \endverb
+      \verb{url}
+      \verb https://cdsweb.cern.ch/record/782076
+      \endverb
+    \endentry
+    \entry{ATLAS-CONF-2011-008}{report}{}
+      \name{author}{1}{}{%
+        {{hash=ebfe6052e5f504e4a3579c49c44afe41}{%
+           family={{ATLAS Collaboration}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {CERN}%
+      }
+      \list{location}{1}{%
+        {Geneva}%
+      }
+      \strng{namehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{fullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{bibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{2}
+      \field{number}{ATLAS-CONF-2011-008}
+      \field{title}{Determination of the muon reconstruction efficiency in {ATLAS} at the $Z$ resonance in proton-proton collisons at $\sqrt{s} = 7\;\mbox{TeV}$}
+      \field{year}{2011}
+    \endentry
+    \entry{atlas:perf:2009}{report}{}
+      \name{author}{1}{}{%
+        {{hash=ebfe6052e5f504e4a3579c49c44afe41}{%
+           family={{ATLAS Collaboration}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{fullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{bibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
+      \field{title}{Expected Performance of the {ATLAS} Experiment -- Detector, Trigger and Physics}
+      \field{year}{2009}
+      \verb{eprint}
+      \verb 0901.0512
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{goossens04}
+  \missing{kopka04}
+  \missing{latexwiki}
+\endrefsection
+\endinput
+

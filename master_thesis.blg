@@ -1,0 +1,19 @@
+[0] Config.pm:312> INFO - This is Biber 2.15
+[0] Config.pm:315> INFO - Logfile is 'master_thesis.blg'
+[37] biber:330> INFO - === Mo Sep 20, 2021, 13:43:48
+[44] Biber.pm:415> INFO - Reading 'master_thesis.bcf'
+[78] Biber.pm:952> INFO - Found 12 citekeys in bib section 0
+[84] Biber.pm:4334> INFO - Processing section 0
+[89] Biber.pm:4523> INFO - Looking for bibtex format file 'bib/standard_refs-biber.bib' for section 0
+[90] bibtex.pm:1682> INFO - LaTeX decoding ...
+[96] bibtex.pm:1494> INFO - Found BibTeX data source 'bib/standard_refs-biber.bib'
+[136] Utils.pm:395> WARN - I didn't find a database entry for 'kopka04' (section 0)
+[136] Utils.pm:395> WARN - I didn't find a database entry for 'goossens04' (section 0)
+[136] Utils.pm:395> WARN - I didn't find a database entry for 'latexwiki' (section 0)
+[143] UCollate.pm:68> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[143] UCollate.pm:68> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[143] Biber.pm:4162> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-UK'
+[143] Biber.pm:4168> INFO - No sort tailoring available for locale 'en-UK'
+[147] bbl.pm:651> INFO - Writing 'master_thesis.bbl' with encoding 'UTF-8'
+[150] bbl.pm:754> INFO - Output to master_thesis.bbl
+[150] Biber.pm:128> INFO - WARNINGS: 3
