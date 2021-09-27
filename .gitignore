@@ -7,3 +7,7 @@
 *.lof
 *.gz
 *.xml
+*.aux
+*.aux
+TeX/thesis_appendix.aux
+*.aux
