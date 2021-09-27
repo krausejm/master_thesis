@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.8)  20 SEP 2021 13:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.8)  27 SEP 2021 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -869,7 +869,7 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \c@LT@chunks=\count319
 \LT@p@ftn=\toks31
 )
-Class scrbook Info: longtable captions redefined on input line 499.
+Class scrbook Info: longtable captions redefined on input line 500.
 
 (/usr/share/texmf-dist/tex/latex/hepnames/hepnicenames.sty
 Package: hepnicenames 2014/12/01 Friendly alternatives to the PEN particle code
@@ -965,7 +965,7 @@ File: svgnam.def 2016/05/11 v2.12 Predefined colors according to SVG 1.1 (UK)
 (/usr/share/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-Package scrhack Info: loading setspace hack on input line 618.
+Package scrhack Info: loading setspace hack on input line 619.
 
 (/usr/share/texmf-dist/tex/latex/koma-script/setspace.hak
 File: setspace.hak 2021/03/17 v3.33 KOMA-Script scrhack part (hacking package s
@@ -1183,7 +1183,7 @@ Package biblatex Info: ... file 'blx-dm.def' found.
 File: blx-dm.def 2020/12/31 v3.16 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'numeric-comp.dbx' not found.
+Package biblatex Info: ... file 'alphabetic.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@afterword=\count383
@@ -1293,16 +1293,11 @@ File: biblatex.def 2020/12/31 v3.16 biblatex compatibility (PK/MW)
 \biburllcskip=\muskip24
 \c@smartand=\count459
 )
-Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
-Package biblatex Info: ... file 'numeric-comp.bbx' found.
+Package biblatex Info: Trying to load bibliography style 'alphabetic'...
+Package biblatex Info: ... file 'alphabetic.bbx' found.
 
-(/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
-File: numeric-comp.bbx 2020/12/31 v3.16 biblatex bibliography style (PK/MW)
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
-
-(/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-File: numeric.bbx 2020/12/31 v3.16 biblatex bibliography style (PK/MW)
+(/usr/share/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx
+File: alphabetic.bbx 2020/12/31 v3.16 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
@@ -1310,22 +1305,17 @@ Package biblatex Info: ... file 'standard.bbx' found.
 File: standard.bbx 2020/12/31 v3.16 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count460
 \c@bbx:relatedtotal=\count461
-)))
-Package biblatex Info: Trying to load citation style 'numeric-comp'...
-Package biblatex Info: ... file 'numeric-comp.cbx' found.
+))
+Package biblatex Info: Trying to load citation style 'alphabetic'...
+Package biblatex Info: ... file 'alphabetic.cbx' found.
 
-(/usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
-File: numeric-comp.cbx 2020/12/31 v3.16 biblatex citation style (PK/MW)
-\c@cbx@tempcnta=\count462
-\c@cbx@tempcntb=\count463
-\c@cbx@tempcntc=\count464
-\c@cbx@tempcntd=\count465
+(/usr/share/texmf-dist/tex/latex/biblatex/cbx/alphabetic.cbx
+File: alphabetic.cbx 2020/12/31 v3.16 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
 Package biblatex Info: Redefining '\footcitetext'.
 Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
 Package biblatex Info: Redefining '\textcite'.
 Package biblatex Info: Redefining '\textcites'.
 Package biblatex Info: Redefining '\cites'.
@@ -1338,13 +1328,13 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 691.
-Package hyperref Info: Option `breaklinks' set `true' on input line 691.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 693.
+Package hyperref Info: Option `colorlinks' set `true' on input line 692.
+Package hyperref Info: Option `breaklinks' set `true' on input line 692.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 694.
 
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 693.
-Package hyperref Info: Option `unicode' set `true' on input line 694.
-Package hyperref Info: Option `psdextra' set `true' on input line 694.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 694.
+Package hyperref Info: Option `unicode' set `true' on input line 695.
+Package hyperref Info: Option `psdextra' set `true' on input line 695.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/puenc-greekbasic.def
 File: puenc-greekbasic.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (
@@ -1398,7 +1388,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 47.6pt
 (typearea)              \baselineskip   = 13.6pt
-(typearea)              on input line 853.
+(typearea)              on input line 854.
 ) (./ubonn-biblatex.sty
 Package: ubonn-biblatex 2020/07/01 Version 9.0.0 University of Bonn biblatex st
 yle
@@ -1455,14 +1445,14 @@ Package: pgfsys 2020/12/27 v3.1.8b (3.1.8b)
 \pgf@yd=\dimen279
 \w@pgf@writea=\write4
 \r@pgf@reada=\read5
-\c@pgf@counta=\count466
-\c@pgf@countb=\count467
-\c@pgf@countc=\count468
-\c@pgf@countd=\count469
+\c@pgf@counta=\count462
+\c@pgf@countb=\count463
+\c@pgf@countc=\count464
+\c@pgf@countd=\count465
 \t@pgf@toka=\toks37
 \t@pgf@tokb=\toks38
 \t@pgf@tokc=\toks39
-\pgf@sys@id@count=\count470
+\pgf@sys@id@count=\count466
 
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2020/12/27 v3.1.8b (3.1.8b)
@@ -1477,8 +1467,8 @@ File: pgfsys-common-pdf.def 2020/12/27 v3.1.8b (3.1.8b)
 )))
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfsyssoftpath@smallbuffer@items=\count471
-\pgfsyssoftpath@bigbuffer@items=\count472
+\pgfsyssoftpath@smallbuffer@items=\count467
+\pgfsyssoftpath@bigbuffer@items=\count468
 )
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2020/12/27 v3.1.8b (3.1.8b)
@@ -1491,7 +1481,7 @@ Package: pgfcore 2020/12/27 v3.1.8b (3.1.8b)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen280
-\pgfmath@count=\count473
+\pgfmath@count=\count469
 \pgfmath@box=\box70
 \pgfmath@toks=\toks40
 \pgfmath@stack@operand=\toks41
@@ -1508,7 +1498,7 @@ x) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics
 .code.tex))) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count474
+\c@pgfmathroundto@lastzeros=\count470
 )) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2020/12/27 v3.1.8b (3.1.8b)
@@ -1541,7 +1531,7 @@ File: pgfcorescopes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 \pgfpic=\box71
 \pgf@hbox=\box72
 \pgf@layerbox@main=\box73
-\pgf@picture@serial@count=\count475
+\pgf@picture@serial@count=\count471
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2020/12/27 v3.1.8b (3.1.8b)
@@ -1569,8 +1559,8 @@ File: pgfcorearrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 \pgf@max=\dimen304
-\pgf@sys@shading@range@num=\count476
-\pgf@shadingcount=\count477
+\pgf@sys@shading@range@num=\count472
+\pgf@shadingcount=\count473
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
@@ -1625,7 +1615,7 @@ Package: tikz 2020/12/27 v3.1.8b (3.1.8b)
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
 x
 File: pgflibraryplothandlers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@plot@mark@count=\count478
+\pgf@plot@mark@count=\count474
 \pgfplotmarksize=\dimen309
 )
 \tikz@lastx=\dimen310
@@ -1640,17 +1630,17 @@ File: pgflibraryplothandlers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 \tikz@figbox@bg=\box77
 \tikz@tempbox=\box78
 \tikz@tempbox@bg=\box79
-\tikztreelevel=\count479
-\tikznumberofchildren=\count480
-\tikznumberofcurrentchild=\count481
-\tikz@fig@count=\count482
+\tikztreelevel=\count475
+\tikznumberofchildren=\count476
+\tikznumberofcurrentchild=\count477
+\tikz@fig@count=\count478
  (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfmatrixcurrentrow=\count483
-\pgfmatrixcurrentcolumn=\count484
-\pgf@matrix@numberofcolumns=\count485
+\pgfmatrixcurrentrow=\count479
+\pgfmatrixcurrentcolumn=\count480
+\pgf@matrix@numberofcolumns=\count481
 )
-\tikz@expandcount=\count486
+\tikz@expandcount=\count482
 
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 topaths.code.tex
@@ -1734,21 +1724,21 @@ LaTeX Font Info:    ... okay on input line 136.
 Package scrbase Info: activating UKenglish \contentsname on input line 136.
 Package scrbase Info: activating UKenglish \listfigurename on input line 136.
 Package scrbase Info: activating UKenglish \listtablename on input line 136.
-\c@mv@tabular=\count487
-\c@mv@boldtabular=\count488
+\c@mv@tabular=\count483
+\c@mv@boldtabular=\count484
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count489
+\scratchcounter=\count485
 \scratchdimen=\dimen318
 \scratchbox=\box82
-\nofMPsegments=\count490
-\nofMParguments=\count491
+\nofMPsegments=\count486
+\nofMParguments=\count487
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count492
+\MPscratchCnt=\count488
 \MPscratchDim=\dimen319
-\MPnumerator=\count493
-\makeMPintoPDFobject=\count494
+\MPnumerator=\count489
+\makeMPintoPDFobject=\count490
 \everyMPtoPDFconversion=\toks47
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1855,7 +1845,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count495
+\c@section@level=\count491
 )
 LaTeX Info: Redefining \ref on input line 136.
 LaTeX Info: Redefining \pageref on input line 136.
@@ -1917,20 +1907,6 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'master_thesis.bbl' found.
 
 (./master_thesis.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                goossens04
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                kopka04
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
@@ -2082,10 +2058,6 @@ Package microtype Info: Character `029' is missing
 
 ]
 Document master_thesis, Info: Draft/submission version of a Masterthesis
-LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 9.85492pt on input line 148.
-LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 148.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 24.88pt on input line 148.
 Package tocbasic Info: character protrusion at toc deactivated on input line 14
@@ -2114,51 +2086,115 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 
  (./thesis_intro.tex
 chapter 1.
-LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 4.
-LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 4.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 14.4pt on input line 4.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 24.88pt on input line 4.
+<figs//sm.png, id=61, 1445.4pt x 813.0375pt>
+File: figs//sm.png Graphic file (type png)
+<use figs//sm.png>
+Package pdftex.def Info: figs//sm.png  used on input line 12.
+(pdftex.def)             Requested size: 437.46118pt x 246.07176pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 11.
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 24.
-(/usr/share/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
-File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
-)
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 24.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 25.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.1pt on input line 27.
-) [1
+(Font)              scaled to size 10.0pt on input line 13.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.0pt on input line 13.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.0pt on input line 13.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 13.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 13.
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 13.
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 6.56995pt on input line 13.
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 4.94997pt on input line 13.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.0pt on input line 13.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 7.3pt on input line 13.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 5.5pt on input line 13.
+[1
 
 
 
-]
+ <./figs//sm.png>]) [2]
 \openout2 = `experiment.aux'.
 
  (./experiment.tex
-[2
-
-
-
-
-
-]
 chapter 2.
-) [3]
+<figs/CB-Area.jpg, id=78, 737.3949pt x 580.569pt>
+File: figs/CB-Area.jpg Graphic file (type jpg)
+<use figs/CB-Area.jpg>
+Package pdftex.def Info: figs/CB-Area.jpg  used on input line 7.
+(pdftex.def)             Requested size: 306.22148pt x 241.09996pt.
+<figs/goni-ganz.pdf, id=81, 597.23125pt x 566.115pt>
+File: figs/goni-ganz.pdf Graphic file (type pdf)
+<use figs/goni-ganz.pdf>
+Package pdftex.def Info: figs/goni-ganz.pdf  used on input line 13.
+(pdftex.def)             Requested size: 214.35837pt x 203.18793pt.
+<figs/Tagger.pdf, id=84, 796.9775pt x 597.23125pt>
+File: figs/Tagger.pdf Graphic file (type pdf)
+<use figs/Tagger.pdf>
+Package pdftex.def Info: figs/Tagger.pdf  used on input line 18.
+(pdftex.def)             Requested size: 214.35837pt x 160.6349pt.
+<figs/Target.pdf, id=87, 718.685pt x 261.97874pt>
+File: figs/Target.pdf Graphic file (type pdf)
+<use figs/Target.pdf>
+Package pdftex.def Info: figs/Target.pdf  used on input line 26.
+(pdftex.def)             Requested size: 218.73059pt x 79.7335pt.
+<figs/cb_fp_in.pdf, id=90, 663.98062pt x 395.22656pt>
+File: figs/cb_fp_in.pdf Graphic file (type pdf)
+<use figs/cb_fp_in.pdf>
+Package pdftex.def Info: figs/cb_fp_in.pdf  used on input line 32.
+(pdftex.def)             Requested size: 437.46118pt x 260.392pt.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
+(Font)              scaled to size 10.0pt on input line 33.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/ntxtlf/m/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3
+
+
+
+
+
+ <./figs/CB-Area.jpg>] [4 <./figs/goni-ganz.pdf> <./figs/Tagger.pdf> <./figs/ta
+rget.pdf>]
+<figs/faserorient.pdf, id=116, 817.0525pt x 554.07pt>
+File: figs/faserorient.pdf Graphic file (type pdf)
+<use figs/faserorient.pdf>
+Package pdftex.def Info: figs/faserorient.pdf  used on input line 37.
+(pdftex.def)             Requested size: 218.73059pt x 148.32428pt.
+<figs/mini-taps.pdf, id=119, 796.9775pt x 597.23125pt>
+File: figs/mini-taps.pdf Graphic file (type pdf)
+<use figs/mini-taps.pdf>
+Package pdftex.def Info: figs/mini-taps.pdf  used on input line 42.
+(pdftex.def)             Requested size: 218.73059pt x 163.90646pt.
+)
+Underfull \vbox (badness 1565) has occurred while \output is active []
+
+ [5 <./figs/cb_fp_in.pdf> <./figs/faserorient.pdf>] [6 <./figs/mini-taps.pdf>]
 \openout2 = `thesis_appendix.aux'.
 
- (./thesis_appendix.tex [4
 
-
-
-
-
-]
+(./thesis_appendix.tex
 chapter A.
-) [5] [6
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 9.
+) [7
+
+
+
+
+
+] [8
 
 
 
@@ -2167,11 +2203,7 @@ chapter A.
 chapter without number
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.95pt on input line 189.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 8.0pt on input line 189.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 6.1pt on input line 189.
-[7] [8
+[9] [10
 
 
 ]
@@ -2184,10 +2216,10 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 7.
 \tf@lof=\write6
 \openout6 = `master_thesis.lof'.
 
- [9
+ [11
 
 
-] [10
+] [12
 
 
 ]
@@ -2200,42 +2232,46 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 7.
 \tf@lot=\write7
 \openout7 = `master_thesis.lot'.
 
- [11]
+ [13]
 (./master_thesis.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 30.
 Package cleveref Info: loaded `ngerman' language definitions on input line 35.
  (./thesis_intro.aux) (./experiment.aux)
 (./thesis_appendix.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                master_thesis
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'master_thesis.run.xml'.
 \openout1 = `master_thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48324 strings out of 478994
- 927888 string characters out of 5864752
- 1917075 words of memory out of 5000000
- 64722 multiletter control sequences out of 15000+600000
- 578279 words of font info for 363 fonts, out of 8000000 for 9000
+ 48233 strings out of 478994
+ 926161 string characters out of 5864752
+ 1908724 words of memory out of 5000000
+ 64672 multiletter control sequences out of 15000+600000
+ 557164 words of font info for 312 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 111i,19n,147p,10608b,3929s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 111i,20n,147p,10608b,3929s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/share/texmf
--dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/
-newtx/ntx-ot1-tlf.enc}{/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc
-}{/usr/share/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/share/tex
-mf-dist/fonts/type1/public/newtx/NewTXBMI.pfb></usr/share/texmf-dist/fonts/type
-1/public/newtx/NewTXMI.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/NewT
-XMI7.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/share/texmf-dist/fonts/
-type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/txfont
-s/t1xtt.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/txbsys.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texmf-dist/fonts
-/type1/public/newtx/txsys.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/z
-tmb.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share/te
-xmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on master_thesis.pdf (15 pages, 257174 bytes).
+-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texmf-dist/fonts/enc/dv
+ips/newtx/ntx-ec-tlf-pc.enc}</usr/share/texmf-dist/fonts/type1/public/newtx/New
+TXBMI.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf-dist/fonts
+/type1/public/newtx/txbsys.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/
+txexs.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share
+/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/share/texmf-dist/fonts/type
+1/public/newtx/ztmr.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmri.p
+fb>
+Output written on master_thesis.pdf (17 pages, 2984969 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 113725 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 311 PDF objects out of 1000 (max. 8388607)
+ 245 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 96941 words of extra memory for PDF output out of 106986 (max. 10000000)
 

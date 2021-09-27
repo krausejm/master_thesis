@@ -40,7 +40,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labelalpha</bcf:key>
-      <bcf:value>0</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="multivalued">
       <bcf:key>labelnamespec</bcf:key>
@@ -274,7 +274,7 @@
   <bcf:options component="biblatex" type="online">
     <bcf:option type="singlevalued">
       <bcf:key>labelalpha</bcf:key>
-      <bcf:value>0</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="multivalued">
       <bcf:key>labelnamespec</bcf:key>
@@ -626,7 +626,6 @@
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
     <bcf:option datatype="boolean">subentry</bcf:option>
-    <bcf:option datatype="boolean">subentrycomp</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">minxrefs</bcf:option>
@@ -709,7 +708,6 @@
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
     <bcf:option datatype="boolean">subentry</bcf:option>
-    <bcf:option datatype="boolean">subentrycomp</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="xml">labelalphatemplate</bcf:option>
     <bcf:option datatype="xml">translit</bcf:option>
@@ -797,7 +795,6 @@
     <bcf:option datatype="boolean" backendout="1">eprint</bcf:option>
     <bcf:option datatype="boolean" backendout="1">related</bcf:option>
     <bcf:option datatype="boolean" backendout="1">subentry</bcf:option>
-    <bcf:option datatype="boolean" backendout="1">subentrycomp</bcf:option>
     <bcf:option datatype="boolean" backendout="1">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer" backendin="maxcitenames,maxbibnames,maxsortnames">maxnames</bcf:option>
     <bcf:option datatype="integer" backendin="mincitenames,minbibnames,minsortnames">minnames</bcf:option>
@@ -2347,20 +2344,23 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bib/standard_refs-biber.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">kopka04</bcf:citekey>
-    <bcf:citekey order="2">goossens04</bcf:citekey>
-    <bcf:citekey order="3">pdg2010</bcf:citekey>
-    <bcf:citekey order="4">thesis-guide</bcf:citekey>
-    <bcf:citekey order="5">pdg2010</bcf:citekey>
-    <bcf:citekey order="5">Aad:2010ey</bcf:citekey>
-    <bcf:citekey order="6">Halzen:1984mc</bcf:citekey>
-    <bcf:citekey order="7">tlodd:2012</bcf:citekey>
-    <bcf:citekey order="8">mergelmeyer:2011</bcf:citekey>
-    <bcf:citekey order="9">lhc:vol1</bcf:citekey>
-    <bcf:citekey order="10">ATLAS-CONF-2011-008</bcf:citekey>
-    <bcf:citekey order="11">atlas:perf:2009</bcf:citekey>
-    <bcf:citekey order="12">thesis-guide</bcf:citekey>
-    <bcf:citekey order="13">latexwiki</bcf:citekey>
+    <bcf:citekey order="1">sm</bcf:citekey>
+    <bcf:citekey order="2">sm</bcf:citekey>
+    <bcf:citekey order="3">cb</bcf:citekey>
+    <bcf:citekey order="4">cb</bcf:citekey>
+    <bcf:citekey order="5">cb</bcf:citekey>
+    <bcf:citekey order="6">cb</bcf:citekey>
+    <bcf:citekey order="7">cb</bcf:citekey>
+    <bcf:citekey order="8">cb</bcf:citekey>
+    <bcf:citekey order="9">cb</bcf:citekey>
+    <bcf:citekey order="10">cb</bcf:citekey>
+    <bcf:citekey order="11">urban</bcf:citekey>
+    <bcf:citekey order="12">urban</bcf:citekey>
+    <bcf:citekey order="13">cb</bcf:citekey>
+    <bcf:citekey order="14">cb</bcf:citekey>
+    <bcf:citekey order="15">cb</bcf:citekey>
+    <bcf:citekey order="16">cb</bcf:citekey>
+    <bcf:citekey order="17">latexwiki</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

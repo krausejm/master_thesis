@@ -470,7 +470,7 @@
 }{}
 
 \ifthenelse{\boolean{UBN@subcaption}}{%
-  \RequirePackage[labelformat=simple]{subcaption}
+  \RequirePackage{subcaption}
   \renewcommand\thesubfigure{(\alph{subfigure})}
   \renewcommand\thesubtable{(\alph{subtable})}
 }{%
@@ -486,7 +486,8 @@
 }
 % \RequirePackage[lofdepth,lotdepth]{subfig}
 % Alternative to subfig, which is also newer
-% \RequirePackage{subcaption}
+\RequirePackage{subcaption}
+\RequirePackage[labelfont=bf]{caption}
 
 %-------------------------------------------------------------------------------
 % Tables
@@ -711,7 +712,7 @@
 % More options for KOMA script
 
 % General font for title, section headings etc.
-% \setkomafont{disposition}{\rmfamily\bfseries\upshape}
+\setkomafont{disposition}{\rmfamily\bfseries\upshape}
 \setkomafont{title}{\normalfont\bfseries\huge}
 \setkomafont{subtitle}{\normalfont\Large}
 % Upright font for headers and footers
@@ -796,7 +797,7 @@
 
 %-------------------------------------------------------------------------------
 % Do not centre one-line figure captions.
-% \KOMAoptions{captions=nooneline}
+%\KOMAoptions{captions=nooneline}
 % Font and layout for figure and table captions
 \setkomafont{caption}{\normalfont\small}
 % \setkomafont{caption}{\normalfont\slshape}
