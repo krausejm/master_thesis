@@ -2344,23 +2344,21 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bib/standard_refs-biber.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">sm</bcf:citekey>
-    <bcf:citekey order="2">sm</bcf:citekey>
+    <bcf:citekey order="1">cb</bcf:citekey>
+    <bcf:citekey order="2">cb</bcf:citekey>
     <bcf:citekey order="3">cb</bcf:citekey>
     <bcf:citekey order="4">cb</bcf:citekey>
     <bcf:citekey order="5">cb</bcf:citekey>
     <bcf:citekey order="6">cb</bcf:citekey>
     <bcf:citekey order="7">cb</bcf:citekey>
     <bcf:citekey order="8">cb</bcf:citekey>
-    <bcf:citekey order="9">cb</bcf:citekey>
-    <bcf:citekey order="10">cb</bcf:citekey>
-    <bcf:citekey order="11">urban</bcf:citekey>
-    <bcf:citekey order="12">urban</bcf:citekey>
+    <bcf:citekey order="9">urban</bcf:citekey>
+    <bcf:citekey order="10">urban</bcf:citekey>
+    <bcf:citekey order="11">cb</bcf:citekey>
+    <bcf:citekey order="12">cb</bcf:citekey>
     <bcf:citekey order="13">cb</bcf:citekey>
     <bcf:citekey order="14">cb</bcf:citekey>
-    <bcf:citekey order="15">cb</bcf:citekey>
-    <bcf:citekey order="16">cb</bcf:citekey>
-    <bcf:citekey order="17">latexwiki</bcf:citekey>
+    <bcf:citekey order="15">latexwiki</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

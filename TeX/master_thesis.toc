@@ -11,9 +11,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.1}The Standard Model of Particle Physics}{1}{section.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Photoproduction of Pseudoscalar Mesons}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Photoproduction of Pseudoscalar Mesons}{2}{section.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}Polarization Obervables and the Complete Experiment}{1}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Polarization Obervables and the Complete Experiment}{2}{section.1.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.4}Motivation and Structure of this Thesis}{2}{section.1.4}%
 \defcounter {refsection}{0}\relax 
@@ -31,10 +31,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {A}Useful information}{7}{appendix.A}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Bibliography}{9}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliography}{9}{chapter*.11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline List of Figures}{11}{chapter*.11}%
+\contentsline {chapter}{\nonumberline List of Figures}{11}{chapter*.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline List of Tables}{13}{chapter*.12}%
+\contentsline {chapter}{\nonumberline List of Tables}{13}{chapter*.13}%
 \defcounter {refsection}{0}\relax 
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
