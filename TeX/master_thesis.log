@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.8)  27 SEP 2021 13:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.8)  28 SEP 2021 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2090,63 +2090,72 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 14.4pt on input line 4.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 24.88pt on input line 4.
-<figs//sm.png, id=61, 1445.4pt x 813.0375pt>
-File: figs//sm.png Graphic file (type png)
-<use figs//sm.png>
-Package pdftex.def Info: figs//sm.png  used on input line 12.
-(pdftex.def)             Requested size: 437.46118pt x 246.07176pt.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 10.95pt on input line 9.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 13.
+(Font)              scaled to size 10.0pt on input line 25.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 13.
+(Font)              scaled to size 10.0pt on input line 25.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 13.
+(Font)              scaled to size 10.0pt on input line 25.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 13.
+(Font)              scaled to size 7.3pt on input line 25.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 13.
+(Font)              scaled to size 5.5pt on input line 25.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 13.
+(Font)              scaled to size 8.99994pt on input line 25.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 6.56995pt on input line 13.
+(Font)              scaled to size 6.56995pt on input line 25.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 4.94997pt on input line 13.
+(Font)              scaled to size 4.94997pt on input line 25.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 13.
+(Font)              scaled to size 10.0pt on input line 25.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 7.3pt on input line 13.
+(Font)              scaled to size 7.3pt on input line 25.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 5.5pt on input line 13.
+(Font)              scaled to size 5.5pt on input line 25.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 29.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 9.0pt on input line 29.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 9.0pt on input line 29.
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 29.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 9.0pt on input line 29.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 29.
 [1
 
 
 
- <./figs//sm.png>]) [2]
+]) [2]
 \openout2 = `experiment.aux'.
 
  (./experiment.tex
 chapter 2.
-<figs/CB-Area.jpg, id=78, 737.3949pt x 580.569pt>
-File: figs/CB-Area.jpg Graphic file (type jpg)
-<use figs/CB-Area.jpg>
-Package pdftex.def Info: figs/CB-Area.jpg  used on input line 7.
-(pdftex.def)             Requested size: 306.22148pt x 241.09996pt.
-<figs/goni-ganz.pdf, id=81, 597.23125pt x 566.115pt>
+<figs/CB-Area.png, id=80, 737.75626pt x 580.41844pt>
+File: figs/CB-Area.png Graphic file (type png)
+<use figs/CB-Area.png>
+Package pdftex.def Info: figs/CB-Area.png  used on input line 7.
+(pdftex.def)             Requested size: 437.46118pt x 344.16206pt.
+<figs/goni-ganz.pdf, id=84, 597.23125pt x 566.115pt>
 File: figs/goni-ganz.pdf Graphic file (type pdf)
 <use figs/goni-ganz.pdf>
 Package pdftex.def Info: figs/goni-ganz.pdf  used on input line 13.
 (pdftex.def)             Requested size: 214.35837pt x 203.18793pt.
-<figs/Tagger.pdf, id=84, 796.9775pt x 597.23125pt>
+<figs/Tagger.pdf, id=87, 796.9775pt x 597.23125pt>
 File: figs/Tagger.pdf Graphic file (type pdf)
 <use figs/Tagger.pdf>
 Package pdftex.def Info: figs/Tagger.pdf  used on input line 18.
 (pdftex.def)             Requested size: 214.35837pt x 160.6349pt.
-<figs/Target.pdf, id=87, 718.685pt x 261.97874pt>
+<figs/Target.pdf, id=90, 718.685pt x 261.97874pt>
 File: figs/Target.pdf Graphic file (type pdf)
 <use figs/Target.pdf>
 Package pdftex.def Info: figs/Target.pdf  used on input line 26.
 (pdftex.def)             Requested size: 218.73059pt x 79.7335pt.
-<figs/cb_fp_in.pdf, id=90, 663.98062pt x 395.22656pt>
+<figs/cb_fp_in.pdf, id=93, 663.98062pt x 395.22656pt>
 File: figs/cb_fp_in.pdf Graphic file (type pdf)
 <use figs/cb_fp_in.pdf>
 Package pdftex.def Info: figs/cb_fp_in.pdf  used on input line 32.
@@ -2156,38 +2165,29 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/ntxtlf/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3
-
-
-
-
-
- <./figs/CB-Area.jpg>] [4 <./figs/goni-ganz.pdf> <./figs/Tagger.pdf> <./figs/ta
-rget.pdf>]
-<figs/faserorient.pdf, id=116, 817.0525pt x 554.07pt>
+<figs/faserorient.pdf, id=96, 817.0525pt x 554.07pt>
 File: figs/faserorient.pdf Graphic file (type pdf)
 <use figs/faserorient.pdf>
 Package pdftex.def Info: figs/faserorient.pdf  used on input line 37.
 (pdftex.def)             Requested size: 218.73059pt x 148.32428pt.
-<figs/mini-taps.pdf, id=119, 796.9775pt x 597.23125pt>
+<figs/mini-taps.pdf, id=99, 796.9775pt x 597.23125pt>
 File: figs/mini-taps.pdf Graphic file (type pdf)
 <use figs/mini-taps.pdf>
 Package pdftex.def Info: figs/mini-taps.pdf  used on input line 42.
 (pdftex.def)             Requested size: 218.73059pt x 163.90646pt.
-)
-Underfull \vbox (badness 1565) has occurred while \output is active []
+) [3
 
- [5 <./figs/cb_fp_in.pdf> <./figs/faserorient.pdf>] [6 <./figs/mini-taps.pdf>]
+
+
+
+
+] [4 <./figs/CB-Area.png> <./figs/goni-ganz.pdf>] [5 <./figs/Tagger.pdf> <./fig
+s/target.pdf> <./figs/cb_fp_in.pdf>] [6 <./figs/faserorient.pdf> <./figs/mini-t
+aps.pdf>]
 \openout2 = `thesis_appendix.aux'.
 
-
-(./thesis_appendix.tex
+ (./thesis_appendix.tex
 chapter A.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 9.
 ) [7
 
 
@@ -2201,8 +2201,6 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 
 ]
 chapter without number
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.95pt on input line 189.
 [9] [10
 
 
@@ -2238,40 +2236,32 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 30.
 Package cleveref Info: loaded `ngerman' language definitions on input line 35.
  (./thesis_intro.aux) (./experiment.aux)
 (./thesis_appendix.aux))
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                master_thesis
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'master_thesis.run.xml'.
 \openout1 = `master_thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48233 strings out of 478994
- 926161 string characters out of 5864752
- 1908724 words of memory out of 5000000
- 64672 multiletter control sequences out of 15000+600000
- 557164 words of font info for 312 fonts, out of 8000000 for 9000
+ 48295 strings out of 478994
+ 927334 string characters out of 5864752
+ 1914802 words of memory out of 5000000
+ 64702 multiletter control sequences out of 15000+600000
+ 572866 words of font info for 344 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  111i,20n,147p,10608b,3929s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/share/texmf
--dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texmf-dist/fonts/enc/dv
+{/usr/share/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texm
+f-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/share/texmf-dist/fonts/enc/dv
 ips/newtx/ntx-ec-tlf-pc.enc}</usr/share/texmf-dist/fonts/type1/public/newtx/New
 TXBMI.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf-dist/fonts
-/type1/public/newtx/txbsys.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/
-txexs.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share
-/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/share/texmf-dist/fonts/type
-1/public/newtx/ztmr.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmri.p
-fb>
-Output written on master_thesis.pdf (17 pages, 2984969 bytes).
+re/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/share/texmf-dist/font
+s/type1/public/txfonts/t1xtt.pfb></usr/share/texmf-dist/fonts/type1/public/newt
+x/txbsys.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/texmf-dist/fonts/
+type1/public/newtx/ztmb.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztm
+r.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on master_thesis.pdf (17 pages, 1150580 bytes).
 PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
- 245 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
- 96941 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 318 PDF objects out of 1000 (max. 8388607)
+ 251 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 105640 words of extra memory for PDF output out of 106986 (max. 10000000)
 
