@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.8)  28 SEP 2021 13:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.8)  5 OCT 2021 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2093,44 +2093,50 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.95pt on input line 9.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 25.
+(Font)              scaled to size 10.0pt on input line 26.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 25.
+(Font)              scaled to size 10.0pt on input line 26.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 25.
+(Font)              scaled to size 10.0pt on input line 26.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 25.
+(Font)              scaled to size 7.3pt on input line 26.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 25.
+(Font)              scaled to size 5.5pt on input line 26.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 25.
+(Font)              scaled to size 8.99994pt on input line 26.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 6.56995pt on input line 25.
+(Font)              scaled to size 6.56995pt on input line 26.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 4.94997pt on input line 25.
+(Font)              scaled to size 4.94997pt on input line 26.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 25.
+(Font)              scaled to size 10.0pt on input line 26.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 7.3pt on input line 25.
+(Font)              scaled to size 7.3pt on input line 26.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 5.5pt on input line 25.
+(Font)              scaled to size 5.5pt on input line 26.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 29.
+(Font)              scaled to size 8.0pt on input line 45.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 29.
+(Font)              scaled to size 9.0pt on input line 45.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 29.
+(Font)              scaled to size 9.0pt on input line 45.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 29.
+(Font)              scaled to size 8.09995pt on input line 45.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 9.0pt on input line 29.
+(Font)              scaled to size 9.0pt on input line 45.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 29.
+(Font)              scaled to size 7.3pt on input line 45.
 [1
 
 
 
-]) [2]
+]
+
+LaTeX Warning: Reference `fig:coupl' on page 2 undefined on input line 50.
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 50.
+) [2]
 \openout2 = `experiment.aux'.
 
  (./experiment.tex
@@ -2236,16 +2242,19 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 30.
 Package cleveref Info: loaded `ngerman' language definitions on input line 35.
  (./thesis_intro.aux) (./experiment.aux)
 (./thesis_appendix.aux))
+
+LaTeX Warning: There were undefined references.
+
 Package logreq Info: Writing requests to 'master_thesis.run.xml'.
 \openout1 = `master_thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48295 strings out of 478994
- 927334 string characters out of 5864752
+ 48412 strings out of 478994
+ 929758 string characters out of 5864752
  1914802 words of memory out of 5000000
- 64702 multiletter control sequences out of 15000+600000
- 572866 words of font info for 344 fonts, out of 8000000 for 9000
+ 64783 multiletter control sequences out of 15000+600000
+ 599336 words of font info for 399 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  111i,20n,147p,10608b,3929s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texm
@@ -2258,10 +2267,10 @@ x/txbsys.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/sh
 are/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/texmf-dist/fonts/
 type1/public/newtx/ztmb.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztm
 r.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on master_thesis.pdf (17 pages, 1150580 bytes).
+Output written on master_thesis.pdf (17 pages, 1154232 bytes).
 PDF statistics:
  318 PDF objects out of 1000 (max. 8388607)
  251 compressed objects within 3 object streams
  48 named destinations out of 1000 (max. 500000)
- 105640 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 121512 words of extra memory for PDF output out of 128383 (max. 10000000)
 

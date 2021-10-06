@@ -8,12 +8,13 @@ This chapter will give a brief introduction into the theoretical concepts that m
 \section{The Standard Model of Particle Physics}
 The \emph{Standard Model of Particle Physics} (SM) is believed to describe the fundamental particles and forces of the universe. It distinguishes between \emph{fermions} and \emph{bosons}. While matter consists of fermions, bosons are particles that mediate the fundamental interactions. 
 
-Fermions themselves are again grouped into (anti-)quarks and (anti-)leptons. There are three generations of quarks and leptons. Of these only the first and lightest consists of stable particles, i.e. the up and down quark as well as the electron and its neutrino. All other particles are heavier and not stable, they will thus decay fast via the strong, electromagnetic or weak interaction. A summary of properties of quarks and leptons is shown in table \ref{tab:sm0}.
+Fermions are again grouped into (anti-)quarks and (anti-)leptons. There are three generations of quarks and leptons. A summary of properties of quarks and leptons is shown in table \ref{tab:sm0}. Only the first and lightest generation consists of stable particles, i.e. the up and down quark as well as the electron and its neutrino. All other particles are heavier and not stable, they will thus decay fast via the strong, electromagnetic or weak interaction.
 \begin{table}[htbp]
 	\centering
 	\begin{tabular}{cccccc}
 		\toprule
-		&1st & 2nd & 3rd & el. charge& color charge\\
+		&\multicolumn{3}{c}{Generation}&el. charge&color charge\\
+		&1 & 2 & 3 & & \\
 		\hline
 		Quarks & $u$&$c$&$t$& 2/3 & r,g,b\\
 		&$d$&$s$&$b$& 1/3 & r,g,b\\
@@ -25,26 +26,37 @@ Fermions themselves are again grouped into (anti-)quarks and (anti-)leptons. The
 \caption{Summary of the particles of the SM}
 \label{tab:sm0}
 \end{table}
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{ccc}
+		\toprule
+		interaction & couples to & Gauge boson\\
+		\hline
+		strong & color & $g$\\
+		elm.& el. charge & $\gamma$\\
+		weak&weak charge & $W^\pm,Z^0$\\
+		\bottomrule
+	\end{tabular}
+	
+	\caption{Summary of the interactions of the SM}
+	\label{tab:sm1}
+\end{table}
 
-In total, four interactions are part of the SM: strong, electromagnetic, weak and gravitational interaction \footnote{they are ordered here according to their relative strength}. In particle physics gravitation can be neglected. Strong, electromagnetic and weak interaction are transmitted by gluons $g$, photons $\gamma$ and $W/Z$-bosons respectively. Strong and weak interaction are restricted to a finite range of the order of the nucleon radius, whereas electromagnetic interaction and gravitation have infinite range. A summary of the SM can be found in table \ref{tab:sm1}.
+In total, four interactions are part of the SM: strong, electromagnetic, weak and gravitational interaction \footnote{they are ordered here according to their relative strength}. In particle physics gravitation can be neglected. Strong, electromagnetic and weak interaction are transmitted by gluons $g$, photons $\gamma$ and $W/Z$-bosons respectively. Strong and weak interaction are restricted to a finite range of the order of the nucleon radius, whereas electromagnetic interaction and gravitation have infinite range. Each interaction has its own charge. A summary of the SM interactions can be found in table \ref{tab:sm1}. 
+
+Gluons and quarks carry color charge and thus interact strongly. However, an isolated quark or gluon has not been observed. Only color neutral bound systems of quarks are seen, which are called hadrons. Hadrons with integer spin are called mesons and those with half-integer spin are called baryons. Color neutrality demands mesons consist of at least one quark and one anti-quark and baryons consist of at least three quarks.
+
+
+ As already mentioned, isolated quarks are not seen. This can be understood in terms of the strong coupling constant $\alpha_s$. The coupling constant is a measure of the strength of the strong interaction. Because it is highly dependent on the momentum transfer in the observed strong reaction it is also called running coupling constant, which is depicted in figure \ref{fig:coupl}. For low ($<\SI{1}{\GeV}$) momentum transfers or large distances the coupling constant approaches infinity whereas it decreases for high ($\gg\SI{1}{\GeV}$) momentum transfers or short distances. These momentum ranges are referred to as \emph{confinement} and \emph{asymptotic freedom}, respectively; quarks are confined to remain in a bound state since if one tried to pull them apart the color field becomes so strong it will create a new quark anti-quark pair resulting in two new bound states. On the other hand, bound quarks behave quasi-free and can be described using perturbative quantum chromodynamics (pQCD) if probed at sufficiently large momentum transfer. 
+ 
+ It is more difficult however to describe QCD at momentum scales of $\approx \SI{1}{\GeV}$ since the coupling is too strong to justify a perturbative approach.
+
+
 
  
 
-\begin{table}[htbp]
-	\centering
-\begin{tabular}{ccc}
-	\toprule
-	interaction & couples to & Gauge boson\\
-	\hline
-	strong & color & $g$\\
-	electromagnetic& electric charge & $\gamma$\\
-	weak&weak charge & $W^\pm,Z^0$\\
-	\bottomrule
-\end{tabular}
 
-\caption{Summary of the interactions of the SM}
-\label{tab:sm1}
-\end{table}
+
 
 \section{Photoproduction of Pseudoscalar Mesons}
 $$\int_0^\infty\frac{\sin \alpha\beta x}{\gamma x}$$
