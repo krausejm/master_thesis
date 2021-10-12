@@ -11,3 +11,5 @@
 *.aux
 TeX/thesis_appendix.aux
 *.aux
+TeX/master_thesis.aux
+TeX/master_thesis.log
