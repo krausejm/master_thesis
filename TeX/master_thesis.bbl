@@ -19,67 +19,127 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
-    \entry{sm}{online}{}
-      \name{author}{1}{}{%
-        {{hash=05b5f0a3263d0d0ee5f228ea7ecc588d}{%
-           family={Dominguez},
-           familyi={D\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod}}}%
+    \entry{bonnmodel}{article}{}
+      \name{author}{3}{}{%
+        {{hash=0d40cc5f2eeee5ad0cedd7a338f45be9}{%
+           family={Löring},
+           familyi={L\bibinitperiod},
+           given={U.},
+           giveni={U\bibinitperiod}}}%
+        {{hash=51db531d5e70fcf9721b0e9e4cb6007e}{%
+           family={Metsch},
+           familyi={M\bibinitperiod},
+           given={B.Ch.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=4228cfc8ea02b6be2e457b04466e8b34}{%
+           family={Petry},
+           familyi={P\bibinitperiod},
+           given={H.R.},
+           giveni={H\bibinitperiod}}}%
       }
-      \strng{namehash}{05b5f0a3263d0d0ee5f228ea7ecc588d}
-      \strng{fullhash}{05b5f0a3263d0d0ee5f228ea7ecc588d}
-      \strng{bibnamehash}{05b5f0a3263d0d0ee5f228ea7ecc588d}
-      \strng{authorbibnamehash}{05b5f0a3263d0d0ee5f228ea7ecc588d}
-      \strng{authornamehash}{05b5f0a3263d0d0ee5f228ea7ecc588d}
-      \strng{authorfullhash}{05b5f0a3263d0d0ee5f228ea7ecc588d}
-      \field{labelalpha}{Dom}
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{9699a078483fd27c14d5ed5b527759e3}
+      \strng{fullhash}{9699a078483fd27c14d5ed5b527759e3}
+      \strng{bibnamehash}{9699a078483fd27c14d5ed5b527759e3}
+      \strng{authorbibnamehash}{9699a078483fd27c14d5ed5b527759e3}
+      \strng{authornamehash}{9699a078483fd27c14d5ed5b527759e3}
+      \strng{authorfullhash}{9699a078483fd27c14d5ed5b527759e3}
+      \field{labelalpha}{LMP01}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Particles of the Standard Model of particle physics}
-      \field{urlday}{27}
-      \field{urlmonth}{9}
-      \field{urlyear}{2021}
-      \field{urldateera}{ce}
+      \field{issn}{1434-601X}
+      \field{journaltitle}{The European Physical Journal A}
+      \field{month}{6}
+      \field{number}{4}
+      \field{title}{The light-baryon spectrum in a relativistic quark model with instanton-induced quark forces}
+      \field{volume}{10}
+      \field{year}{2001}
+      \field{pages}{395\bibrangedash 446}
+      \range{pages}{52}
+      \verb{doi}
+      \verb 10.1007/s100500170105
+      \endverb
       \verb{urlraw}
-      \verb https://home.cern/science/physics/standard-model
+      \verb http://dx.doi.org/10.1007/s100500170105
       \endverb
       \verb{url}
-      \verb https://home.cern/science/physics/standard-model
+      \verb http://dx.doi.org/10.1007/s100500170105
       \endverb
     \endentry
-    \entry{elsa}{online}{}
+    \entry{pdg}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
       \name{author}{1}{}{%
-        {{hash=f1fe60667352f4c955bd4121313f6f9d}{%
-           family={Frommberger},
-           familyi={F\bibinitperiod},
-           given={Florian},
-           giveni={F\bibinitperiod}}}%
+        {{hash=d9d59fd9775540f36a672e46979af983}{%
+           family={Zyla},
+           familyi={Z\bibinitperiod},
+           given={P.A.},
+           giveni={P\bibinitperiod}}}%
       }
-      \strng{namehash}{f1fe60667352f4c955bd4121313f6f9d}
-      \strng{fullhash}{f1fe60667352f4c955bd4121313f6f9d}
-      \strng{bibnamehash}{f1fe60667352f4c955bd4121313f6f9d}
-      \strng{authorbibnamehash}{f1fe60667352f4c955bd4121313f6f9d}
-      \strng{authornamehash}{f1fe60667352f4c955bd4121313f6f9d}
-      \strng{authorfullhash}{f1fe60667352f4c955bd4121313f6f9d}
-      \field{labelalpha}{Fro}
+      \strng{namehash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{fullhash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{bibnamehash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{authorbibnamehash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{authornamehash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{authorfullhash}{3252689ea2c95188fe632e638cbb4321}
+      \field{labelalpha}{Zyl+20}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{subtitle}{at the Physikalischen Institut of the Rheinischen Friedrich-Wilhelms-Unversität Bonn}
-      \field{title}{Electron accelerator ELSA}
-      \field{urlday}{27}
-      \field{urlmonth}{9}
-      \field{urlyear}{2021}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www-elsa.physik.uni-bonn.de/index_en.html
+      \field{journaltitle}{PTEP}
+      \field{number}{8}
+      \field{title}{{Review of Particle Physics}}
+      \field{volume}{2020}
+      \field{year}{2020}
+      \field{pages}{083C01}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1093/ptep/ptaa104
       \endverb
-      \verb{url}
-      \verb https://www-elsa.physik.uni-bonn.de/index_en.html
+    \endentry
+    \entry{bm1}{article}{}
+      \name{author}{2}{}{%
+        {{hash=90dadfbcded45ca2764d16689be72a9c}{%
+           family={Ronniger},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fb12bc0cdeec4127303c9e75da02b9d6}{%
+           family={Metsch},
+           familyi={M\bibinitperiod},
+           given={B.\bibnamedelimi C.},
+           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{07fc9b010c8dfd4776e78c4d3a69c20e}
+      \strng{fullhash}{07fc9b010c8dfd4776e78c4d3a69c20e}
+      \strng{bibnamehash}{07fc9b010c8dfd4776e78c4d3a69c20e}
+      \strng{authorbibnamehash}{07fc9b010c8dfd4776e78c4d3a69c20e}
+      \strng{authornamehash}{07fc9b010c8dfd4776e78c4d3a69c20e}
+      \strng{authorfullhash}{07fc9b010c8dfd4776e78c4d3a69c20e}
+      \field{labelalpha}{RM11}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{hep-ph}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{Eur. Phys. J. A}
+      \field{title}{{Effects of a spin-flavour dependent interaction on the baryon mass spectrum}}
+      \field{volume}{47}
+      \field{year}{2011}
+      \field{pages}{162}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1140/epja/i2011-11162-8
+      \endverb
+      \verb{eprint}
+      \verb 1111.3835
       \endverb
     \endentry
     \entry{cb}{online}{}
