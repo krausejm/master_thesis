@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.15)  26 OCT 2021 12:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.15)  26 OCT 2021 17:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1607,7 +1607,7 @@ Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
-(./master_thesis.aux (./thesis_intro.aux) (./experiment.tex.aux)
+(./master_thesis.aux (./thesis_intro.aux) (./experiment.aux)
 (./thesis_appendix.aux))
 \openout1 = `master_thesis.aux'.
 
@@ -2057,7 +2057,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 28.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 10.0pt on input line 28.
-<figs/qcd.pdf, id=47, 448.81134pt x 435.5127pt>
+<figs/qcd.pdf, id=57, 448.81134pt x 435.5127pt>
 File: figs/qcd.pdf Graphic file (type pdf)
 <use figs/qcd.pdf>
 Package pdftex.def Info: figs/qcd.pdf  used on input line 55.
@@ -2069,40 +2069,76 @@ Package pdftex.def Info: figs/qcd.pdf  used on input line 55.
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.5pt on input line 60.
-<figs/NucM2.pdf, id=63, 884.30376pt x 587.19376pt>
+<figs/NucM2.pdf, id=73, 884.30376pt x 587.19376pt>
 File: figs/NucM2.pdf Graphic file (type pdf)
 <use figs/NucM2.pdf>
 Package pdftex.def Info: figs/NucM2.pdf  used on input line 68.
 (pdftex.def)             Requested size: 437.46118pt x 290.48709pt.
- [2 <./figs/qcd.pdf>]
-<figs/meson_bildchen.pdf, id=103, 451.59604pt x 109.38539pt>
-File: figs/meson_bildchen.pdf Graphic file (type pdf)
-<use figs/meson_bildchen.pdf>
-Package pdftex.def Info: figs/meson_bildchen.pdf  used on input line 82.
-(pdftex.def)             Requested size: 437.46118pt x 105.96182pt.
-) [3 <./figs/NucM2.pdf>] [4 <./figs/meson_bildchen.pdf>]
-\openout2 = `experiment.tex.aux'.
+ [2 <./figs/qcd.pdf>]) [3 <./figs/NucM2.pdf>]
+\openout2 = `experiment.aux'.
+
+ (./experiment.tex [4
 
 
-No file experiment.tex.tex.
+
+
+]
+chapter 2.
+<figs/goni-ganz.pdf, id=132, 597.23125pt x 566.115pt>
+File: figs/goni-ganz.pdf Graphic file (type pdf)
+<use figs/goni-ganz.pdf>
+Package pdftex.def Info: figs/goni-ganz.pdf  used on input line 9.
+(pdftex.def)             Requested size: 214.35837pt x 203.18793pt.
+<figs/Tagger.pdf, id=135, 796.9775pt x 597.23125pt>
+File: figs/Tagger.pdf Graphic file (type pdf)
+<use figs/Tagger.pdf>
+Package pdftex.def Info: figs/Tagger.pdf  used on input line 14.
+(pdftex.def)             Requested size: 214.35837pt x 160.6349pt.
+<figs/Target.pdf, id=138, 718.685pt x 261.97874pt>
+File: figs/Target.pdf Graphic file (type pdf)
+<use figs/Target.pdf>
+Package pdftex.def Info: figs/Target.pdf  used on input line 22.
+(pdftex.def)             Requested size: 218.73059pt x 79.7335pt.
+[5 <./figs/goni-ganz.pdf>]
+<figs/cb_fp_in.pdf, id=150, 663.98062pt x 395.22656pt>
+File: figs/cb_fp_in.pdf Graphic file (type pdf)
+<use figs/cb_fp_in.pdf>
+Package pdftex.def Info: figs/cb_fp_in.pdf  used on input line 28.
+(pdftex.def)             Requested size: 437.46118pt x 260.392pt.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
+(Font)              scaled to size 10.0pt on input line 29.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/ntxtlf/m/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
+<figs/faserorient.pdf, id=153, 817.0525pt x 554.07pt>
+File: figs/faserorient.pdf Graphic file (type pdf)
+<use figs/faserorient.pdf>
+Package pdftex.def Info: figs/faserorient.pdf  used on input line 33.
+(pdftex.def)             Requested size: 218.73059pt x 148.32428pt.
+<figs/mini-taps.pdf, id=156, 796.9775pt x 597.23125pt>
+File: figs/mini-taps.pdf Graphic file (type pdf)
+<use figs/mini-taps.pdf>
+Package pdftex.def Info: figs/mini-taps.pdf  used on input line 38.
+(pdftex.def)             Requested size: 218.73059pt x 163.90646pt.
+) [6 <./figs/Tagger.pdf> <./figs/Target.pdf>]
+[7 <./figs/cb_fp_in.pdf> <./figs/faserorient.pdf>] [8 <./figs/mini-taps.pdf>]
 \openout2 = `thesis_appendix.aux'.
+
 
 (./thesis_appendix.tex
 chapter A.
-) [5
+) [9
 
 
 
 
-
-
-] [6
+] [10
 
 
 
 ]
 chapter without number
-[7] [8
+[11] [12
 
 
 ]
@@ -2115,10 +2151,10 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 7.
 \tf@lof=\write6
 \openout6 = `master_thesis.lof'.
 
- [9
+ [13
 
 
-] [10
+] [14
 
 
 ]
@@ -2131,14 +2167,14 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 7.
 \tf@lot=\write7
 \openout7 = `master_thesis.lot'.
 
- [11]
+ [15]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 212.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 212.
 
 (./master_thesis.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 29.
 Package cleveref Info: loaded `ngerman' language definitions on input line 34.
- (./thesis_intro.aux) (./experiment.tex.aux)
+ (./thesis_intro.aux) (./experiment.aux)
 (./thesis_appendix.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 212.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 212.
@@ -2147,32 +2183,29 @@ Package logreq Info: Writing requests to 'master_thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47778 strings out of 480608
- 923371 string characters out of 5903630
- 1760892 words of memory out of 5000000
- 62733 multiletter control sequences out of 15000+600000
- 722454 words of font info for 335 fonts, out of 8000000 for 9000
+ 47854 strings out of 480608
+ 924738 string characters out of 5903630
+ 1762125 words of memory out of 5000000
+ 62775 multiletter control sequences out of 15000+600000
+ 726565 words of font info for 344 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  76i,20n,126p,10108b,3851s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{chapter*.5} has been referenced but does not exis
-t, replaced by a fixed one
-
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr
-/local/texlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local
-/texlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-sc.enc}</usr/local/te
-xlive/2020/texmf-dist/fonts/type1/public/newtx/NewTXBMI.pfb></usr/local/texlive
-/2020/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2020/
-texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2020/texmf-dist/
-fonts/type1/public/newtx/txbsys.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
-ype1/public/newtx/txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pu
-blic/newtx/txsys.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/new
-tx/ztmb.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmr.p
-fb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on master_thesis.pdf (15 pages, 277264 bytes).
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/u
+sr/local/texlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/loc
+al/texlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-sc.enc}</usr/local/
+texlive/2020/texmf-dist/fonts/type1/public/newtx/NewTXBMI.pfb></usr/local/texli
+ve/2020/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/202
+0/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2020/tex
+mf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2020/texmf-dis
+t/fonts/type1/public/newtx/txbsys.pfb></usr/local/texlive/2020/texmf-dist/fonts
+/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
+public/newtx/txsys.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/n
+ewtx/ztmb.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmr
+.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on master_thesis.pdf (19 pages, 712235 bytes).
 PDF statistics:
- 270 PDF objects out of 1000 (max. 8388607)
- 218 compressed objects within 3 object streams
- 35 named destinations out of 1000 (max. 500000)
- 57940 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 354 PDF objects out of 1000 (max. 8388607)
+ 286 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 60053 words of extra memory for PDF output out of 61914 (max. 10000000)
 
