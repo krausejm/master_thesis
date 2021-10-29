@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.8)  14 OCT 2021 13:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.7.8)  21 OCT 2021 18:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2135,7 +2135,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 28.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 10.0pt on input line 28.
-<figs//qcd.pdf, id=61, 448.81134pt x 435.5127pt>
+<figs//qcd.pdf, id=59, 448.81134pt x 435.5127pt>
 File: figs//qcd.pdf Graphic file (type pdf)
 <use figs//qcd.pdf>
 Package pdftex.def Info: figs//qcd.pdf  used on input line 55.
@@ -2147,52 +2147,61 @@ Package pdftex.def Info: figs//qcd.pdf  used on input line 55.
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.5pt on input line 60.
-<figs/NucM2.pdf, id=77, 884.30376pt x 587.19376pt>
+<figs/NucM2.pdf, id=75, 884.30376pt x 587.19376pt>
 File: figs/NucM2.pdf Graphic file (type pdf)
 <use figs/NucM2.pdf>
 Package pdftex.def Info: figs/NucM2.pdf  used on input line 68.
 (pdftex.def)             Requested size: 437.46118pt x 290.48709pt.
- [2 <./figs//qcd.pdf>]) [3 <./figs/NucM2.pdf>] [4]
+ [2 <./figs//qcd.pdf>]
+<../ressources/afzal_phd.pdf, id=117, 452.09494pt x 119.32465pt>
+File: ../ressources/afzal_phd.pdf Graphic file (type pdf)
+<use ../ressources/afzal_phd.pdf>
+Package pdftex.def Info: ../ressources/afzal_phd.pdf  used on input line 79.
+(pdftex.def)             Requested size: 437.46118pt x 115.46071pt.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
+(Font)              scaled to size 10.0pt on input line 80.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/ntxtlf/m/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3 <./figs/NucM2.pdf>]) [4 <../ressources/afzal_phd.pdf>]
 \openout2 = `experiment.aux'.
 
  (./experiment.tex
 chapter 2.
-<figs/CB-Area.png, id=137, 737.75626pt x 580.41844pt>
+<figs/CB-Area.png, id=165, 737.75626pt x 580.41844pt>
 File: figs/CB-Area.png Graphic file (type png)
 <use figs/CB-Area.png>
 Package pdftex.def Info: figs/CB-Area.png  used on input line 7.
 (pdftex.def)             Requested size: 437.46118pt x 344.16206pt.
-<figs/goni-ganz.pdf, id=141, 597.23125pt x 566.115pt>
+<figs/goni-ganz.pdf, id=169, 597.23125pt x 566.115pt>
 File: figs/goni-ganz.pdf Graphic file (type pdf)
 <use figs/goni-ganz.pdf>
 Package pdftex.def Info: figs/goni-ganz.pdf  used on input line 13.
 (pdftex.def)             Requested size: 214.35837pt x 203.18793pt.
-<figs/Tagger.pdf, id=144, 796.9775pt x 597.23125pt>
+<figs/Tagger.pdf, id=172, 796.9775pt x 597.23125pt>
 File: figs/Tagger.pdf Graphic file (type pdf)
 <use figs/Tagger.pdf>
 Package pdftex.def Info: figs/Tagger.pdf  used on input line 18.
 (pdftex.def)             Requested size: 214.35837pt x 160.6349pt.
-<figs/Target.pdf, id=147, 718.685pt x 261.97874pt>
+<figs/Target.pdf, id=175, 718.685pt x 261.97874pt>
 File: figs/Target.pdf Graphic file (type pdf)
 <use figs/Target.pdf>
 Package pdftex.def Info: figs/Target.pdf  used on input line 26.
 (pdftex.def)             Requested size: 218.73059pt x 79.7335pt.
-<figs/cb_fp_in.pdf, id=150, 663.98062pt x 395.22656pt>
+<figs/cb_fp_in.pdf, id=178, 663.98062pt x 395.22656pt>
 File: figs/cb_fp_in.pdf Graphic file (type pdf)
 <use figs/cb_fp_in.pdf>
 Package pdftex.def Info: figs/cb_fp_in.pdf  used on input line 32.
 (pdftex.def)             Requested size: 437.46118pt x 260.392pt.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 33.
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/ntxtlf/m/sc/10'.
-(microtype)             Ignoring protrusion settings for this character.
-<figs/faserorient.pdf, id=153, 817.0525pt x 554.07pt>
+<figs/faserorient.pdf, id=181, 817.0525pt x 554.07pt>
 File: figs/faserorient.pdf Graphic file (type pdf)
 <use figs/faserorient.pdf>
 Package pdftex.def Info: figs/faserorient.pdf  used on input line 37.
 (pdftex.def)             Requested size: 218.73059pt x 148.32428pt.
-<figs/mini-taps.pdf, id=156, 796.9775pt x 597.23125pt>
+<figs/mini-taps.pdf, id=184, 796.9775pt x 597.23125pt>
 File: figs/mini-taps.pdf Graphic file (type pdf)
 <use figs/mini-taps.pdf>
 Package pdftex.def Info: figs/mini-taps.pdf  used on input line 42.
@@ -2258,24 +2267,16 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 30.
 Package cleveref Info: loaded `ngerman' language definitions on input line 35.
  (./thesis_intro.aux) (./experiment.aux)
 (./thesis_appendix.aux))
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                master_thesis
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'master_thesis.run.xml'.
 \openout1 = `master_thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48541 strings out of 478994
- 931761 string characters out of 5864752
- 1916644 words of memory out of 5000000
- 64861 multiletter control sequences out of 15000+600000
- 604516 words of font info for 428 fonts, out of 8000000 for 9000
+ 48559 strings out of 478994
+ 932334 string characters out of 5864752
+ 1916777 words of memory out of 5000000
+ 64872 multiletter control sequences out of 15000+600000
+ 603839 words of font info for 428 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  111i,20n,147p,10608b,3929s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texm
@@ -2284,15 +2285,14 @@ ips/newtx/ntx-ec-tlf-pc.enc}</usr/share/texmf-dist/fonts/type1/public/newtx/New
 TXBMI.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/share/texmf-dist/font
 s/type1/public/txfonts/t1xtt.pfb></usr/share/texmf-dist/fonts/type1/public/newt
-x/txbsys.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texmf-dist/fonts
-/type1/public/newtx/txsys.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/z
-tmb.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share/te
-xmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on master_thesis.pdf (19 pages, 1203196 bytes).
+x/txbsys.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/texmf-dist/fonts
+/type1/public/newtx/ztmb.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/zt
+mr.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on master_thesis.pdf (19 pages, 1230776 bytes).
 PDF statistics:
- 391 PDF objects out of 1000 (max. 8388607)
- 305 compressed objects within 4 object streams
- 51 named destinations out of 1000 (max. 500000)
- 125610 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 419 PDF objects out of 1000 (max. 8388607)
+ 327 compressed objects within 4 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 125607 words of extra memory for PDF output out of 128383 (max. 10000000)
 
