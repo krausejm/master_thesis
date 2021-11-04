@@ -7,14 +7,14 @@
 \babel@toc {ngerman}{}
 \babel@toc {UKenglish}{}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Photoproduction of Pseudoscalar Mesons}{3}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Motivation and Structure of this Thesis}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.1}Photoproduction of Pseudoscalar Mesons}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Motivation and Structure of this Thesis}{4}{section.1.2}%
 \contentsline {chapter}{\numberline {2}Experimental Setup}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Production of (polarized) high energy photon beam}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Beam Target}{6}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Calorimeters}{6}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Trigger}{6}{section.2.4}%
 \contentsline {chapter}{\numberline {A}Useful information}{9}{appendix.A}%
-\contentsline {chapter}{\nonumberline Bibliography}{11}{chapter*.11}%
-\contentsline {chapter}{\nonumberline List of Figures}{13}{chapter*.12}%
-\contentsline {chapter}{\nonumberline List of Tables}{15}{chapter*.13}%
+\contentsline {chapter}{\nonumberline Bibliography}{11}{chapter*.12}%
+\contentsline {chapter}{\nonumberline List of Figures}{13}{chapter*.13}%
+\contentsline {chapter}{\nonumberline List of Tables}{15}{chapter*.14}%
