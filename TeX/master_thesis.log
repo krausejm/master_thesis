@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.15)  26 OCT 2021 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.15)  2 NOV 2021 13:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2074,48 +2074,60 @@ File: figs/NucM2.pdf Graphic file (type pdf)
 <use figs/NucM2.pdf>
 Package pdftex.def Info: figs/NucM2.pdf  used on input line 68.
 (pdftex.def)             Requested size: 437.46118pt x 290.48709pt.
- [2 <./figs/qcd.pdf>]) [3 <./figs/NucM2.pdf>]
+ [2 <./figs/qcd.pdf>]
+<figs/meson_bildchen.pdf, id=116, 451.59604pt x 109.38539pt>
+File: figs/meson_bildchen.pdf Graphic file (type pdf)
+<use figs/meson_bildchen.pdf>
+Package pdftex.def Info: figs/meson_bildchen.pdf  used on input line 80.
+(pdftex.def)             Requested size: 437.46118pt x 105.96182pt.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
+(Font)              scaled to size 10.0pt on input line 81.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/ntxtlf/m/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3 <./figs/NucM2.pdf>]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.1pt on input line 85.
+) [4 <./figs/meson_bildchen.pdf>]
 \openout2 = `experiment.aux'.
 
- (./experiment.tex [4
-
-
-
-
-]
+ (./experiment.tex
 chapter 2.
-<figs/goni-ganz.pdf, id=132, 597.23125pt x 566.115pt>
+<figs/goni-ganz.pdf, id=167, 597.23125pt x 566.115pt>
 File: figs/goni-ganz.pdf Graphic file (type pdf)
 <use figs/goni-ganz.pdf>
 Package pdftex.def Info: figs/goni-ganz.pdf  used on input line 9.
 (pdftex.def)             Requested size: 214.35837pt x 203.18793pt.
-<figs/Tagger.pdf, id=135, 796.9775pt x 597.23125pt>
+<figs/Tagger.pdf, id=170, 796.9775pt x 597.23125pt>
 File: figs/Tagger.pdf Graphic file (type pdf)
 <use figs/Tagger.pdf>
 Package pdftex.def Info: figs/Tagger.pdf  used on input line 14.
 (pdftex.def)             Requested size: 214.35837pt x 160.6349pt.
-<figs/Target.pdf, id=138, 718.685pt x 261.97874pt>
+<figs/Target.pdf, id=173, 718.685pt x 261.97874pt>
 File: figs/Target.pdf Graphic file (type pdf)
 <use figs/Target.pdf>
 Package pdftex.def Info: figs/Target.pdf  used on input line 22.
 (pdftex.def)             Requested size: 218.73059pt x 79.7335pt.
-[5 <./figs/goni-ganz.pdf>]
-<figs/cb_fp_in.pdf, id=150, 663.98062pt x 395.22656pt>
+[5
+
+
+
+
+ <./figs/goni-ganz.pdf>]
+<figs/cb_fp_in.pdf, id=185, 663.98062pt x 395.22656pt>
 File: figs/cb_fp_in.pdf Graphic file (type pdf)
 <use figs/cb_fp_in.pdf>
 Package pdftex.def Info: figs/cb_fp_in.pdf  used on input line 28.
 (pdftex.def)             Requested size: 437.46118pt x 260.392pt.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 29.
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/ntxtlf/m/sc/10'.
-(microtype)             Ignoring protrusion settings for this character.
-<figs/faserorient.pdf, id=153, 817.0525pt x 554.07pt>
+<figs/faserorient.pdf, id=188, 817.0525pt x 554.07pt>
 File: figs/faserorient.pdf Graphic file (type pdf)
 <use figs/faserorient.pdf>
 Package pdftex.def Info: figs/faserorient.pdf  used on input line 33.
 (pdftex.def)             Requested size: 218.73059pt x 148.32428pt.
-<figs/mini-taps.pdf, id=156, 796.9775pt x 597.23125pt>
+<figs/mini-taps.pdf, id=191, 796.9775pt x 597.23125pt>
 File: figs/mini-taps.pdf Graphic file (type pdf)
 <use figs/mini-taps.pdf>
 Package pdftex.def Info: figs/mini-taps.pdf  used on input line 38.
@@ -2183,11 +2195,11 @@ Package logreq Info: Writing requests to 'master_thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47854 strings out of 480608
- 924738 string characters out of 5903630
- 1762125 words of memory out of 5000000
- 62775 multiletter control sequences out of 15000+600000
- 726565 words of font info for 344 fonts, out of 8000000 for 9000
+ 47884 strings out of 480608
+ 925472 string characters out of 5903630
+ 1762424 words of memory out of 5000000
+ 62792 multiletter control sequences out of 15000+600000
+ 729850 words of font info for 351 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  76i,20n,126p,10108b,3851s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/u
@@ -2202,10 +2214,10 @@ t/fonts/type1/public/newtx/txbsys.pfb></usr/local/texlive/2020/texmf-dist/fonts
 public/newtx/txsys.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/n
 ewtx/ztmb.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmr
 .pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on master_thesis.pdf (19 pages, 712235 bytes).
+Output written on master_thesis.pdf (19 pages, 759241 bytes).
 PDF statistics:
- 354 PDF objects out of 1000 (max. 8388607)
- 286 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
- 60053 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 398 PDF objects out of 1000 (max. 8388607)
+ 320 compressed objects within 4 object streams
+ 51 named destinations out of 1000 (max. 500000)
+ 60570 words of extra memory for PDF output out of 61914 (max. 10000000)
 
