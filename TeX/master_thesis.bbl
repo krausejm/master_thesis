@@ -19,6 +19,38 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{pdg}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=d9d59fd9775540f36a672e46979af983}{%
+           family={Zyla},
+           familyi={Z\bibinitperiod},
+           given={P.A.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{fullhash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{bibnamehash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{authorbibnamehash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{authornamehash}{3252689ea2c95188fe632e638cbb4321}
+      \strng{authorfullhash}{3252689ea2c95188fe632e638cbb4321}
+      \field{labelalpha}{Zyl+20}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PTEP}
+      \field{number}{8}
+      \field{title}{{Review of Particle Physics}}
+      \field{volume}{2020}
+      \field{year}{2020}
+      \field{pages}{083C01}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1093/ptep/ptaa104
+      \endverb
+    \endentry
     \entry{bonnmodel}{article}{}
       \name{author}{3}{}{%
         {{hash=0d40cc5f2eeee5ad0cedd7a338f45be9}{%
@@ -48,8 +80,8 @@
       \strng{authornamehash}{9699a078483fd27c14d5ed5b527759e3}
       \strng{authorfullhash}{9699a078483fd27c14d5ed5b527759e3}
       \field{labelalpha}{LMP01}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1434-601X}
@@ -71,75 +103,109 @@
       \verb http://dx.doi.org/10.1007/s100500170105
       \endverb
     \endentry
-    \entry{pdg}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=d9d59fd9775540f36a672e46979af983}{%
-           family={Zyla},
-           familyi={Z\bibinitperiod},
-           given={P.A.},
-           giveni={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{3252689ea2c95188fe632e638cbb4321}
-      \strng{fullhash}{3252689ea2c95188fe632e638cbb4321}
-      \strng{bibnamehash}{3252689ea2c95188fe632e638cbb4321}
-      \strng{authorbibnamehash}{3252689ea2c95188fe632e638cbb4321}
-      \strng{authornamehash}{3252689ea2c95188fe632e638cbb4321}
-      \strng{authorfullhash}{3252689ea2c95188fe632e638cbb4321}
-      \field{labelalpha}{Zyl+20}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{PTEP}
-      \field{number}{8}
-      \field{title}{{Review of Particle Physics}}
-      \field{volume}{2020}
-      \field{year}{2020}
-      \field{pages}{083C01}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1093/ptep/ptaa104
-      \endverb
-    \endentry
-    \entry{bm1}{article}{}
+    \entry{Krusche}{article}{}
       \name{author}{2}{}{%
-        {{hash=90dadfbcded45ca2764d16689be72a9c}{%
-           family={Ronniger},
-           familyi={R\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-        {{hash=fb12bc0cdeec4127303c9e75da02b9d6}{%
-           family={Metsch},
-           familyi={M\bibinitperiod},
-           given={B.\bibnamedelimi C.},
-           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=2acff526effd427331866fbf92939ea2}{%
+           family={Krusche},
+           familyi={K\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=f02e5ec15d689d779bf1b74f55d9c723}{%
+           family={Schadmand},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
       }
-      \strng{namehash}{07fc9b010c8dfd4776e78c4d3a69c20e}
-      \strng{fullhash}{07fc9b010c8dfd4776e78c4d3a69c20e}
-      \strng{bibnamehash}{07fc9b010c8dfd4776e78c4d3a69c20e}
-      \strng{authorbibnamehash}{07fc9b010c8dfd4776e78c4d3a69c20e}
-      \strng{authornamehash}{07fc9b010c8dfd4776e78c4d3a69c20e}
-      \strng{authorfullhash}{07fc9b010c8dfd4776e78c4d3a69c20e}
-      \field{labelalpha}{RM11}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \strng{namehash}{2571a5231299cdb6c52fb544b722dda0}
+      \strng{fullhash}{2571a5231299cdb6c52fb544b722dda0}
+      \strng{bibnamehash}{2571a5231299cdb6c52fb544b722dda0}
+      \strng{authorbibnamehash}{2571a5231299cdb6c52fb544b722dda0}
+      \strng{authornamehash}{2571a5231299cdb6c52fb544b722dda0}
+      \strng{authorfullhash}{2571a5231299cdb6c52fb544b722dda0}
+      \field{labelalpha}{KS03}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{hep-ph}
       \field{eprinttype}{arXiv}
-      \field{journaltitle}{Eur. Phys. J. A}
-      \field{title}{{Effects of a spin-flavour dependent interaction on the baryon mass spectrum}}
-      \field{volume}{47}
-      \field{year}{2011}
-      \field{pages}{162}
-      \range{pages}{1}
+      \field{journaltitle}{Prog. Part. Nucl. Phys.}
+      \field{title}{{Study of nonstrange baryon resonances with meson photoproduction}}
+      \field{volume}{51}
+      \field{year}{2003}
+      \field{pages}{399\bibrangedash 485}
+      \range{pages}{87}
       \verb{doi}
-      \verb 10.1140/epja/i2011-11162-8
+      \verb 10.1016/S0146-6410(03)90005-6
       \endverb
       \verb{eprint}
-      \verb 1111.3835
+      \verb nucl-ex/0306023
+      \endverb
+    \endentry
+    \entry{farahphd}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=26676129ae1f06c589c547b7a70a1c2e}{%
+           family={Afzal},
+           familyi={A\bibinitperiod},
+           given={Farah\bibnamedelima Noreen},
+           giveni={F\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Rheinische Friedrich-Wilhelms-Universität Bonn}%
+      }
+      \strng{namehash}{26676129ae1f06c589c547b7a70a1c2e}
+      \strng{fullhash}{26676129ae1f06c589c547b7a70a1c2e}
+      \strng{bibnamehash}{26676129ae1f06c589c547b7a70a1c2e}
+      \strng{authorbibnamehash}{26676129ae1f06c589c547b7a70a1c2e}
+      \strng{authornamehash}{26676129ae1f06c589c547b7a70a1c2e}
+      \strng{authorfullhash}{26676129ae1f06c589c547b7a70a1c2e}
+      \field{labelalpha}{Afz19}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{Measurement of the beam and helicity asymmetries in the reactions $\gamma p \to p\pi^0$ and $\gamma p \to p\eta$}
+      \field{type}{PhD thesis}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://hdl.handle.net/20.500.11811/8064
+      \endverb
+      \verb{url}
+      \verb https://hdl.handle.net/20.500.11811/8064
+      \endverb
+    \endentry
+    \entry{Drechsel}{article}{}
+      \name{author}{2}{}{%
+        {{hash=0c06ed24bbc288e87dc3b1f95eb6e3a9}{%
+           family={Drechsel},
+           familyi={D\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=108db242bbf7851ed751dffa0bbbbf0d}{%
+           family={Tiator},
+           familyi={T\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7683cdfca58e6193028b8a4823f1a85}
+      \strng{fullhash}{a7683cdfca58e6193028b8a4823f1a85}
+      \strng{bibnamehash}{a7683cdfca58e6193028b8a4823f1a85}
+      \strng{authorbibnamehash}{a7683cdfca58e6193028b8a4823f1a85}
+      \strng{authornamehash}{a7683cdfca58e6193028b8a4823f1a85}
+      \strng{authorfullhash}{a7683cdfca58e6193028b8a4823f1a85}
+      \field{labelalpha}{DT92}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. Phys. G}
+      \field{title}{{Threshold pion photoproduction on nucleons}}
+      \field{volume}{18}
+      \field{year}{1992}
+      \field{pages}{449\bibrangedash 497}
+      \range{pages}{49}
+      \verb{doi}
+      \verb 10.1088/0954-3899/18/3/004
       \endverb
     \endentry
     \entry{cb}{online}{}
@@ -157,8 +223,8 @@
       \strng{authornamehash}{a6de66e25b32562b95251a2a88d03829}
       \strng{authorfullhash}{a6de66e25b32562b95251a2a88d03829}
       \field{labelalpha}{Wal}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{subtitle}{A $4\pi$ photon spectrometer}
@@ -192,12 +258,12 @@
       \strng{authornamehash}{503d1ed154ef3632a04ec44f0f66ff0d}
       \strng{authorfullhash}{503d1ed154ef3632a04ec44f0f66ff0d}
       \field{labelalpha}{Urb17}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Design eines neuen Lichtpulsersystems sowie Aufbau und Inbetriebnahme der neuen APD Uaslese für das Crystal-Barrel-Kalorimeter}
-      \field{type}{Dissertation}
+      \field{title}{Design eines neuen Lichtpulsersystems sowie Aufbau und Inbetriebnahme der neuen APD Auslese für das Crystal-Barrel-Kalorimeter}
+      \field{type}{PhD thesis}
       \field{year}{2017}
     \endentry
   \enddatalist

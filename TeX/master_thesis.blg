@@ -1,18 +1,18 @@
 [0] Config.pm:312> INFO - This is Biber 2.15
 [0] Config.pm:315> INFO - Logfile is 'master_thesis.blg'
-[36] biber:330> INFO - === Do Okt 14, 2021, 11:18:30
-[45] Biber.pm:415> INFO - Reading 'master_thesis.bcf'
-[80] Biber.pm:952> INFO - Found 6 citekeys in bib section 0
-[87] Biber.pm:4334> INFO - Processing section 0
-[93] Biber.pm:4523> INFO - Looking for bibtex format file 'bib/standard_refs-biber.bib' for section 0
-[93] bibtex.pm:1682> INFO - LaTeX decoding ...
-[97] bibtex.pm:1494> INFO - Found BibTeX data source 'bib/standard_refs-biber.bib'
+[36] biber:330> INFO - === Do Okt 21, 2021, 18:17:25
+[43] Biber.pm:415> INFO - Reading 'master_thesis.bcf'
+[78] Biber.pm:952> INFO - Found 8 citekeys in bib section 0
+[84] Biber.pm:4334> INFO - Processing section 0
+[89] Biber.pm:4523> INFO - Looking for bibtex format file 'bib/standard_refs-biber.bib' for section 0
+[90] bibtex.pm:1682> INFO - LaTeX decoding ...
+[96] bibtex.pm:1494> INFO - Found BibTeX data source 'bib/standard_refs-biber.bib'
 [113] Utils.pm:395> WARN - month field 'Jun' in entry 'bonnmodel' is not an integer - this will probably not sort properly.
-[121] Utils.pm:395> WARN - I didn't find a database entry for 'latexwiki' (section 0)
-[128] UCollate.pm:68> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[128] UCollate.pm:68> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[128] Biber.pm:4162> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-UK'
-[128] Biber.pm:4168> INFO - No sort tailoring available for locale 'en-UK'
-[132] bbl.pm:651> INFO - Writing 'master_thesis.bbl' with encoding 'UTF-8'
-[133] bbl.pm:754> INFO - Output to master_thesis.bbl
-[133] Biber.pm:128> INFO - WARNINGS: 2
+[123] Utils.pm:395> WARN - I didn't find a database entry for 'latexwiki' (section 0)
+[131] UCollate.pm:68> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[131] UCollate.pm:68> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[131] Biber.pm:4162> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-UK'
+[131] Biber.pm:4168> INFO - No sort tailoring available for locale 'en-UK'
+[135] bbl.pm:651> INFO - Writing 'master_thesis.bbl' with encoding 'UTF-8'
+[137] bbl.pm:754> INFO - Output to master_thesis.bbl
+[137] Biber.pm:128> INFO - WARNINGS: 2
