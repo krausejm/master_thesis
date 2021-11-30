@@ -10,7 +10,7 @@ parameters {
 }
 
 model {
-    y ~ normal(b + a * cos(x), dy);
+	y ~ normal(b + a * cos(x), dy);
   	a ~ normal(0,100);
   	b ~ normal(0,100);
 }

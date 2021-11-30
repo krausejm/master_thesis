@@ -19,18 +19,18 @@ using namespace stan::math;
 stan::math::profile_map profiles__;
 static constexpr std::array<const char*, 13> locations_array__ = 
 {" (found before start of program)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 8, column 3 to column 10)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 9, column 3 to column 10)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 13, column 4 to column 35)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 14, column 3 to column 21)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 15, column 3 to column 21)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 2, column 1 to column 16)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 3, column 10 to column 11)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 3, column 3 to column 15)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 4, column 10 to column 11)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 4, column 3 to column 15)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 5, column 8 to column 9)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 5, column 1 to column 14)"};
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 8, column 3 to column 10)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 9, column 3 to column 10)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 13, column 1 to column 32)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 14, column 3 to column 21)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 15, column 3 to column 21)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 2, column 1 to column 16)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 3, column 10 to column 11)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 3, column 3 to column 15)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 4, column 10 to column 11)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 4, column 3 to column 15)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 5, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 5, column 1 to column 14)"};
 
 
 
