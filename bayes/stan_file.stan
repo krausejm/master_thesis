@@ -14,3 +14,6 @@ model {
   	a ~ normal(0,100);
   	b ~ normal(0,100);
 }
+generated quantities {
+   array[n] real y_tilde = normal_rng(b + a * cos(x),dy);
+}
