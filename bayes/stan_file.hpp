@@ -17,20 +17,22 @@ using namespace stan::math;
 
 
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 13> locations_array__ = 
+static constexpr std::array<const char*, 15> locations_array__ = 
 {" (found before start of program)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 8, column 3 to column 10)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 9, column 3 to column 10)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 13, column 4 to column 35)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 14, column 3 to column 21)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 15, column 3 to column 21)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 2, column 1 to column 16)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 3, column 10 to column 11)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 3, column 3 to column 15)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 4, column 10 to column 11)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 4, column 3 to column 15)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 5, column 8 to column 9)",
- " (in '/Users/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 5, column 1 to column 14)"};
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 8, column 1 to column 8)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 9, column 1 to column 8)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 18, column 1 to column 55)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 13, column 1 to column 32)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 14, column 1 to column 19)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 15, column 1 to column 19)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 2, column 1 to column 16)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 3, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 3, column 1 to column 13)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 4, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 4, column 1 to column 13)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 5, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 5, column 1 to column 14)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/stan_file.stan', line 18, column 7 to column 8)"};
 
 
 
@@ -72,18 +74,18 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       pos__ = std::numeric_limits<int>::min();
       
       pos__ = 1;
-      current_statement__ = 6;
+      current_statement__ = 7;
       context__.validate_dims("data initialization","n","int",
            std::vector<size_t>{});
       n = std::numeric_limits<int>::min();
       
-      current_statement__ = 6;
-      n = context__.vals_i("n")[(1 - 1)];
-      current_statement__ = 6;
-      check_greater_or_equal(function__, "n", n, 0);
       current_statement__ = 7;
-      validate_non_negative_index("x", "n", n);
+      n = context__.vals_i("n")[(1 - 1)];
+      current_statement__ = 7;
+      check_greater_or_equal(function__, "n", n, 0);
       current_statement__ = 8;
+      validate_non_negative_index("x", "n", n);
+      current_statement__ = 9;
       context__.validate_dims("data initialization","x","double",
            std::vector<size_t>{static_cast<size_t>(n)});
       x__ = Eigen::Matrix<double, -1, 1>(n);
@@ -91,22 +93,22 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       
       {
         std::vector<local_scalar_t__> x_flat__;
-        current_statement__ = 8;
+        current_statement__ = 9;
         x_flat__ = context__.vals_r("x");
-        current_statement__ = 8;
+        current_statement__ = 9;
         pos__ = 1;
-        current_statement__ = 8;
+        current_statement__ = 9;
         for (int sym1__ = 1; sym1__ <= n; ++sym1__) {
-          current_statement__ = 8;
+          current_statement__ = 9;
           assign(x, x_flat__[(pos__ - 1)],
             "assigning variable x", index_uni(sym1__));
-          current_statement__ = 8;
+          current_statement__ = 9;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 9;
-      validate_non_negative_index("y", "n", n);
       current_statement__ = 10;
+      validate_non_negative_index("y", "n", n);
+      current_statement__ = 11;
       context__.validate_dims("data initialization","y","double",
            std::vector<size_t>{static_cast<size_t>(n)});
       y__ = Eigen::Matrix<double, -1, 1>(n);
@@ -114,22 +116,22 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       
       {
         std::vector<local_scalar_t__> y_flat__;
-        current_statement__ = 10;
+        current_statement__ = 11;
         y_flat__ = context__.vals_r("y");
-        current_statement__ = 10;
+        current_statement__ = 11;
         pos__ = 1;
-        current_statement__ = 10;
+        current_statement__ = 11;
         for (int sym1__ = 1; sym1__ <= n; ++sym1__) {
-          current_statement__ = 10;
+          current_statement__ = 11;
           assign(y, y_flat__[(pos__ - 1)],
             "assigning variable y", index_uni(sym1__));
-          current_statement__ = 10;
+          current_statement__ = 11;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 11;
-      validate_non_negative_index("dy", "n", n);
       current_statement__ = 12;
+      validate_non_negative_index("dy", "n", n);
+      current_statement__ = 13;
       context__.validate_dims("data initialization","dy","double",
            std::vector<size_t>{static_cast<size_t>(n)});
       dy__ = Eigen::Matrix<double, -1, 1>(n);
@@ -137,19 +139,21 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       
       {
         std::vector<local_scalar_t__> dy_flat__;
-        current_statement__ = 12;
+        current_statement__ = 13;
         dy_flat__ = context__.vals_r("dy");
-        current_statement__ = 12;
+        current_statement__ = 13;
         pos__ = 1;
-        current_statement__ = 12;
+        current_statement__ = 13;
         for (int sym1__ = 1; sym1__ <= n; ++sym1__) {
-          current_statement__ = 12;
+          current_statement__ = 13;
           assign(dy, dy_flat__[(pos__ - 1)],
             "assigning variable dy", index_uni(sym1__));
-          current_statement__ = 12;
+          current_statement__ = 13;
           pos__ = (pos__ + 1);
         }
       }
+      current_statement__ = 14;
+      validate_non_negative_index("y_tilde", "n", n);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -186,13 +190,13 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       current_statement__ = 2;
       b = in__.template read<local_scalar_t__>();
       {
-        current_statement__ = 3;
+        current_statement__ = 4;
         lp_accum__.add(
           normal_lpdf<propto__>(y, add(b, multiply(a, stan::math::cos(x))),
             dy));
-        current_statement__ = 4;
-        lp_accum__.add(normal_lpdf<propto__>(a, 0, 100));
         current_statement__ = 5;
+        lp_accum__.add(normal_lpdf<propto__>(a, 0, 100));
+        current_statement__ = 6;
         lp_accum__.add(normal_lpdf<propto__>(b, 0, 100));
       }
     } catch (const std::exception& e) {
@@ -246,6 +250,15 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       if (logical_negation(emit_generated_quantities__)) {
         return ;
       } 
+      std::vector<double> y_tilde;
+      y_tilde = std::vector<double>(n, std::numeric_limits<double>::quiet_NaN());
+      
+      
+      current_statement__ = 3;
+      assign(y_tilde,
+        normal_rng(add(b, multiply(a, stan::math::cos(x))), dy, base_rng__),
+        "assigning variable y_tilde");
+      out__.write(y_tilde);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -285,14 +298,14 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
     
   inline void get_param_names(std::vector<std::string>& names__) const {
     
-    names__ = std::vector<std::string>{"a", "b"};
+    names__ = std::vector<std::string>{"a", "b", "y_tilde"};
     
     } // get_param_names() 
     
   inline void get_dims(std::vector<std::vector<size_t>>& dimss__) const {
     
     dimss__ = std::vector<std::vector<size_t>>{std::vector<size_t>{},
-      std::vector<size_t>{}};
+      std::vector<size_t>{}, std::vector<size_t>{static_cast<size_t>(n)}};
     
     } // get_dims() 
     
@@ -309,7 +322,11 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
     }
     
     if (emit_generated_quantities__) {
-      
+      for (int sym1__ = 1; sym1__ <= n; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "y_tilde" + '.' + std::to_string(sym1__));
+        } 
+      }
     }
     
     } // constrained_param_names() 
@@ -327,20 +344,24 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
     }
     
     if (emit_generated_quantities__) {
-      
+      for (int sym1__ = 1; sym1__ <= n; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "y_tilde" + '.' + std::to_string(sym1__));
+        } 
+      }
     }
     
     } // unconstrained_param_names() 
     
   inline std::string get_constrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"b\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"}]");
+    return std::string("[{\"name\":\"a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"b\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_tilde\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(n) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
     
     } // get_constrained_sizedtypes() 
     
   inline std::string get_unconstrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"b\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"}]");
+    return std::string("[{\"name\":\"a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"b\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_tilde\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(n) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"}]");
     
     } // get_unconstrained_sizedtypes() 
     
@@ -356,7 +377,7 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       const size_t num_params__ = 
   (1 + 1);
       const size_t num_transformed = 0;
-      const size_t num_gen_quantities = 0;
+      const size_t num_gen_quantities = n;
       std::vector<double> vars_vec(num_params__
        + (emit_transformed_parameters * num_transformed)
        + (emit_generated_quantities * num_gen_quantities));
@@ -377,7 +398,7 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       const size_t num_params__ = 
   (1 + 1);
       const size_t num_transformed = 0;
-      const size_t num_gen_quantities = 0;
+      const size_t num_gen_quantities = n;
       vars.resize(num_params__
         + (emit_transformed_parameters * num_transformed)
         + (emit_generated_quantities * num_gen_quantities));
