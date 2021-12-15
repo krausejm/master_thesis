@@ -19,29 +19,29 @@ using namespace stan::math;
 stan::math::profile_map profiles__;
 static constexpr std::array<const char*, 24> locations_array__ = 
 {" (found before start of program)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 8, column 1 to column 18)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 9, column 1 to column 8)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 10, column 1 to column 33)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 20, column 1 to column 51)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 21, column 1 to column 19)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 22, column 1 to column 30)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 24, column 5 to column 47)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 23, column 15 to line 25, column 5)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 23, column 1 to line 25, column 5)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 14, column 1 to column 34)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 15, column 1 to column 17)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 16, column 1 to column 17)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 17, column 1 to column 20)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 2, column 1 to column 16)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 3, column 8 to column 9)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 3, column 1 to column 13)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 4, column 8 to column 9)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 4, column 1 to column 13)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 5, column 8 to column 9)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 5, column 1 to column 14)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 20, column 14 to column 15)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 21, column 8 to column 9)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/noisy_model/stan_file1.stan', line 22, column 9 to column 10)"};
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 8, column 1 to column 18)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 9, column 1 to column 8)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 10, column 1 to column 33)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 20, column 1 to column 51)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 21, column 1 to column 19)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 22, column 1 to column 30)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 24, column 5 to column 47)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 23, column 15 to line 25, column 5)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 23, column 1 to line 25, column 5)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 14, column 1 to column 34)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 15, column 1 to column 19)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 16, column 1 to column 19)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 17, column 1 to column 20)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 2, column 1 to column 16)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 3, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 3, column 1 to column 13)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 4, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 4, column 1 to column 13)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 5, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 5, column 1 to column 14)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 20, column 14 to column 15)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 21, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/first_model/stan_file1.stan', line 22, column 9 to column 10)"};
 
 
 
@@ -215,9 +215,9 @@ class stan_file1_model final : public model_base_crtp<stan_file1_model> {
           normal_lpdf<propto__>(y,
             add(b, multiply(a, stan::math::cos(add(x, c)))), dy));
         current_statement__ = 11;
-        lp_accum__.add(normal_lpdf<propto__>(a, 0, 1));
+        lp_accum__.add(normal_lpdf<propto__>(a, 0, 100));
         current_statement__ = 12;
-        lp_accum__.add(normal_lpdf<propto__>(b, 0, 1));
+        lp_accum__.add(normal_lpdf<propto__>(b, 0, 100));
         current_statement__ = 13;
         lp_accum__.add(normal_lpdf<propto__>(c, 0, 3.14));
       }

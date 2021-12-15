@@ -21,7 +21,7 @@ generated quantities {
 	vector[n] log_lik;
 	vector [n] mu = b+a*cos(x+c);
 	for (k in 1:n){
-    	log_lik[k]=normal_lpdf(y[k]|mu[n], dy[k]);
+    	log_lik[k]=normal_lpdf(y[k]|mu[k], dy[k]);
     }
 
 }
