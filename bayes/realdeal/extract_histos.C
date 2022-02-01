@@ -1,4 +1,4 @@
-void eta(TTree* t, TH3F* hp45, TH3F* hm45,TH2F* hp45pol, TH2F* hm45pol){
+void eta(TTree* t, TH3F* hp45, TH3F* hm45,TH3F* hp45pol, TH3F* hm45pol){
     double phi=0.;
     t->SetBranchAddress("phi",&phi);
     double ebeam=0.;
@@ -25,11 +25,11 @@ void eta(TTree* t, TH3F* hp45, TH3F* hm45,TH2F* hp45pol, TH2F* hm45pol){
         if(whichparticle==1){
             if(setting==45){
                 hp45->Fill(ebeam,costheta,phi,w);
-                hp45pol->Fill(ebeam,pol,w);
+                hp45pol->Fill(ebeam,costheta,phi,w*TMath::Abs(pol));
             }
             if(setting==-45){
                 hm45->Fill(ebeam,costheta,phi,w);
-                hm45pol->Fill(ebeam,pol,w);
+                hm45pol->Fill(ebeam,costheta,phi,w*TMath::Abs(pol));
             }
         }
     }
@@ -48,21 +48,21 @@ TTree* to= (TTree *)f->Get("sigma_analysis_october");
 TTree* t[4]={tj,ta,ts,to};
 TH3F* hp45[4];
 TH3F* hm45[4];
-TH2F* hp45pol[4];
-TH2F* hm45pol[4];
+TH3F* hp45pol[4];
+TH3F* hm45pol[4];
 
 for(int i=0;i<4;i++){
     if(i<2){
         hp45[i]=new TH3F(Form("yield_p45_%d",i),";E_{#gamma} / MeV;cos#theta;#phi/deg",9,1130,1670,12,-1,1,12,-180,180);
         hm45[i]=new TH3F(Form("yield_m45_%d",i),";E_{#gamma} / MeV;cos#theta;#phi/deg",9,1130,1670,12,-1,1,12,-180,180);
-        hp45pol[i]=new TH2F(Form("p45_pol_deg_%d",i),";E_{#gamma} / MeV; Polarization degree",9,1130,1670,200,0,1);
-        hm45pol[i]=new TH2F(Form("m45_pol_deg_%d",i),";E_{#gamma} / MeV; Polarization degree",9,1130,1670,200,-1,0);
+        hp45pol[i]=new TH3F(Form("p45_pol_deg_%d",i),";E_{#gamma} / MeV; Polarization degree",9,1130,1670,12,-1,1,12,-180,180);
+        hm45pol[i]=new TH3F(Form("m45_pol_deg_%d",i),";E_{#gamma} / MeV; Polarization degree",9,1130,1670,12,-1,1,12,-180,180);
 
     }else{
         hp45[i]=new TH3F(Form("yield_p45_%d",i),";E_{#gamma} / MeV;cos#theta;#phi/deg",9,1250,1790,12,-1,1,12,-180,180);
         hm45[i]=new TH3F(Form("yield_m45_%d",i),";E_{#gamma} / MeV;cos#theta;#phi/deg",9,1250,1790,12,-1,1,12,-180,180);
-        hp45pol[i]=new TH2F(Form("p45_pol_deg_%d",i),";E_{#gamma} / MeV; Polarization degree",9,1250,1790,200,0,1);
-        hm45pol[i]=new TH2F(Form("m45_pol_deg_%d",i),";E_{#gamma} / MeV; Polarization degree",9,1250,1790,200,-1,0);
+        hp45pol[i]=new TH3F(Form("p45_pol_deg_%d",i),";E_{#gamma} / MeV; Polarization degree",9,1250,1790,12,-1,1,12,-180,180);
+        hm45pol[i]=new TH3F(Form("m45_pol_deg_%d",i),";E_{#gamma} / MeV; Polarization degree",9,1250,1790,12,-1,1,12,-180,180);
 
     }
 }
@@ -70,6 +70,7 @@ for(int i=0;i<4;i++){
     eta(t[i],hp45[i],hm45[i],hp45pol[i],hm45pol[i]);
     hp45[i]->Write();
     hm45[i]->Write();
+    //divide pol. histo by event yield histo to get pol (e,costheta,phi)
     hp45pol[i]->Write();
     hm45pol[i]->Write();
 }
