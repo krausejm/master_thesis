@@ -1,0 +1,94 @@
+\documentclass[11pt,aspectratio=169,dvipsnames]{beamer}
+\graphicspath{{figs/}}
+\usetheme{default}
+\usepackage{DasBeamerPaket}
+\usepackage{animate}
+\usepackage{lastpage}
+\usepackage{tikz}
+\setbeamercolor{section in toc}{fg=NavyBlue}
+\setbeamercolor{frametitle}{fg=NavyBlue}
+\captionsetup[figure]{labelfont=bf}
+\captionsetup[table]{labelfont=bf}
+\newcommand{\theauthor}{Jakob Krause}
+\newcommand{\theshortauthor}{J. Krause}
+\newcommand{\authormail}{krause@hiskp.uni-bonn.de}
+\newcommand{\authorgit}{krausejm}
+\newcommand{\thetitle}{$\Sigma$ in $\gamma p \to p \eta'\to p\gamma\gamma$}
+\newcommand{\thecolor}{black!70!blue}
+\newcommand{\thesubtitle}{Master thesis for the CBELSA/TAPS collaboration}
+\newcommand{\thedate}{18th January 2022}
+\begin{document}
+\definecolor{myWhite}{rgb}{1,1,1}
+\setbeamertemplate{footline}[text line]{\parbox{\linewidth}{\vspace*{-9pt}\textcolor{white}{\textsc{\theshortauthor}  \hfill\thetitle\hfill}\textcolor{myWhite}{\insertpagenumber/\pageref{LastPage}}}}
+\addtobeamertemplate{footline}{ \makebox[0pt][l]{\hspace{-1cm}
+		\raisebox{0cm}[0pt][0pt]{\colorbox{\thecolor}{\phantom{{\large TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT}}}}}}
+
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle}[default][left,leftskip=0.5cm]
+\setbeamertemplate{itemize item}{\color{black}$\blacktriangleright$}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamercolor{section in toc}{fg=\thecolor}
+\setbeamercolor{frametitle}{fg=\thecolor}
+\captionsetup{font=scriptsize,labelfont=scriptsize}
+\AtBeginSection[]
+{	
+	\definecolor{myWhite}{rgb}{0,0,0}
+	\begin{frame}[noframenumbering]
+		\frametitle{}
+		\addtocounter{page}{-1}
+		\tableofcontents[currentsection]
+		
+	\end{frame}
+\definecolor{myWhite}{rgb}{1,1,1}
+}
+
+
+
+\begin{frame}{Event selection}
+	2013 hydrogen beam time
+	\begin{itemize}
+		\item charge cut (3 PED)
+		\item time cuts (prompt peak and bkg substraction)
+		\item $E_\gamma > 1400$ MeV
+		\item  $E_\gamma^\text{calc}>1447$ MeV
+		\item coplanarity
+		\item polar angle
+		\item missing mass
+		\item  invariant mass
+	\end{itemize}
+\end{frame}
+\begin{frame}{Event selection}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{invcut_ebin0}
+\end{figure}
+
+\end{frame}
+\begin{frame}{Event selection}
+	Additional cuts to (try to) reduce bkg: 
+	\begin{itemize}
+		\item $p$ in CB for $E_\gamma<1500$ MeV
+		\item $E_{\gamma_{i}}<1500$ MeV
+		\item ClusterPEDCount$(\gamma_i)=1$
+		\item Clustersize$(p)<6$
+		\item Clustersize ($\gamma_{i}$) in FW
+	\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[width=.49\linewidth]{../../figs/hydrogen/bin_cuts/invcut_bkg_percentage.pdf}
+		\includegraphics[width=.49\linewidth]{../../figs/hydrogen/bin_cuts_alt/invcut_bkg_percentage.pdf}
+	\end{figure}
+\end{frame}
+\begin{frame}{Asymmetry $A(\phi)=\frac{N^\bot-N^\parallel}{p_\gamma^\parallel N^\bot+p_\gamma^\bot N^\parallel}=\Sigma \cos\left(2\left(\alpha^\parallel-\phi\right)\right)$ }
+	\begin{figure}
+		\includegraphics[width=\linewidth]{../../figs/hydrogen/asymmetry/ebin_0_alt_fixalphaC.pdf}
+	\end{figure}
+\end{frame}
+\begin{frame}{Beam asymmetry $\Sigma$}
+	\begin{figure}
+		\includegraphics[width=.8\linewidth]{../../figs/hydrogen/asymmetry/sigma_alt.pdf}
+	\end{figure}
+to do : determine and substract $\Sigma_{2\pi^0/\pi^0\eta}$ (?), fit with \textsc{Bayes}
+\end{frame}
+\end{document}
