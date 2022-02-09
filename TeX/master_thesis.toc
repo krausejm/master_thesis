@@ -1,17 +1,19 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {UKenglish}{}
-\babel@toc {ngerman}{}
-\babel@toc {UKenglish}{}
-\babel@toc {UKenglish}{}
-\babel@toc {UKenglish}{}
-\babel@toc {ngerman}{}
-\babel@toc {UKenglish}{}
+\babel@toc {UKenglish}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {UKenglish}{}\relax 
+\babel@toc {UKenglish}{}\relax 
+\babel@toc {UKenglish}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {UKenglish}{}\relax 
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.1}Photoproduction of Pseudoscalar Mesons}{4}{section.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Motivation and Structure of this Thesis}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.2}\textsc {Bayesian} Inference}{4}{section.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Motivation and Structure of this Thesis}{4}{section.1.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Experimental Setup}{5}{chapter.2}%
 \defcounter {refsection}{0}\relax 
