@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.3)  9 FEB 2022 13:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.3)  23 FEB 2022 10:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2197,7 +2197,7 @@ ts/type1/public/newtx/txmiaX.pfb></usr/share/texmf-dist/fonts/type1/public/newt
 x/txsys.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/newtx/ztmri.pfb>
-Output written on master_thesis.pdf (19 pages, 749231 bytes).
+Output written on master_thesis.pdf (19 pages, 749237 bytes).
 PDF statistics:
  435 PDF objects out of 1000 (max. 8388607)
  340 compressed objects within 4 object streams

@@ -17,19 +17,23 @@ using namespace stan::math;
 
 
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 22> locations_array__ = 
+static constexpr std::array<const char*, 26> locations_array__ = 
 {" (found before start of program)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 8, column 1 to column 8)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 9, column 1 to column 8)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 18, column 1 to column 63)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 19, column 1 to column 19)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 20, column 1 to column 14)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 21, column 1 to column 31)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 23, column 5 to column 47)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 22, column 15 to line 24, column 5)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 22, column 1 to line 24, column 5)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 13, column 1 to column 46)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 14, column 1 to column 17)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 8, column 1 to column 27)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 23, column 1 to column 17)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 24, column 1 to column 19)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 25, column 1 to column 14)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 26, column 1 to column 31)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 28, column 5 to column 47)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 29, column 2 to column 37)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 27, column 15 to line 30, column 2)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 27, column 1 to line 30, column 2)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 16, column 2 to column 56)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 14, column 14 to line 17, column 2)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 14, column 1 to line 17, column 2)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 19, column 22 to column 23)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 19, column 19 to column 21)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 19, column 1 to column 25)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 2, column 1 to column 16)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 3, column 8 to column 9)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 3, column 1 to column 13)",
@@ -37,9 +41,9 @@ static constexpr std::array<const char*, 22> locations_array__ =
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 4, column 1 to column 13)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 5, column 8 to column 9)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 5, column 1 to column 14)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 18, column 14 to column 15)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 19, column 8 to column 9)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 20, column 8 to column 9)"};
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 23, column 14 to column 15)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 24, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/realdeal/stan_file.stan', line 25, column 8 to column 9)"};
 
 
 
@@ -81,18 +85,18 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       pos__ = std::numeric_limits<int>::min();
       
       pos__ = 1;
-      current_statement__ = 12;
+      current_statement__ = 16;
       context__.validate_dims("data initialization","n","int",
            std::vector<size_t>{});
       n = std::numeric_limits<int>::min();
       
-      current_statement__ = 12;
+      current_statement__ = 16;
       n = context__.vals_i("n")[(1 - 1)];
-      current_statement__ = 12;
+      current_statement__ = 16;
       check_greater_or_equal(function__, "n", n, 0);
-      current_statement__ = 13;
+      current_statement__ = 17;
       validate_non_negative_index("x", "n", n);
-      current_statement__ = 14;
+      current_statement__ = 18;
       context__.validate_dims("data initialization","x","double",
            std::vector<size_t>{static_cast<size_t>(n)});
       x__ = Eigen::Matrix<double, -1, 1>(n);
@@ -100,22 +104,22 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       
       {
         std::vector<local_scalar_t__> x_flat__;
-        current_statement__ = 14;
+        current_statement__ = 18;
         x_flat__ = context__.vals_r("x");
-        current_statement__ = 14;
+        current_statement__ = 18;
         pos__ = 1;
-        current_statement__ = 14;
+        current_statement__ = 18;
         for (int sym1__ = 1; sym1__ <= n; ++sym1__) {
-          current_statement__ = 14;
+          current_statement__ = 18;
           assign(x, x_flat__[(pos__ - 1)],
             "assigning variable x", index_uni(sym1__));
-          current_statement__ = 14;
+          current_statement__ = 18;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 15;
+      current_statement__ = 19;
       validate_non_negative_index("y", "n", n);
-      current_statement__ = 16;
+      current_statement__ = 20;
       context__.validate_dims("data initialization","y","double",
            std::vector<size_t>{static_cast<size_t>(n)});
       y__ = Eigen::Matrix<double, -1, 1>(n);
@@ -123,22 +127,22 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       
       {
         std::vector<local_scalar_t__> y_flat__;
-        current_statement__ = 16;
+        current_statement__ = 20;
         y_flat__ = context__.vals_r("y");
-        current_statement__ = 16;
+        current_statement__ = 20;
         pos__ = 1;
-        current_statement__ = 16;
+        current_statement__ = 20;
         for (int sym1__ = 1; sym1__ <= n; ++sym1__) {
-          current_statement__ = 16;
+          current_statement__ = 20;
           assign(y, y_flat__[(pos__ - 1)],
             "assigning variable y", index_uni(sym1__));
-          current_statement__ = 16;
+          current_statement__ = 20;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 17;
+      current_statement__ = 21;
       validate_non_negative_index("dy", "n", n);
-      current_statement__ = 18;
+      current_statement__ = 22;
       context__.validate_dims("data initialization","dy","double",
            std::vector<size_t>{static_cast<size_t>(n)});
       dy__ = Eigen::Matrix<double, -1, 1>(n);
@@ -146,29 +150,29 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       
       {
         std::vector<local_scalar_t__> dy_flat__;
-        current_statement__ = 18;
+        current_statement__ = 22;
         dy_flat__ = context__.vals_r("dy");
-        current_statement__ = 18;
+        current_statement__ = 22;
         pos__ = 1;
-        current_statement__ = 18;
+        current_statement__ = 22;
         for (int sym1__ = 1; sym1__ <= n; ++sym1__) {
-          current_statement__ = 18;
+          current_statement__ = 22;
           assign(dy, dy_flat__[(pos__ - 1)],
             "assigning variable dy", index_uni(sym1__));
-          current_statement__ = 18;
+          current_statement__ = 22;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 19;
+      current_statement__ = 23;
       validate_non_negative_index("y_tilde", "n", n);
-      current_statement__ = 20;
+      current_statement__ = 24;
       validate_non_negative_index("log_lik", "n", n);
-      current_statement__ = 21;
+      current_statement__ = 25;
       validate_non_negative_index("mu", "n", n);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
-    num_params_r__ = 1 + 1;
+    num_params_r__ = 1;
     
   }
   
@@ -194,21 +198,37 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       a = DUMMY_VAR__;
       
       current_statement__ = 1;
-      a = in__.template read<local_scalar_t__>();
-      local_scalar_t__ b;
-      b = DUMMY_VAR__;
-      
-      current_statement__ = 2;
-      b = in__.template read<local_scalar_t__>();
+      a = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
+            -1, 1, lp__);
       {
-        current_statement__ = 10;
-        lp_accum__.add(
-          normal_lpdf<propto__>(y,
-            multiply(a,
-              stan::math::cos(
-                multiply(((stan::math::pi() / 180.) * 2), subtract(-45, x)))),
-            dy));
-        current_statement__ = 11;
+        current_statement__ = 12;
+        for (int k = 1; k <= n; ++k) {
+          current_statement__ = 10;
+          lp_accum__.add(
+            normal_lpdf<propto__>(rvalue(y, "y", index_uni(k)),
+              (a *
+                stan::math::cos(
+                  (((stan::math::pi() / 180.) * 2) *
+                    (-45 - rvalue(x, "x", index_uni(k)))))),
+              rvalue(dy, "dy", index_uni(k))));
+        }
+        current_statement__ = 14;
+        if (logical_lt(a, -1)) {
+          current_statement__ = 14;
+          lp_accum__.add(stan::math::negative_infinity());
+        } else {
+          current_statement__ = 13;
+          if (logical_gt(a, 1)) {
+            current_statement__ = 13;
+            lp_accum__.add(stan::math::negative_infinity());
+          } else {
+            current_statement__ = 13;
+            lp_accum__.add(
+              -log_diff_exp(normal_cdf_log(1, 0, 1),
+                 normal_cdf_log(-1, 0, 1)));
+          }
+        }
+        current_statement__ = 15;
         lp_accum__.add(normal_lpdf<propto__>(a, 0, 1));
       }
     } catch (const std::exception& e) {
@@ -247,14 +267,9 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       a = std::numeric_limits<double>::quiet_NaN();
       
       current_statement__ = 1;
-      a = in__.template read<local_scalar_t__>();
-      double b;
-      b = std::numeric_limits<double>::quiet_NaN();
-      
-      current_statement__ = 2;
-      b = in__.template read<local_scalar_t__>();
+      a = in__.template read_constrain_lub<local_scalar_t__, jacobian__>(
+            -1, 1, lp__);
       out__.write(a);
-      out__.write(b);
       if (logical_negation((primitive_value(emit_transformed_parameters__) ||
             primitive_value(emit_generated_quantities__)))) {
         return ;
@@ -266,13 +281,6 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       y_tilde = std::vector<double>(n, std::numeric_limits<double>::quiet_NaN());
       
       
-      current_statement__ = 3;
-      assign(y_tilde,
-        normal_rng(
-          multiply(a,
-            stan::math::cos(
-              multiply(((stan::math::pi() / 180.) * 2), subtract(-45, x)))),
-          dy, base_rng__), "assigning variable y_tilde");
       Eigen::Matrix<double, -1, 1> log_lik;
       log_lik = Eigen::Matrix<double, -1, 1>(n);
       stan::math::fill(log_lik, std::numeric_limits<double>::quiet_NaN());
@@ -281,7 +289,7 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       mu = Eigen::Matrix<double, -1, 1>(n);
       stan::math::fill(mu, std::numeric_limits<double>::quiet_NaN());
       
-      current_statement__ = 6;
+      current_statement__ = 5;
       assign(mu,
         multiply(a,
           stan::math::cos(
@@ -289,11 +297,16 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
         "assigning variable mu");
       current_statement__ = 9;
       for (int k = 1; k <= n; ++k) {
-        current_statement__ = 7;
+        current_statement__ = 6;
         assign(log_lik,
           normal_lpdf<false>(rvalue(y, "y", index_uni(k)),
             rvalue(mu, "mu", index_uni(k)), rvalue(dy, "dy", index_uni(k))),
           "assigning variable log_lik", index_uni(k));
+        current_statement__ = 7;
+        assign(y_tilde,
+          normal_rng(rvalue(mu, "mu", index_uni(k)),
+            rvalue(dy, "dy", index_uni(k)), base_rng__),
+          "assigning variable y_tilde", index_uni(k));
       }
       out__.write(y_tilde);
       out__.write(log_lik);
@@ -324,12 +337,7 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
       a = DUMMY_VAR__;
       
       a = in__.read<local_scalar_t__>();
-      out__.write(a);
-      local_scalar_t__ b;
-      b = DUMMY_VAR__;
-      
-      b = in__.read<local_scalar_t__>();
-      out__.write(b);
+      out__.write_free_lub(-1, 1, a);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -337,14 +345,14 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
     
   inline void get_param_names(std::vector<std::string>& names__) const {
     
-    names__ = std::vector<std::string>{"a", "b", "y_tilde", "log_lik", "mu"};
+    names__ = std::vector<std::string>{"a", "y_tilde", "log_lik", "mu"};
     
     } // get_param_names() 
     
   inline void get_dims(std::vector<std::vector<size_t>>& dimss__) const {
     
     dimss__ = std::vector<std::vector<size_t>>{std::vector<size_t>{},
-      std::vector<size_t>{}, std::vector<size_t>{static_cast<size_t>(n)},
+      std::vector<size_t>{static_cast<size_t>(n)},
       std::vector<size_t>{static_cast<size_t>(n)},
       std::vector<size_t>{static_cast<size_t>(n)}};
     
@@ -357,7 +365,6 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
     final {
     
     param_names__.emplace_back(std::string() + "a");
-    param_names__.emplace_back(std::string() + "b");
     if (emit_transformed_parameters__) {
       
     }
@@ -389,7 +396,6 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
     final {
     
     param_names__.emplace_back(std::string() + "a");
-    param_names__.emplace_back(std::string() + "b");
     if (emit_transformed_parameters__) {
       
     }
@@ -416,13 +422,13 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
     
   inline std::string get_constrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"b\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_tilde\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(n) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n) + "},\"block\":\"generated_quantities\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n) + "},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_tilde\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(n) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n) + "},\"block\":\"generated_quantities\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n) + "},\"block\":\"generated_quantities\"}]");
     
     } // get_constrained_sizedtypes() 
     
   inline std::string get_unconstrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"b\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_tilde\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(n) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n) + "},\"block\":\"generated_quantities\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n) + "},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"a\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"y_tilde\",\"type\":{\"name\":\"array\",\"length\":" + std::to_string(n) + ",\"element_type\":{\"name\":\"real\"}},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n) + "},\"block\":\"generated_quantities\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n) + "},\"block\":\"generated_quantities\"}]");
     
     } // get_unconstrained_sizedtypes() 
     
@@ -435,8 +441,7 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
                             const bool emit_transformed_parameters = true,
                             const bool emit_generated_quantities = true,
                             std::ostream* pstream = nullptr) const {
-      const size_t num_params__ = 
-  (1 + 1);
+      const size_t num_params__ = 1;
       const size_t num_transformed = 0;
       const size_t num_gen_quantities = 
   ((n + n) + n);
@@ -457,8 +462,7 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
                             bool emit_transformed_parameters = true,
                             bool emit_generated_quantities = true,
                             std::ostream* pstream = nullptr) const {
-      const size_t num_params__ = 
-  (1 + 1);
+      const size_t num_params__ = 1;
       const size_t num_transformed = 0;
       const size_t num_gen_quantities = 
   ((n + n) + n);
@@ -497,8 +501,8 @@ class stan_file_model final : public model_base_crtp<stan_file_model> {
                               std::vector<int>& params_i,
                               std::vector<double>& vars,
                               std::ostream* pstream__ = nullptr) const {
-     constexpr std::array<const char*, 2> names__{"a", "b"};
-      const std::array<Eigen::Index, 2> constrain_param_sizes__{1, 1};
+     constexpr std::array<const char*, 1> names__{"a"};
+      const std::array<Eigen::Index, 1> constrain_param_sizes__{1};
       const auto num_constrained_params__ = std::accumulate(
         constrain_param_sizes__.begin(), constrain_param_sizes__.end(), 0);
     
