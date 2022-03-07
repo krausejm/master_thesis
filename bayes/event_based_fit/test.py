@@ -1,3 +1,4 @@
+from mimetypes import init
 import cmdstanpy as sp
 import numpy as np
 from scipy.optimize import curve_fit
@@ -52,8 +53,10 @@ stan_data={
 }
 model=sp.CmdStanModel(stan_file='toyMC_stan.stan')
 model.compile()
-fitobj=model.sample(data=stan_data,iter_sampling=1000)
-#samples=fitobj.draws_pd()
+fitobj=model.sample(data=stan_data,iter_sampling=1000,inits=0)
+samples=fitobj.draws_pd()
+plt.hist(samples['sigma'])
+plt.show()
 #print(samples)
 
 

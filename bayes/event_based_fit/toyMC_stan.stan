@@ -1,6 +1,6 @@
 functions{
 
-real mylpdf(real phi, real pol, real sigma,vector a, vector b){
+real mypdf(real phi, real pol, real sigma,vector a, vector b){
     vector[5] m_a;
     vector[5] m_b;
     //the first coefficients are set!
@@ -23,12 +23,7 @@ real mylpdf(real phi, real pol, real sigma,vector a, vector b){
         cosines[k+1]=cos(k*angle);
     }
     real nnmrtr=nmrtr*(dot_product(sines,m_a)+dot_product(cosines,m_b));
-                        //+m_a[2]*sin(angle)+m_b[2]*cos(angle);
-                        //+m_a[3]*sin(2*phi*pi()/180.)+m_b[3]*cos(2*phi*pi()/180.));
-                        //+m_a[4]*sin(2*phi*pi()/180.)+m_b[4]*cos(2*phi*pi()/180.));
-                        //+m_a[5]*sin(4*phi*pi()/180.)+m_b[5]*cos(4*phi*pi()/180.));
-  
-    return log(nnmrtr/enmrtr);
+    return nnmrtr/enmrtr;
 }
 }
 data {
@@ -50,31 +45,35 @@ parameters {
     //sigma and detector coefficients for signal events
 	real<lower=-1, upper=1> sigma;
 	vector[4] a;
+
     vector[4] b;
+
     //sigma and detector coefficients for bkg events
     real<lower=-1, upper=1> sigma_bkg;
 	vector[4] a_bkg;
+ 
     vector[4] b_bkg;
+
 }
 model{
 
 //loop over prmpt peak events
-//real mu =my_lpdf(phi_prmpt[1]|pol_prmpt[1],sigma,a,b);
 for(k in 1:N){
-    target+=(f*mylpdf(phi_prmpt[k],pol_prmpt[k],sigma,a,b)+(1-f)*mylpdf(phi_prmpt[k],pol_prmpt[k],sigma_bkg,a_bkg,b_bkg));
+    target+=log(f*mypdf(phi_prmpt[k],pol_prmpt[k],sigma,a,b)+(1-f)*mypdf(phi_prmpt[k],pol_prmpt[k],sigma_bkg,a_bkg,b_bkg));
 }
 //loop over sideband events
 for(k in 1:M){
-    target+=mylpdf(phi_side[k],pol_side[k],sigma_bkg,a_bkg,b_bkg);
+    target+=log(mypdf(phi_side[k],pol_side[k],sigma_bkg,a_bkg,b_bkg));
 }
 
 //priors for eff. coefficients, non-informative, broadly around 0
 for(k in 1:4){
-    a[k] ~ normal(0,1);
-    b[k] ~ normal(0,1);
-    a_bkg[k] ~ normal(0,1);
-    b_bkg[k] ~ normal(0,1);
+    a[k]~normal(0,0.1);
+    b[k]~normal(0,0.1);
+    a_bkg[k]~normal(0,0.1);
+    b_bkg[k]~normal(0,0.1);
 }
+//priors for sigma
 sigma ~ normal(0,1) T[-1,1];
 sigma_bkg ~ normal(0,1) T[-1,1];
 }

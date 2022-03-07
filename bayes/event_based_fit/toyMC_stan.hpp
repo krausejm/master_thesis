@@ -19,41 +19,41 @@ using namespace stan::math;
 stan::math::profile_map profiles__;
 static constexpr std::array<const char*, 56> locations_array__ = 
 {" (found before start of program)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 50, column 1 to column 31)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 51, column 1 to column 13)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 52, column 4 to column 16)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 54, column 4 to column 38)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 55, column 1 to column 17)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 56, column 4 to column 20)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 63, column 4 to column 122)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 62, column 13 to line 64, column 1)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 62, column 0 to line 64, column 1)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 67, column 4 to column 66)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 66, column 13 to line 68, column 1)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 66, column 0 to line 68, column 1)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 46, column 1 to column 31)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 47, column 1 to column 13)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 49, column 4 to column 16)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 52, column 4 to column 38)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 53, column 1 to column 17)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 55, column 4 to column 20)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 62, column 4 to column 123)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 61, column 13 to line 63, column 1)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 61, column 0 to line 63, column 1)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 66, column 4 to column 70)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 65, column 13 to line 67, column 1)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 65, column 0 to line 67, column 1)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 71, column 4 to column 23)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 72, column 4 to column 23)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 73, column 4 to column 23)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 73, column 4 to column 27)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 74, column 4 to column 27)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 75, column 4 to column 27)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 71, column 13 to line 76, column 1)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 71, column 0 to line 76, column 1)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 70, column 13 to line 75, column 1)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 70, column 0 to line 75, column 1)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 77, column 25 to column 26)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 77, column 22 to column 24)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 77, column 0 to column 28)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 78, column 29 to column 30)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 78, column 26 to column 28)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 78, column 0 to column 32)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 36, column 1 to column 16)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 37, column 8 to column 9)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 37, column 1 to column 21)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 38, column 8 to column 9)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 38, column 1 to column 21)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 40, column 4 to column 19)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 41, column 11 to column 12)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 41, column 4 to column 23)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 42, column 11 to column 12)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 42, column 4 to column 23)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 44, column 4 to column 28)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 31, column 1 to column 16)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 32, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 32, column 1 to column 21)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 33, column 8 to column 9)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 33, column 1 to column 21)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 35, column 4 to column 19)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 36, column 11 to column 12)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 36, column 4 to column 23)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 37, column 11 to column 12)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 37, column 4 to column 23)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 39, column 4 to column 28)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 4, column 4 to column 18)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 5, column 4 to column 18)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 7, column 4 to column 13)",
@@ -72,16 +72,16 @@ static constexpr std::array<const char*, 56> locations_array__ =
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 21, column 17 to line 24, column 5)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 21, column 4 to line 24, column 5)",
  " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 25, column 4 to column 72)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 31, column 4 to column 30)",
- " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 3, column 62 to line 32, column 1)"};
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 26, column 4 to column 25)",
+ " (in '/home/jakob/Documents/Studium/master_thesis/bayes/event_based_fit/toyMC_stan.stan', line 3, column 61 to line 27, column 1)"};
 
 
 template <typename T0__, typename T1__, typename T2__, typename T3__,
 typename T4__>
 stan::promote_args_t<T0__, T1__, T2__, stan::value_type_t<T3__>,
 stan::value_type_t<T4__>>
-mylpdf(const T0__& phi, const T1__& pol, const T2__& sigma,
-       const T3__& a_arg__, const T4__& b_arg__, std::ostream* pstream__) {
+mypdf(const T0__& phi, const T1__& pol, const T2__& sigma,
+      const T3__& a_arg__, const T4__& b_arg__, std::ostream* pstream__) {
   using local_scalar_t__ = stan::promote_args_t<T0__,
           T1__,
           T2__,
@@ -157,14 +157,14 @@ mylpdf(const T0__& phi, const T1__& pol, const T2__& sigma,
     current_statement__ = 53;
     nnmrtr = (nmrtr * (dot_product(sines, m_a) + dot_product(cosines, m_b)));
     current_statement__ = 54;
-    return stan::math::log((nnmrtr / enmrtr));
+    return (nnmrtr / enmrtr);
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
   }
   
 }
 
-struct mylpdf_functor__ {
+struct mypdf_functor__ {
 template <typename T0__, typename T1__, typename T2__, typename T3__,
 typename T4__>
 stan::promote_args_t<T0__, T1__, T2__, stan::value_type_t<T3__>,
@@ -172,7 +172,7 @@ stan::value_type_t<T4__>>
 operator()(const T0__& phi, const T1__& pol, const T2__& sigma,
            const T3__& a, const T4__& b, std::ostream* pstream__)  const 
 {
-return mylpdf(phi, pol, sigma, a, b, pstream__);
+return mypdf(phi, pol, sigma, a, b, pstream__);
 }
 };
 
@@ -409,37 +409,41 @@ class toyMC_stan_model final : public model_base_crtp<toyMC_stan_model> {
         for (int k = 1; k <= N; ++k) {
           current_statement__ = 7;
           lp_accum__.add(
-            ((f *
-               mylpdf(rvalue(phi_prmpt, "phi_prmpt", index_uni(k)),
-                 rvalue(pol_prmpt, "pol_prmpt", index_uni(k)), sigma, a,
-                 b, pstream__)) +
-              ((1 - f) *
-                mylpdf(rvalue(phi_prmpt, "phi_prmpt", index_uni(k)),
-                  rvalue(pol_prmpt, "pol_prmpt", index_uni(k)), sigma_bkg,
-                  a_bkg, b_bkg, pstream__))));
+            stan::math::log(
+              ((f *
+                 mypdf(rvalue(phi_prmpt, "phi_prmpt", index_uni(k)),
+                   rvalue(pol_prmpt, "pol_prmpt", index_uni(k)), sigma, a,
+                   b, pstream__)) +
+                ((1 - f) *
+                  mypdf(rvalue(phi_prmpt, "phi_prmpt", index_uni(k)),
+                    rvalue(pol_prmpt, "pol_prmpt", index_uni(k)), sigma_bkg,
+                    a_bkg, b_bkg, pstream__)))));
         }
         current_statement__ = 12;
         for (int k = 1; k <= M; ++k) {
           current_statement__ = 10;
           lp_accum__.add(
-            mylpdf(rvalue(phi_side, "phi_side", index_uni(k)),
-              rvalue(pol_side, "pol_side", index_uni(k)), sigma_bkg, a_bkg,
-              b_bkg, pstream__));
+            stan::math::log(
+              mypdf(rvalue(phi_side, "phi_side", index_uni(k)),
+                rvalue(pol_side, "pol_side", index_uni(k)), sigma_bkg, a_bkg,
+                b_bkg, pstream__)));
         }
         current_statement__ = 18;
         for (int k = 1; k <= 4; ++k) {
           current_statement__ = 13;
           lp_accum__.add(
-            normal_lpdf<propto__>(rvalue(a, "a", index_uni(k)), 0, 1));
+            normal_lpdf<propto__>(rvalue(a, "a", index_uni(k)), 0, 0.1));
           current_statement__ = 14;
           lp_accum__.add(
-            normal_lpdf<propto__>(rvalue(b, "b", index_uni(k)), 0, 1));
+            normal_lpdf<propto__>(rvalue(b, "b", index_uni(k)), 0, 0.1));
           current_statement__ = 15;
           lp_accum__.add(
-            normal_lpdf<propto__>(rvalue(a_bkg, "a_bkg", index_uni(k)), 0, 1));
+            normal_lpdf<propto__>(rvalue(a_bkg, "a_bkg", index_uni(k)), 0,
+              0.1));
           current_statement__ = 16;
           lp_accum__.add(
-            normal_lpdf<propto__>(rvalue(b_bkg, "b_bkg", index_uni(k)), 0, 1));
+            normal_lpdf<propto__>(rvalue(b_bkg, "b_bkg", index_uni(k)), 0,
+              0.1));
         }
         current_statement__ = 20;
         if (logical_lt(sigma, -1)) {

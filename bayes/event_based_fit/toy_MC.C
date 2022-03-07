@@ -13,7 +13,7 @@ class pdfObject{
             a[i]=p[i+1];
             b[i]=p[i+6];
         }
-        Double_t nmrtr=1-1./2.*a[2]*m_p_gamma;
+        Double_t nmrtr=1-1./2.*a[2]*m_p_gamma*sigma;
         Double_t enmrtr=1+m_p_gamma*sigma*TMath::Cos(2*(-45-x[0])*TMath::Pi()/180.);
         Double_t acc_sum=0;
         for(int i=0;i<=4;i++){

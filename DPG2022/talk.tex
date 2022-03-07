@@ -1,0 +1,84 @@
+\documentclass[11pt,aspectratio=169,dvipsnames]{beamer}
+\graphicspath{{figs/}}
+\usetheme{default}
+\usepackage{DasBeamerPaket}
+\usepackage{animate}
+\usepackage{lastpage}
+\usepackage{tikz}
+\setbeamercolor{section in toc}{fg=NavyBlue}
+\setbeamercolor{frametitle}{fg=NavyBlue}
+\captionsetup[figure]{labelfont=bf}
+\captionsetup[table]{labelfont=bf}
+\newcommand{\theauthor}{Jakob Krause}
+\newcommand{\theshortauthor}{J. Krause}
+\newcommand{\authormail}{krause@hiskp.uni-bonn.de}
+\newcommand{\authorgit}{krausejm}
+\newcommand{\thetitle}{Recent Polarization Observable Results in  $\eta$- and $\eta'$-photoproduction off the proton}
+\newcommand{\thecolor}{black!70!blue}
+\newcommand{\thesubtitle}{Master thesis for the CBELSA/TAPS collaboration}
+\newcommand{\thedate}{30th March 2022}
+\begin{document}
+	\definecolor{myWhite}{rgb}{1,1,1}
+	\setbeamertemplate{footline}[text line]{\parbox{\linewidth}{\vspace*{-9pt}\textcolor{white}{\textsc{\theshortauthor}  \hfill\thetitle\hfill}\textcolor{myWhite}{\insertpagenumber/\pageref{LastPage}}}}
+	\addtobeamertemplate{footline}{ \makebox[0pt][l]{\hspace{-1cm}
+			\raisebox{0cm}[0pt][0pt]{\colorbox{\thecolor}{\phantom{{\large TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT}}}}}}
+	
+	\setbeamercovered{transparent}
+	\setbeamertemplate{navigation symbols}{}
+	\setbeamertemplate{frametitle}[default][left,leftskip=0.5cm]
+	\setbeamertemplate{itemize item}{\color{black}$\blacktriangleright$}
+	\setbeamertemplate{section in toc}[sections numbered]
+	\setbeamercolor{section in toc}{fg=\thecolor}
+	\setbeamercolor{frametitle}{fg=\thecolor}
+	\captionsetup{font=scriptsize,labelfont=scriptsize}
+	\AtBeginSection[]
+	{	
+		\definecolor{myWhite}{rgb}{0,0,0}
+		\begin{frame}[noframenumbering]
+			\frametitle{}
+			\addtocounter{page}{-1}
+			\tableofcontents[currentsection]
+			
+		\end{frame}
+		\definecolor{myWhite}{rgb}{1,1,1}
+	}
+	\begin{frame}[plain]
+		\setcounter{page}{0}
+		\centering
+		{\Large \color{\thecolor}{\thetitle}}\\
+		\vspace{0.5cm}
+		{\thesubtitle}
+		\vfill
+		\begin{minipage}{\linewidth}
+			\centering
+			\begin{minipage}{\linewidth}
+				\centering
+				\textsc{\theauthor}\\
+				\scriptsize \href{mailto:\authormail}{\faEnvelope  \hspace*{0.1cm}\authormail} {\color{black}$|$} \href{https://github.com/\authorgit}{\faGithub  \hspace*{0.1cm}\authorgit}\\
+			\end{minipage}
+			\vspace{.5cm}
+			
+			{\scriptsize
+				Supervisor: \textsc{Jun. Prof. Dr. Annika Thiel}\\
+				\tiny \href{mailto:thiel@hiskp.uni-bonn.de}{\faEnvelope  \hspace*{0.1cm}thiel@hiskp.uni-bonn.de}\par}
+		\end{minipage}
+		\vspace{0.2cm}
+		
+		\thedate
+	\end{frame}
+	
+\begin{frame}
+	\tableofcontents
+\end{frame}
+\section{Introduction}
+
+\section{Experimental Setup}
+
+\section{(Preliminary) Results}
+
+\section{Conclusion}
+
+
+
+
+\end{document}
