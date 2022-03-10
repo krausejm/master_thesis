@@ -131,6 +131,11 @@ $\rightarrow$ Polarization Observables
 			\end{flushright}
 		\end{tcolorbox}
 	\end{itemize}
+\begin{figure}
+	\centering
+	\includegraphics[width=.8\linewidth]{angles.pdf}
+	\caption*{Definition of the polarization angle}
+\end{figure}
 \end{frame}
 \section{Experimental Setup}
 \begin{frame}{Experimental setup}
@@ -151,10 +156,11 @@ $\rightarrow$ Polarization Observables
 
 \end{frame}
 
-\section{(Preliminary) results}
-\begin{frame}{(Preliminary) results}
-	\begin{minipage}{0.49\linewidth}
+\section{Preliminary results}
+\begin{frame}{Preliminary results}
+
 \begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta'$)}]
+	\begin{minipage}{0.49\linewidth}
 	analysis performed in 2x6 bins of $(E_\gamma,\cos\theta_{\eta'}^\text{CMS})$, $E_\gamma\in[1400,1800]$ MeV
 	\begin{itemize}
 		
@@ -163,24 +169,54 @@ $\rightarrow$ Polarization Observables
 		\item kinematic cuts derived from energy-momentum conservation $p_\gamma + p_p = p_p'+p_{\eta'}$
 		\item additional cuts to reduce background contributions
 	\end{itemize}
-	
-\end{tcolorbox}
+		\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.05\linewidth]{figs/inv_mass_bin.pdf}
+		\end{figure}
 	\end{minipage}
-\begin{minipage}{.5\linewidth}
-	one bin of inv. mass or global
-\end{minipage}
+\end{tcolorbox}
+
+
 
 \end{frame}
 
 
-\begin{frame}{(Preliminary) results}
+\begin{frame}{Preliminary results ($\eta'$)}
 \begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Method}]
 	\begin{itemize}
 		\item measure in 2 distinct orthogonal polarization settings $\bot,\parallel$
-		\item event yield asymmetries $A(\phi)=\frac{N^\bot-N^\parallel}{p_\gamma^\parallel N^\bot + p_\gamma^\bot N^\parallel}=\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)$
+		\item $\chi^2$-fit to event yield asymmetries $A(E_\gamma,\theta,\phi)=\frac{N^\bot(E_\gamma,\theta,\phi)-N^\parallel(E_\gamma,\theta,\phi)}{p_\gamma^\parallel N^\bot(E_\gamma,\theta,\phi) + p_\gamma^\bot N^\parallel(E_\gamma,\theta,\phi)}=\Sigma(E_\gamma,\theta)\cos\left(2\left(\alpha^\parallel-\phi\right)\right)$
 		%\item unbinned fit $\mathcal{L}\propto\prod_i\left[ 1\mp p_{\gamma_i}^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi_i\right)\right)\right]\cdot\epsilon(\phi_i)$
 	\end{itemize}
 \end{tcolorbox}
+\begin{figure}
+	%\includegraphics[width=.49\linewidth]{}
+	\centering
+	\emph{plot of event yield asymmetries and sigma}
+\end{figure}
+\end{frame}
+\begin{frame}{Preliminary results ($\eta$)}
+	\begin{minipage}{.49\linewidth}
+\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta$)}]
+	analysis performed in 11x12 bins of $(E_\gamma,\cos\theta)$ by \textsc{Farah Afzal} \emph{cite Farahs Paper}
+\end{tcolorbox}
+	\end{minipage}
+	\begin{minipage}{.49\linewidth}
+\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Method}]
+	\begin{itemize}
+		\item fit to event yield asymmetries using \textsc{bayesian} inference
+		\item $p(\theta|y)\propto\mathcal{L}(\theta,y)\cdot\pi(\theta)$, obtained using \textsc{Markov}-Chain-\textsc{Monte-Carlo} (MCMC)
+	\end{itemize}
+\end{tcolorbox}
+	\end{minipage}
+	
+	\begin{figure}
+		\centering
+		%\includegraphics[width=.49\linewidth]{}
+		\emph{plot of eta sigma}
+	\end{figure}
 \end{frame}
 
 

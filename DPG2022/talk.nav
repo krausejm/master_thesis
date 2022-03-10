@@ -51,7 +51,7 @@
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@subsectionpages {6}{6}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\sectionentry {3}{(Preliminary) results}{7}{(Preliminary) results}{0}}
+\headcommand {\sectionentry {3}{Preliminary results}{7}{Preliminary results}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\slideentry {3}{0}{1}{7/7}{}{0}}
 \defcounter {refsection}{0}\relax 
@@ -65,17 +65,21 @@
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {8}{8}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@sectionpages {7}{8}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionpages {7}{8}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\sectionentry {4}{Conclusion}{9}{Conclusion}{0}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {4}{0}{1}{9/9}{}{0}}
+\headcommand {\slideentry {3}{0}{4}{9/9}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@partpages {1}{8}}
-\headcommand {\beamer@subsectionpages {9}{8}}
-\headcommand {\beamer@sectionpages {9}{8}}
-\headcommand {\beamer@documentpages {8}}
-\headcommand {\gdef \inserttotalframenumber {9}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {7}{9}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {7}{9}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {4}{Conclusion}{10}{Conclusion}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {4}{0}{1}{10/10}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@partpages {1}{9}}
+\headcommand {\beamer@subsectionpages {10}{9}}
+\headcommand {\beamer@sectionpages {10}{9}}
+\headcommand {\beamer@documentpages {9}}
+\headcommand {\gdef \inserttotalframenumber {10}}
