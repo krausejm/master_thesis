@@ -4,6 +4,7 @@
 \usepackage{DasBeamerPaket}
 \usepackage{animate}
 \usepackage{lastpage}
+\usepackage{braket}
 \usepackage{tikz}
 \setbeamercolor{section in toc}{fg=NavyBlue}
 \setbeamercolor{frametitle}{fg=NavyBlue}
@@ -14,12 +15,13 @@
 \newcommand{\authormail}{krause@hiskp.uni-bonn.de}
 \newcommand{\authorgit}{krausejm}
 \newcommand{\thetitle}{Recent Polarization Observable Results in  $\eta$- and $\eta'$-photoproduction off the proton}
+\newcommand{\theshorttitle}{$\Sigma$ in $\eta$- and $\eta'$ photoproduction}
 \newcommand{\thecolor}{black!70!blue}
 \newcommand{\thesubtitle}{Master thesis for the CBELSA/TAPS collaboration}
 \newcommand{\thedate}{30th March 2022}
 \begin{document}
 	\definecolor{myWhite}{rgb}{1,1,1}
-	\setbeamertemplate{footline}[text line]{\parbox{\linewidth}{\vspace*{-9pt}\textcolor{white}{\textsc{\theshortauthor}  \hfill\thetitle\hfill}\textcolor{myWhite}{\insertpagenumber/\pageref{LastPage}}}}
+	\setbeamertemplate{footline}[text line]{\parbox{\linewidth}{\vspace*{-9pt}\textcolor{white}{\textsc{\theshortauthor} for CBELSA/TAPS  \hfill\theshorttitle\hfill}\textcolor{myWhite}{\insertpagenumber/\pageref{LastPage}}}}
 	\addtobeamertemplate{footline}{ \makebox[0pt][l]{\hspace{-1cm}
 			\raisebox{0cm}[0pt][0pt]{\colorbox{\thecolor}{\phantom{{\large TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT}}}}}}
 	
@@ -66,15 +68,121 @@
 		
 		\thedate
 	\end{frame}
+
+
+	\begin{frame}{Setting the scene}
+		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=The Standard Model of Particle Physics]
+			\begin{itemize}
+				\item matter consists of 12 (anti-)\emph{fermions}
+				\item quarks interact via \emph{strong interaction} 
+				\item form bound states: mesons ($q\bar{q}$) and baryons ($qqq$)
+			\end{itemize} 
+		\end{tcolorbox}
+	baryon spectroscopy (photoproduction) gives insight in strong interaction
+	\begin{center}
+			\includegraphics[width=.6\linewidth]{feynman}
+	\end{center}
+
+
 	
+	
+\end{frame}
+\begin{frame}{Setting the scene}
+	Observe resonances $R^*$ in the cross sections $\sigma(\gamma p \to R^* \to p M)$
+	\vspace{-0.8cm}
+	\begin{figure}
+		\centering
+		\includegraphics[width=.5\linewidth]{partialwaves}
+		\caption*{Total cross section $\sigma(\gamma p \to R^*\to p \pi^0)$ \citef{wuafzth}}
+	\end{figure}
+$\to$goal: (help to) identify contributing resonances as strong bound states!\\
+\end{frame}
 \begin{frame}
 	\tableofcontents
 \end{frame}
-\section{Introduction}
+\section{Theoretical Basics}
+\begin{frame}{Theoretical Basics}
+\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=Unpolarized differential cross section]
 
+		$$\frac{\text{d}\sigma}{\text{d}\Omega}=\frac{1}{4}\rho\sum_{\text{spins}}|\braket{f|\mathcal{F}|i}|^2\\,$$
+		where
+		$$\mathcal{F}=i(\vec{\sigma}\cdot\vec{\epsilon})F_1+(\vec{\sigma}\cdot\hat{q})(\vec{\sigma}\cdot(\hat{k}\times\vec{\epsilon}))F_2+i(\vec{\sigma}\cdot\hat{k})(\hat{q}\cdot\vec{\epsilon})F_3+i(\vec{\sigma}\cdot\hat{q})(\hat{q}\cdot\vec{\epsilon})F_4$$
+		\begin{flushright}
+			$F_i:$ complex CGLN Amplitudes
+		\end{flushright}
+
+	
+	\begin{flushright}
+		{\scriptsize[\cite{cgln}]}
+	\end{flushright}
+\end{tcolorbox}
+$\frac{\text{d}\sigma}{\text{d}\Omega}\in\mathbb{R}$, not sufficient do determine $\mathcal{F}$ unambiguously\\
+$\rightarrow$ Polarization Observables
+\end{frame}
+\begin{frame}{Theoretical Basics}
+	\begin{itemize}
+		\item resonances are broad, overlapping, require sophisticated analysis (PWA)
+		\item constraints feeding the analysis can be derived from Polarization observables
+		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=Beam asymmetry $\boldsymbol{\Sigma}$]
+			$$\frac{\text{d}\sigma}{\text{d}\Omega}(\varphi)=\frac{\text{d}\sigma}{\text{d}\Omega}_0\left[1-p_\gamma^{\text{lin}}\boldsymbol{\Sigma}\cos(2\varphi)\right]$$
+			polarization angle $\varphi$, polarization degree $p_\gamma^{\text{lin}}$
+			\begin{flushright}
+				{\scriptsize[\cite{san}]}
+			\end{flushright}
+		\end{tcolorbox}
+	\end{itemize}
+\end{frame}
 \section{Experimental Setup}
+\begin{frame}{Experimental setup}
+	\begin{minipage}{.3\linewidth}
+			\begin{itemize}
+			\item generate photon beam from accelerated electrons via bremsstrahlung, with $E_\gamma\leq\SI{3.2}{\giga\eV}$ 
+			\item photon beam impinges on liquid butanol target: $\gamma p \to p M\to p X$
+			\item measure decay products $X$ of different final states: $M=\pi^0/\eta/\eta'/\dots$
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{.69\linewidth}
+			\begin{figure}
+			\centering
+			\includegraphics[width=.9\linewidth]{CB-Area}
+			\caption*{Overview of the experimental area, adapted from \citef{cb}}
+		\end{figure}
+	\end{minipage}
 
-\section{(Preliminary) Results}
+\end{frame}
+
+\section{(Preliminary) results}
+\begin{frame}{(Preliminary) results}
+	\begin{minipage}{0.49\linewidth}
+\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta'$)}]
+	analysis performed in 2x6 bins of $(E_\gamma,\cos\theta_{\eta'}^\text{CMS})$, $E_\gamma\in[1400,1800]$ MeV
+	\begin{itemize}
+		
+		\item 3 detector hits, 2 uncharged, 1 charged
+		\item coincident detector hits
+		\item kinematic cuts derived from energy-momentum conservation $p_\gamma + p_p = p_p'+p_{\eta'}$
+		\item additional cuts to reduce background contributions
+	\end{itemize}
+	
+\end{tcolorbox}
+	\end{minipage}
+\begin{minipage}{.5\linewidth}
+	one bin of inv. mass or global
+\end{minipage}
+
+\end{frame}
+
+
+\begin{frame}{(Preliminary) results}
+\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Method}]
+	\begin{itemize}
+		\item measure in 2 distinct orthogonal polarization settings $\bot,\parallel$
+		\item event yield asymmetries $A(\phi)=\frac{N^\bot-N^\parallel}{p_\gamma^\parallel N^\bot + p_\gamma^\bot N^\parallel}=\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)$
+		%\item unbinned fit $\mathcal{L}\propto\prod_i\left[ 1\mp p_{\gamma_i}^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi_i\right)\right)\right]\cdot\epsilon(\phi_i)$
+	\end{itemize}
+\end{tcolorbox}
+\end{frame}
+
 
 \section{Conclusion}
 
