@@ -1,7 +1,0 @@
-to do: cut on p detector for E_gamma<1500 (in MT)
-<1500: p in mT
-1500-1600 nix
-1600-1700 p in FW/MT
-1700-1800 p in FW/MT
-E_g1<1500 (94% eta' vs. 82% 2pi0 vs. 88% pi0eta5%1)
-2 photonen gehen verloren mit kleiner (<50 MeV) energie
