@@ -64,7 +64,8 @@
 	
 
 	
-	\begin{frame}[plain]
+	\begin{frame}[plain,noframenumbering]
+
 		\centering
 		{\Large \color{\thecolor}{\thetitle}}\\
 		\vspace{0.5cm}
@@ -90,7 +91,7 @@
 
 
 	\begin{frame}{Setting the scene}
-			\addtocounter{page}{-1}
+					\setcounter{page}{1}
 		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=The Standard Model of Particle Physics]
 			\begin{itemize}
 				\item matter consists of 12 (anti-)\emph{fermions}
@@ -108,12 +109,12 @@
 	
 \end{frame}
 \begin{frame}{Setting the scene}
-	Observe resonances $R^*$ in the cross sections $\sigma(\gamma p \to R^* \to p M)$
+	Observe resonances $N^*/\Delta^*$ in the cross sections $\sigma(\gamma p\to p M)$
 	\vspace{-0.8cm}
 	\begin{figure}
 		\centering
 		\includegraphics[width=.5\linewidth]{partialwaves}
-		\caption*{Total cross section $\sigma(\gamma p \to R^*\to p \pi^0)$ \citef{wuafzth}}
+		\caption*{Total cross section $\sigma(\gamma p\to p \pi^0)$ \citef{wuafzth}}
 	\end{figure}
 $\to$goal: (help to) identify contributing resonances as strong bound states!\\
 \end{frame}
@@ -163,7 +164,7 @@ $\to$goal: (help to) identify contributing resonances as strong bound states!\\
 
 
 		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=Beam asymmetry $\boldsymbol{\Sigma}$]
-			$$\frac{\text{d}\sigma}{\text{d}\Omega}(\varphi)=\frac{\text{d}\sigma}{\text{d}\Omega}_0\left[1-p_\gamma^{\text{lin}}\boldsymbol{\Sigma}\cos(2\varphi)\right]$$
+			$$\frac{\text{d}\sigma}{\text{d}\Omega}(E_\gamma,\cos\theta,\varphi)=\frac{\text{d}\sigma}{\text{d}\Omega}_0(E_\gamma,\cos\theta)\cdot\left[1-p_\gamma^{\text{lin}}\boldsymbol{\Sigma}\cos(2\varphi)\right]$$
 		polarization angle $\varphi$, polarization degree $p_\gamma^{\text{lin}}$
 			\begin{flushright}
 				{\scriptsize[\cite{san}]}
@@ -177,13 +178,14 @@ $\to$goal: (help to) identify contributing resonances as strong bound states!\\
 \end{figure}
 \end{frame}
 \section{Experimental Setup}
-\begin{frame}{Experimental setup}
+\begin{frame}{CBELSA/TAPS experiment}
 	\begin{minipage}{.3\linewidth}
 	{\small
 			\begin{itemize}
 			\item generate photon beam from accelerated electrons via bremsstrahlung, with $E_\gamma\leq\SI{3.2}{\giga\eV}$ 
-			\item photon beam impinges on frozen hydrogen target: $\gamma p \to p M\to p X$
+			\item photon beam impinges on liquid hydrogen target: $\gamma p \to p M\to p X$
 			\item measure decay products $X$ of different final states: $M=\pi^0/\eta/\eta'/\dots$
+			\item data set: July-October 2013, 1065 h beam time
 		\end{itemize}
 	}
 	\end{minipage}
@@ -198,11 +200,11 @@ $\to$goal: (help to) identify contributing resonances as strong bound states!\\
 \end{frame}
 
 \section{Preliminary results}
-\begin{frame}{Event selection ($\eta'$)}
+\begin{frame}{Event selection of the $\eta'\to\gamma\gamma$ final state}
 
 
 	\begin{minipage}{0.49\linewidth}
-	analysis performed in 2x6 bins of $(E_\gamma,\cos\theta_{\eta'}^\text{CMS})$, $E_\gamma\in[1400,1800]$ MeV
+	Analysis performed in 2x6 bins of $(E_\gamma,\cos\theta_{\eta'}^\text{CMS})$, $E_\gamma\in[1400,1800]$ MeV
 	\begin{itemize}
 		
 		\item 3 detector hits, 2 uncharged, 1 charged
@@ -225,7 +227,7 @@ total: $\sim 11000$ $\eta'\to\gamma\gamma$ events
 \end{frame}
 
 
-\begin{frame}{Method ($\eta'$)}
+\begin{frame}{Extraction method for $\Sigma_{\eta'}$}
 
 	\begin{itemize}
 		\item measure in 2 distinct orthogonal polarization settings $\bot,\parallel$
@@ -233,7 +235,7 @@ total: $\sim 11000$ $\eta'\to\gamma\gamma$ events
 		%\item unbinned fit $\mathcal{L}\propto\prod_i\left[ 1\mp p_{\gamma_i}^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi_i\right)\right)\right]\cdot\epsilon(\phi_i)$
 		\item fit from $\sim 800$ $\eta'\to\gamma\gamma$ events
 	\end{itemize}
-\vspace{-0.5cm}
+\vspace{-0.1cm}
 \begin{figure}
 	\centering
 	\includegraphics[width=.66\linewidth]{asym_bin}
@@ -241,14 +243,22 @@ total: $\sim 11000$ $\eta'\to\gamma\gamma$ events
 
 
 \end{frame}
-\begin{frame}{Preliminary results ($\eta'$)}
+
+
+
+
+
+\begin{frame}{Preliminary results for $\Sigma_{\eta'}$}
 	\begin{figure}
 		\centering
-		\includegraphics[width=.8\linewidth]{sigma}
-		\caption*{Beam asymmetry $\Sigma$ for all energy and angular bins}
+		\includegraphics[width=.99\linewidth]{sigma}
+		\caption*{Beam asymmetry $\Sigma_{\eta'}$ for all energy and angle bins, compared with results of \cites{clas}}
 	\end{figure}
 \end{frame}
 
+\begin{frame}{Confirming pre-published results of $\Sigma_\eta$}
+	
+\end{frame}
 
 \begin{frame}{Preliminary results ($\eta$)}
 	\begin{minipage}{\linewidth}
@@ -260,19 +270,37 @@ total: $\sim 11000$ $\eta'\to\gamma\gamma$ events
 \begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Method}]
 	\begin{itemize}
 		\item fit to event yield asymmetries using \textsc{bayesian} inference
-		\item $p(\theta|y)\propto\mathcal{L}(\theta,y)\cdot\pi(\theta)$, obtained using \textsc{Markov}-chain-Monte-Carlo (MCMC)
+		\item \textsc{Bayes'} theorem: $p(\theta|y)\propto\mathcal{L}(y|\theta)\cdot\pi(\theta)$
+		\begin{itemize}
+			\item \emph{marginal posteriors:} $p(\theta_j|y)=\prod_{i\neq j}\int\text{d}\theta_i p(\theta|y)$
+			\item obtained using \textsc{Markov}-chain-Monte-Carlo (MCMC)
+
+		\end{itemize} 
 	\end{itemize}
+\begin{flushright}
+	sampling algorithms: STAN \includegraphics[width=.1\linewidth]{figs/logo-tm.png}\\
+	\cites{stan}
+\end{flushright}
 \end{tcolorbox}
-	\end{minipage}
+(marginal) posteriors $p(\Sigma|y)$ $\leftrightarrow$ $\Sigma_{\chi^2}\pm\Delta(\Sigma_{\chi^2})$
+\end{minipage}
 	
 
 \end{frame}
 \begin{frame}{Preliminary results ($\eta$)}
 	\begin{figure}
 		\centering
-		\includegraphics[width=.8\linewidth]{../bayes/realdeal/sigma_eta_alt.pdf}
+		\includegraphics[width=.79\linewidth]{../bayes/realdeal/sigma_eta_alt.pdf}
 		\caption*{Beam asymmetry $\Sigma$ for all energy and angle bins}
 	\end{figure}
+\end{frame}
+\begin{frame}{Preliminary results ($\eta$)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{sigma_eta_bin.pdf}
+		\caption*{Beam asymmetry $\Sigma$ for one energy and all angle bins}
+	\end{figure}
+Additional advantage: sample only in physically allowed parameter space
 \end{frame}
 
 
@@ -306,10 +334,7 @@ total: $\sim 11000$ $\eta'\to\gamma\gamma$ events
 	\LARGE
 	\color{\thecolor}\textsc{Backup \& References}
 \end{frame}
-\begin{frame}[allowframebreaks]{References}
-	    \printbibliography
-	
-\end{frame}
+
 \begin{frame}{Additional theoretical basics}
 	\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=Unpolarized differential cross section]
 		
@@ -328,6 +353,44 @@ total: $\sim 11000$ $\eta'\to\gamma\gamma$ events
 	$\frac{\text{d}\sigma}{\text{d}\Omega}\in\mathbb{R}$, not sufficient do determine $\mathcal{F}$ unambiguously\\
 	$\rightarrow$ Polarization Observables can be related to $F_i$
 \end{frame}
+\begin{frame}{Background estimation using Monte-Carlo simulations}
+	\centering
+	\includegraphics[width=.8\linewidth]{figs/inv_mass_bin.pdf}\vspace{-0.5cm}\\
+	bkg contamination $\sim 27\%$
+\end{frame}
+\begin{frame}{Background estimation using Monte-Carlo simulations}
+	$2\pi^0/\pi^0\eta$ events pass event selection, because $E_{\gamma_{i}}\lesssim 20$ MeV, or $\theta_{\gamma_{i}}\approx\theta_{\gamma_{j}}$ 
+	\begin{minipage}{.4\linewidth}
+			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Background reducing cuts}]
+				\begin{itemize}
+					\item $p$ in MT for $E_\gamma<1500$ MeV
+					\item $E_{\gamma_{i}}<1500$ MeV
+					\item 1 PED/Cluster for $\gamma_i$
+					\item Clustersize$(p)<6$
+					\item Clustersize($\gamma_{i}$) in FW
+				\end{itemize}
+			\end{tcolorbox}
+		\end{minipage}
+		\begin{minipage}{.59\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{inv_mass_bin_cuts}\\
+			bkg contamination $\sim 13\%$
+		\end{minipage}
+		
+	\end{frame}
+\begin{frame}{Diagnostics of a \textsc{bayesian} fit}
+\begin{itemize}
+	\item $\hat{R}$: measure of convergence for chains
+	\item Monte-Carlo-Standard-Error: measure for adequate sample size
+	\item \emph{posterior predictive checks}: "goodness of fit"\\
 
+\end{itemize}
+\centering
+	\includegraphics[width=.85\linewidth]{../bayes/realdeal/ppd_checks_alt/ebin6costbin1.pdf}
+\end{frame}
+\begin{frame}[allowframebreaks]{References}
+	\printbibliography
+	
+\end{frame}
 
 \end{document}
