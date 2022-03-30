@@ -9,6 +9,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{tikz}
+\usepackage{eso-pic}
 \setbeamercolor{section in toc}{fg=NavyBlue}
 \setbeamercolor{frametitle}{fg=NavyBlue}
 \captionsetup[figure]{labelfont=bf}
@@ -27,6 +28,7 @@
 	\makeatletter
 \patchcmd{\beamer@calculateheadfoot}{\advance\footheight by 4pt}{\advance\footheight by 20pt}{}{}
 \makeatother
+
 \begin{document}
 	\definecolor{myWhite}{rgb}{1,1,1}
 
@@ -34,6 +36,8 @@
 	\setbeamercolor{coloredboxstuff}{fg=myWhite,bg=\thecolor}
 	\setbeamercolor{coloredboxstuff1}{fg=myWhite,bg=\thecolorr}
 	\setbeamercolor{coloredboxstuff2}{fg=myWhite,bg=\thecolorrr}	
+
+	
 	\makeatother
 	\setbeamertemplate{footline}
 	{
@@ -65,7 +69,9 @@
 
 	
 	\begin{frame}[plain,noframenumbering]
-
+		\begin{tikzpicture}[remember picture,overlay]
+			\node[anchor= north east] at (current page.north east) {\includegraphics[width=2.5cm]{logo}};
+		\end{tikzpicture}
 		\centering
 		{\Large \color{\thecolor}{\thetitle}}\\
 		\vspace{0.5cm}
@@ -110,7 +116,7 @@
 \end{frame}
 \begin{frame}{Setting the scene}
 	Observe resonances $N^*/\Delta^*$ in the cross sections $\sigma(\gamma p\to p M)$
-	\vspace{-0.8cm}
+	\vspace{-0.5cm}
 	\begin{figure}
 		\centering
 		\includegraphics[width=.5\linewidth]{partialwaves}
@@ -257,10 +263,39 @@ total: $\sim 11000$ $\eta'\to\gamma\gamma$ events
 \end{frame}
 
 \begin{frame}{Confirming pre-published results of $\Sigma_\eta$}
+	\begin{itemize}
+		\item Polarization observables are needed for different final states ($\pi^0,{\color{red}\eta},\eta',\dots$)
+		\item results for $\eta$ have already been published {\cites{eta}}
+		\item goal: confirm results using different fitting method
+	\end{itemize}
 	
 \end{frame}
-
-\begin{frame}{Preliminary results ($\eta$)}
+\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
+	
+	\begin{minipage}{\linewidth}
+		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta$)}]
+			analysis performed in 11x12 bins of $(E_\gamma,\cos\theta)$ by {\cites{eta}}
+		\end{tcolorbox}
+	\end{minipage}
+	\begin{minipage}{\linewidth}
+		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Method}]
+			\begin{itemize}
+				\item fit to event yield asymmetries using \textsc{bayesian} inference
+				\item \textsc{Bayes'} theorem: $p(\theta|y)\propto\mathcal{L}(y|\theta)\cdot\pi(\theta)$
+				\begin{itemize}
+					\item \emph{marginal posteriors:} $p(\theta_j|y)=\prod_{i\neq j}\int\text{d}\theta_i p(\theta|y)$
+					\item obtained using \textsc{Markov}-chain-Monte-Carlo (MCMC)
+					
+				\end{itemize} 
+			\end{itemize}
+			\begin{flushright}
+				sampling algorithms: STAN \includegraphics[width=.1\linewidth]{figs/logo-tm.png}\\
+				\cites{stan}
+			\end{flushright}
+		\end{tcolorbox}
+	\end{minipage}
+\end{frame}
+\begin{frame}[noframenumbering]{Confirming pre-published results for $\Sigma_\eta$}
 	\begin{minipage}{\linewidth}
 \begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta$)}]
 	analysis performed in 11x12 bins of $(E_\gamma,\cos\theta)$ by \cites{eta}
@@ -282,19 +317,24 @@ total: $\sim 11000$ $\eta'\to\gamma\gamma$ events
 	\cites{stan}
 \end{flushright}
 \end{tcolorbox}
-(marginal) posteriors $p(\Sigma|y)$ $\leftrightarrow$ $\Sigma_{\chi^2}\pm\Delta(\Sigma_{\chi^2})$
 \end{minipage}
-	
 
+\AddToShipoutPictureFG*{%
+	\begin{tikzpicture}[remember picture,overlay]
+		\node at (current page.center) {\includegraphics[width=.8\linewidth]{box.pdf}};
+	\end{tikzpicture}
+}
 \end{frame}
-\begin{frame}{Preliminary results ($\eta$)}
+
+
+\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
 	\begin{figure}
 		\centering
 		\includegraphics[width=.79\linewidth]{../bayes/realdeal/sigma_eta_alt.pdf}
 		\caption*{Beam asymmetry $\Sigma$ for all energy and angle bins}
 	\end{figure}
 \end{frame}
-\begin{frame}{Preliminary results ($\eta$)}
+\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{sigma_eta_bin.pdf}
