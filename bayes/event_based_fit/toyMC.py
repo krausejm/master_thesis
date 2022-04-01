@@ -10,7 +10,7 @@ import matplotlib.patches as mpatches
 import seaborn as sns
 import arviz as az
 import scipy.stats as stats
-import ROOT as r
+#import ROOT as r
 import time
 import arviz as az
 
@@ -27,13 +27,13 @@ plt.rcParams['grid.color']='black'
 plt.rcParams['axes.prop_cycle'] = cycler(color=['black', 'red', 'blue', 'green'])
 
 
-def fit(nsamples,nbins):
-    cols=[f'toybin{i:02d}' for i in range(nbins)]
+def fit(nsamples,nbins,start): #define starting index
+    cols=[f'toybin{i:04d}' for i in range(start,start+nbins)]
     diagnostics_df=pd.DataFrame(columns=cols,index=['sigma_median','mcse','rhat'])
     sigma_df=pd.DataFrame(columns=cols)
-    for i in range(nbins):#no. of toy bins
+    for i in range(start,start+nbins):#no. of toy bins
         #read data
-        df=pd.read_csv(f"toybins/toybin{i:02d}.txt",sep="\t")
+        df=pd.read_csv(f"toybins/toybin{i:04d}.txt",sep="\t")
         #df=pd.read_csv(f"new_toy_MC.txt",sep="\t")
         df.columns=['pol','phi','weight']
         #these are prompt peak events
@@ -73,13 +73,13 @@ def fit(nsamples,nbins):
         mcse=(az.mcse(np.transpose(fitobj.draws(concat_chains=False)[:,:,7]),method='median'))
         rhat=(summary['R_hat']['sigma'])
         tmp_list=[median,mcse,rhat]
-        currbin=f"toybin{i:02d}"
+        currbin=f"toybin{i:04d}"
         diagnostics_df[currbin]=tmp_list
         sigma_df[currbin]=samples['sigma']
     return diagnostics_df, sigma_df, summary
 
-dfs=fit(nsamples=1000,nbins=100)
+dfs=fit(nsamples=1000,nbins=100,start=100)
 diagnostics=dfs[0]
 sigma=dfs[1]
-diagnostics.to_csv('toy_diagnostics.csv')
-sigma.to_csv('toy_sigma.csv')
+diagnostics.to_csv('toy_diagnostics_01.csv')
+sigma.to_csv('toy_sigma_01.csv')
