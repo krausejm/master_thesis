@@ -35,7 +35,7 @@ void make_bin(int k){
 TF1* mypdf=new TF1("mypdf",pdf,-180,180,3);
 //this is the file data will be written to
 ofstream myfile;
-myfile.open (Form("./toybins/toybin%02d.txt",k));
+myfile.open (Form("./toybins/toybin%04d.txt",k));
 myfile << "pol.\tphi\tweight\n";
 
 TRandom3 r(0);
@@ -100,7 +100,7 @@ for(int i=0;i<7;i++){// 1 iteration for each time cut
 
 }
 void new_toy_MC(){
-    for(int k=0+100;k<100+100;k++){
+    for(int k=0+200;k<200+100;k++){
         make_bin(k);
     }
 

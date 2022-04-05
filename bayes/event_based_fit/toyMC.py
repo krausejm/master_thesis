@@ -61,6 +61,7 @@ def fit(nsamples,nbins,start): #define starting index
             'pol_side':list(side['pol'].values),
             'f':f #fraction of signal in prmpt peak
         }
+        print(f"toy exp. no. {i}")
         print(nprmpt, total_nside)
         #now the stan model and mcmc
         model=sp.CmdStanModel(stan_file='toyMC_stan.stan')
@@ -78,8 +79,8 @@ def fit(nsamples,nbins,start): #define starting index
         sigma_df[currbin]=samples['sigma']
     return diagnostics_df, sigma_df, summary
 
-dfs=fit(nsamples=1000,nbins=100,start=100)
+dfs=fit(nsamples=1000,nbins=100,start=200)
 diagnostics=dfs[0]
 sigma=dfs[1]
-diagnostics.to_csv('toy_diagnostics_01.csv')
-sigma.to_csv('toy_sigma_01.csv')
+diagnostics.to_csv('toy_diagnostics_02.csv')
+sigma.to_csv('toy_sigma_02.csv')
