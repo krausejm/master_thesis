@@ -24,7 +24,7 @@ using namespace std;
 
 double pdf(double* x, double* p){
     double eff=1./10.5*(9.3+0.28*cos(x[0]*TMath::DegToRad())+0.24*sin(3*x[0]*TMath::DegToRad()));
-    return (1-p[0]*p[1]*TMath::Cos(TMath::DegToRad()*2*(p[2]-x[0])));     
+    return eff*(1-p[0]*p[1]*TMath::Cos(TMath::DegToRad()*2*(p[2]-x[0])));     
 }
 
 
