@@ -8,5 +8,4 @@ eta prime:
 - BAYES
 
 eta:
-- toy MC for event based fit (working, but not done)
-- fit on cluster (done?, katana)
+- toy MC for event yield asymmetries
