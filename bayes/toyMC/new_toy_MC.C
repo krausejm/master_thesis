@@ -40,10 +40,10 @@ myfile << "pol\tphi\n";
 TRandom3 r(0);
 gRandom->SetSeed(0);
 double p45pol=0.300000;
-double m45pol=0.250000;
-double sigma=0.5;
-int n1=1000;
-int n2=800;
+double m45pol=0.30000;
+double sigma=0.500000;
+int n1=20000;
+int n2=20000;
 cout<<Form("throwing toy MC experiment no.%d",k)<<endl;
 cout<<n1<<endl;
 cout<<n2<<endl;
@@ -63,7 +63,7 @@ for(int i=0;i<n2;i++){
 }
 }
 void new_toy_MC(){
-    for(int k=0;k<300;k++){
+    for(int k=0;k<1;k++){
         make_bin(k);
     }
 
