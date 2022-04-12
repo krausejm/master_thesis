@@ -6,6 +6,3 @@ eta prime:
 - calculate sigma minus 2pi0 contribution
 - event based fit in RooFit
 - BAYES
-
-eta:
-- toy MC for event yield asymmetries

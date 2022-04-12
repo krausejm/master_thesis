@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.23)  11 APR 2022 17:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.23)  12 APR 2022 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2213,8 +2213,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [3 <./figs/NucM2.pdf>]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 6.1pt on input line 85.
+
+
+LaTeX Warning: Citation 'theo3' on page 4 undefined on input line 94.
+
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/sc' will be
-(Font)              scaled to size 14.4pt on input line 95.
+(Font)              scaled to size 14.4pt on input line 105.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/ntxtlf/b/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -2223,17 +2227,17 @@ Package microtype Info: Character `029' is missing
 
  (./experiment.tex
 chapter 2.
-<figs/goni-ganz.pdf, id=190, 597.23125pt x 566.115pt>
+<figs/goni-ganz.pdf, id=191, 597.23125pt x 566.115pt>
 File: figs/goni-ganz.pdf Graphic file (type pdf)
 <use figs/goni-ganz.pdf>
 Package pdftex.def Info: figs/goni-ganz.pdf  used on input line 9.
 (pdftex.def)             Requested size: 214.35837pt x 203.18793pt.
-<figs/Tagger.pdf, id=193, 796.9775pt x 597.23125pt>
+<figs/Tagger.pdf, id=194, 796.9775pt x 597.23125pt>
 File: figs/Tagger.pdf Graphic file (type pdf)
 <use figs/Tagger.pdf>
 Package pdftex.def Info: figs/Tagger.pdf  used on input line 14.
 (pdftex.def)             Requested size: 214.35837pt x 160.6349pt.
-<figs/Target.pdf, id=196, 718.685pt x 261.97874pt>
+<figs/Target.pdf, id=197, 718.685pt x 261.97874pt>
 File: figs/Target.pdf Graphic file (type pdf)
 <use figs/Target.pdf>
 Package pdftex.def Info: figs/Target.pdf  used on input line 22.
@@ -2245,17 +2249,17 @@ Package pdftex.def Info: figs/Target.pdf  used on input line 22.
 
 
  <./figs/goni-ganz.pdf>]
-<figs/cb_fp_in.pdf, id=208, 663.98062pt x 395.22656pt>
+<figs/cb_fp_in.pdf, id=209, 663.98062pt x 395.22656pt>
 File: figs/cb_fp_in.pdf Graphic file (type pdf)
 <use figs/cb_fp_in.pdf>
 Package pdftex.def Info: figs/cb_fp_in.pdf  used on input line 28.
 (pdftex.def)             Requested size: 437.46118pt x 260.392pt.
-<figs/faserorient.pdf, id=211, 817.0525pt x 554.07pt>
+<figs/faserorient.pdf, id=212, 817.0525pt x 554.07pt>
 File: figs/faserorient.pdf Graphic file (type pdf)
 <use figs/faserorient.pdf>
 Package pdftex.def Info: figs/faserorient.pdf  used on input line 33.
 (pdftex.def)             Requested size: 218.73059pt x 148.32428pt.
-<figs/mini-taps.pdf, id=214, 796.9775pt x 597.23125pt>
+<figs/mini-taps.pdf, id=215, 796.9775pt x 597.23125pt>
 File: figs/mini-taps.pdf Graphic file (type pdf)
 <use figs/mini-taps.pdf>
 Package pdftex.def Info: figs/mini-taps.pdf  used on input line 38.
@@ -2384,16 +2388,24 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 35.
  (./thesis_intro.aux) (./experiment.aux)
 (./event_selection.aux) (./sigma_eta.aux) (./sigma_etap.aux) (./conclusion.aux)
 (./thesis_appendix.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                master_thesis
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'master_thesis.run.xml'.
 \openout1 = `master_thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48679 strings out of 478994
- 941445 string characters out of 5858184
- 1927494 words of memory out of 5000000
- 64907 multiletter control sequences out of 15000+600000
- 616295 words of font info for 463 fonts, out of 8000000 for 9000
+ 48683 strings out of 478994
+ 941490 string characters out of 5858184
+ 1927627 words of memory out of 5000000
+ 64909 multiletter control sequences out of 15000+600000
+ 616498 words of font info for 464 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  111i,20n,147p,10608b,3929s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{
@@ -2407,15 +2419,14 @@ ist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2021/texmf-dist/f
 onts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2021/texmf-dist/fonts/t
 ype1/public/newtx/txbmiaX.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/p
 ublic/newtx/txbsys.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/n
-ewtx/txexs.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/txm
-iaX.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-</usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/loc
-al/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texliv
-e/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on master_thesis.pdf (27 pages, 792812 bytes).
+ewtx/txmiaX.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/tx
+sys.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb><
+/usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/loca
+l/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on master_thesis.pdf (27 pages, 790105 bytes).
 PDF statistics:
- 505 PDF objects out of 1000 (max. 8388607)
+ 503 PDF objects out of 1000 (max. 8388607)
  398 compressed objects within 4 object streams
- 69 named destinations out of 1000 (max. 500000)
+ 70 named destinations out of 1000 (max. 500000)
  129738 words of extra memory for PDF output out of 154059 (max. 10000000)
 

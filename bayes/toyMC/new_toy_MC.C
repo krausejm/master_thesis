@@ -35,15 +35,15 @@ TF1* mypdf=new TF1("mypdf",pdf,-180,180,3);
 //this is the file data will be written to
 ofstream myfile;
 myfile.open (Form("./toybins/toybin%04d.txt",k));
-myfile << "pol\tphi\n";
+myfile << "pol\tsetting\tphi\n";
 
 TRandom3 r(0);
 gRandom->SetSeed(0);
 double p45pol=0.300000;
-double m45pol=0.30000;
-double sigma=0.500000;
-int n1=20000;
-int n2=20000;
+double m45pol=0.250000;
+double sigma=0.30000;
+int n1=1000;
+int n2=800;
 cout<<Form("throwing toy MC experiment no.%d",k)<<endl;
 cout<<n1<<endl;
 cout<<n2<<endl;
@@ -52,18 +52,18 @@ for(int i=0;i<n1;i++){
     mypdf->FixParameter(0,sigma);//sigma
     mypdf->FixParameter(1,p45pol);//pol
     mypdf->FixParameter(2,+45);//setting
-    myfile<<p45pol<<"\t"<<mypdf->GetRandom()<<"\n";
+    myfile<<p45pol<<"\t"<<+45<<"\t"<<mypdf->GetRandom()<<"\n";
 }
 //generate events for parallel config
 for(int i=0;i<n2;i++){
     mypdf->FixParameter(0,sigma);//sigma
     mypdf->FixParameter(1,m45pol);//pol
     mypdf->FixParameter(2,-45);//setting
-    myfile<<m45pol<<"\t"<<mypdf->GetRandom()<<"\n";
+    myfile<<m45pol<<"\t"45<<"\t"<<mypdf->GetRandom()<<"\n";
 }
 }
 void new_toy_MC(){
-    for(int k=0;k<1;k++){
+    for(int k=0;k<1000;k++){
         make_bin(k);
     }
 
