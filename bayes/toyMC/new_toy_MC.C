@@ -35,16 +35,16 @@ TF1* mypdf=new TF1("mypdf",pdf,-180,180,3);
 //this is the file data will be written to
 ofstream myfile;
 //myfile.open (Form("./toybins/toybin%04d.txt",k));
-myfile.open (Form("./pi0_toybins/toybin%04d.txt",k));
+myfile.open (Form("./test_toybins/toybin%04d.txt",k));
 myfile << "pol\tsetting\tphi\n";
 
 TRandom3 r(0);
 gRandom->SetSeed(0);
 double p45pol=0.300000;
-double m45pol=0.250000;
+double m45pol=0.30000;
 double sigma=0.30000;
-int n1=5000;
-int n2=4000;
+int n1=1000;
+int n2=1000;
 cout<<Form("throwing toy MC experiment no.%d",k)<<endl;
 cout<<n1<<endl;
 cout<<n2<<endl;
