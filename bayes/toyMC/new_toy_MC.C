@@ -34,8 +34,9 @@ void make_bin(int k){
 TF1* mypdf=new TF1("mypdf",pdf,-180,180,3);
 //this is the file data will be written to
 ofstream myfile;
-//myfile.open (Form("./toybins/toybin%04d.txt",k));
-myfile.open (Form("./pi0_toybins/toybin%04d.txt",k));
+//myfile.open(Form("./toybins/toybin%04d.txt",k));
+//myfile.open(Form("./pi0_toybins/toybin%04d.txt",k));
+myfile.open(Form("./test_toybins/toybin%04d.txt",k));
 myfile << "pol\tsetting\tphi\n";
 
 TRandom3 r(0);
