@@ -29,23 +29,22 @@ double pdf(double* x, double* p){
 
 
 
-void make_bin(int k){
+void make_bin(int k, double p45pol, double m45pol, double sigma, int e1, int e2, int file){
 //this is the pdf 
 TF1* mypdf=new TF1("mypdf",pdf,-180,180,3);
+//mypdf->SetNpx(1000);
 //this is the file data will be written to
 ofstream myfile;
-//myfile.open (Form("./toybins/toybin%04d.txt",k));
-myfile.open (Form("./test_toybins/toybin%04d.txt",k));
-myfile << "pol\tsetting\tphi\n";
+if(file==0){myfile.open (Form("./toybins/toybin%04d.txt",k));}
+if(file==1){myfile.open (Form("./test_toybins/toybin%04d.txt",k));}
+if(file==2){myfile.open (Form("./pi0_toybins/toybin%04d.txt",k));}
 
+myfile << "pol\tsetting\tphi\n";
 TRandom3 r(0);
 gRandom->SetSeed(0);
-double p45pol=0.300000;
-double m45pol=0.30000;
-double sigma=0.30000;
-int n1=1000;
-int n2=1000;
-cout<<Form("throwing toy MC experiment no.%d",k)<<endl;
+int n1=r.Poisson(e1);
+int n2=r.Poisson(e2);
+cout<<Form("throwing toy MC experiment no.%d in setting %d",k,file)<<endl;
 cout<<n1<<endl;
 cout<<n2<<endl;
 //generate events for bot config
@@ -65,7 +64,14 @@ for(int i=0;i<n2;i++){
 }
 void new_toy_MC(){
     for(int k=0;k<10000;k++){
-        make_bin(k);
+        //eta bins
+	make_bin(k,0.3,0.25,0.3,1000,800,0);
+	//test bins
+	make_bin(k,0.3,0.3,0.3,1000,1000,1);
+	//pi0 bins
+	make_bin(k,0.3,0.25,0.3,5000,4000,2);
+
+
     }
 
 
