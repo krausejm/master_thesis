@@ -1,5 +1,7 @@
 void chi2fit(){
-    TH1F* sigma = new TH1F("sigma",";#xi;counts",100,-5,5);
+    TH1F* sigma = new TH1F("sigma",";#xi;counts",100,-1,1);
+    TH1F* res = new TH1F("res",";#Sigma;counts",100,-5,5);
+
     int i=0;
     int nbins=12;
     //now create histos for the two settings
@@ -25,6 +27,8 @@ void chi2fit(){
         t->Reset();
         t->Refresh();
         t->ReadFile(Form("./toybins/toybin%04d.txt",i),"",'\t');
+        //t->ReadFile(Form("./test_toybins/toybin%04d.txt",i),"",'\t');
+        //t->ReadFile(Form("./pi0_toybins/toybin%04d.txt",i),"",'\t');
         float pol, setting, phi;
         t->SetBranchAddress("pol",&pol);
         t->SetBranchAddress("setting",&setting);
@@ -57,8 +61,8 @@ void chi2fit(){
 		nominator->Add(hp45,hm45,1,1);
         enumerator->Divide(nominator);
         //gaussian error propagation
-        double final_e[12];
-		for(int k=0;k<12;k++){
+        double final_e[nbins];
+		for(int k=0;k<nbins;k++){
 			double n_bot = hp45e->GetBinContent(k+1);
 			double n_par = hm45e->GetBinContent(k+1);
 			double n_bot_err=hp45e->GetBinError(k+1);
@@ -79,14 +83,18 @@ void chi2fit(){
         TF1* f = new TF1(Form("f%d",i),"[0]*cos(2*(-45-x)*TMath::Pi()/180.)",-180,180);
         enumerator->Fit(f,"Q");
         float xi = (f->GetParameter(0)-0.3)/f->GetParError(0);
-        sigma->Fill(xi);
-        //sigma->Fill(f->GetParameter(0));    
+        res->Fill(xi);
+        sigma->Fill(f->GetParameter(0));    
 
     
     
     }
+    auto c1= new TCanvas("c1");
     sigma->Draw();
     sigma->Fit("gaus");
+    auto c2= new TCanvas("c2");
+    res->Draw();
+    res->Fit("gaus");
 
 
 
