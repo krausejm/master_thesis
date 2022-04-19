@@ -12,3 +12,4 @@ eta:
     * 5000 events +45 4000 events -45, p_gamma=0.3,0.25, 3k bins, normalized posteriors: -0.07 +- 0.02 (24 bins in phi)
     * polarized bkg im event based fit
     * npx, poisson statistics
+- created new toy MC (test commit)
