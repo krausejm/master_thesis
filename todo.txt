@@ -6,10 +6,4 @@ eta prime:
 - calculate sigma minus 2pi0 contribution
 - event based fit in RooFit
 - BAYES
-eta:
-- toy MC for event yield asymmetries
-    * 1000 events +45 800 events -45, p_gamma= 0.3, 0.25, 10k bins, normalized posteriors: -0.07 +- 0.01 (12 bins in phi) 
-    * 5000 events +45 4000 events -45, p_gamma=0.3,0.25, 3k bins, normalized posteriors: -0.07 +- 0.02 (24 bins in phi)
-    * polarized bkg im event based fit
-    * npx, poisson statistics
-- created new toy MC (test commit)
+- test bkg contaminations in event based fit
