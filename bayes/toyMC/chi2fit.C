@@ -2,7 +2,7 @@ void chi2fit(){
     TH1F* sigma = new TH1F("sigma",";#Sigma;counts",100,-1,1);
     TH1F* sigma_p45 = new TH1F("sigma_p45",";#Sigma;counts",100,-1,1);
     TH1F* sigma_m45 = new TH1F("sigma_m45",";#Sigma;counts",100,-1,1);
-
+    TH1F* chi2 = new TH1F("chi2",";#chi^{2}/NDF;counts",100,0,5);
     TH1F* res = new TH1F("res",";#xi;counts",100,-5,5);
 
     int i=0;
@@ -20,7 +20,10 @@ void chi2fit(){
     TF1* fp45 = new TF1("fp45","[0]*(1-0.3*[1]*cos(2*(45-x)*TMath::Pi()/180.))");
     TF1* fm45 = new TF1("fm45","[0]*(1-0.25*[1]*cos(2*(-45-x)*TMath::Pi()/180.))");
     //TF1* fm45 = new TF1("fm45","[0]*(1-0.3*[1]*cos(2*(-45-x)*TMath::Pi()/180.))");
-
+    //func for fitting event yield asymmetries
+    TF1* f = new TF1(Form("f%d",i),"[0]*cos(2*(-45-x)*TMath::Pi()/180.)",-180,180);
+    //collect chi2
+    double chi2list[10000];
 
     //tree for reading of data
     TTree* t = new TTree(Form("t%d",i),Form("mytree%d",i));
@@ -93,9 +96,9 @@ void chi2fit(){
 			double pol_bot = 0.3;
 			double pol_par = 0.25;
 			double tmp_nom = TMath::Power(pol_par*n_bot*norm_m+pol_bot*n_par*norm_p,4);
-			double tmp_enum = TMath::Power(n_bot*n_par*norm_m*(pol_bot+pol_par)*norm_p_err,2)
-							+TMath::Power(n_bot*n_par*norm_p*(pol_bot+pol_par)*norm_m_err,2)
-							+TMath::Power(n_par*norm_p*norm_m*(pol_bot+pol_par)*n_bot_err,2)
+			double tmp_enum = //TMath::Power(n_bot*n_par*norm_m*(pol_bot+pol_par)*norm_p_err,2)
+							//+TMath::Power(n_bot*n_par*norm_p*(pol_bot+pol_par)*norm_m_err,2)
+							TMath::Power(n_par*norm_p*norm_m*(pol_bot+pol_par)*n_bot_err,2)
 							+TMath::Power(n_bot*norm_p*norm_m*(pol_bot+pol_par)*n_par_err,2);
 
 			final_e[k]=TMath::Sqrt(tmp_enum/tmp_nom);	
@@ -103,12 +106,12 @@ void chi2fit(){
 			enumerator->SetBinError(k+1,final_e[k]);
 		}
         //enumerator->Draw("ep");
-        TF1* f = new TF1(Form("f%d",i),"[0]*cos(2*(-45-x)*TMath::Pi()/180.)",-180,180);
-        enumerator->Fit(f,"QN");
+        enumerator->Fit(f,"Q");
         float xi = (f->GetParameter(0)-0.3)/f->GetParError(0);
         res->Fill(xi);
-        sigma->Fill(f->GetParameter(0));    
-
+        sigma->Fill(f->GetParameter(0));
+        chi2->Fill(f->GetChisquare()/f->GetNDF());    
+        chi2list[i]=f->GetChisquare()/f->GetNDF();
     
     
     }
@@ -137,11 +140,17 @@ void chi2fit(){
     res->Draw();
     res->Fit("gaus");
     c1->cd(3);
-    sigma_p45->Draw("");
-    sigma_p45->Fit("gaus");
-    c1->cd(4);
-    sigma_m45->Draw("");
-    sigma_m45->Fit("gaus");
+    chi2->Draw();
+    double sum=0;
+    for(int i=0;i<10000;i++){
+        sum+=chi2list[i];
+    }
+    std::cout<<sum/10000<<std::endl;
+    //sigma_p45->Draw("");
+    //sigma_p45->Fit("gaus");
+    //c1->cd(4);
+    //sigma_m45->Draw("");
+    //sigma_m45->Fit("gaus");
 
 
 
