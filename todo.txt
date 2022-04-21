@@ -7,3 +7,6 @@ eta prime:
 - event based fit in RooFit
 - BAYES
 - test bkg contaminations in event based fit
+- update errors(!)
+eta:
+- update errors(!)

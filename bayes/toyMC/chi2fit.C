@@ -38,9 +38,9 @@ void chi2fit(){
         //fm45->Reset();
         t->Reset();
         t->Refresh();
-        //t->ReadFile(Form("./toybins/toybin%04d.txt",i),"",'\t');
+        t->ReadFile(Form("./toybins/toybin%04d.txt",i),"",'\t');
         //t->ReadFile(Form("./test_toybins/toybin%04d.txt",i),"",'\t');
-        t->ReadFile(Form("./pi0_toybins/toybin%04d.txt",i),"",'\t');
+        //t->ReadFile(Form("./pi0_toybins/toybin%04d.txt",i),"",'\t');
         //t->ReadFile(Form("./py_toybins/toybin%04d.txt",i),"pol:setting:phi",',');
         float pol, setting, phi;
         t->SetBranchAddress("pol",&pol);
@@ -89,18 +89,24 @@ void chi2fit(){
         //gaussian error propagation
         double final_e[nbins];
 		for(int k=0;k<nbins;k++){
-			double n_bot = hp45e->GetBinContent(k+1);
+            double n_bot = hp45e->GetBinContent(k+1);
 			double n_par = hm45e->GetBinContent(k+1);
 			double n_bot_err=hp45e->GetBinError(k+1);
 			double n_par_err=hm45e->GetBinError(k+1);
 			double pol_bot = 0.3;
 			double pol_par = 0.25;
-			double tmp_nom = TMath::Power(pol_par*n_bot*norm_m+pol_bot*n_par*norm_p,4);
-			double tmp_enum = //TMath::Power(n_bot*n_par*norm_m*(pol_bot+pol_par)*norm_p_err,2)
-							//+TMath::Power(n_bot*n_par*norm_p*(pol_bot+pol_par)*norm_m_err,2)
-							TMath::Power(n_par*norm_p*norm_m*(pol_bot+pol_par)*n_bot_err,2)
-							+TMath::Power(n_bot*norm_p*norm_m*(pol_bot+pol_par)*n_par_err,2);
+                        
+            double delta_nbot=TMath::Sqrt(1/TMath::Power(norm_p,4)*(TMath::Power((norm_p-n_bot)*n_bot_err,2)+n_bot*n_bot*(norm_p-n_bot)));
+            double delta_npar=TMath::Sqrt(1/TMath::Power(norm_m,4)*(TMath::Power((norm_m-n_par)*n_par_err,2)+n_par*n_par*(norm_m-n_par)));
 
+			//double tmp_nom = TMath::Power(pol_par*n_bot*norm_m+pol_bot*n_par*norm_p,4);
+            double tmp_nom = TMath::Power(pol_par*n_bot/norm_p+pol_bot*n_par/norm_m,4);
+			//double tmp_enum = TMath::Power(n_bot*n_par*norm_m*(pol_bot+pol_par)*norm_p_err,2)
+			//				+TMath::Power(n_bot*n_par*norm_p*(pol_bot+pol_par)*norm_m_err,2)
+			//				+TMath::Power(n_par*norm_p*norm_m*(pol_bot+pol_par)*n_bot_err,2)
+			//				+TMath::Power(n_bot*norm_p*norm_m*(pol_bot+pol_par)*n_par_err,2);
+            double tmp_enum=TMath::Power(n_par/norm_m*(pol_bot+pol_par)*delta_nbot,2)
+                            +TMath::Power(n_bot/norm_p*(pol_bot+pol_par)*delta_npar,2);
 			final_e[k]=TMath::Sqrt(tmp_enum/tmp_nom);	
 			//std::cout<<tmp_nom<<std::endl;
 			enumerator->SetBinError(k+1,final_e[k]);
