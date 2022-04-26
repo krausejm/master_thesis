@@ -141,38 +141,68 @@ also check $\chi^2$ distribution and MCMC diagnostics
 
 		
 	\end{frame}
-	\begin{frame}{Fit results}
-		statistics of $\eta$ final state:
+	\begin{frame}{Fit results (event yield asymmetries with \textsc{Bayes})}
+		statistics of $\eta$ final state: (12 bins in $\phi$)
 		\begin{itemize}[label=$\blacktriangleright$]
 			\item 10000 toy bins
 			\item $p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3$, $\Sigma=0.3$
 			\item $n_\text{events}^\parallel\sim\text{Pois}(800)$, $n_\text{events}^\bot\sim\text{Pois}(1000)$ 
 		\end{itemize}
+	\begin{figure}[htbp]
+		\includegraphics[width=.49\linewidth]{../../bayes/toyMC/plots/combined_post_add.pdf}
+		\includegraphics[width=.49\linewidth]{../../bayes/toyMC/plots/combined_post_add_raw.pdf}
+	\end{figure}
+
 	\end{frame}
-	\begin{frame}{Results}
+	\begin{frame}{Fit results (event yield asymmetries with $\chi^2$ fit)}
+		\begin{center}
+		\includegraphics[width=.9\linewidth]{../../bayes/toyMC/plots/eta_chi2_12bins.pdf}
+		\end{center}
+
+\end{frame}
+		\begin{frame}{Fit results (event yield asymmetries with \textsc{Bayes})}
+		statistics of $\pi^0$ final state: (24 bins in $\phi$)
+		\begin{itemize}[label=$\blacktriangleright$]
+			\item 10000 toy bins
+			\item $p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3$, $\Sigma=0.3$
+			\item $n_\text{events}^\parallel\sim\text{Pois}(4000)$, $n_\text{events}^\bot\sim\text{Pois}(5000)$ 
+		\end{itemize}
+		\begin{figure}[htbp]
+			\includegraphics[width=.49\linewidth]{../../bayes/toyMC/plots/pi0_combined_post_add.pdf}
+			\includegraphics[width=.49\linewidth]{../../bayes/toyMC/plots/pi0_combined_post_add_raw.pdf}
+		\end{figure}
+		
+	\end{frame}
+		\begin{frame}{Fit results (event yield asymmetries with $\chi^2$ fit)}
+		\begin{center}
+			\includegraphics[width=.9\linewidth]{../../bayes/toyMC/plots/pi0_chi2.pdf}
+		\end{center}
+		
+		
+		Event yield method okayish, but binning and statistics affect the fit siginificantly!	
+		
+	\end{frame}
+\begin{frame}{Fit results (Event-based fit)}
+		\begin{itemize}[label=$\blacktriangleright$]
+	\item 300 toy bins (fit takes very long)
+	\item $p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3$, $\Sigma=0.3$, sideband events and weights similar to data, Eff. func: $f(\phi)=\frac{1}{10.5}(9.3+0.28\cos\phi+0.24\sin3\phi)$
+	\item $n_\text{events}^\parallel\sim\text{Pois}(800)$, $n_\text{events}^\bot\sim\text{Pois}(1000)$ 
+	\item either build "normalized residuals" $\Xi$ or "independent likelihood pool" $P(\Sigma|y_0\dots y_{300})\propto\frac{\prod_ip(\Sigma|y_i)}{\pi(\Sigma)^{300-1}}$
+\end{itemize}
+\end{frame}
+\begin{frame}{Fit results (Event-based fit)}
+	\centering
+	\includegraphics[width=.49\linewidth]{../../bayes/event_based_fit/plots/combined_post_add.pdf}
+	\includegraphics[width=.49\linewidth]{../../bayes/event_based_fit/plots/combined_post_mul.pdf}
+	\end{frame}
+\begin{frame}{Fit results (Event-based fit)}
 		\centering
+		\includegraphics[width=.8\linewidth]{../../bayes/event_based_fit/plots/toyMC_eff_PPC.pdf}
+\end{frame}
+\begin{frame}{Fit results (Data), now "justified" :)}
+	\centering
 		\includegraphics[width=.6\linewidth]{../../bayes/event_based_fit/plots/sigma_eta_alt.pdf}
-	\end{frame}
-	
-	
-	\begin{frame}{$\Sigma$ in $\gamma p \to p 2\pi^0$}
-		\includegraphics[width=\linewidth]{../../figs/hydrogen/asymmetry/2pi0_prelim.pdf}
-	\end{frame}
-	
-	\begin{frame}{$\Sigma$ in $\gamma p \to p \eta'$}
-		\includegraphics[width=\linewidth]{../../DPG2022/figs/sigma.pdf}
-	\end{frame}
-	\begin{frame}
-		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={To Do}]
-			\begin{itemize}
-				
-				\item extract $\Sigma$ using unbinned maximum likelihood fit for $\eta'$
-				\item apply \textsc{bayesian} approach 
-				\item consider bkg contaminations in results of $\Sigma_{\eta'}$, study toy MC
-				
-			\end{itemize}
-		\end{tcolorbox}
-	\end{frame}
+\end{frame}
 	
 	
 	
