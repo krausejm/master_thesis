@@ -65,3 +65,12 @@ bayes/toyMC/pi0_diagnostics.csv
 bayes/toyMC/sigma_chi2.csv
 bayes/toyMC/sigma.csv
 bayes/toyMC/diagnostics.csv
+bayes/event_based_fit/event_based_fit.zip
+bayes/realdeal/realdeal.zip
+bayes/toyMC/toyMC.zip
+*.nav
+*.out
+*.snm
+bayes/toyMC/super_diagnostics.csv
+bayes/toyMC/super_sigma.csv
+bayes/toyMC/super_sigma_chi2.csv
