@@ -78,6 +78,8 @@ void toyMC_posteriors(){
             combinedposterior= (TH1F*) posteriors[i]->Clone();
         }else{
             combinedposterior->Add(posteriors[i]);
+            combinedposterior->Add(f,-1);
+
         }
     }
     TH1F* test = new TH1F("test",";#Sigma;",150,-1,1);
@@ -85,7 +87,7 @@ void toyMC_posteriors(){
         double tmp;
         std::cout<<"lp="<<combinedposterior->GetBinContent(i+1)<<std::endl;
         //convert back to linear scale
-        if(combinedposterior->GetBinContent(i+1)>0) tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-1300);
+        if(combinedposterior->GetBinContent(i+1)>0) tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-1650);
         else tmp = TMath::Exp(combinedposterior->GetBinContent(i+1));
         std::cout<<"exp(lp)="<<tmp<<std::endl;
         combinedposterior->SetBinContent(i+1,tmp);
@@ -93,23 +95,23 @@ void toyMC_posteriors(){
 
     }
     //divide by prior
-    test->Divide(g,1);
+    //test->Divide(g,1);
     //fit gaus because
-    TF1* fitf = new TF1("fitf","gaus",-1,1);
+    TF1* fitf = new TF1("fitf","gaus",0.2,0.4);
     fitf->SetNpx(1e5);
     test->Draw("");
 
-    //test->Fit(fitf);
+    test->Fit(fitf);
     //cosmetics
     gStyle->SetOptStat(0);
     test->GetXaxis()->SetTitleFont(132);
     test->GetXaxis()->SetLabelFont(132);
     test->GetYaxis()->SetTitleFont(132);
     test->GetYaxis()->SetLabelFont(132);
-    test->GetYaxis()->SetLabelSize(0);
-    test->GetXaxis()->SetRangeUser(0.4,0.6);
-    test->GetYaxis()->SetNdivisions(1);
-    test->GetYaxis()->SetRangeUser(0,100);
+    //test->GetYaxis()->SetLabelSize(0);
+    test->GetXaxis()->SetRangeUser(-1,1);
+    //test->GetYaxis()->SetNdivisions(1);
+    //test->GetYaxis()->SetRangeUser(0,100);
     test->GetYaxis()->SetTitle("#it{p}(#Sigma|D) (arb. units)");
     double fmu, fmu_err, fsigma, fsigma_err;
     fmu=fitf->GetParameter(1);
