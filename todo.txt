@@ -1,8 +1,6 @@
 eta prime:
-- investigate beam energy and bkg cuts (thoroughly)
-- PWA weighted MC
-- excessive toy MC studies -> bkg contributions
-- calculate sigma minus 2pi0 contribution
+- excessive toy MC studies -> bkg contributions (event based fit)
 - event based fit in RooFit
 - BAYES
-- test bkg contaminations in event based fit
+- calculate sigma minus 2pi0 contribution
+
