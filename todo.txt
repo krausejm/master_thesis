@@ -2,5 +2,6 @@ eta prime:
 - excessive toy MC studies -> bkg contributions (event based fit)
 - event based fit in RooFit
 - BAYES
-- calculate sigma minus 2pi0 contribution
+- calculate sigma minus 2pi0/pi0eta contribution
+- check s,t,u
 
