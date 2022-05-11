@@ -1,6 +1,6 @@
 % !TEX root = master_thesis.tex
 \chapter{Event selection}
-The determination of polarization observables needs to be completed for particular reactions (cf. chapter \ref{chap:intro}), such as the photoproduction of e.g. a single $\eta'$ meson. However, the recorded events  contain data from the decay products of all possible final states in addition to combinatorical background. Thus, event candidates for the desired reaction have to be extracted before they are considered for further analysis. Table \ref{tab:etap} shows the five most probable decay modes of the $\eta'$ meson. Three of these result in final states which only contain photons and are thus reliably measurable with the CBELSA/TAPS experiment. Only the $\eta'\to\gamma\gamma$ decay channel was considered for further analysis; the $\omega\gamma$ channel provides negligible statistics and considering the acceptance of detecting six photons in the final state, the expected yield of the $\eta'\to\gamma\gamma$ decays should be roughly equal to the $\eta'\to\pi^0\pi^0\eta\to6\gamma$ final state \cite{farah}. Offering a cleaner, three-particle final state, the $\eta'\to\gamma\gamma$ was then favored in the course of this thesis.      
+The determination of polarization observables needs to be completed for particular reactions (cf. chapter \ref{chap:intro}), such as the photoproduction of e.g. a single $\eta'$ meson. However, the recorded events  contain data from the decay products of all possible final states in addition to combinatorical background. Thus, event candidates for the desired reaction have to be extracted before they are considered for further analysis. Table \ref{tab:etap} shows the five most probable decay modes of the $\eta'$ meson. Three of these result in final states which only contain photons and are thus reliably measurable with the CBELSA/TAPS experiment. Only the $\eta'\to\gamma\gamma$ decay channel was considered for further analysis; the $\omega\gamma$ channel provides negligible statistics and considering the acceptance of detecting six photons in the final state, the expected yield of the $\eta'\to\gamma\gamma$ decays should be roughly equal to the $\eta'\to\pi^0\pi^0\eta\to6\gamma$ final state \cite{farah}. Offering a cleaner, three-particle final state, the $\eta'\to\gamma\gamma$ was then favored in the course of this thesis.    
 \begin{table}[htbp]
 	\centering
 	\begin{tabular}{clc}
@@ -8,9 +8,9 @@ The determination of polarization observables needs to be completed for particul
 		\multicolumn{2}{c}{Decay mode}&Branching ratio\\
 		\hline
 		$\pi^+\pi^-\eta$&&42.6\%\\
-		$\rho^0\gamma$&$\to\pi^+\pi^-\gamma$ &28.9\% (28.9\%)\\
-	$\pi^0\pi^0\eta$&$\to6\gamma$ & 22.8\% (8.8\%)\\
-		$\omega\gamma$ &$\to (\pi^+\pi^-\pi^0\gamma/\pi^0\gamma\gamma)$&2.52\% (2.2\%/0.21\%)\\
+		$\rho^0\gamma$&$\pi^+\pi^-\gamma$ &28.9\% (28.9\%)\\
+	$\pi^0\pi^0\eta$&$6\gamma$ & 22.8\% (8.8\%)\\
+		$\omega\gamma$ &$ \pi^+\pi^-\pi^0\gamma/\pi^0\gamma\gamma$&2.52\% (2.2\%/0.21\%)\\
 	$\gamma\gamma$&&2.3\%\\
 
 		\bottomrule
@@ -18,10 +18,23 @@ The determination of polarization observables needs to be completed for particul
 \caption{The five most probable decay modes of the $\eta'$ meson. The most probable further decay with according branching ratio is shown in brackets.\cite{pdg}}
 \label{tab:etap}
 \end{table}
-The process of \emph{event selection} for the reaction $\gamma p \to p\eta'\to p\gamma\gamma$ is outlined in the following chapter.
 
-\section{Charge cut}
-To improve the signal to background ratio, the charge information of the final state particles may be used as a first step. In particular, for  $\eta'\to\gamma\gamma$ reactions, one charged and two uncharged particles in the final state were demanded.
+\noindent The process of \emph{event selection} for the reaction $\gamma p \to p\eta'\to p\gamma\gamma$ is outlined in the following chapter. 
+
+\section{Preselection and charge cut}
+Events are generally classified depending on the number of particle energy deposits (PED). If the complete four-momenta of three final state particles are measured, they are referred to as 3PED events. Low energy protons however may be only detected in the scintillators of the inner, forward or MiniTAPS detector, giving only directional information (2.5 PED) or lost entirely (2 PED). Only 2.5PED and 3PED events were analyzed since the additional background contributions from 2PED events exceeded the additional signal contributions. It is worth noting that 3PED events are significantly dominant for $\eta'\to\gamma\gamma$ reactions; the production threshold for $\eta'$ mesons is $E_\gamma=\SI{1447}{\mega\eV}$, such that the recoil proton will likely be detected. Figure \ref{fig:PEDs} shows the distribution of the different event classes for $\eta'\to\gamma\gamma$ production in \textsc{Monte Carlo} data, with a clear preference towards 3PED events.
+
+\begin{figure}[htbp]
+	\centering
+	\caption{Distribution of event classes in $\eta'\to\gamma\gamma$ production}
+	\label{fig:PEDs}
+\end{figure}
+
+
+
+
+ To improve the signal to background ratio, the charge information of the final state particles may be used as a first step. In particular, for  $\eta'\to\gamma\gamma$ reactions, one charged and two uncharged particles in the final state were demanded. 
+
 \section{Time of particles}
 Due to its high count rate the tagging system (see section \ref{subsec:tag}) will not only record beam photons which produce the detectable final state particles, but also several uncorrelated beam photons. To select only beam photons which will induce a photoproduction process the time information of the detected particles is used. It is shown in figure \ref{fig:time} for all particles involved in 2.5PED and 3PED events of $\eta'$ photoproduction. 
 \begin{figure}[htbp]
@@ -46,3 +59,5 @@ where the meson time $t_\text{meson}$ is appointed either the averaged time of b
 	\caption{Reaction time $t_r$ for 3PED $\eta'$ production}
 	\label{fig:time_r}
 \end{figure} 
+
+\section{Kinematic constraints}

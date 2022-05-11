@@ -45,8 +45,10 @@ for(int i=0;i<4;i++){
     double peds=0.;
     t[i]->SetBranchAddress("peds",&peds);
     for(int k=0;k<11;k++){//energy bins
+        if((i==0||i==1)&&k>8){continue;}//respect the coherent edges
+        if((i==2||i==3)&&k<2){continue;}
         for(int l=0;l<12;l++){//angle bins
-            std::cerr<<"ebin: "<<k<<" costbin: "<<l<<"\n";
+            std::cerr<<"tree: "<<i<<"ebin: "<<k<<" costbin: "<<l<<"\n";
             char buffer[32]; // The filename buffer.
             snprintf(buffer, sizeof(char) * 32, "ebin%02dcostbin%02d.txt", k,l);
             ofstream myfile;
