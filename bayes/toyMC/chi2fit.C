@@ -24,6 +24,7 @@ using namespace std;
 
 void chi2fit(){
     TH1F* sigma = new TH1F("sigma",";#Sigma;counts",100,-1,1);
+    TH1F* sigma_err = new TH1F("sigma_err",";#Sigma_err;counts",100,-1,1);
     TH1F* sigma_p45 = new TH1F("sigma_p45",";#Sigma;counts",100,-1,1);
     TH1F* sigma_m45 = new TH1F("sigma_m45",";#Sigma;counts",100,-1,1);
     TH1F* chi2 = new TH1F("chi2",";#chi^{2}/NDF;counts",100,0,5);
@@ -32,8 +33,8 @@ void chi2fit(){
     int nbins[20]={10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
     //collect diagnostics
     ofstream myfile;
-    myfile.open("./pi0_binning.txt");
-    myfile<<"nbins\tchi2\tabserror\tabserror_err\n";
+    myfile.open("./binning.txt");
+    myfile<<"nbins\tchi2\tabserror\tabserror_err\tsigma_std\tmean_sigma_err\n";
     for(int j=0;j<20;j++){ 
     //now create histos for the two settings
     TH1F* hp45 = new TH1F(Form("hp45_%d",j),";#phi / deg;",nbins[j],-180,180);
@@ -146,6 +147,7 @@ void chi2fit(){
         enumerator->Fit(f,"NQ");
         float xi = (f->GetParameter(0)-0.3)/f->GetParError(0);
         res->Fill(xi);
+        sigma_err->Fill(f->GetParError(0));
         sigma->Fill(f->GetParameter(0));
         chi2->Fill(f->GetChisquare()/f->GetNDF());    
         chi2list[i]=f->GetChisquare()/f->GetNDF();
@@ -179,7 +181,7 @@ void chi2fit(){
     //c1->cd(3);
     //chi2->Draw();
     //c1->SaveAs("./plots/eta_chi2_12bins.root");
-    myfile<<j<<"\t"<<chi2->GetMean()<<"\t"<<g->GetParameter(1)<<"\t"<<g->GetParError(1)<<"\n";
+    myfile<<(j+1)*5<<"\t"<<chi2->GetMean()<<"\t"<<g->GetParameter(1)<<"\t"<<g->GetParError(1)<<"\t"<<sigma->GetStdDev()<<"\t"<<sigma_err->GetMean()<<"\n";
     }
     //sigma_p45->Draw("");
     //sigma_p45->Fit("gaus");

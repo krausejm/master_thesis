@@ -3,15 +3,15 @@
 The determination of polarization observables needs to be completed for particular reactions (cf. chapter \ref{chap:intro}), such as the photoproduction of e.g. a single $\eta'$ meson. However, the recorded events  contain data from the decay products of all possible final states in addition to combinatorical background. Thus, event candidates for the desired reaction have to be extracted before they are considered for further analysis. Table \ref{tab:etap} shows the five most probable decay modes of the $\eta'$ meson. Three of these result in final states which only contain photons and are thus reliably measurable with the CBELSA/TAPS experiment. Only the $\eta'\to\gamma\gamma$ decay channel was considered for further analysis; the $\omega\gamma$ channel provides negligible statistics and considering the acceptance of detecting six photons in the final state, the expected yield of the $\eta'\to\gamma\gamma$ decays should be roughly equal to the $\eta'\to\pi^0\pi^0\eta\to6\gamma$ final state \cite{farah}. Offering a cleaner, three-particle final state, the $\eta'\to\gamma\gamma$ was then favored in the course of this thesis.    
 \begin{table}[htbp]
 	\centering
-	\begin{tabular}{clc}
+	\begin{tabular}{cccc}
 		\toprule
-		\multicolumn{2}{c}{Decay mode}&Branching ratio\\
+		\multicolumn{3}{c}{Decay mode}&Branching ratio\\
 		\hline
-		$\pi^+\pi^-\eta$&&42.6\%\\
-		$\rho^0\gamma$&$\pi^+\pi^-\gamma$ &28.9\% (28.9\%)\\
-	$\pi^0\pi^0\eta$&$6\gamma$ & 22.8\% (8.8\%)\\
-		$\omega\gamma$ &$ \pi^+\pi^-\pi^0\gamma/\pi^0\gamma\gamma$&2.52\% (2.2\%/0.21\%)\\
-	$\gamma\gamma$&&2.3\%\\
+		$\pi^+\pi^-\eta$&&&42.6\%\\
+		$\rho^0\gamma$&$\to$&$\pi^+\pi^-\gamma$ &28.9\% (28.9\%)\\
+	$\pi^0\pi^0\eta$&$\to$&$6\gamma$ & 22.8\% (8.8\%)\\
+		$\omega\gamma$ &$\to$&$ \pi^+\pi^-\pi^0\gamma/\pi^0\gamma\gamma$&2.52\% (2.2\%/0.21\%)\\
+	$\gamma\gamma$&&&2.3\%\\
 
 		\bottomrule
 	\end{tabular}
@@ -61,3 +61,16 @@ where the meson time $t_\text{meson}$ is appointed either the averaged time of b
 \end{figure} 
 
 \section{Kinematic constraints}
+After charge and time cut, additional cuts can be derived from energy and momentum conservation. Let $p_\text{beam}$ and $p_p$ be the four momenta of the initial state beam photon and proton, respectively. Then \begin{equation}
+	p_\text{beam}+p_p=p_\text{recoil}+p_\text{meson}
+\end{equation}
+holds, with $p_\text{recoil}$ being the momentum of the recoiling proton and $p_\text{meson}$ the meson momentum.
+\subsection{Coplanarity}
+In the initial state there is vanishing transversal momentum $p_{xy}$ since the target protons are at rest and the beam photon impinges in $z$-direction. Naturally this transversal momentum has to vanish in the final state as well, such that \begin{equation}
+	\mathcal{P}_{xy} \left[p_\text{recoil}+p_\text{meson}\right]=0,
+	\label{eq:copl}
+\end{equation}
+where $\mathcal{P}_{xy}$ is the projection operator to the transversal plane. Equation \eqref{eq:copl} is valid if and only if meson and proton lie back to back (coplanar) in the $x$-$y$ plane, which is quantified by the difference of their azimuthal angles $\phi_\text{meson}$ and $\phi_\text{recoil}$ being $\SI{180}{\degree}$
+\begin{equation}
+	\left|\phi_\text{meson}-\phi_\text{recoil}\right|\overset{!}{=}\SI{180}{\degree}.
+\end{equation}
