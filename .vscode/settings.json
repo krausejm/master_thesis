@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "toyMC_posteriors.C": "cpp"
+        "toyMC_posteriors.C": "cpp",
+        "new_toy_MC.C": "cpp"
     }
 }

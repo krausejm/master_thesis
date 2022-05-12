@@ -3,5 +3,3 @@ eta prime:
 - event based fit in RooFit
 - BAYES
 - calculate sigma minus 2pi0/pi0eta contribution
-- check s,t,u
-
