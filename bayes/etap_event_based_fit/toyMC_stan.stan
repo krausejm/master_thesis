@@ -37,6 +37,12 @@ data {
     vector[M] pol_side;
     //fraction of bkg events in prmpt peak
     real<lower=0,upper=1> f;
+    //fraction of 2pi0 and etap
+    real<lower=0,upper=1> f_s;
+    real<lower=0,upper=1> f_b;
+    //measurement of sigma 2pi0
+    real sigma_2pi0_meas;
+    real dsigma_2pi0_meas;
 }
 parameters {
     //to do: dont use vector??
@@ -53,6 +59,11 @@ parameters {
 	vector[4] a_bkg;
  
     vector[4] b_bkg;
+
+    //true (unknown) value of sigma_2pi0 and prior location
+    real sigma_2pi0;
+    real mu_sigma_2pi0;
+    real std_sigma_2pi0;
 
 }
 model{
@@ -76,4 +87,5 @@ for(k in 1:4){
 //priors for sigma
 sigma ~ normal(0,1) T[-1,1];
 sigma_bkg ~ normal(0,1) T[-1,1];
+sigma_2pi0 ~ normal(mu_sigma_2pi0,std_sigma_2pi0);
 }

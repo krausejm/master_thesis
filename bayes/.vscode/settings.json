@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "chi2fit.C": "cpp"
+        "chi2fit.C": "cpp",
+        "new_toy_MC.C": "cpp"
     }
 }
