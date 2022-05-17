@@ -1,6 +1,6 @@
 functions{
 
-real mypdf(real phi, real pol, real sigma, vector a, vector b){
+real mypdf(real phi, real pol, real sigma,vector a, vector b){
     vector[5] m_a;
     vector[5] m_b;
     //the first coefficients are set!
@@ -37,12 +37,6 @@ data {
     vector[M] pol_side;
     //fraction of bkg events in prmpt peak
     real<lower=0,upper=1> f;
-    //fraction of 2pi0 and etap
-    real<lower=0,upper=1> f_s;
-    real<lower=0,upper=1> f_b;
-    //measurement of sigma 2pi0
-    real sigma_2pi0_meas;
-    real dsigma_2pi0_meas;
 }
 parameters {
     //to do: dont use vector??
@@ -60,13 +54,18 @@ parameters {
  
     vector[4] b_bkg;
 
-    //true (unknown) value of sigma_2pi0 and prior location
-    real sigma_2pi0;
-    //real mu_sigma_2pi0;
-    //real std_sigma_2pi0;
-
 }
 model{
+
+//loop over prmpt peak events
+for(k in 1:N){
+    target+=log(f*mypdf(phi_prmpt[k],pol_prmpt[k],sigma,a,b)+(1-f)*mypdf(phi_prmpt[k],pol_prmpt[k],sigma_bkg,a_bkg,b_bkg));
+}
+//loop over sideband events
+for(k in 1:M){
+    target+=log(mypdf(phi_side[k],pol_side[k],sigma_bkg,a_bkg,b_bkg));
+}
+
 //priors for eff. coefficients, non-informative, broadly around 0
 for(k in 1:4){
     a[k]~normal(0,0.1);
@@ -77,17 +76,4 @@ for(k in 1:4){
 //priors for sigma
 sigma ~ normal(0,1) T[-1,1];
 sigma_bkg ~ normal(0,1) T[-1,1];
-//sigma_2pi0 ~ normal(mu_sigma_2pi0,std_sigma_2pi0);
-sigma_2pi0_meas ~ normal(sigma_2pi0,dsigma_2pi0_meas);
-//loop over prmpt peak events
-for(k in 1:N){
-    target+=log(f*(f_s*mypdf(phi_prmpt[k],pol_prmpt[k],sigma,a,b)+f_b*mypdf(phi_prmpt[k],pol_prmpt[k],sigma_2pi0,a,b))
-    +(1-f)*mypdf(phi_prmpt[k],pol_prmpt[k],sigma_bkg,a_bkg,b_bkg));
-}
-//loop over sideband events
-for(k in 1:M){
-    target+=log(mypdf(phi_side[k],pol_side[k],sigma_bkg,a_bkg,b_bkg));
-}
-
-
 }

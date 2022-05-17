@@ -1,2 +1,2 @@
-sigma   sigma_err   f_s f_b
--0.3    0.05    0.8 0.2
+sigma	sigma_err	f_s	f_b
+-0.3	0.05	0.8	0.2

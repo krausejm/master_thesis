@@ -32,7 +32,7 @@ double pdf(double* x, double* p){
 void make_bin(int k, double p45pol, double m45pol, double sigma, int e1, int e2, int file){
 //this is the pdf 
 TF1* mypdf=new TF1("mypdf",pdf,-180,180,3);
-//mypdf->SetNpx(1000);
+mypdf->SetNpx(360);
 //this is the file data will be written to
 ofstream myfile;
 if(file==0){myfile.open (Form("./toybins/toybin%04d.txt",k));}
@@ -67,9 +67,9 @@ void new_toy_MC(){
         //eta bins
 	make_bin(k,0.3,0.25,0.3,1000,800,0);
 	//test bins
-	make_bin(k,0.3,0.3,0.3,1000,1000,1);
+	//make_bin(k,0.3,0.3,0.3,1000,1000,1);
 	//pi0 bins
-	make_bin(k,0.3,0.25,0.3,5000,4000,2);
+	//make_bin(k,0.3,0.25,0.3,5000,4000,2);
 
 
     }

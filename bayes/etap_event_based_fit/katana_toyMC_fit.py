@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from cycler import cycler
 import matplotlib.patches as mpatches
+import arviz as az
 plt.rcParams["xtick.minor.visible"] =  True
 plt.rcParams["ytick.minor.visible"] =  True
 plt.rcParams["mathtext.fontset"]="cm"
@@ -26,7 +27,7 @@ def fit(nsamples,nbins,start): #define starting index
         print(f"Fitting toy MC bin no.{i}")
         #read data
         df=pd.read_csv(f"toybins/toybin{i:04d}.txt",sep="\t")
-        df_2pi0=pd.read_csv(f"toybins/2pi0bin.txt",sep='\t')
+        df_2pi0=pd.read_csv(f"toybins/2pi0bin.txt",sep="\t")
         #df=pd.read_csv(f"new_toy_MC.txt",sep="\t")
         df.columns=['pol','phi','weight']
         df_2pi0.columns=['sigma','dsigma','f_s','f_b']
@@ -54,16 +55,20 @@ def fit(nsamples,nbins,start): #define starting index
             'phi_side':list(side['phi'].values),
             'pol_side':list(side['pol'].values),
             'f':f, #fraction of signal in prmpt peak
-            'f_s': df_2pi0['f_s'], #fraction of etap events
-            'f_b': df_2pi0['f_b'], #fraction of 2pi0 events
-            'sigma_2pi0_meas': df_2pi0['sigma_2pi0'],#measured value of sigma_2pi0 
-            'dsigma_2pi0_meas': df_2pi0['dsigma_2pi0'] #w/ stat error
+            'f_s': list(df_2pi0['f_s'].values)[0], #fraction of etap events
+            'f_b': list(df_2pi0['f_b'].values)[0], #fraction of 2pi0 events
+            'sigma_2pi0_meas': list(df_2pi0['sigma'].values)[0],#measured value of sigma_2pi0 
+            'dsigma_2pi0_meas': list(df_2pi0['dsigma'].values)[0] #w/ stat error
         }
         print(nprmpt, total_nside)
         #now the stan model and mcmc
         model=sp.CmdStanModel(stan_file='toyMC_stan.stan')
         model.compile()
-        fitobj=model.sample(data=stan_data,iter_sampling=nsamples,inits=0,output_dir='./stan_trash',show_progress=False)
+        #initial parameter values
+        inits={'sigma':0,'a[1]':0,'a[2]':0,'a[3]':0,'a[4]':0,'b[1]':0,'b[2]':0,'b[3]':0,'b[4]':0,
+                'sigma_bkg':0,'a_bkg[1]':0,'a_bkg[2]':0,'a_bkg[3]':0,'a_bkg[4]':0,'b_bkg[1]':0,'b_bkg[2]':0,'b_bkg[3]':0,'b_bkg[4]':0,
+                'sigma_2pi0':0,'mu_sigma_2pi0':0,'std_sigma_2pi0':0.03}
+        fitobj=model.sample(data=stan_data,iter_sampling=nsamples,inits=inits,output_dir='./stan_trash')
         summary=fitobj.summary()
         samples=fitobj.draws_pd()
         #get mcmc diagnostics
@@ -118,7 +123,7 @@ def fit_bin(nsamples,binnr): #fit only one bin
     samples=fitobj.draws_pd()
     return samples,summary
 
-dfs=fit(nsamples=5000,nbins=1000,start=0)
+dfs=fit(nsamples=5000,nbins=10,start=0)
 diagnostics=dfs[0]
 sigma=dfs[1]
 diagnostics.to_csv('toy_diagnostics.csv')
@@ -136,3 +141,7 @@ sigma.to_csv('toy_sigma.csv')
 #all_sigmas=[]
 #for i in range(len(sigma_df.columns)):
 #    all_sigmas.extend((np.array(sigma_df[f'toybin{i:04d}'].values)))
+#plt.hist(all_sigmas,bins=20,histtype='step')
+#print(f'mean:{np.mean(all_sigmas)}')
+#print(f'median:{np.median(all_sigmas)}')
+#plt.show()
