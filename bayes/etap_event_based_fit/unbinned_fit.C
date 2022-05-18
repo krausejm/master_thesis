@@ -51,6 +51,29 @@ double pdf(double* x, double* par){
     }
 
 }
+double eff(double *x, double* par){
+    double scale=par[0];
+    double a[5];
+    double b[5];
+    double phi=x[0];
+    
+    //first coefficients are set!
+    a[0]=0;
+    b[0]=1;
+
+    //get meaningful var names
+    for(int i=1;i<5;i++){
+        a[i]=par[i];
+        b[i]=par[i+4];
+    }
+    //first get efficiency
+    double eff=0;
+    for(int i=0;i<5;i++){
+        eff+=a[i]*sin(i*phi*TMath::DegToRad())+b[i]*cos(i*phi*TMath::DegToRad());
+    }
+    return scale*eff;
+
+}
 
 void unbinned_fit(){
     TF3* f = new TF3("mypdf",pdf,-180,180,-1,1,-1.2,1.2,19);
@@ -64,5 +87,59 @@ void unbinned_fit(){
     double fr=(t->GetEntries("weight==1")-0.065*t->GetEntries("weight<0"))/t->GetEntries("weight==1");
     std::cout<<fr<<std::endl;
     f->FixParameter(18,fr);
-    auto result = t->UnbinnedFit("mypdf","phi:pol:weight");
+    t->UnbinnedFit("mypdf","phi:pol:weight");
+    
+    //check fit of efficiency function
+
+    TH1F* np45 = new TH1F("np45",";#phi / deg;counts",12,-180,180);
+    TH1F* nm45 = new TH1F("nm45",";#phi;counts",12,-180,180);
+    TH1F* hp45pol = new TH1F("hp45pol",";pol.;counts",100,-1,1);
+    TH1F* hm45pol = new TH1F("hm45pol",";pol.;counts",100,-1,1);
+
+    t->Draw("phi>>np45","pol>0&&weight==1","goff");
+    t->Draw("phi>>nm45","pol<0&&weight==1","goff");
+    //get pol vals
+    t->Draw("pol>>hp45pol","pol>0&&weight==1","goff");
+    t->Draw("pol>>hm45pol","pol<0&&weight==1","goff");
+
+    double norm_p = np45->Integral();
+    double norm_m = nm45->Integral();
+    //normalize event yields
+    np45->Scale(1./norm_p);
+    nm45->Scale(1./norm_m);
+    //get mean polarization
+    double pol_p45=hp45pol->GetMean();
+    double pol_m45=TMath::Abs(hm45pol->GetMean());
+    //std::cout<<pol_p45;
+    //build weighted sum s.t. only eff function should be visible
+    np45->Add(np45,nm45,pol_m45/(pol_p45+pol_m45),pol_p45/(pol_m45+pol_p45));
+    np45->Scale(1./np45->GetMaximum());
+    //retrieve fit parameters
+    TF1* eff_func=new TF1("eff_func",eff,-180,180,9);
+    for(int i=1;i<9;i++){
+        //write eff coefficients to new func
+        eff_func->FixParameter(i,f->GetParameter(i));
+    }
+    //cosmetics
+    eff_func->SetLineColor(kBlue);
+    eff_func->SetNpx(1000);
+    np45->SetMarkerStyle(kFullSquare);
+    np45->SetMarkerColor(kBlack);
+    np45->SetLineColor(kBlack);
+    np45->GetXaxis()->SetLabelFont(132);
+    np45->GetXaxis()->SetTitleFont(132);
+    np45->GetYaxis()->SetLabelFont(132);
+    np45->GetYaxis()->SetTitleFont(132);
+    np45->GetXaxis()->SetTitleSize(.06);
+    np45->GetYaxis()->SetTitleSize(.06);
+    np45->GetXaxis()->SetLabelSize(.05);
+    np45->GetYaxis()->SetLabelSize(.05);
+
+    gStyle->SetOptStat(0);
+    np45->Draw("ep");
+    gPad->SetBottomMargin(0.2);
+    np45->Fit(eff_func);
+    
+    
+
 }
