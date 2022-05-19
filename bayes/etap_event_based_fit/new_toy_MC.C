@@ -117,7 +117,7 @@ for(int i=0;i<1;i++){// 1 iteration for each time cut
 
 }
 void new_toy_MC(){
-    for(int k=0;k<1000;k++){
+    for(int k=1000;k<10000;k++){
         make_bin(k);
     }
 
