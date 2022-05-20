@@ -77,7 +77,7 @@ for(k in 1:4){
 //priors for sigma
 sigma ~ normal(0,1) T[-1,1];
 sigma_bkg ~ normal(0,1) T[-1,1];
-sigma_2pi0_meas ~uniform(-1,1);
+sigma_2pi0 ~uniform(-1,1);
 //sigma_2pi0 ~ normal(mu_sigma_2pi0,std_sigma_2pi0);
 sigma_2pi0_meas ~ normal(sigma_2pi0,dsigma_2pi0_meas);
 //loop over prmpt peak events

@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from cycler import cycler
 import matplotlib.patches as mpatches
+import arviz as az
 plt.rcParams["xtick.minor.visible"] =  True
 plt.rcParams["ytick.minor.visible"] =  True
 plt.rcParams["mathtext.fontset"]="cm"
@@ -22,6 +23,7 @@ def fit(nsamples,nbins,start): #define starting index
     cols=[f'toybin{i:04d}' for i in range(start,start+nbins)]
     diagnostics_df=pd.DataFrame(columns=cols,index=['sigma_median','mcse','rhat'])
     sigma_df=pd.DataFrame(columns=cols)
+    sigma_2pi0_df=pd.DataFrame(columns=cols)
     for i in range(start,start+nbins):#no. of toy bins
         print(f"Fitting toy MC bin no.{i}")
         #read data
@@ -54,10 +56,10 @@ def fit(nsamples,nbins,start): #define starting index
             'phi_side':list(side['phi'].values),
             'pol_side':list(side['pol'].values),
             'f':f, #fraction of signal in prmpt peak
-            'f_s': df_2pi0['f_s'], #fraction of etap events
-            'f_b': df_2pi0['f_b'], #fraction of 2pi0 events
-            'sigma_2pi0_meas': df_2pi0['sigma_2pi0'],#measured value of sigma_2pi0 
-            'dsigma_2pi0_meas': df_2pi0['dsigma_2pi0'] #w/ stat error
+            'f_s': df_2pi0['f_s'].values[0], #fraction of etap events
+            'f_b': df_2pi0['f_b'].values[0], #fraction of 2pi0 events
+            'sigma_2pi0_meas': df_2pi0['sigma'].values[0],#measured value of sigma_2pi0 
+            'dsigma_2pi0_meas': df_2pi0['dsigma'].values[0] #w/ stat error
         }
         print(nprmpt, total_nside)
         #now the stan model and mcmc
@@ -74,7 +76,8 @@ def fit(nsamples,nbins,start): #define starting index
         currbin=f"toybin{i:04d}"
         diagnostics_df[currbin]=tmp_list
         sigma_df[currbin]=samples['sigma']
-    return diagnostics_df, sigma_df, summary
+        sigma_2pi0_df[currbin]=samples['sigma_2pi0']
+    return diagnostics_df, sigma_df, sigma_2pi0_df, summary
 
 def fit_bin(nsamples,binnr): #fit only one bin
     #read data
@@ -118,11 +121,14 @@ def fit_bin(nsamples,binnr): #fit only one bin
     samples=fitobj.draws_pd()
     return samples,summary
 
-dfs=fit(nsamples=5000,nbins=1000,start=0)
+dfs=fit(nsamples=5000,nbins=1,start=0)
 diagnostics=dfs[0]
 sigma=dfs[1]
+sigma_2pi0=dfs[2]
 diagnostics.to_csv('toy_diagnostics.csv')
 sigma.to_csv('toy_sigma.csv')
+sigma_2pi0.to_csv('toy_sigma2pi0.csv')
+
 
 #sigma_df=pd.read_csv('toy_sigma.csv',index_col=0)
 #diagnostics_df=pd.read_csv('toy_diagnostics.csv',index_col=0)

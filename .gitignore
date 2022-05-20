@@ -78,5 +78,6 @@ bayes/toyMC/super_sigma_chi2.csv
 bayes/etap_event_based_fit/toy_sigma.csv
 bayes/etap_event_based_fit/toy_diagnostics.csv
 bayes/etap_event_based_fit/stan_trash/
+bayes/etap_event_based_fit/toy_sigma_2pi0.csv
 
 
