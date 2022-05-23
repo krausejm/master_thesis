@@ -95,7 +95,7 @@ void toyMC_unbinned_fit(){
     	double fr=(t->GetEntries("weight==1")-0.065*t->GetEntries("weight<0"))/t->GetEntries("weight==1");
     	//std::cout<<fr<<std::endl;
     	f->FixParameter(18,fr);
-    	t->UnbinnedFit("mypdf","phi:pol:weight");
+    	t->UnbinnedFit("mypdf","phi:pol:weight","","Q");
     
     	hsigma->Fill(f->GetParameter(0));
     	hsigma_bkg->Fill(f->GetParameter(9));
@@ -103,7 +103,7 @@ void toyMC_unbinned_fit(){
     	if(i%100==0) std::cout<<"Fit no. "<<i<<std::endl;
     }
    
-    TFile* file = new TFile("./toyMC_results.root","RECREATE");
+    TFile* file = new TFile("./toyMC_results_new.root","RECREATE");
     hsigma->Write();
     hsigma_bkg->Write();
     hxi->Write();

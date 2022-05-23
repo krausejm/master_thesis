@@ -65,7 +65,7 @@ def fit(nsamples,nbins,start): #define starting index
         #now the stan model and mcmc
         model=sp.CmdStanModel(stan_file='toyMC_stan.stan')
         model.compile()
-        fitobj=model.sample(data=stan_data,iter_sampling=nsamples,inits=0,output_dir='./stan_trash',show_progress=False)
+        fitobj=model.sample(data=stan_data,iter_sampling=nsamples,inits=0,output_dir='./stan_trash',show_progress=True)
         summary=fitobj.summary()
         samples=fitobj.draws_pd()
         #get mcmc diagnostics
@@ -121,7 +121,7 @@ def fit_bin(nsamples,binnr): #fit only one bin
     samples=fitobj.draws_pd()
     return samples,summary
 
-dfs=fit(nsamples=5000,nbins=1,start=0)
+dfs=fit(nsamples=5000,nbins=1000,start=0)
 diagnostics=dfs[0]
 sigma=dfs[1]
 sigma_2pi0=dfs[2]
