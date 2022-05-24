@@ -4,6 +4,8 @@
         "new_toy_MC.C": "cpp",
         "testing.C": "cpp",
         "toy_MC.C": "cpp",
-        "unbinned_fit.C": "cpp"
+        "unbinned_fit.C": "cpp",
+        "toyMC_unbinned_fit.C": "cpp",
+        "create_csv.C": "cpp"
     }
 }

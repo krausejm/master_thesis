@@ -83,26 +83,23 @@ void unbinned_fit(){
         f->SetParName(i,parnames[i]);
     }
     TTree* t = new TTree("t","mytree");
-    t->ReadFile("../bayes/etap_event_based_fit/toybins/toybin0000.txt","pol:phi:weight");
-    double fr=(t->GetEntries("weight==1")-0.065*t->GetEntries("weight<0"))/t->GetEntries("weight==1");
-    std::cout<<fr<<std::endl;
-    f->FixParameter(18,fr);
-    t->UnbinnedFit("mypdf","phi:pol:weight");
+    ofstream myfile;
+    myfile.open("sigma_unbinned_fit.txt");
+    myfile<<"egamma\tcostheta\tsigma\tsigma_err\n";
+    for(int i=0;i<3;i++){
+        for(int j=0;j<6;j++){
+            t->Reset();
+            t->ReadFile(Form("./ebin%02d/ebin%02dcostbin%02d.txt",i,i,j),"pol:phi:weight");
+            double fr=(t->GetEntries("weight==1")-0.065*t->GetEntries("weight<0"))/t->GetEntries("weight==1");
+            std::cout<<fr<<std::endl;
+            f->FixParameter(18,fr);
+            t->UnbinnedFit("mypdf","phi:pol:weight","","Q");
+            myfile<<1500+(i+1)*100-50<<"\t"<<-1+(j+1)*(2./6.)-1./6.<<"\t"<<f->GetParameter(0)<<"\t"<<f->GetParError(0)<<"\n";
+        }
+    }
     
-    TH1F* hsigma = new TH1F("hsigma",";#Sigma;counts;",100,-1,1);
-    TH1F* hsigma_bkg = new TH1F("hsigma_bkg",";#Sigma;counts;",100,-1,1);
-    TH1F* hxi = new TH1F("res",";#xi;counts",100,-10,10);
     
-    hsigma->Fill(f->GetParameter(0));
-    hsigma_bkg->Fill(f->GetParameter(9));
-    hxi->Fill((f->GetParameter(0)-0.34)/f->GetParError(0));
    
-    TFile* f = new TFile("./toyMC_results.root","RECREATE");
-    hsigma->Write();
-    hsigma_bkg->Write();
-    hxi->Write();
-    f->Close(); 
-    
     
     /*//check fit of efficiency function
 

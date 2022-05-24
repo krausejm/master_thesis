@@ -24,14 +24,16 @@ void toyMC_posteriors(){
     t->ReadFile("toy_sigma.csv");
     //d->ReadFile("mcse.csv","mcse");
     //set tree branch adresses for posteriors
-    const int nbins = 10;
+    const int nbins = 1000;
+    const int nbins_hist=90;
+    //nbins=300,nbins_hist=50 is a pretty combination, as well as nbins=1000,nbins_hist=80
     Float_t currentry[nbins];
     TH1F* posteriors[nbins];
 
     for(int i=0;i<nbins;i++){
         //create corresponding histos
         t->SetBranchAddress(Form("toybin%04d",i),&currentry[i]);
-        posteriors[i]=new TH1F(Form("posterior%04d",i),";#Sigma;",150,-1,1);
+        posteriors[i]=new TH1F(Form("posterior%04d",i),";#Sigma;",nbins_hist,-1,1);
         //get mcse
         //std::cout<<mcse[i]<<std::endl;
     }
@@ -41,7 +43,7 @@ void toyMC_posteriors(){
         for(int j=0;j<nbins;j++){
             posteriors[j]->Fill((currentry[j]));
         }
-    }
+    }   
     //now convert each histo to log scale for better calculations
     for(int i=0;i<nbins;i++){
         for(int j=0;j<posteriors[i]->GetNbinsX();j++){
@@ -63,7 +65,7 @@ void toyMC_posteriors(){
     g->SetParameter(0,amp);
     g->SetParameter(1,mu);
     g->SetParameter(2,sigma);
-    TH1F* combinedposterior = new TH1F("combined",";#Sigma;",150,-1,1);
+    TH1F* combinedposterior = new TH1F("combined",";#Sigma;",nbins_hist,-1,1);
     //multiplication via log scale addition
     for(int i=0;i<nbins;i++){
         if(i==0){
@@ -73,12 +75,13 @@ void toyMC_posteriors(){
             combinedposterior->Add(f,-1);
         }
     }
-    TH1F* test = new TH1F("test",";#Sigma;",150,-1,1);
+    TH1F* test = new TH1F("test",";#Sigma;",nbins_hist,-1,1);
     for(int i=0;i<combinedposterior->GetNbinsX();i++){
         double tmp;
         std::cout<<"lp="<<combinedposterior->GetBinContent(i+1)<<std::endl;
         //convert back to linear scale
-        if(combinedposterior->GetBinContent(i+1)>0) tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-40);
+        int scale = combinedposterior->GetMaximum();
+        if(combinedposterior->GetBinContent(i+1)>0) tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-7050);
         else tmp = TMath::Exp(combinedposterior->GetBinContent(i+1));
         std::cout<<"exp(lp)="<<tmp<<std::endl;
         combinedposterior->SetBinContent(i+1,tmp);
@@ -86,6 +89,7 @@ void toyMC_posteriors(){
 
     }
     //fit gaus because
+    
     TF1* fitf = new TF1("fitf","gaus",-1,1);
     fitf->SetNpx(1e5);
     test->Fit(fitf);
@@ -95,10 +99,11 @@ void toyMC_posteriors(){
     test->GetXaxis()->SetLabelFont(132);
     test->GetYaxis()->SetTitleFont(132);
     test->GetYaxis()->SetLabelFont(132);
-    //test->GetYaxis()->SetLabelSize(0);
+    test->GetYaxis()->SetRangeUser(0,1.3*fitf->GetParameter(0)*1.2);
+    test->GetYaxis()->SetLabelSize(0);
     test->GetXaxis()->SetRangeUser(0.4,0.6);
-    //test->GetYaxis()->SetNdivisions(1);
-    test->GetYaxis()->SetRangeUser(0,100);
+    test->GetYaxis()->SetNdivisions(1);
+    
     test->GetYaxis()->SetTitle("#it{p}(#Sigma|D) (arb. units)");
     double fmu, fmu_err, fsigma, fsigma_err;
     fmu=fitf->GetParameter(1);
@@ -108,6 +113,6 @@ void toyMC_posteriors(){
     TLatex text;
     text.SetTextAlign(22);
     test->Draw("");
-    text.DrawLatex(0.5,95,Form("#font[132]{#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}}",fmu,fmu_err,fsigma,fsigma_err));
+    text.DrawLatex(0.5,fitf->GetParameter(0)*1.2,Form("#font[132]{#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}}",fmu,fmu_err,fsigma,fsigma_err));
 
 }
