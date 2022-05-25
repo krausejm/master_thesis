@@ -7,7 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from cycler import cycler
 import matplotlib.patches as mpatches
-import seaborn as sns
+#import seaborn as sns
 import arviz as az
 import scipy.stats as stats
 #import ROOT as r
@@ -66,7 +66,7 @@ def fit(nsamples,nbins,start): #define starting index
         #now the stan model and mcmc
         model=sp.CmdStanModel(stan_file='toyMC_stan.stan')
         model.compile()
-        fitobj=model.sample(data=stan_data,iter_sampling=nsamples,inits=0)
+        fitobj=model.sample(data=stan_data,iter_sampling=nsamples,inits=0,output_dir='./stan_trash')
         summary=fitobj.summary()
         samples=fitobj.draws_pd()
         #get mcmc diagnostics
@@ -79,8 +79,8 @@ def fit(nsamples,nbins,start): #define starting index
         sigma_df[currbin]=samples['sigma']
     return diagnostics_df, sigma_df, summary
 
-dfs=fit(nsamples=1000,nbins=100,start=200)
+dfs=fit(nsamples=1000,nbins=1000,start=0)
 diagnostics=dfs[0]
 sigma=dfs[1]
-diagnostics.to_csv('toy_diagnostics_02.csv')
-sigma.to_csv('toy_sigma_02.csv')
+diagnostics.to_csv('new_toy_diagnostics.csv')
+sigma.to_csv('new_toy_sigma.csv')

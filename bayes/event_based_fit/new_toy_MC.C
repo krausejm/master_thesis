@@ -100,7 +100,7 @@ for(int i=0;i<7;i++){// 1 iteration for each time cut
 
 }
 void new_toy_MC(){
-    for(int k=0+200;k<200+100;k++){
+    for(int k=300;k<1000;k++){
         make_bin(k);
     }
 
