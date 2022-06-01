@@ -84,3 +84,4 @@ bayes/event_based_fit/stan_trash/
 bayes/event_based_fit/new_toyMC*.csv
 bayes/event_based_fit/new_toy_sigma.csv
 bayes/event_based_fit/new_toy_diagnostics.csv
+bayes/toyMC/py_toybins.zip
