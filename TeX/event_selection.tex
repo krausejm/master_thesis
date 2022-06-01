@@ -62,21 +62,23 @@ where the meson time $t_\text{meson}$ is appointed either the averaged time of b
 \end{figure} 
 
 \section{Kinematic constraints}
+Up until now mainly combinatorical background was discussed. However one can derive kinematical constraints from energy and momentum conservation to exclusively select the desired reaction. The derivation is discussed first, followed by the determination of the derived cut conditions.
+\subsection{Derivation of cut conditions}
 After charge and time cut, additional cuts can be derived from energy and momentum conservation. Let $p_\text{beam}$ and $p_p$ be the four momenta of the initial state beam photon and proton, respectively. Then \begin{equation}
 	p_\text{beam}+p_p=p_\text{recoil}+p_\text{meson}
 	\label{eq:kin}
 \end{equation}
 holds, with $p_\text{recoil}$ being the momentum of the recoiling proton and $p_\text{meson}$ the meson momentum.
-\subsection{Coplanarity}
+\subsubsection{Coplanarity}
 In the initial state there is vanishing transversal momentum $p_{xy}$ since the target protons are at rest and the beam photon impinges in $z$-direction. Naturally this transversal momentum has to vanish in the final state as well, such that \begin{equation}
 	\mathcal{P}_{xy} \left[p_\text{recoil}+p_\text{meson}\right]=0,
 	\label{eq:copl}
 \end{equation}
-where $\mathcal{P}_{xy}$ is the projection operator to the transversal plane. Equation \eqref{eq:copl} is valid if and only if meson and proton lie back to back (coplanar) in the $x$-$y$ plane, which is quantified by the difference of their azimuthal angles $\phi_\text{meson}$ and $\phi_\text{recoil}$ being $\SI{180}{\degree}$ in the LAB-frame
+where $\mathcal{P}_{xy}$ is the projection operator to the transversal plane. Equation \eqref{eq:copl} is valid if and only if meson and proton lie back to back (coplanar) in the $x$-$y$ plane, which is quantified by the difference of their azimuthal angles $\phi_\text{meson}$ and $\phi_\text{recoil}$ being $\SI{180}{\degree}$ in the laboratory-frame
 \begin{equation}
 	\Delta\phi:=\phi_\text{meson}^\text{LAB}-\phi_\text{recoil}^\text{LAB}\overset{!}{=}\SI{180}{\degree}.
 \end{equation}
-\subsection{Polar angle difference}
+\subsubsection{Polar angle difference}
 If all initial and final state momenta are measured, the reaction described by equation \eqref{eq:kin} is \emph{overdetermined}, such that one final state particle can be treated as a "missing particle" $X$ with momentum $p_X$: 
 \begin{equation}
 	p_X=p_\text{beam}+p_p-p_\text{meson}.
@@ -88,19 +90,59 @@ One can then use
 \label{eq:polarangle}	
 \end{equation}
 as a further constraint to the data.
-\subsection{Missing mass}
+\subsubsection{Missing mass}
 The previously described angular cuts are only applicable if all final state particles have been detected. Independently of the detection of the recoil proton the mass of the missing particle $m_X^2=p_X^2$ can be determined and compared with the proton mass of $m_p=\SI{938.27}{\mega\eV}$ \cite{pdg}. From equation \eqref{eq:polangle} it follows that \begin{equation}
 	m_X=\sqrt{(E_\gamma+m_p-E_\text{meson})^2-p_{x,\text{meson}}^2-p_{y,\text{meson}}^2-(E_\gamma-p_{z,\text{meson}})^2}.
 	\label{eq:mism}
 \end{equation}
-\subsection{Invariant mass}
+\subsubsection{Invariant mass}
 The measurement of the invariant mass of the two final state photons does also not require the measurement of the recoil proton. The knowledge of both four-momenta suffices, since \begin{equation}
 	m_\text{meson}=\sqrt{p_\text{meson}^2}=\sqrt{(p_{\gamma_1}+p_{\gamma_2})^2}=\sqrt{2E_{\gamma_1}E_{\gamma_2}(1-\cos\alpha_{\gamma_1\gamma_2})},
 \label{eq:invm}
 \end{equation}
 where $E_{\gamma_i}$ are the measured photon energies and $\alpha_{\gamma_1\gamma_2}$ is the angle spanned by the two photon momenta. To select only $\eta'$ candidates $m_\text{meson}=m_{\eta'}=\SI{957.78}{\mega\eV}$ is demanded. Remarkably, the cut on the invariant mass of the final state photons is the only one to uniquely select $\eta'$ production candidates so far. All other cuts apply similarly to arbitrary meson photoproduction.
-\section{Determination of cut ranges}
+\subsection{Determination of cut ranges}
 The constraints described in the previous section must not be understood as strict equalities, cf. equations \eqref{eq:copl},\eqref{eq:polarangle},\eqref{eq:mism} and \eqref{eq:invm}. The quantities of interest will rather describe distributions around the desired value, such that confidence intervals may be extracted by fitting to said distributions. This is done iteratively:
 
-Let $\mathcal{C}^\theta_{\mathcal{I}},\mathcal{C}^\phi_{\mathcal{J}},\mathcal{C}^{m_\text{X}}_{\mathcal{K}},\mathcal{C}^{m_\text{meson}}_{\mathcal{L}}$ be the cut operators that restrain the data such that $\Delta\theta,\Delta\phi,m_X$ and $m_\text{meson}$ are in the interval $\mathcal{I},\mathcal{J},\mathcal{K},\mathcal{L}$ respectively.
+Let $\mathcal{C}^\chi_{\mathcal{I}}$ be the cut operator that restrains the data $\mathcal{D}$ such that the (generic) cut variable $$\chi\in\{\Delta\theta,\Delta\phi,m_X,m_\text{meson}\}$$ lies in the interval $\mathcal{I}\subseteq\mathbb{R}$, such that 
+\begin{equation}
+	\mathcal{C}_{\mathcal{I}}^\chi:\mathcal{D}\mapsto\mathcal{D}_{\chi\in\mathcal{I}} .
+\end{equation}
+\begin{enumerate}
+	\item After a first inspection of the data, initial guesses for the intervals $\mathcal{I},\mathcal{J},\mathcal{K},\mathcal{L}$ corresponding to the quantities $\Delta\theta,\Delta\phi,m_X,m_\text{meson}$ respectively are made.
+	\item Having established estimates for the cut ranges, new ones are estimated by investigating the distribution of one cut variable obtained from the data while all other cut variables are constrained to the previously determined intervals. For example 
+	$$\Delta\theta\left(\mathcal{C}_\mathcal{J}^{\Delta\phi}\mathcal{C}_\mathcal{K}^{m_X}\mathcal{C}_\mathcal{L}^{m_\text{meson}}\mathcal{D}\right)\sim \text{normal}(\mu,\sigma),$$
+	where $\mu\approx0$. This is done (with some adjustments to the fit function) for each cut variable. The parameters of the gaussian are determined from a $\chi^2$ fit and used to assign new cut ranges. Simultaneously, Monte-Carlo (MC) data of relevant final states (see section \ref{sec:bkg}) are fitted to match the measured values bin-wise. Since the invariant mass spectrum features rich contributions from many final states, it is difficult to describe by a (sum of) gaussian function(s), especially considering the background contributions. Thus, for the invariant mass the cut ranges are obtained from gaussian fits to the scaled MC data of the $\eta'$ final state. Table \ref{tab:cuts} shows which fit function and cut range was used for each cut variable. In addition, it shows if the cut ranges were determined from MC or measured data.
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|cccc|}
+			\toprule
+			cut variable & fit function & interval range & obtained from\\
+			\hline
+			$\Delta\theta$&\textsc{Gauss}&$\mathcal{I}'=[\mu-3\sigma,\mu+3\sigma]$&data points\\
+			$\Delta\phi$&\textsc{Gauss}&$\mathcal{J}'=[\mu-3\sigma,\mu+3\sigma]$&data points\\
+			$m_X$&\textsc{Novosibirsk} \cite{nov}&$\mathcal{K}'=[\mu-2\sigma,\mu+2\sigma]$&data points\\
+			$m_\text{meson}$&\textsc{Gauss}&$\mathcal{L}'=[\mu-2\sigma,\mu+2\sigma]$&MC data\\
+			
+			\bottomrule
+		\end{tabular}
+		\caption{Fit functions and cut ranges for each variable}
+		\label{tab:cuts}
+	\end{table}
+\item The newly obtained intervals $\mathcal{I}',\mathcal{J}',\mathcal{K}',\mathcal{L}'$ serve again as input for step 2. This is repeated until a certain convergence is reached, which is usually the case after a two or three iterations.
+\end{enumerate}
+ Since the cut ranges may vary depending on beam energy and meson direction, they are determined in bins of $(E_\gamma,\cos\theta_{\eta'}^\text{CMS}).$ Respecting the $\eta'$ final state statistics, a binning of $\Delta E_\gamma=\SI{100}{\mega\eV}$ and $\Delta\cos\theta_{\eta'}^\text{CMS}=1/3$ was chosen, spanning the energy range of \SIrange{1500}{1800}{\mega\eV}. The theoretically accessible lower limit in the beam energy is provided by the production threshold of $\eta' $ mesons at \SI{1447}{\mega\eV} \cite{pdg}. Yet, the binning has to comply with the upper beam energy limit which is bounded from above \footnote{Significantly beyond the coherent edge, the systematic error for the beam polarization  degreen gets too large ($>10\%$)} by the position of the coherent edge of the beamtime. It is given by \SI{1700}{\mega\eV} and \SI{1800}{\mega\eV} for the July/August and September/October beam times, respectively. If one were to include the production threshold into the analyzed range using the same binning, more background than $\eta'$ events are collected from \SIrange{1400}{1500}{\mega\eV}.
+ \subsubsection{Coplanarity}
+ 
+ \subsubsection{Polar angle difference}
+ 
+ \subsubsection{Missing mass}
+ 
+ \subsubsection{Invariant mass}
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/invcut_ebin2.pdf}
+ 	\caption{Invariant mass of the $p\eta'$ final state with all other cuts applied. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the $\eta'$ MC data (solid black histogram). The black points represent the measured data, the solid colored histograms fitted MC data from other photoproduction reactions: in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$, magenta $\pi^0\eta$. The dashed, turquise histogram is the sum of all MC histograms.}
+ \end{figure}
 \section{Investigation of of background and additional cuts} 
+\label{sec:bkg}
