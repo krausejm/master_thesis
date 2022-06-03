@@ -133,16 +133,32 @@ Let $\mathcal{C}^\chi_{\mathcal{I}}$ be the cut operator that restrains the data
 \end{enumerate}
  Since the cut ranges may vary depending on beam energy and meson direction, they are determined in bins of $(E_\gamma,\cos\theta_{\eta'}^\text{CMS}).$ Respecting the $\eta'$ final state statistics, a binning of $\Delta E_\gamma=\SI{100}{\mega\eV}$ and $\Delta\cos\theta_{\eta'}^\text{CMS}=1/3$ was chosen, spanning the energy range of \SIrange{1500}{1800}{\mega\eV}. The theoretically accessible lower limit in the beam energy is provided by the production threshold of $\eta' $ mesons at \SI{1447}{\mega\eV} \cite{pdg}. Yet, the binning has to comply with the upper beam energy limit which is bounded from above \footnote{Significantly beyond the coherent edge, the systematic error for the beam polarization  degreen gets too large ($>10\%$)} by the position of the coherent edge of the beamtime. It is given by \SI{1700}{\mega\eV} and \SI{1800}{\mega\eV} for the July/August and September/October beam times, respectively. If one were to include the production threshold into the analyzed range using the same binning, more background than $\eta'$ events are collected from \SIrange{1400}{1500}{\mega\eV}.
  \subsubsection{Coplanarity}
- 
- \subsubsection{Polar angle difference}
- 
- \subsubsection{Missing mass}
- 
- \subsubsection{Invariant mass}
- \begin{figure}
+   \begin{figure}[htbp]
  	\centering
- 	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/invcut_ebin2.pdf}
+ 	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/phicut_ebin1.pdf}
+ 	\caption{Coplanarity of the $p\eta'$ final state with all other cuts applied. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the data (open circles). The solid black histograms represent fitted MC data of $\eta'\to\gamma\gamma$ MC}
+ 	\label{fig:copl}
+ \end{figure}
+ \subsubsection{Polar angle difference}
+  \begin{figure}[htbp]
+ 	\centering
+ 	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/thetacut_ebin1.pdf}
+ 	\caption{Polar angle difference of the $p\eta'$ final state with all other cuts applied. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the data (open circles). The solid black histograms represent fitted MC data of $\eta'\to\gamma\gamma$ MC}
+ 	\label{fig:pol}
+ \end{figure}
+ \subsubsection{Missing mass}
+  \begin{figure}[htbp]
+ 	\centering
+ 	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/mismcut_ebin1.pdf}
+ 	\caption{Missing mass of the $p\eta'$ final state with all other cuts applied. The vertical dashed lines show the cut ranges obtained from a gaussian fit to data (open circles). The solid colored histograms represent fitted MC data from other photoproduction reactions: in black $\eta'$, in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$, magenta $\pi^0\eta$. The dashed, turquise histogram is the sum of all MC histograms.}
+ 	\label{fig:mism}
+ \end{figure}
+ \subsubsection{Invariant mass}
+ \begin{figure}[htbp]
+ 	\centering
+ 	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/invcut_ebin1.pdf}
  	\caption{Invariant mass of the $p\eta'$ final state with all other cuts applied. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the $\eta'$ MC data (solid black histogram). The black points represent the measured data, the solid colored histograms fitted MC data from other photoproduction reactions: in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$, magenta $\pi^0\eta$. The dashed, turquise histogram is the sum of all MC histograms.}
+ 	\label{fig:invm}
  \end{figure}
 \section{Investigation of of background and additional cuts} 
 \label{sec:bkg}
