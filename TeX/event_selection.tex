@@ -108,15 +108,30 @@ Let $\mathcal{C}^\chi_{\mathcal{I}}$ be the cut operator that restrains the data
 \begin{equation}
 	\mathcal{C}_{\mathcal{I}}^\chi:\mathcal{D}\mapsto\mathcal{D}_{\chi\in\mathcal{I}} .
 \end{equation}
-\begin{enumerate}
-	\item After a first inspection of the data, initial guesses for the intervals $\mathcal{I},\mathcal{J},\mathcal{K},\mathcal{L}$ corresponding to the quantities $\Delta\theta,\Delta\phi,m_X,m_\text{meson}$ respectively are made.
-	\item Having established estimates for the cut ranges, new ones are estimated by investigating the distribution of one cut variable obtained from the data while all other cut variables are constrained to the previously determined intervals. For example 
+	 After a first inspection of the data, initial guesses for the intervals $\mathcal{I},\mathcal{J},\mathcal{K},\mathcal{L}$ corresponding to the quantities $\Delta\theta,\Delta\phi,m_X,m_\text{meson}$ respectively are made.
+	Having established estimates for the cut ranges, new ones are estimated by investigating the distribution of one cut variable obtained from the data while all other cut variables are constrained to the previously determined intervals. For example 
 	$$\Delta\theta\left(\mathcal{C}_\mathcal{J}^{\Delta\phi}\mathcal{C}_\mathcal{K}^{m_X}\mathcal{C}_\mathcal{L}^{m_\text{meson}}\mathcal{D}\right)\sim \text{normal}(\mu,\sigma),$$
-	where $\mu\approx0$. This is done (with some adjustments to the fit function) for each cut variable. The parameters of the gaussian are determined from a $\chi^2$ fit and used to assign new cut ranges. Simultaneously, Monte-Carlo (MC) data of relevant final states are fitted to match the measured values bin-wise. This is done on the one hand to check consistency between measured and MC data and on the other hand used to determine contributing background reactions. Depicted in table \ref{tab:mc} are the considered reactions which spectra are fitted to the data.
-	\begin{table}
-		\begin{tabular}{c}
-			$\pi^0$ \\
+	where $\mu\approx0$. This is done (with some adjustments to the fit function) for each cut variable. The parameters of the gaussian are determined from a $\chi^2$ fit and used to assign new cut ranges. Simultaneously, Monte-Carlo (MC) data of relevant final states are fitted to match the measured values bin-wise. This is done on the one hand to check consistency between measured and MC data and on the other hand used to determine contributing background reactions. First, all mesonic final states that decay into two photons are considered, i.e. $p\pi^0,p\eta,p\eta'$, since the according peaks in the invariant mass spectrum will be visible. Also, a peak at roughly $m_\omega$ will be visible; this stems from photoproduction reactions $p\omega\to p\pi^0\gamma\to p3\gamma$ where one low energetic final state photon is lost, such that the reconstructed invariant mass still estimates the $\omega$ mass. Further, one should investigate the impact of neutral final states, where some of the final state photons may get lost during reconstruction, as can be observed for $p2\pi^0,p\pi^0\eta,p3\pi^0,p2\pi^0\eta$ \footnote{all mesons $m$ decaying into two photons is implied: $m\to\gamma\gamma \forall m$} production. Lastly, possible misidentifiaction of charged particles which then mimic a $p\gamma\gamma$ final state are examined, such as $p\pi^+\pi^-$ and $n\pi^+$. Table \ref{tab:mc} lists all employed MC reactions and their respective final state particles, as well as a short explanation why the particular reaction was included in the fit.
+	
+	\begin{table}[htbp]
+		\begin{tabular}{ccc}
+			\toprule
+			Photoproduction reaction &Final state particles&Explanation\\
+			\hline
+			$p\pi^0$ & $p\gamma\gamma$&prominent peak in the invariant mass spectrum \\
+			$p\eta$ & $p\gamma\gamma$& \\
+			$p\omega$ & $p\pi^0\gamma\to p3\gamma$& \\
+			$p\eta'$ & $p\gamma\gamma$&\\
+			$p2\pi^0$ & $p4\gamma$&lost photons cause a "3-particle" final state\\
+			$p\pi^0\eta$ & $p4\gamma$&\\
+			$p3\pi^0$ & $p6\gamma$&\\
+			$p2\pi^0\eta$ & $p6\gamma$&\\
+			$p\pi^+\pi^-$ &&misidentification of charged particles\\
+			$n\pi^+$ &&\\
+			\bottomrule
 		\end{tabular}
+	\caption{Examined MC reactions that were used in sum for the fit}
+	\label{tab:mc}
 	\end{table}
 	
 	 Since the invariant mass spectrum features rich contributions from many final states, it is difficult to describe by a (sum of) gaussian function(s), especially considering the background contributions. Thus, for the invariant mass the cut ranges are obtained from gaussian fits to the scaled MC data of the $\eta'$ final state. Table \ref{tab:cuts} shows which fit function and cut range was used for each cut variable. In addition, it shows if the cut ranges were determined from MC or measured data.
@@ -136,8 +151,7 @@ Let $\mathcal{C}^\chi_{\mathcal{I}}$ be the cut operator that restrains the data
 		\caption{Fit functions and cut ranges for each variable}
 		\label{tab:cuts}
 	\end{table}
-\item The newly obtained intervals $\mathcal{I}',\mathcal{J}',\mathcal{K}',\mathcal{L}'$ serve again as input for step 2. This is repeated until a certain convergence is reached, which is usually the case after a two or three iterations.
-\end{enumerate}
+The newly obtained intervals $\mathcal{I}',\mathcal{J}',\mathcal{K}',\mathcal{L}'$ serve again as input for the previous step. This is repeated until a certain convergence is reached, which is usually the case after a two or three iterations.
  Since the cut ranges may vary depending on beam energy and meson direction, they are determined in bins of the beam energy and the CMS polar angle of the meson $$(E_\gamma,\cos\theta_{\eta'}^\text{CMS}).$$ Respecting the $\eta'$ final state statistics, a binning of $\Delta E_\gamma=\SI{100}{\mega\eV}$ and $\Delta\cos\theta_{\eta'}^\text{CMS}=1/3$ was chosen, spanning the energy range of \SIrange{1500}{1800}{\mega\eV}. The theoretically accessible lower limit in the beam energy is provided by the production threshold of $\eta' $ mesons at \SI{1447}{\mega\eV} \cite{pdg}. Yet, the binning has to comply with the upper beam energy limit which is bounded from above \footnote{Significantly beyond the coherent edge, the systematic error for the beam polarization  degree gets too large ($>10\%$)} by the position of the coherent edge of the beamtime. It is given by \SI{1700}{\mega\eV} and \SI{1800}{\mega\eV} for the July/August and September/October beam times, respectively. If one were to include the production threshold into the analyzed range using the same binning, more background than $\eta'$ events are collected from \SIrange{1400}{1500}{\mega\eV}, hence the chosen binning starts at \SI{1500}{MeV}.
  
  \subsubsection{Coplanarity}
@@ -167,10 +181,7 @@ Let $\mathcal{C}^\chi_{\mathcal{I}}$ be the cut operator that restrains the data
  \subsubsection{Invariant mass}
  Investigating the invariant mass spectrum of the final state photons allows to illustrate the impact of the event selection so far. As has been mentioned all cuts considered up to this point apply to arbitrary meson photoproduction. This means that the invariant mass spectrum will depict peaks belonging to mesons produced in the considered beam energy range. This is shown in
  
- \begin{figure}[htbp]
- 	\centering
- 	\includegraphics[width=\linewidth]{imagefile}
- \end{figure}
+
  
  
  
