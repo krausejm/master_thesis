@@ -22,7 +22,7 @@ The determination of polarization observables needs to be completed for particul
 \noindent The process of \emph{event selection} for the reaction $\gamma p \to p\eta'\to p\gamma\gamma$ is outlined in the following chapter. Note that in this thesis the analysis of data from $\eta$-photoproduction starts with this process already completed, which is described in detail in reference \cite{farahphd}.
 
 \section{Preselection and charge cut}
-Events are generally classified depending on the number of particle energy deposits (PED). If the complete four-momenta of three final state particles are measured, they are referred to as 3PED events. Low energy protons however may either be only detected in the scintillators of the inner, forward or MiniTAPS detector -- giving only directional information (2.5 PED) -- or lost entirely (2 PED). Only 2.5PED and 3PED events were analyzed since the additional background contributions from 2PED events exceeded the additional signal contributions. It is worth noting that 3PED events are significantly dominant for $\eta'\to\gamma\gamma$ reactions; the production threshold for $\eta'$ mesons is $E_\gamma=\SI{1447}{\mega\eV}$, such that the recoil proton will likely be detected. Figure \ref{fig:PEDs} shows the distribution of the different event classes for $\eta'\to\gamma\gamma$ production in \textsc{Monte Carlo} data, with a clear preference towards 3PED events.
+Since the polarization degree can only be evaluated reliably up to \SI{1800}{\mega\eV} and the production threshold for $\eta'$ mesons is $E_\gamma=\SI{1447}{\mega\eV}$ \cite{pdg}, the beam photon energy range was restricted to \SIrange{1400}{1800}{\mega\eV} from the very beginning. The measured events are then generally classified depending on the number of particle energy deposits (PED). If the complete four-momenta of three final state particles are measured, they are referred to as 3PED events. Low energy protons however may either be only detected in the scintillators of the inner, forward or MiniTAPS detector -- giving only directional information (2.5 PED) -- or lost entirely (2 PED). Only 2.5PED and 3PED events were analyzed since the additional background contributions from 2PED events exceeded the additional signal contributions. It is worth noting that 3PED events are significantly dominant for $\eta'\to\gamma\gamma$ reactions; the production threshold for $\eta'$ mesons is so high energetic that the recoil proton will likely be detected. Figure \ref{fig:PEDs} shows the distribution of the different event classes for $\eta'\to\gamma\gamma$ production in \textsc{Monte Carlo} data, with a clear preference towards 3PED events.
 
 \begin{figure}[htbp]
 	\centering
@@ -30,11 +30,7 @@ Events are generally classified depending on the number of particle energy depos
 	\caption{Distribution of event classes in $\eta'\to\gamma\gamma$ production}
 	\label{fig:PEDs}
 \end{figure}
-
-
-
-
- To further improve the signal to background ratio, the charge information of the final state particles was utilized in the next step. In particular, to select  $\eta'\to\gamma\gamma$ reactions, one charged and two uncharged particles in the final state were demanded. 
+To further improve the signal to background ratio, the charge information of the final state particles was utilized in the next step. In particular, to select  $\eta'\to\gamma\gamma$ reactions, one charged and two uncharged particles in the final state were demanded. 
 
 \section{Time of particles}
 Due to its high count rate the tagging system (see section \ref{subsec:tag}) will not only record beam photons which produce the detectable final state particles, but also several uncorrelated ones. To select only beam photons which will induce a photoproduction process the time information of the detected particles is used. It is shown in figure \ref{fig:time} for all particles involved in 2.5PED and 3PED events of $\eta'$ photoproduction. 
@@ -111,7 +107,7 @@ Let $\mathcal{C}^\chi_{\mathcal{I}}$ be the cut operator that restrains the data
 	 After a first inspection of the data, initial guesses for the intervals $\mathcal{I},\mathcal{J},\mathcal{K},\mathcal{L}$ corresponding to the quantities $\Delta\theta,\Delta\phi,m_X,m_\text{meson}$ respectively are made.
 	Having established estimates for the cut ranges, new ones are estimated by investigating the distribution of one cut variable obtained from the data while all other cut variables are constrained to the previously determined intervals. For example 
 	$$\Delta\theta\left(\mathcal{C}_\mathcal{J}^{\Delta\phi}\mathcal{C}_\mathcal{K}^{m_X}\mathcal{C}_\mathcal{L}^{m_\text{meson}}\mathcal{D}\right)\sim \text{normal}(\mu,\sigma),$$
-	where $\mu\approx0$. This is done (with some adjustments to the fit function) for each cut variable. The parameters of the gaussian are determined from a $\chi^2$ fit and used to assign new cut ranges. Simultaneously, Monte-Carlo (MC) data of relevant final states are fitted to match the measured values bin-wise. This is done on the one hand to check consistency between measured and MC data and on the other hand used to determine contributing background reactions. First, all mesonic final states that decay into two photons are considered, i.e. $p\pi^0,p\eta,p\eta'$, since the according peaks in the invariant mass spectrum will be visible. Also, a peak at roughly $m_\omega$ will be visible; this stems from photoproduction reactions $p\omega\to p\pi^0\gamma\to p3\gamma$ where one low energetic final state photon is lost, such that the reconstructed invariant mass still estimates the $\omega$ mass. Further, one should investigate the impact of neutral final states, where some of the final state photons may get lost during reconstruction, as can be observed for $p2\pi^0,p\pi^0\eta,p3\pi^0,p2\pi^0\eta$ \footnote{all mesons $m$ decaying into two photons is implied: $m\to\gamma\gamma \forall m$} production. Lastly, possible misidentifiaction of charged particles which then mimic a $p\gamma\gamma$ final state are examined, such as $p\pi^+\pi^-$ and $n\pi^+$. Table \ref{tab:mc} lists all employed MC reactions and their respective final state particles, as well as a short explanation why the particular reaction was included in the fit.
+	where $\mu\approx0$. This is done (with some adjustments to the fit function) for each cut variable. The parameters of the gaussian are determined from a $\chi^2$ fit and used to assign new cut ranges. Simultaneously, Monte-Carlo (MC) data of relevant final states are fitted to match the measured values bin-wise. This is done on the one hand to check consistency between measured and MC data and on the other hand used to determine contributing background reactions. First, all mesonic final states that decay into two photons are considered, i.e. $p\pi^0,p\eta,p\eta'$, since the according peaks in the invariant mass spectrum will be visible. Also, a peak at the mass of the $\omega$ (vector)-meson $m_\omega$ will be visible; this stems from photoproduction reactions $p\omega\to p\pi^0\gamma\to p3\gamma$ where one low energetic final state photon is lost, such that the reconstructed invariant mass still estimates the $\omega$ mass. Further, one should investigate the impact of neutral final states, where some of the final state photons may get lost during reconstruction, as can be observed for $p2\pi^0,p\pi^0\eta,p3\pi^0,p2\pi^0\eta$ \footnote{all mesons $m$ decaying into two photons is implied: $m\to\gamma\gamma \forall m$} production. Lastly, possible misidentifiaction of charged particles which then mimic a $p\gamma\gamma$ final state are examined, such as $p\pi^+\pi^-$ and $n\pi^+$. Table \ref{tab:mc} lists all employed MC reactions and their respective final state particles, as well as a short explanation why the particular reaction was included in the fit.
 	
 	\begin{table}[htbp]
 		\begin{tabular}{ccc}
@@ -159,7 +155,7 @@ The newly obtained intervals $\mathcal{I}',\mathcal{J}',\mathcal{K}',\mathcal{L}
    \begin{figure}[htbp]
  	\centering
  	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/phicut_ebin1.pdf}
- 	\caption{Coplanarity of the $p\eta'$ final state with all other cuts applied. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the data (open circles). The solid black histograms represent fitted MC data of $\eta'\to\gamma\gamma$}
+ 	\caption{Coplanarity of the $p\eta'$ final state with all other cuts applied for the energy bin $\SI{1500}{\mega\eV}\leq E_\gamma<\SI{1600}{\mega\eV}$. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the data (open circles). The solid black histograms represent fitted MC data of $\eta'\to\gamma\gamma$}
  	\label{fig:copl}
  \end{figure}
  \subsubsection{Polar angle difference}
@@ -167,20 +163,26 @@ The newly obtained intervals $\mathcal{I}',\mathcal{J}',\mathcal{K}',\mathcal{L}
   \begin{figure}[htbp]
  	\centering
  	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/thetacut_ebin1.pdf}
- 	\caption{Polar angle difference of the $p\eta'$ final state with all other cuts applied. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the data (open circles). The solid black histograms represent fitted MC data of $\eta'\to\gamma\gamma$}
+ 	\caption{Polar angle difference of the $p\eta'$ final state with all other cuts applied for the energy bin $\SI{1500}{\mega\eV}\leq E_\gamma<\SI{1600}{\mega\eV}$. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the data (open circles). The solid black histograms represent fitted MC data of $\eta'\to\gamma\gamma$}
  	\label{fig:pol}
  \end{figure}
  \subsubsection{Missing mass}
- The missing mass spectra allow a first investigation of possible background reactions that pass event selection. For all angular bins of the first energy bin the missing mass is shown in figure \ref{fig:mism}; again, the open circles are the data points with corresponding statistical error bars. The solid colored histograms are fitted MC spectra of different possible background contributions while the black histogram is the signal contribution of $\eta'\to\gamma\gamma$ photoproduction. The turquoise histogram is the sum of all MC histograms. Generally, most of the data can be described by the $\eta'$ MC alone, but especially towards higher masses (and higher beam energies) background contributions extend the missing mass peak as flat background. These are reactions where the meson mass $m_\text{meson}^2=E_\text{meson}^2-\vec{p}_\text{meson}^2$ is smaller than the $\eta'$ mass, resulting in larger values for the missing mass. Judging from the fit to the missing mass, $2\pi^0$ and/or $\pi^0\eta$ photoproduction may describe the background as both show similar shapes. Better conclusions can be drawn from the invariant mass spectra as is discussed in the following section \ref{sec:bkg}. The cut ranges for the missing mass are obtained from a \textsc{Novosibirsk} fit to the data since the missing mass distribution is slightly asymmetric. However, since the tail parameter is small, still a symmetric cut of $\pm2\sigma$ was chosen. It was chosen narrower than the angular cuts to collect less background reactions.
+ The missing mass spectra allow a first investigation of possible background reactions that pass event selection. For all angular bins of the first energy bin the missing mass is shown in figure \ref{fig:mism}; again, the open circles are the data points with corresponding statistical error bars. The solid colored histograms are fitted MC spectra of different possible background contributions while the black histogram is the signal contribution of $\eta'\to\gamma\gamma$ photoproduction. The turquoise histogram is the sum of all MC histograms. Generally, most of the data can be described by the $\eta'$ MC alone, but especially towards higher masses (and higher beam energies) background contributions extend the missing mass peak as flat background. These are reactions where the reconstructed meson mass $m_\text{meson}^2=E_\text{meson}^2-\vec{p}_\text{meson}^2$ is smaller than the $\eta'$ mass, resulting in larger values for the missing mass. Judging from the fit to the missing mass, $2\pi^0$ and/or $\pi^0\eta$ photoproduction may describe the background as both show similar shapes. All other previously mentioned reactions (table \ref{tab:mc}) do not contribute significantly. Better conclusions can be drawn from the invariant mass spectra as is discussed in the following section \ref{sec:bkg}. The cut ranges for the missing mass are obtained from a \textsc{Novosibirsk} \cite{nov} fit to the data since the missing mass distribution is slightly asymmetric. However, since the tail parameter is small, still a symmetric cut of $\pm2\sigma$ was chosen. It was chosen narrower than the angular cuts to collect less background reactions.
   \begin{figure}[htbp]
  	\centering
  	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/mismcut_ebin1.pdf}
- 	\caption{Missing mass of the $p\eta'$ final state with all other cuts applied. The vertical dashed lines show the cut ranges obtained from a fit to data (open circles) employing a \textsc{Novosibirsk} function. The solid colored histograms represent fitted MC data from relevant  photoproduction reactions: in black $\eta'$, in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$, magenta $\pi^0\eta$. The turquoise histogram is the sum of all MC histograms.}
+ 	\caption{Missing mass of the $p\eta'$ final state with all other cuts applied for the energy bin $\SI{1500}{\mega\eV}\leq E_\gamma<\SI{1600}{\mega\eV}$. The vertical dashed lines show the cut ranges obtained from a fit to data (open circles) employing a \textsc{Novosibirsk} function. The solid colored histograms represent fitted MC data from relevant  photoproduction reactions: in black $\eta'$, in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$, magenta $\pi^0\eta$. The turquoise histogram is the sum of all MC histograms.}
  	\label{fig:mism}
  \end{figure}
  \subsubsection{Invariant mass}
- Investigating the invariant mass spectrum of the final state photons allows to illustrate the impact of the event selection so far. As has been mentioned all cuts considered up to this point apply to arbitrary meson photoproduction. This means that the invariant mass spectrum will depict peaks belonging to mesons produced in the considered beam energy range. This is shown in
- 
+ Investigating the invariant mass spectrum of the final state photons allows to illustrate the impact of the event selection so far. As has been mentioned all cuts considered up to this point apply to arbitrary meson photoproduction. This means that the invariant mass spectrum will depict peaks belonging to mesons produced in the considered beam energy range. This is shown in figure \ref{fig:globalinv} giving an overview over all energy and angular bins. All other cuts have been applied. The open circles represent data points and the different colored histograms MC data from relevant competing final states while the black histogram shows the signal contribution of $\eta'$ MC. The turquoise histogram is the sum of all MC contributions and describes the data very well. It has again been found that no other than the shown final states contribute significantly or improve the description of data by MC spectra. As expected one can observe peaks belonging to $\pi^0,\eta, \omega$ and $\eta'$ photoproduction. A flat background underneath the complete spectrum is realized by $2\pi^0$ and $\pi^0\eta$ final state photons that have been wrongfully combined to two photons. Remarkably, the $\pi^0,\eta$ and $\omega$ invariant mass distributions also depict long tails towards lower and higher masses, although they contribute only marginally to the sum of all MC spectra (note the logarithmic y-Scale). They can be explained by the fact that one low energetic photon is lost during reconstruction while the (high energetic) proton wrongfully creates two tracks of which one is then combined with the other photon as meson candidate \cite{farahphd}.
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../figs/hydrogen/invm_global.pdf}
+	\caption{Invariant mass of the $p\eta'$ final state with all other cuts applied for all energy and angular bins. The open circles represent the measured data, the solid colored histograms fitted MC data from relevant photoproduction reactions: in black $\eta'$, in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$ and in magenta $\pi^0\eta$. The turquoise histogram is the sum of all MC histograms.}
+	\label{fig:globalinv}
+\end{figure} 
+To finally select only $\eta'$ photoproduction event candidates the invariant mass cut is determined again in bins of beam energy and meson polar angle. This is shown in figure \ref{fig:invm} for the first energy bin with all angular bins. Here, the same color coding as before applies, but the range of the invariant mass has been reduced to only cover the $\eta'$ peak for visibility's sake. Additionally the cut ranges, representing a $2\sigma$ interval obtained from a gaussian fit to the $\eta'$ MC, are shown as dashed, red lines. Considering the statistics the MC spectra still describe the data well. It is found again that the significant background contributions in the invariant mass range of interest are given by $2\pi^0$ and $\pi^0\eta$ photoproduction.  
 
  
  
@@ -188,8 +190,29 @@ The newly obtained intervals $\mathcal{I}',\mathcal{J}',\mathcal{K}',\mathcal{L}
  \begin{figure}[htbp]
  	\centering
  	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/invcut_ebin1.pdf}
- 	\caption{Invariant mass of the $p\eta'$ final state with all other cuts applied. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the $\eta'$ MC data (solid black histogram). The open circles represent the measured data, the solid colored histograms fitted MC data from relevant photoproduction reactions: in black $\eta'$, in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$ and in magenta $\pi^0\eta$. The turquoise histogram is the sum of all MC histograms.}
+ 	\caption{Invariant mass of the $p\eta'$ final state with all other cuts applied for the energy bin $\SI{1500}{\mega\eV}\leq E_\gamma<\SI{1600}{\mega\eV}$. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the $\eta'$ MC data (solid black histogram). The open circles represent the measured data, the solid colored histograms fitted MC data from relevant photoproduction reactions: in black $\eta'$, in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$ and in magenta $\pi^0\eta$. The turquoise histogram is the sum of all MC histograms.}
  	\label{fig:invm}
  \end{figure}
 \section{Investigation of background and additional cuts} 
 \label{sec:bkg}
+So far the background contributions in the $\eta'$ cut ranges have been discussed only phenomenologically as they describe the measured invariant mass spectra best. In the following the plausibility and causality of these background contributions shall be discussed. Furthermore it is investigated if the found background contributions may be reduced or eliminated by additional cut conditions.
+
+\subsection{Origin of background contributions}
+To evaluate the likelihood that the background contributions are made up of $2\pi^0$ or $\pi^0\eta$ production events the respective production cross sections and branching ratios (BR) to purely photonic final states are examined, see table \ref{tab:plausmc}. Both possible background reactions exceed $\eta'$ photoproduction in cross section and also in relative frequency of purely photonic final states. 
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{ccc}
+		\toprule
+		reaction & $\sigma$ / \si{\micro\barn} & BR to $n\gamma$\\
+		\hline
+		$\gamma p\to p\eta'$ &1 & $0.02$\\
+		$\gamma p\to p2\pi^0$ &5 &$0.98^2=0.96$\\
+		$\gamma p\to p\pi^0\eta$ &3 &$0.98\cdot0.38=0.37$\\
+		\bottomrule 		
+	\end{tabular}
+\caption{Total cross sections $\sigma$ and branching ratios (BR) to $n\gamma$ final states for signal and possible background contributions}
+\label{tab:plausmc}
+\end{table}
+
+\subsection{Examination of additional cuts}
