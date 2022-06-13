@@ -198,21 +198,22 @@ To finally select only $\eta'$ photoproduction event candidates the invariant ma
 So far the background contributions in the $\eta'$ cut ranges have been discussed only phenomenologically as they describe the measured invariant mass spectra best. In the following the plausibility and causality of these background contributions shall be discussed. Furthermore it is investigated if the found background contributions may be reduced or eliminated by additional cut conditions.
 
 \subsection{Origin of background contributions}
-To evaluate the likelihood that the background contributions are made up of $2\pi^0$ or $\pi^0\eta$ production events the respective production cross sections and branching ratios (BR) to purely photonic final states are examined, see table \ref{tab:plausmc}. Both possible background reactions exceed $\eta'$ photoproduction in cross section and also in relative frequency of purely photonic final states. 
+To evaluate the likelihood that the background contributions are made up of $2\pi^0$ or $\pi^0\eta$ production events the respective production cross sections in the inspected beam energy region and branching ratios (BR) to purely photonic final states are examined, see table \ref{tab:plausmc}. Also displayed is the maximum acceptance $\tilde{\epsilon}$. Both possible background reactions exceed $\eta'$ photoproduction in cross section and also in relative frequency of purely photonic final states. 
 
 \begin{table}[htbp]
 	\centering
-	\begin{tabular}{ccc}
+	\begin{tabular}{cccc}
 		\toprule
-		reaction & $\sigma$ / \si{\micro\barn} & BR to $n\gamma$\\
+		reaction & $\sigma$ / \si{\micro\barn} & BR to $n\gamma$ & $\epsilon$\\
 		\hline
-		$\gamma p\to p\eta'$ &1 & $0.02$\\
-		$\gamma p\to p2\pi^0$ &5 &$0.98^2=0.96$\\
-		$\gamma p\to p\pi^0\eta$ &3 &$0.98\cdot0.38=0.37$\\
+		$\gamma p\to p\eta'$ &$1$ \cite{etap_cs}& $0.02$ & $0.61$\\
+		$\gamma p\to p2\pi^0$ &$<5$ \cite{2pi0_cs}&$0.98^2=0.96$& $7\cdot 10^{-4}$\\
+		$\gamma p\to p\pi^0\eta$ &$\approx3$ \cite{pi0eta_cs} &$0.98\cdot0.38=0.37$&$2\cdot 10^{-4}$\\
 		\bottomrule 		
 	\end{tabular}
-\caption{Total cross sections $\sigma$ and branching ratios (BR) to $n\gamma$ final states for signal and possible background contributions}
+\caption{Total cross sections $\sigma$ in the energy range \SIrange{1500}{1800}{\mega\eV} and branching ratios (BR) to $n\gamma$ final states for signal and possible background contributions}
 \label{tab:plausmc}
 \end{table}
-
+Since the total number of events is proportional to the cross section, branching ratio and acceptance, the ratio of reconstructed background to signal events is then given by $$R=\frac{\sigma\cdot\text{BR}\cdot\tilde{\epsilon}}{\sigma_{\eta'}\cdot\text{BR}_{\eta'\to\gamma\gamma}\cdot\tilde{\epsilon}_{\eta'}}.$$
+One finds $R\lesssim0.3$ and $R\lesssim0.05$ for $2\pi^0$ and $\pi^0\eta$ photoproduction, respectively. This is a remarkable result; less than $0.1\%$ of two meson production reactions are misidentified as $\eta'$ events. Yet, they make up a significant portion of background, considering the according branching ratios and cross sections.
 \subsection{Examination of additional cuts}
