@@ -479,8 +479,8 @@
 
 \ifthenelse{\boolean{UBN@subcaption}}{%
   \RequirePackage{subcaption}
-  \renewcommand\thesubfigure{(\alph{subfigure})}
-  \renewcommand\thesubtable{(\alph{subtable})}
+  \renewcommand\thesubfigure{\alph{subfigure}}
+  \renewcommand\thesubtable{\alph{subtable}}
 }{%
   \ifthenelse{\boolean{UBN@subfig}}{%
     \RequirePackage[labelformat=simple,listofformat=subsimple,subrefformat=empty]{subfig}
