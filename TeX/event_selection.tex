@@ -200,13 +200,20 @@ and is shown in figure \ref{fig:acc}. Acceptance holes are visible in very forwa
 	\caption{Acceptance for the reaction $\gamma p\to p \eta'$ after all cuts that have been discussed so far for 2.5PED and 3PED events}
 	\label{fig:acc}
 \end{figure}
-In total, $9\cdot10^3$ $\eta'$ events were extracted which nonetheless still contain background contaminations. In order to take this into account in the later analysis the fraction of background is determined for each bin in beam energy and meson polar angle as the fraction of integrated background (all but $\eta'$) MC to total MC within the cut ranges in the invariant mass spectra.
+In total, $8\cdot10^3$ $\eta'$ events were extracted which nonetheless still contain background contaminations. In order to take this into account in the later analysis the fraction of background is determined for each bin in beam energy and meson polar angle. It is estimated as the fraction of background MC events to total MC events and shown in figure \ref{fig:bkg}. For most bins around $15\%$ of all events are misidentified as $\eta'$ events. Especially at very forward $\cos\theta\to1$ and backward $\cos\theta\to-1$ angles the background contributions are significantly higher, reaching up to $45\%$.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/invcut_bkg_percentage.pdf}
+	\caption{Fraction of background events in the analyzed beam energy and angular bins.}
+	\label{fig:bkg}
+\end{figure}
+
 \section{Investigation of background and additional cuts} 
 \label{sec:bkg}
-So far the background contributions in the $\eta'$ cut ranges have been discussed only phenomenologically as they describe the measured invariant mass spectra best. In the following the plausibility and causality of these background contributions shall be discussed. Furthermore it is investigated if the found background contributions may be reduced or eliminated by additional cut conditions.
+So far the background reactions in the $\eta'$ cut ranges have been discussed only phenomenologically as they describe the measured invariant mass spectra best. In the following the plausibility and causality of these background contributions shall be discussed. Furthermore it is investigated if the found background contributions may be reduced or eliminated by additional cut conditions.
 
-\subsection{Origin of background contributions}
-To evaluate the likelihood that the background contributions are made up of $2\pi^0$ or $\pi^0\eta$ production events the respective production cross sections in the inspected beam energy region and branching ratios (BR) to purely photonic final states are examined, see table \ref{tab:plausmc}. Also displayed is the maximum acceptance $\tilde{A}$ which is additionally shown in figure \ref{fig:acc_bkg}. Both possible background reactions exceed $\eta'$ photoproduction in cross section and also in relative frequency of purely photonic final states. 
+\subsection{Inspecting plausibility of background reactions}
+To evaluate the likelihood that the background contributions are made up of $2\pi^0$ or $\pi^0\eta$ production events the respective production cross sections in the inspected beam energy region and branching ratios (BR) to purely photonic final states are examined, see table \ref{tab:plausmc}. Also displayed is the maximum acceptance $\tilde{A}$ which is additionally shown in figure \ref{fig:acc_bkg}. Both possible background reactions exceed $\eta'$ photoproduction in cross section and also in relative frequency of purely photonic final states. At the same time the acceptance is almost vanishing, proving that the kinematic cuts are generally very effective. 
 
 \begin{figure}[htbp]
 	\centering
@@ -238,6 +245,8 @@ To evaluate the likelihood that the background contributions are made up of $2\p
 \end{table}
 
 
-Since the total number of events is proportional to the cross section $\sigma$, branching ratio BR and acceptance $\tilde{\epsilon}$, the ratio of reconstructed background to signal events is then given by $$R=\frac{\sigma\cdot\text{BR}\cdot\tilde{\epsilon}}{\sigma_{\eta'}\cdot\text{BR}_{\eta'\to\gamma\gamma}\cdot\tilde{\epsilon}_{\eta'}}.$$
-One finds $R\lesssim0.3$ and $R\lesssim0.05$ for $2\pi^0$ and $\pi^0\eta$ photoproduction, respectively. This is a remarkable result; less than $0.1\%$ of two meson production reactions are misidentified as $\eta'$ events. Yet, they make up a significant portion of background in $\eta'$ data, as considering the according branching ratios and cross sections showed. Furthermore, the previous empirical assumption to only include $2\pi^0$ and $\pi^0\eta$ MC in the fit to describe the data is now justified since the found background percentages agree well with the now motivated upper boundaries.    
+Since the total number of events is proportional to the cross section $\sigma$, branching ratio BR and acceptance $\tilde{A}$, the ratio of reconstructed background to signal events is then given by $$R=\frac{\sigma\cdot\text{BR}\cdot\tilde{A}}{\sigma_{\eta'}\cdot\text{BR}_{\eta'\to\gamma\gamma}\cdot\tilde{A}_{\eta'}}=\frac{\sigma\cdot\text{BR}\cdot\tilde{A}}{\SI{1}{\micro\barn}\cdot0.02\cdot0.61}.$$
+One finds $R\lesssim0.3$ and $R\lesssim0.05$ for $2\pi^0$ and $\pi^0\eta$ photoproduction, respectively. Although less than $0.1\%$ of two meson production reactions are misidentified as $\eta'$ events they make up a significant portion of background in $\eta'$ data, as considering the according branching ratios and cross sections showed. Furthermore, the previous empirical assumption to only include $2\pi^0$ and $\pi^0\eta$ MC in the fit to describe the data is now justified since the found background percentages agree well with the now motivated upper boundaries.    
+
+\subsection{Misidentification of background reactions}
 \subsection{Examination of additional cuts}
