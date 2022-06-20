@@ -240,13 +240,69 @@ To evaluate the likelihood that the background contributions are made up of $2\p
 		$\gamma p\to p\pi^0\eta$ &$\approx3$ \cite{pi0eta_cs} &$0.98\cdot0.38=0.37$&$2\cdot 10^{-4}$\\
 		\bottomrule 		
 	\end{tabular}
-\caption{Total cross sections $\sigma$ in the energy range \SIrange{1500}{1800}{\mega\eV} and branching ratios (BR) to $n\gamma$ final states for signal and possible background contributions}
+\caption{Total cross sections $\sigma$ in the energy range \SIrange{1500}{1800}{\mega\eV}, branching ratios (BR) to $n\gamma$ final states and maximum acceptance $\tilde{A}$ for signal and possible background contributions}
 \label{tab:plausmc}
 \end{table}
 
 
 Since the total number of events is proportional to the cross section $\sigma$, branching ratio BR and acceptance $\tilde{A}$, the ratio of reconstructed background to signal events is then given by $$R=\frac{\sigma\cdot\text{BR}\cdot\tilde{A}}{\sigma_{\eta'}\cdot\text{BR}_{\eta'\to\gamma\gamma}\cdot\tilde{A}_{\eta'}}=\frac{\sigma\cdot\text{BR}\cdot\tilde{A}}{\SI{1}{\micro\barn}\cdot0.02\cdot0.61}.$$
 One finds $R\lesssim0.3$ and $R\lesssim0.05$ for $2\pi^0$ and $\pi^0\eta$ photoproduction, respectively. Although less than $0.1\%$ of two meson production reactions are misidentified as $\eta'$ events they make up a significant portion of background in $\eta'$ data, as considering the according branching ratios and cross sections showed. Furthermore, the previous empirical assumption to only include $2\pi^0$ and $\pi^0\eta$ MC in the fit to describe the data is now justified since the found background percentages agree well with the now motivated upper boundaries.    
-
+\newpage
 \subsection{Misidentification of background reactions}
+It has been reasonably established that the main background reactions that escape the $\eta'$ event selection cuts are realized by $2\pi^0$ and $\pi^0\eta$ production. However, it remains to explain why a four-photon final state is misidentified as $\eta'$ event. In order to do so the MC simulations of the respective final states were investigated. One observes that for those events that passed the $\eta'$ cuts the generated photon energies for two photons often were of order $E_{\gamma,i} \sim \mathcal{O}(\SI{10}{\mega\eV})$ and the other two of order $E_{\gamma,i} \sim \mathcal{O}(\SI{100}{\mega\eV})$. The reconstructed energies however only displayed energies of order $E_{\gamma,i} \sim \mathcal{O}(\SI{100}{\mega\eV})$.  During the reconstruction of final state four momenta, a minimum energy of $\SI{20}{\mega\eV}$ per cluster is demanded in order to suppress electromagnetic background. This threshold is not passed or only closely passed by both lowest energy final state photons of $2\pi^0$ production for $\sim 60\%$ of all events, see figure \ref{fig:mcgammas_a}.\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas.pdf}
+	\caption{Generated energies of the two lowest energy photons in $2\pi^0$ photoproduction MC data. The threshold of $\SI{20}{\mega\eV}$ is marked by a vertical red line. Lowest energy photon is shown on the top, second lowest energy photon is shown on the bottom.}
+	\label{fig:mcgammas_a}			
+\end{figure}
+ Similarly, $\sim70\%$ of $\pi^0\eta$ events have a final state photon which does not or only closely pass the threshold of $\SI{20}{\mega\eV}$. Other than in $2\pi^0$ reactions, this does only apply for one of the lowest energy photons while the other significantly exceeds the threshold of $\SI{20}{\mega\eV}$, see figure \ref{fig:mcgammas_b}. 
+ \begin{figure}[htbp]
+ 	\centering
+ 	\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas_pi0eta.pdf}
+ 	\caption{Generated energies of the two lowest energy photons in $2\pi^0$ and $\pi^0\eta$ photoproduction MC data. The threshold of $\SI{20}{\mega\eV}$ is marked by a vertical red line. Lowest energy photon is shown on the top, second lowest energy photon is shown on the bottom.}
+ 	\label{fig:mcgammas_b}			
+ \end{figure}
+ Those photons with an energy above threshold may still be lost during reconstruction because they are falsely combined to one cluster with one of the two highest energy photons as a investigation of photon directions revealed; figure \ref{fig:mcangle} shows the polar angle difference between the second lowest energy photon and the second highest energy photon of the MC $\pi^0\eta$ final state which clearly peaks centered at $0$. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas_td_pi0eta.pdf}
+	\caption{Polar angle difference $\Delta\theta$ between two uncorrelated photons of the $\pi^0\eta$ final state.}
+	\label{fig:mcangle}
+\end{figure}
+Similar results are found with $2\pi^0$ production events. It is evident that neither the two lost photons, nor the two reconstructed photons are correlated, i.e. decay products of the same meson.
+\newpage
+Considering the above one can now say that $2\pi^0$ and $\pi^0\eta$ events pass the $\eta'$ event selection because 
+\begin{enumerate}
+	\item two uncorrelated low energy photons are lost during reconstruction and the remaining two pass the kinematic cuts by chance, since they too are uncorrelated (see figure \ref{fig:mcgammas1}),
+
+	\item one low energy photon is lost. Two uncorrelated of the remaining three photons are combined to one in favor of the higher energetic photon since they were emitted in the same direction. The two reconstructed photons are uncorrelated and pass the event selection randomly, as shown in figure \ref{fig:mcgammas2}.
+\end{enumerate} 
+	\begin{figure}[h]
+	\centering
+	\begin{subfigure}{.49\linewidth}
+		\includegraphics[width=\linewidth]{../figs/inkscape/mcgammas1.pdf}
+		\subcaption{Two photons get lost while the remaining two get falsely combined to form a $\eta'$ meson\\}
+		\label{fig:mcgammas1}
+	\end{subfigure}
+	\begin{subfigure}{.49\linewidth}
+		\includegraphics[width=\linewidth]{../figs/inkscape/mcgammas2.pdf}
+		\subcaption{One photon gets lost, in addition two uncorrelated photons are grouped as one. The remaining two get falsely combined to form a $\eta'$ meson}
+		\label{fig:mcgammas2}
+	\end{subfigure}
+	\caption{Illustration of the misidentification process during reconstruction}
+
+\end{figure}
+These claims are indeed further validated if one examines the polar angle that is reconstructed from the falsely assigned $\eta'$ candidates using the surviving two photon momenta. This can be compared to the generated polar angle that is built using all four final state photon momenta $\mathbf{p}_{\gamma_i}$. They add up to the artificial two-meson momentum $\mathbf{p}_m$ which in the CMS has the same magnitude but opposite direction as the recoil proton
+$$
+	\mathbf{p}_m=\sum_{i=1}^4\mathbf{p}_{\gamma_i}=-\mathbf{p}_\text{recoil}
+$$ If the lost photons have very low energies and/or are emitted in the same direction as other photons, they should agree with each other. This is exactly what is observed, as figure \ref{fig:mccostheta} shows for both background reactions: the generated CMS angle $\cos\theta_\text{gen.}$ is plotted against the reconstructed CMS angle $\cos\theta_\text{rec.}$. The events are clearly distributed around the slope $\cos\theta_\text{gen.}=\cos\theta_\text{rec.}$ which is indicated by the solid line. This is an important result for the later analysis: if the background contributions are taken into account quantitatively then the extracted beam asymmetry has to be corrected by the asymmetry stemming from background reactions. This is only possible if the background reactions from e.g. $2\pi^0$ events realize the same bins in beam energy and CMS angle as in a dedicated measurement of the beam asymmetry in e.g. $2\pi^0$ photoproduction.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas_ct.pdf}
+	\caption{Generated CMS angle $\cos\theta_\text{gen.}$ vs. reconstructed CMS angle $\cos\theta_\text{rec.}$ for both background reactions. The slope $\cos\theta_\text{gen.}=\cos\theta_\text{rec.}$ is indicated by the solid line.}
+	\label{fig:mccostheta}
+\end{figure}
+
+
 \subsection{Examination of additional cuts}
+in the following bla blablablablabla 
