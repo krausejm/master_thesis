@@ -60,13 +60,13 @@ where the meson time $t_\text{meson}$ is appointed either the averaged time of b
 \section{Kinematic constraints}
 Up until now mainly combinatorical background was discussed. However one can derive kinematical constraints from energy and momentum conservation to exclusively select the desired reaction. The derivation is discussed first, followed by the determination of the derived cut conditions.
 \subsection{Derivation of cut conditions}
-After charge and time cut, additional cuts can be derived from energy and momentum conservation. Let $p_\text{beam}$ and $p_p$ be the four momenta of the initial state beam photon and proton, respectively. Then \begin{equation}
+Let $p_\text{beam}$ and $p_p$ be the four momenta of the initial state beam photon and proton, respectively. Then \begin{equation}
 	p_\text{beam}+p_p=p_\text{recoil}+p_\text{meson}
 	\label{eq:kin}
 \end{equation}
 holds, with $p_\text{recoil}$ being the momentum of the recoiling proton and $p_\text{meson}$ the meson momentum.
 \subsubsection{Coplanarity}
-In the initial state there is vanishing transversal momentum $p_{xy}$ since the target protons are at rest and the beam photon impinges in $z$-direction. Naturally this transversal momentum has to vanish in the final state as well, such that \begin{equation}
+In the initial state there is vanishing transversal momentum $p_{xy}$ since the target protons are at rest and the beam photon impinges in $z$-direction. Naturally, this transversal momentum has to vanish in the final state as well, such that \begin{equation}
 	\mathcal{P}_{xy} \left[p_\text{recoil}+p_\text{meson}\right]=0,
 	\label{eq:copl}
 \end{equation}
@@ -104,7 +104,7 @@ Let $\mathcal{C}^\chi_{\mathcal{I}}$ be the cut operator that restrains the data
 \begin{equation}
 	\mathcal{C}_{\mathcal{I}}^\chi:\mathcal{D}\mapsto\mathcal{D}_{\chi\in\mathcal{I}} .
 \end{equation}
-	 After a first inspection of the data, initial guesses for the intervals $\mathcal{I},\mathcal{J},\mathcal{K},\mathcal{L}$ corresponding to the quantities $\Delta\theta,\Delta\phi,m_X,m_\text{meson}$ respectively are made.
+	 After a first inspection of the data, initial guesses for the intervals $\mathcal{I},\mathcal{J},\mathcal{K},\mathcal{L}$ corresponding to the quantities $\Delta\theta,\Delta\phi,m_X,m_\text{meson}$, respectively, are made.
 	Having established estimates for the cut ranges, new ones are estimated by investigating the distribution of one cut variable obtained from the data while all other cut variables are constrained to the previously determined intervals. For example 
 	$$\Delta\theta\left(\mathcal{C}_\mathcal{J}^{\Delta\phi}\mathcal{C}_\mathcal{K}^{m_X}\mathcal{C}_\mathcal{L}^{m_\text{meson}}\mathcal{D}\right)\sim \text{normal}(\mu,\sigma),$$
 	where $\mu\approx0$. This is done (with some adjustments to the fit function) for each cut variable. The parameters of the gaussian are determined from a $\chi^2$ fit and used to assign new cut ranges. Simultaneously, Monte-Carlo (MC) data of relevant final states are fitted to match the measured values bin-wise. This is done on the one hand to check consistency between measured and MC data and on the other hand used to determine contributing background reactions. First, all mesonic final states that decay into two photons are considered, i.e. $p\pi^0,p\eta,p\eta'$, since the according peaks in the invariant mass spectrum will be visible. Also, a peak at the mass of the $\omega$ (vector)-meson $m_\omega$ will be visible; this stems from photoproduction reactions $p\omega\to p\pi^0\gamma\to p3\gamma$ where one low energetic final state photon is lost, such that the reconstructed invariant mass still estimates the $\omega$ mass. Further, one should investigate the impact of neutral final states, where some of the final state photons may get lost during reconstruction, as can be observed for $p2\pi^0,p\pi^0\eta,p3\pi^0,p2\pi^0\eta$ \footnote{all mesons $m$ decaying into two photons is implied: $m\to\gamma\gamma \forall m$} production. Lastly, possible misidentifiaction of charged particles which then mimic a $p\gamma\gamma$ final state are examined, such as $p\pi^+\pi^-$ and $n\pi^+$. Table \ref{tab:mc} lists all employed MC reactions and their respective final state particles, as well as a short explanation why the particular reaction was included in the fit.
@@ -148,10 +148,10 @@ Let $\mathcal{C}^\chi_{\mathcal{I}}$ be the cut operator that restrains the data
 		\label{tab:cuts}
 	\end{table}
 The newly obtained intervals $\mathcal{I}',\mathcal{J}',\mathcal{K}',\mathcal{L}'$ serve again as input for the previous step. This is repeated until a certain convergence is reached, which is usually the case after a two or three iterations.
- Since the cut ranges may vary depending on beam energy and meson direction, they are determined in bins of the beam energy and the CMS polar angle of the meson $$(E_\gamma,\cos\theta_{\eta'}^\text{CMS}) \footnote{If not otherwise specified, from now on $\cos\theta=\cos\theta_{\eta'}^\text{CMS}$}.$$ Respecting the $\eta'$ final state statistics, a binning of $\Delta E_\gamma=\SI{100}{\mega\eV}$ and $\Delta\cos\theta=1/3$ was chosen, spanning the energy range of \SIrange{1500}{1800}{\mega\eV}. The theoretically accessible lower limit in the beam energy is provided by the production threshold of $\eta' $ mesons at \SI{1447}{\mega\eV} \cite{pdg}. Yet, the binning has to comply with the upper beam energy limit which is bounded from above \footnote{Significantly beyond the coherent edge, the systematic error for the beam polarization  degree gets too large ($>10\%$)} by the position of the coherent edge of the beamtime. It is given by \SI{1700}{\mega\eV} and \SI{1800}{\mega\eV} for the July/August and September/October beam times, respectively. If one were to include the production threshold into the analyzed range using the same binning, more background than $\eta'$ events are collected from \SIrange{1400}{1500}{\mega\eV}, hence the chosen binning starts at \SI{1500}{MeV}.
+ Since the cut ranges may vary depending on beam energy and meson direction, they are determined in bins of the beam energy and the polar angle of the meson in the center of mass system (CMS) $$(E_\gamma,\cos\theta_{\eta'}^\text{CMS}) \footnote{If not otherwise specified, from now on $\cos\theta=\cos\theta_{\eta'}^\text{CMS}$}.$$ Respecting the $\eta'$ final state statistics, a binning of $\Delta E_\gamma=\SI{100}{\mega\eV}$ and $\Delta\cos\theta=1/3$ was chosen, spanning the energy range of \SIrange{1500}{1800}{\mega\eV}. The theoretically accessible lower limit in the beam energy is provided by the production threshold of $\eta' $ mesons at \SI{1447}{\mega\eV} \cite{pdg}. Yet, the binning has to comply with the upper beam energy limit which is bounded from above \footnote{Significantly beyond the coherent edge, the systematic error for the beam polarization  degree gets too large ($>10\%$)} by the position of the coherent edge of the beamtime. It is given by \SI{1700}{\mega\eV} and \SI{1800}{\mega\eV} for the July/August and September/October beam times, respectively. If one were to include the production threshold into the analyzed range using the same binning, more background than $\eta'$ events are collected from \SIrange{1400}{1500}{\mega\eV} (see subsection \ref{subsec:addcuts}), hence the chosen binning starts at \SI{1500}{MeV}.
  
  \subsubsection{Coplanarity}
- Figure \ref{fig:copl} shows the coplanarity spectra for the energy bin $\SI{1500}{\mega\eV}\leq E_\gamma<\SI{1600}{\mega\eV}$ and all angular bins. The data points are visualized by the open circles with error bars, while the black solid histogram is a fit of $\eta'\to\gamma\gamma$ MC. As expected, a clear peak is visible at $\Delta\phi=\SI{180}{\degree}$, which shows only slight dependence on beam energy and meson direction. A $3\sigma$ interval obtained from a gaussian fit is indicated by the dashed red lines. Note that only MC spectra of the $\eta'$ final state were fitted to the data since the coplanarity gives little reference points for other final states that may contribute. 
+ Figure \ref{fig:copl} shows the coplanarity spectra for the energy bin $\SI{1500}{\mega\eV}\leq E_\gamma<\SI{1600}{\mega\eV}$ and all angular bins. The data points are visualized by the open circles with error bars, while the black solid histogram is a fit of $\eta'\to\gamma\gamma$ MC. As expected, a clear peak is visible at $\Delta\phi=\SI{180}{\degree}$, which shows only slight dependence on beam energy and meson direction. A $3\sigma$ interval obtained from a gaussian fit is indicated by the dashed red lines. Note that only MC spectra of the $\eta'$ final state were fitted to the data since the coplanarity gives little reference points for a correct estimation of other final states that may contribute. 
    \begin{figure}[htbp]
  	\centering
  	\includegraphics[width=\linewidth]{../figs/hydrogen/bin_cuts/phicut_ebin1.pdf}
@@ -193,7 +193,7 @@ To finally select only $\eta'$ photoproduction event candidates the invariant ma
 In order to investigate the impact of applied cuts the detector and analysis acceptance $A(E_\gamma,\cos\theta)$ can be investigated. It is defined as the ratio of reconstructed events $N^\text{rec}(E_\gamma,\cos\theta)$ to generated events $N^\text{gen}(E_\gamma,\cos\theta)$ \begin{equation}
 	A:=\frac{N^\text{rec}(E_\gamma,\cos\theta)}{N^\text{gen}(E_\gamma,\cos\theta)}
 \end{equation}
-and is shown in figure \ref{fig:acc}. Acceptance holes are visible in very forward and in backward direction which can be contributed to events where the proton escapes the calorimeters or is absorbed in insensitive material. Also, events close to threshold are unlikely to be reconstructed which can also be explained by low energy protons. A maximum acceptance of $\tilde{A}\approx0.61$ is reached which can be understood considering the cuts that have been made; each $3\sigma$ cuts retains $99\%$ of events and each $2\sigma$ cut $95\%$. Assuming detection efficiencies of $90\%$ for the two uncharged photons and $85\%$ for the charged proton (\cite{farahphd,hartmannphd}) it is evident that $0.99^2\cdot0.95^2\cdot0.9^2\cdot0.85\approx0.61$.
+and is shown in figure \ref{fig:acc}. Acceptance holes are visible in very forward and in backward direction which can be contributed to events where the proton escapes the calorimeters or is absorbed in insensitive material. Also, events close to threshold are unlikely to be reconstructed which can also be explained by low energy protons and/or low energy photons. A maximum acceptance of $\tilde{A}\approx0.61$ is reached which can be understood considering the cuts that have been made; each $3\sigma$ cuts retains $99\%$ of events and each $2\sigma$ cut $95\%$. Assuming detection efficiencies of $90\%$ for the two uncharged photons and $85\%$ for the charged proton (\cite{farahphd,hartmannphd}) it is evident that $0.99^2\cdot0.95^2\cdot0.9^2\cdot0.85\approx0.61$.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{../figs/hydrogen/acceptance.pdf}
@@ -292,17 +292,67 @@ Considering the above one can now say that $2\pi^0$ and $\pi^0\eta$ events pass 
 	\caption{Illustration of the misidentification process during reconstruction}
 
 \end{figure}
-These claims are indeed further validated if one examines the polar angle that is reconstructed from the falsely assigned $\eta'$ candidates using the surviving two photon momenta. This can be compared to the generated polar angle that is built using all four final state photon momenta $\mathbf{p}_{\gamma_i}$. They add up to the artificial two-meson momentum $\mathbf{p}_m$ which in the CMS has the same magnitude but opposite direction as the recoil proton
+These claims are indeed further validated if one examines the polar angle that is reconstructed from the falsely assigned $\eta'$ candidates using the surviving two photon momenta. This can be compared to the generated polar angle that is built using all four final state photon momenta in the CMS $\mathbf{p}_{\gamma_i}$. They add up to the artificial two-meson momentum $\mathbf{p}_m$ which in the CMS has the same magnitude but opposite direction as the recoil proton with momentum $\mathbf{p}_\text{recoil}$
 $$
-	\mathbf{p}_m=\sum_{i=1}^4\mathbf{p}_{\gamma_i}=-\mathbf{p}_\text{recoil}
-$$ If the lost photons have very low energies and/or are emitted in the same direction as other photons, they should agree with each other. This is exactly what is observed, as figure \ref{fig:mccostheta} shows for both background reactions: the generated CMS angle $\cos\theta_\text{gen.}$ is plotted against the reconstructed CMS angle $\cos\theta_\text{rec.}$. The events are clearly distributed around the slope $\cos\theta_\text{gen.}=\cos\theta_\text{rec.}$ which is indicated by the solid line. This is an important result for the later analysis: if the background contributions are taken into account quantitatively then the extracted beam asymmetry has to be corrected by the asymmetry stemming from background reactions. This is only possible if the background reactions from e.g. $2\pi^0$ events realize the same bins in beam energy and CMS angle as in a dedicated measurement of the beam asymmetry in e.g. $2\pi^0$ photoproduction.
+	\mathbf{p}_m=\sum_{i=1}^4\mathbf{p}_{\gamma_i}=-\mathbf{p}_\text{recoil}.
+$$ If the lost photons have very low energies and/or are emitted in the same direction as other photons one would expect the polar angle that is spanned by the four final state photons approximately agrees with the polar angle that is built using the two photons that survived event selection, such that $\cos\theta(4\gamma)\approx\cos\theta(2\gamma)$. This is exactly what is observed, as figure \ref{fig:mccostheta} shows for both background reactions: the generated CMS angle $\cos\theta_\text{gen.}$ is plotted against the reconstructed CMS angle $\cos\theta_\text{rec.}$. The events are clearly distributed around the slope $\cos\theta_\text{gen.}=\cos\theta_\text{rec.}$ which is indicated by the solid line. This is an important result for the later analysis: if the background contributions are taken into account quantitatively then the extracted beam asymmetry has to be corrected by the asymmetry stemming from background reactions. This is only possible if the background reactions from e.g. $2\pi^0$ events realize the same bins in beam energy and CMS angle as in a dedicated measurement of the beam asymmetry in the respective photoproduction reaction. 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas_ct.pdf}
 	\caption{Generated CMS angle $\cos\theta_\text{gen.}$ vs. reconstructed CMS angle $\cos\theta_\text{rec.}$ for both background reactions. The slope $\cos\theta_\text{gen.}=\cos\theta_\text{rec.}$ is indicated by the solid line.}
 	\label{fig:mccostheta}
 \end{figure}
-
-
 \subsection{Examination of additional cuts}
-in the following bla blablablablabla 
+\label{subsec:addcuts}
+Since the background contributions are significantly beyond a neglible amount it would be desirable to remove them through additional cuts that at the same time do not remove too many signal events. However, this proved to be a complicated task because the background reactions are reconstructed from real photons which happen to be in the $\eta'$ invariant mass range. Therefore they are not distinguishable from $\eta'\to\gamma\gamma$ photons in terms of energy, momentum (direction) or created clustersize in the calorimeter crystals. The combination of two photons into one also is not observable as such since the impact of one photon with energy $E$ may create a cluster with clustersize $C$ which at the same time can be created by two photons in the same direction with energies $E_1+E_2=E$ and clustersizes $C_1+C_2=C$. Thus, to find any characteristics that separate background from signal events, one has to analyze properties of either the recoil proton or the reaction kinematics as a whole.
+\subsubsection{Proton cut}
+Very close to the $\eta'$ production threshold, the meson system is not boosted very much in forward direction as long as real $\eta'$ mesons are produced. As a consequence the recoil proton may escape to very forward angles in the lab system which corresponds to the proton being detected in the MiniTAPS calorimeter. Falsely reconstructed $2\pi^0$ or $\pi^0\eta$ events have lower production thresholds such that the mesons will be boosted forward and the recoil proton is detected rather in the foward detector or the Crystal Barrel calorimeter. Figure \ref{fig:p_det} shows for the first two energy bins (starting at \SI{1400}{\mega\eV}) the detector that was hit by the recoil proton for $\eta', 2\pi^0$ and $\pi^0\eta$ MC data. At threshold nearly all protons of $\eta'$ events are detected in the MiniTAPS calorimeter while this is only the case for $57\%$ of $2\pi^0$ events and $20\%$ of $\pi^0\eta$ events. Towards higher energies this distribution along detectors smears out and is approximately equal for all reactions. Yet, not enough statistics  are collected in the energy bin close to threshold for a cut based on the proton detector hit to have significance, as this bin contains less than 7\% of total $\eta'$ candidates. The poor statistics in this bin also make determining background from MC fits difficult. Thus, as has been mentioned before, the energy bin from \SIrange{1400}{1500}{\mega\eV} was not included in the analysis. Consequently no cut based on proton detector hits could be applied to the remaining data. Apart from directional information near threshold protons from signal and background events could not be distinguished.
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{\linewidth}
+			\includegraphics[width=\linewidth]{../figs/hydrogen/p_det/p_det0.pdf}
+	 		\subcaption{$\SI{1400}{\mega\eV}\leq E_\gamma<\SI{1500}{\mega\eV}$}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+	\includegraphics[width=\linewidth]{../figs/hydrogen/p_det/p_det1.pdf}
+	\subcaption{$\SI{1500}{\mega\eV}\leq E_\gamma<\SI{1600}{\mega\eV}$}
+\end{subfigure}
+
+	\caption{Detector hits of the recoil proton, as obtained from MC data for the production of $\eta',2\pi^0$ and $\pi^0\eta$. CB: Crystal Barrel, FW: forward dector, MT: MiniTAPS}
+	\label{fig:p_det}
+	
+\end{figure}
+\subsubsection{Reaction kinematics}
+As has been  mentioned before, the measured photoproduction reactions are in fact overdetermined, meaning that one reaction particle can be treated as missing. This can be used to calculate the beam photon energy
+\begin{equation}
+	E_\gamma^\text{calc}=\frac{-0.5\cdot m_{\eta'}^2+m_pE_{\eta'}}{m_p-E_{\eta}'+|p_z|_{\eta'}},
+\label{eq:ebeam}
+\end{equation}
+where $m_p$ is the proton $m_{\eta'}$ the $\eta'$ mass, $E_{\eta'}$ is the meson energy and $|p_z|_{\eta'}$ is the meson momentum in $z$-direction. Comparing this with the measured beam energy one may tell $\eta'$ events apart from background events where mesons with smaller masses have been produced. If equation \eqref{eq:ebeam} is used to calculate the  beam energy, i.e. inserting the $\eta'$ mass, background events from reactions with smaller masses will cause smaller calculated beam energies. The difference of measured and calculated beam energy $\Delta E= E_\gamma^\text{meas}-E_\gamma^{calc}$ is shown in figure \ref{fig:beame}. The data points are shown as open circles and solid histograms represent fitted MC data where the turquoise histogram is the sum of all MC histograms. A broad peak centred slightly off 0 towards lower energy differences is visible. It also exhibits a broad shoulder towards higher energy differences. The MC describe the data very well, consisting mainly of $\eta'$ and $2\pi^0$ MC, as expected. Yet, the $\pi^0\eta$ MC describe a shape very similar to the $2\pi^0$ MC. The background MC show a trend towards energy differences $>0$, as predicted by equation \eqref{eq:ebeam}. In principle the distribution of background and $\eta'$ MC now allow to introduce an upper bound on the beam energy difference rejecting any desired amount of background. However, simultaneously a significant amount of $\eta'$ events have to be discarded if this cut should have remarkable influence on the background events, as is shown in table \ref{tab:beame}. 
+\begin{table}[htbp]
+	\centering
+	\begin{tabularx}{\linewidth}{ccYY}
+		\toprule
+		upper limit of $\Delta E$ / MeV& rel. loss of signal events  / \% &\multicolumn{2}{c}{relative loss of bkg. events / \%} \\
+		&& $2\pi^0$ & $\pi^0\eta$\\
+		\hline
+		0 & 36 & 71&59\\
+		50 & 21 & 53&36\\
+		100& 10&33& 18\\
+		150 & 4 & 15 &6\\
+		
+		\bottomrule
+	\end{tabularx}
+	\caption{Relative loss in signal and background events if a cut on $\Delta E$ is applied.}
+	\label{tab:beame}
+\end{table}
+
+
+Considering that only 8000 $\eta'$ candidates could be extracted, any cut removing sizable fractions of signal events will have grave impact regarding the statistical error for the later analysis of the beam asymmetry. It was decided not to imply any further cuts on the data and proceed with the selected events as described previously. Because results for the beam asymmetry in $2\pi^0$ and $\pi^0\eta$ production are available {\color{red} CITE(P. Mahlberg, Georg Urff?)} it is not crucial to remove all remaining background events since the extracted beam asymmetry can be corrected proportionately, depending on the amount and type of background in a particular bin. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../figs/hydrogen/calc_beam.pdf}
+	\caption{Difference in measured and calculated beam energy. Data points are shown as open circles, MC data as solid histograms: in black $\eta'$, in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$ and in magenta $\pi^0\eta$. The turquoise histogram is the sum of all MC histograms.}
+	\label{fig:beame}
+\end{figure}
+
