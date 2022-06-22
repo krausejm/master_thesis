@@ -1,9 +1,20 @@
 %------------------------------------------------------------------------------
-\chapter{Useful information}
+\chapter{}
 \label{sec:app}
 %------------------------------------------------------------------------------
-
-In the appendix you usually include extra information that should be
-documented in your thesis, but not interrupt the flow.
-
-The \LaTeX\ WikiBook~\cite{latexwiki} is a useful source of information on \LaTeX.
+\section{Statistical error for the asymmetry $A(\phi)$}
+\label{sec:stat_err}
+Let $\tilde{N}^{\parallel/\bot}_i$ be the normalized event yields at bin $\phi_i$. As mentioned in section \ref{sec:meth}, the asymmetry $A_i$ at bin $i$ is then given by
+\begin{equation}
+	A_i=\frac{\tilde{N}^\bot_i-\tilde{N}^\parallel_i}{p_\gamma^\parallel\tilde{N}^\bot_i+p_\gamma^\bot\tilde{N}^\parallel_i}=\Sigma\cos\left(2\left(\alpha^\parallel-\phi_i\right)\right),
+	\label{eq:evyieldasym_app}
+\end{equation}
+where the event yields are normalized over all $M$ $\phi$-bins $$\tilde{N}^{\parallel/\bot}_i=\frac{N_i^{\parallel/\bot}}{\sum_{j=1}^{M}N_j^{\parallel/\bot}}.$$
+ To estimate statistical errors according to \textsc{Gaussian} error propagation, the partial derivatives with respect to $N_i^{\parallel/\bot}$ have to be built:
+ \begin{equation}
+ 	\left(\Delta A_i\right)^2=\left(\frac{\partial A_i}{\partial \tilde{N}^\parallel_i}\Delta \tilde{N}^\parallel_i\right)^2+\left(\frac{\partial A_i}{\partial \tilde{N}^\bot_i}\Delta \tilde{N}^\bot_i\right)^2,
+ \end{equation}
+where
+\begin{align}
+	\left(\frac{\partial A_i}{\partial \tilde{N}^\parallel_i}\right)^2&=\left[\frac{\tilde{N}^\bot_i\left(p_\gamma^\bot+p_\gamma^\parallel\right)}{\left(p_\gamma^\parallel\tilde{N}^\bot_i+p_\gamma^\bot\tilde{N}^\parallel_i\right)^2}\right]^2 &\left(\Delta\tilde{N}_i^\parallel\right)^2=\frac{\tilde{N}_i^\parallel}{\left(\sum_{j=1}^M \tilde{N}^\parallel_j\right)^2}+\frac{\tilde{N}_i^{\parallel}}{\left(\sum_{j=1}^M \tilde{N}^\parallel_j\right)^2}
+\end{align}
