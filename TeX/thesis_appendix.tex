@@ -10,11 +10,19 @@ Let $\tilde{N}^{\parallel/\bot}_i$ be the normalized event yields at bin $\phi_i
 	\label{eq:evyieldasym_app}
 \end{equation}
 where the event yields are normalized over all $M$ $\phi$-bins $$\tilde{N}^{\parallel/\bot}_i=\frac{N_i^{\parallel/\bot}}{\sum_{j=1}^{M}N_j^{\parallel/\bot}}.$$
- To estimate statistical errors according to \textsc{Gaussian} error propagation, the partial derivatives with respect to $N_i^{\parallel/\bot}$ have to be built:
+ To estimate statistical errors according to \textsc{Gaussian} error propagation, the partial derivatives with respect to $\tilde{N}_i^{\parallel/\bot}$ have to be built:
  \begin{equation}
  	\left(\Delta A_i\right)^2=\left(\frac{\partial A_i}{\partial \tilde{N}^\parallel_i}\Delta \tilde{N}^\parallel_i\right)^2+\left(\frac{\partial A_i}{\partial \tilde{N}^\bot_i}\Delta \tilde{N}^\bot_i\right)^2,
  \end{equation}
 where
 \begin{align}
-	\left(\frac{\partial A_i}{\partial \tilde{N}^\parallel_i}\right)^2&=\left[\frac{\tilde{N}^\bot_i\left(p_\gamma^\bot+p_\gamma^\parallel\right)}{\left(p_\gamma^\parallel\tilde{N}^\bot_i+p_\gamma^\bot\tilde{N}^\parallel_i\right)^2}\right]^2 &\left(\Delta\tilde{N}_i^\parallel\right)^2=\frac{\tilde{N}_i^\parallel}{\left(\sum_{j=1}^M \tilde{N}^\parallel_j\right)^2}+\frac{\tilde{N}_i^{\parallel}}{\left(\sum_{j=1}^M \tilde{N}^\parallel_j\right)^2}
+	\left(\frac{\partial A_i}{\partial \tilde{N}^{\parallel/\bot}_i}\right)^2&=\left[\frac{\tilde{N}^{\bot/\parallel}_i\left(p_\gamma^\bot+p_\gamma^\parallel\right)}{\left(p_\gamma^\parallel\tilde{N}^{\bot}_i+p_\gamma^\bot\tilde{N}^\parallel_i\right)^2}\right]^2,\\
+	&\text{ and with } \tilde{N}_i^{\bot/\parallel}=\tilde{N}_i\\
+	\left(\Delta\tilde{N}_i\right)^2&=\left[\frac{\partial}{\partial N_i}\left(\frac{N_i}{\sum_{j}N_j}\right)\cdot\Delta N_i\right]^2+\sum_{j\neq i}\left[\frac{\partial}{\partial N_j}\left(\frac{N_i}{\sum_{j}N_j}\right)\cdot\Delta N_j\right]^2\\
+	&=\left[\frac{\sum_{j\neq i} N_j}{\left(\sum_{j} N_j\right)^2}\cdot\Delta N_i\right]^2+\sum_{j\neq i}\left[-1\cdot\frac{N_i}{\left(\sum_{j}N_j\right)^2}\cdot\Delta N_j\right]^2\\
+	&=\frac{1}{\left(\sum_{j} N_j\right)^4}\cdot\left[\left(\sum_{j\neq i} N_j \cdot\Delta N_i\right)^2+\sum_{j\neq i}\left(N_i\cdot\Delta N_j\right)^2\right].
 \end{align}
+One can then further use that $\left(\Delta N_i\right)^2  \approx N_i$. This holds only approximately, since the histograms are filled $N$ times with weights $w_n$ (see chapter \ref{sec:time}), but since the weights are either $w=1$ or $w\ll1$
+\begin{equation}
+	\Delta N_i=\sqrt{\sum_{n=1}^N w^2}\approx\sqrt{N_i}.
+\end{equation}

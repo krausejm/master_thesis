@@ -44,7 +44,7 @@ One can further eliminate the unpolarized cross section from this equation by di
 \begin{equation}
 	\alpha\cdot\frac{\text{d}\sigma}{\text{d}\Omega}_\text{pol}^\parallel+\beta\cdot\frac{\text{d}\sigma}{\text{d}\Omega}_\text{pol}^\bot=\frac{\text{d}\sigma}{\text{d}\Omega}_0\cdot\left[\alpha+\beta-\left(\alpha p_\gamma^\parallel-\beta p_\gamma^\bot\right)\Sigma\cos\left(2\left(\alpha^\bot-\phi\right)\right)\right]\overset{!}{=}2\frac{\text{d}\sigma}{\text{d}\Omega}_0.
 \end{equation}
-Since $$\frac{\text{d}}{\text{d}\phi}\frac{\text{d}\sigma}{\text{d}\Omega}_0\overset{!}{=}0\forall\phi$$ it holds \begin{align}
+Since $$\frac{\text{d}}{\text{d}\phi}\frac{\text{d}\sigma}{\text{d}\Omega}_0\overset{!}{=}0\forall\phi,$$ it holds \begin{align}
 	\alpha p_\gamma^\parallel-\beta p_\gamma^\bot \overset{!}{=}0 && \alpha+\beta\overset{!}{=}2,
 \end{align}
 such that
@@ -62,10 +62,30 @@ where $\Phi$ is the beam flux, $N_t$ the number of target particles and $\Delta\
 	A(\phi)=\frac{\tilde{N}^\bot-\tilde{N}^\parallel}{p_\gamma^\parallel\tilde{N}^\bot+p_\gamma^\bot\tilde{N}^\parallel}=\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right).
 	\label{eq:evyieldasym}
 \end{equation}
-Alternatively, the event yields $N$ can also be normalized by integrating over the total azimuthal angle range in each bin of $(E_\gamma,\cos\theta)$. This normalization technique has been used in reference \cite{farahphd} and will also be used in this work. Using appropriate additional binning in $\phi$ the asymmetry can be build for all kinematic bins and the beam asymmetry then be extracted via a one-Parameter fit. The statistical errors for $A(\phi)$ are given by \textsc{Gaussian} error propagation (see \ref{sec:stat_err})
+Alternatively, the event yields $N$ can also be normalized by integrating over the total azimuthal angle range in each bin of $(E_\gamma,\cos\theta)$. This normalization technique has been used in reference \cite{farahphd} and will also be used in this work. Using appropriate binning in $\phi$ in addition to beam energy and meson polar angle the asymmetry can be build for all kinematic bins and the beam asymmetry then be extracted via a one-Parameter fit. The statistical errors for $A(\phi)$ are given by \textsc{Gaussian} error propagation (see appendix \ref{sec:stat_err}). 
 \subsubsection{Frequentist}
-The traditional approach to this fitting problem is a $\chi^2$ fit. The test-statistic.
+The beam asymmetry can now be determined via a frequentist fit, where $\Sigma$ is determined such that the $\chi^2$ value resulting from the data points and equation \ref{eq:evyieldasym} is minimized. The results are point estimates with statistical error bars that are also obtained from the fit: $\hat{\Sigma}\pm\sigma_{\hat{\Sigma}}$. In addition $\chi^2/\text{NDF}\approx1$ may be verified in order to diagnose the fit itself. Multiple automated minimization and calculation algorithms for $\chi^2$ fitting are available as open source. The \emph{Python} \cite{python} module \emph{scipy} \cite{scipy} and \emph{ROOT} \cite{root} offer e.g. the methods \texttt{scipy.optimize.curve\_fit} \cite{pFit} and \texttt{TH1::Fit()} \cite{rFit} for discrete/binned data, which were used in the analysis.
 \subsubsection{Bayesian}
+Following section \ref{sec:bayes}, where the basics of \textsc{Bayesian} inference were discussed, the goal of a \textsc{Bayesian} approach is to sample marginal posterior distributions for each fitted parameter from the joint posterior $p(\boldsymbol{\theta}|y)$ which depends on the observed data $y$. The joint posterior itself is proportional to the product of priors $\pi(\boldsymbol{\theta})$ and likelihood $\mathcal{L}(y|\boldsymbol{\theta})$ (\textsc{Bayes'} theorem)
+\begin{equation}
+	p(\boldsymbol{\theta}|y)\propto \pi(\boldsymbol{\theta})\cdot \mathcal{L}(y|\boldsymbol{\theta}).
+\end{equation}
+This collapses to a one parameter problem in the case of fitting the event yield asymmetries (Eq. \eqref{eq:evyieldasym})
+\begin{equation}
+	p(\Sigma|y)\propto \pi({\Sigma})\cdot \mathcal{L}(y|\Sigma).
+\end{equation}
+However, to be able to sample from a joint posterior, prior and likelihood need to be specified. In order not to bias the fit towards any particular values, the prior is chosen non-informative, realized by a broad \textsc{Gaussian} centered at 0 which is truncated to the physically allowed parameter space of $\Sigma\in[-1,1]$. Furthermore, the likelihood is formulated assuming \textsc{Gaussian} errors $\epsilon_n$ at each data point $y_n$, which should be described by the asymmetry (Eq \eqref{eq:evyieldasym}) at bin $n$ $A(\phi_n;\Sigma)$, i. e.
+\begin{align}
+	\Sigma \sim \text{normal}(0,1) && y_n=A(\phi_n;\Sigma)+\epsilon_n && \epsilon_n\sim\text{normal}(0,\sigma_n),
+\end{align}
+which is equivalent to
+\begin{align}
+	 \Sigma \sim \text{normal}(0,1) &&y_n\sim\text{normal}(A(\phi_n;\Sigma),\sigma_n).
+\end{align}
+The likelihood of all data points now evaluates to \begin{equation}
+	\mathcal{L}(y|\Sigma)=\prod_{n} y_n,
+\end{equation}
+such that all ingredients are present to form a fully \textsc{Bayesian} probabilistic model. This model was implemented in Stan \cite{stan}, directly giving access to samples from the posterior obtained with the No-U-Turn-Sampler (NUTS) \cite{stan,nuts}. Hereby, the sampling is restricted to the allowed parameter region $\Sigma\in[-1,1]$. As a measure of goodness of fit, the $p$-values obtained from the posterior predictive distributions, as introduced in section \ref{sec:bayes}, are reviewed. To diagnose the convergence of the MCMC fit, sensible values for $\hat{R}$ and the Monte-Carlo standard error $\sigma_\text{MCSE}$ are verified.
 \subsection{Event based fit}
 \subsubsection{Frequentist}
 \subsubsection{Bayesian}

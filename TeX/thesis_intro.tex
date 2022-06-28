@@ -105,7 +105,18 @@ where the usual rules for the coupling of angular momenta \cite{theo3} apply. Th
 \section{Measurement of Polarization Observables}
 
 \section{Introduction to \textsc{Bayesian} statistics}
-\subsection{}
+\label{sec:bayes}
+\subsection{Frequentist Approach}
+The traditional approach to this fitting problem is a $\chi^2$ fit. Assume there are $N$ precise predictors $\{x_i\}$ and corresponding measurements $\{y_i\}$ with measurement errors $\{\sigma_i\}$. Additionally, the data $y$ is expected to follow a functional $y=f(x,\boldsymbol{\theta})$ with parameter(s) $\boldsymbol{\theta}$ and predictors $x$. Then the test statistic \begin{equation}
+	\chi^2=\sum_{i=1}^{N}\left[\frac{y_i-f(x_i;\boldsymbol{\theta})}{\sigma_i^2}\right]
+\end{equation}
+can be minimized with respect to the parameters $\boldsymbol{\theta}$ giving according estimates with error bars which are calculated using error propagation from the original data points $\{y_i\}$. The minimization can be solved analytically in the case of linear functions by solving the equation system $$\frac{\text{d}}{\text{d}\boldsymbol{\theta}}\chi^2=0$$
+and otherwise numerically. The minimization of $\chi^2$ to get best-fit estimates for the desired parameters can be motivated if one considers the likelihood $\mathcal{L}$ that the data follow the function $f$. It is given by \begin{equation}
+	\ln\mathcal{L}=-\frac{1}{2}\sum_{i=1}^N\left[\frac{y_i-f(x_i;\boldsymbol{\theta})}{\sigma_i}\right]^2-\sum_{i=1}^N\ln\sigma_i\sqrt{2\pi},
+\end{equation}
+if one assumes \textsc{Gaussian} errors at each data point. To maximize the (log-) likelihood with respect to all parameters is then equivalent to minimizing $\chi^2$. As a byproduct, the $\chi^2$ fit also gives a goodness of fit estimate which is given by $\chi^2/\text{NDF}\approx 1$, where $\text{NDF}$ are the number of degrees of freedom. Significantly smaller or larger values indicate too small error estimates or a bad fit, respectively. \cite{statistics}
+\subsection{Bayesian approach}
+As an alternative
 
 \section{Motivation and Structure of this Thesis}
 bla
