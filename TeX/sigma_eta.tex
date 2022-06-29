@@ -29,7 +29,7 @@ Measurements were made in two distinct polarization settings $\alpha=\pm\SI{45}{
 \end{equation}
 and 
 \begin{align}
-	\frac{\text{d}\sigma}{\text{d}\Omega}_\text{pol}^\bot&=\frac{\text{d}\sigma}{\text{d}\Omega}_0\cdot\left[1-p_\gamma^\bot\Sigma\cos\left(2\left(\alpha^\bot-\phi\right)\right)\right]\\
+	\frac{\text{d}\sigma}{\text{d}\Omega}_\text{pol}^\bot&=\frac{\text{d}\sigma}{\text{d}\Omega}_0\cdot\left[1-p_\gamma^\bot\Sigma\cos\left(2\left(\alpha^\bot-\phi\right)\right)\right]\label{eq:polcs00}\\
 	&=\frac{\text{d}\sigma}{\text{d}\Omega}_0\cdot\left[1+p_\gamma^\bot\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right].\label{eq:polcs}
 \end{align}
 Note that equation \eqref{eq:polcs} holds, because 
@@ -65,30 +65,38 @@ where $\Phi$ is the beam flux, $N_t$ the number of target particles and $\Delta\
 Alternatively, the event yields $N$ can also be normalized by integrating over the total azimuthal angle range in each bin of $(E_\gamma,\cos\theta)$. This normalization technique has been used in reference \cite{farahphd} and will also be used in this work. Using appropriate binning in $\phi$ in addition to beam energy and meson polar angle the asymmetry can be build for all kinematic bins and the beam asymmetry then be extracted via a one-Parameter fit. The statistical errors for $A(\phi)$ are given by \textsc{Gaussian} error propagation (see appendix \ref{sec:stat_err}). 
 \subsubsection{Frequentist}
 The beam asymmetry can now be determined via a frequentist fit, where $\Sigma$ is determined such that the $\chi^2$ value resulting from the data points and equation \ref{eq:evyieldasym} is minimized. The results are point estimates with statistical error bars that are also obtained from the fit: $\hat{\Sigma}\pm\sigma_{\hat{\Sigma}}$. In addition $\chi^2/\text{NDF}\approx1$ may be verified in order to diagnose the fit itself. Multiple automated minimization and calculation algorithms for $\chi^2$ fitting are available as open source. The \emph{Python} \cite{python} module \emph{scipy} \cite{scipy} and \emph{ROOT} \cite{root} offer e.g. the methods \texttt{scipy.optimize.curve\_fit} \cite{pFit} and \texttt{TH1::Fit()} \cite{rFit} for discrete/binned data, which were used in the analysis.
-\subsubsection{Bayesian}
-Following section \ref{sec:bayes}, where the basics of \textsc{Bayesian} inference were discussed, the goal of a \textsc{Bayesian} approach is to sample marginal posterior distributions for each fitted parameter from the joint posterior $p(\boldsymbol{\theta}|y)$ which depends on the observed data $y$. The joint posterior itself is proportional to the product of priors $\pi(\boldsymbol{\theta})$ and likelihood $\mathcal{L}(y|\boldsymbol{\theta})$ (\textsc{Bayes'} theorem)
-\begin{equation}
-	p(\boldsymbol{\theta}|y)\propto \pi(\boldsymbol{\theta})\cdot \mathcal{L}(y|\boldsymbol{\theta}).
-\end{equation}
-This collapses to a one parameter problem in the case of fitting the event yield asymmetries (Eq. \eqref{eq:evyieldasym})
+\subsubsection{\textsc{Bayesian}}
+Following section \ref{sec:bayes}, where the basics of \textsc{Bayesian} inference were discussed, the goal of a \textsc{Bayesian} approach is to sample marginal posterior distributions for each fitted parameter from the joint posterior $p(\boldsymbol{\theta}|y)$ which depends on the observed data $y$. The joint posterior itself is proportional to the product of priors $\pi(\boldsymbol{\theta})$ and likelihood $\mathcal{L}(y|\boldsymbol{\theta})$ (\textsc{Bayes'} theorem). This collapses to a one parameter problem in the case of fitting the event yield asymmetries (Eq. \eqref{eq:evyieldasym})
 \begin{equation}
 	p(\Sigma|y)\propto \pi({\Sigma})\cdot \mathcal{L}(y|\Sigma).
 \end{equation}
-However, to be able to sample from a joint posterior, prior and likelihood need to be specified. In order not to bias the fit towards any particular values, the prior is chosen non-informative, realized by a broad \textsc{Gaussian} centered at 0 which is truncated to the physically allowed parameter space of $\Sigma\in[-1,1]$. Furthermore, the likelihood is formulated assuming \textsc{Gaussian} errors $\epsilon_n$ at each data point $y_n$, which should be described by the asymmetry (Eq \eqref{eq:evyieldasym}) at bin $n$ $A(\phi_n;\Sigma)$, i. e.
+However, to be able to sample from a joint posterior, prior and likelihood need to be specified. In order not to bias the fit towards any particular values, the prior is chosen non-informative, realized by a broad \textsc{Gaussian} centered at 0 which is truncated to the physically allowed parameter space of $\Sigma\in[-1,1]$. Furthermore, the likelihood is formulated assuming \textsc{Gaussian} errors $\epsilon_n$ at each data point $y_n$, which should be described by the asymmetry (Eq \eqref{eq:evyieldasym}) at bin $n$ $A(\phi_n;\Sigma)$, i. e. \footnote{Remember the notation introduced in section \ref{sec:bayes}: $x\sim\mathcal{N}(\mu,\sigma)=\mathcal{N}(x|\mu,\sigma)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$}
 \begin{align}
-	\Sigma \sim \text{normal}(0,1) && y_n=A(\phi_n;\Sigma)+\epsilon_n && \epsilon_n\sim\text{normal}(0,\sigma_n),
+	\Sigma \sim \mathcal{N}\left(0,1\right)_{[-1,1]} && y_n=A\left(\phi_n;\Sigma\right)+\epsilon_n && \epsilon_n\sim\mathcal{N}\left(0,\sigma_n\right),
 \end{align}
 which is equivalent to
 \begin{align}
-	 \Sigma \sim \text{normal}(0,1) &&y_n\sim\text{normal}(A(\phi_n;\Sigma),\sigma_n).
+	 \Sigma \sim \mathcal{N}(0,1) &&y_n\sim\mathcal{N}\left(A(\phi_n;\Sigma),\sigma_n\right).
 \end{align}
-The likelihood of all data points now evaluates to \begin{equation}
-	\mathcal{L}(y|\Sigma)=\prod_{n} y_n,
-\end{equation}
-such that all ingredients are present to form a fully \textsc{Bayesian} probabilistic model. This model was implemented in Stan \cite{stan}, directly giving access to samples from the posterior obtained with the No-U-Turn-Sampler (NUTS) \cite{stan,nuts}. Hereby, the sampling is restricted to the allowed parameter region $\Sigma\in[-1,1]$. As a measure of goodness of fit, the $p$-values obtained from the posterior predictive distributions, as introduced in section \ref{sec:bayes}, are reviewed. To diagnose the convergence of the MCMC fit, sensible values for $\hat{R}$ and the Monte-Carlo standard error $\sigma_\text{MCSE}$ are verified.
+The likelihood of all data points now evaluates to the product of the likelihood at each data point $y_n$ and the posterior results in \begin{align}
+	p(\Sigma|y)&\propto\pi(\Sigma)\cdot\mathcal{L}(y|\Sigma)=\mathcal{N}\left(\Sigma|0,1\right)_{[-1,1]}\cdot\prod_{n}\mathcal{N}\left(y_n|A\left(\phi_n;\Sigma\right),\sigma_n\right)\\
+	\Leftrightarrow -\ln p(\Sigma|y)&=\frac{1}{2}\Sigma^2+\frac{1}{2}\sum_{n}\left(\frac{y_n-A\left(\phi_n;\Sigma\right)}{\sigma_n}\right)^2+\text{ constant terms }, 
+\end{align}
+such that all ingredients are present to form a fully \textsc{Bayesian} probabilistic model\footnote{Note that the sampling aims only to reflect the right proportionality of the (marginal) posterior. Thus, constant terms can be dropped and are of no further interest \cite{stan}.}. This model was implemented in Stan \cite{stan}, directly giving access to samples from the posterior obtained with the No-U-Turn-Sampler (NUTS) \cite{stan,nuts}. Hereby, the sampling is restricted to the allowed parameter region $\Sigma\in[-1,1]$. As a measure of goodness of fit, the $p$-values obtained from the posterior predictive distributions, as introduced in section \ref{sec:bayes}, are reviewed. To diagnose the convergence of the MCMC fit, sensible values for $\hat{R}$ and the Monte-Carlo standard error $\sigma_\text{MCSE}$ are verified.
 \subsection{Event based fit}
+Although intuitive and easily implementable the binned fit --\textsc{Bayesian} or not-- has one critical disadvantage: it is inevitable that information is lost because the asymmetry $A(\phi)$ is a binned quantity and hence, the choice of binning influences the fit results. This will be discussed in more detail in section \ref{sec:sigma_eta}. Especially kinematic bins with low statistics show this behavior. To circumvent this problem, an \emph{unbinned fit}, based on the likelihood function for each event, can be performed. Also, no assumptions on the distribution of statistical errors have to be made since each event is taken into account individually. Yet, the event based fit does not provide any measure of goodness of fit, so that the study of toy Monte Carlo has to confirm the correct working principle of the method.
+
+In a polarized experiment the azimuthal angle distribution of events is not isotropic, but modulated by a cosine term coupling to beam asymmetry $\Sigma$ and beam polarization $p_\gamma^{\parallel/\bot}$ for each setting $\alpha^{\parallel/\bot}$, as is expressed through the respective differential cross sections in Equations \ref{eq:polcs0} and \ref{eq:polcs00}. Since the number of events is proportional to the cross section, the probability $p(\phi|\Sigma)$ to find an event under the azimuthal angle $\phi$ for a given bin of $\left(E_\gamma,\cos\theta\right)$ is \begin{equation}
+	p(\phi|\Sigma)\propto\left[1\mp p_\gamma^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right].
+\end{equation}
+This is only true for an idealized experiment with acceptance $\epsilon=\text{const}\forall\phi$, so that the acceptance $\epsilon(\phi)$ has to be included in the probability for each event. As demonstrated in reference \cite{hartmannphd} a \textsc{Fourier} series truncated at $4$ is sufficient to describe any occurring function
+\begin{equation}
+	\epsilon(\phi)=\sum_{k=0}^4a_k\sin\left( k\phi\right)+b_k\cos\left(k\phi\right).
+\end{equation} 
 \subsubsection{Frequentist}
 \subsubsection{Bayesian}
+\subsection{Comparison of \textsc{Bayesian} and frequentist approaches}
+\label{sec:sigma_eta}
 \section{Determination of $\Sigma_{\eta}$ using Bayesian statistics}
 \subsection{Event yield asymmetries}
 \subsubsection{Application of method to toy Monte Carlo data}
