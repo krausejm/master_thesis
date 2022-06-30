@@ -84,28 +84,88 @@ The likelihood of all data points now evaluates to the product of the likelihood
 \end{align}
 such that all ingredients are present to form a fully \textsc{Bayesian} probabilistic model\footnote{Note that the sampling aims only to reflect the right proportionality of the (marginal) posterior. Thus, constant terms can be dropped and are of no further interest \cite{stan}.}. This model was implemented in Stan \cite{stan}, directly giving access to samples from the posterior obtained with the No-U-Turn-Sampler (NUTS) \cite{stan,nuts}. Hereby, the sampling is restricted to the allowed parameter region $\Sigma\in[-1,1]$. As a measure of goodness of fit, the $p$-values obtained from the posterior predictive distributions, as introduced in section \ref{sec:bayes}, are reviewed. To diagnose the convergence of the MCMC fit, sensible values for $\hat{R}$ and the Monte-Carlo standard error $\sigma_\text{MCSE}$ are verified.
 \subsection{Event based fit}
-Although intuitive and easily implementable the binned fit --\textsc{Bayesian} or not-- has one critical disadvantage: it is inevitable that information is lost because the asymmetry $A(\phi)$ is a binned quantity and hence, the choice of binning influences the fit results. This will be discussed in more detail in section \ref{sec:sigma_eta}. Especially kinematic bins with low statistics show this behavior. To circumvent this problem, an \emph{unbinned fit}, based on the likelihood function for each event, can be performed. Also, no assumptions on the distribution of statistical errors have to be made since each event is taken into account individually. Yet, the event based fit does not provide any measure of goodness of fit, so that the study of toy Monte Carlo has to confirm the correct working principle of the method.
+Although intuitive and easily implementable the binned fit --\textsc{Bayesian} or not-- has one critical disadvantage: it is inevitable that information is lost because the asymmetry $A(\phi)$ is a binned quantity and hence, the choice of binning influences the fit results. This will be discussed in more detail in section \ref{sec:sigma_eta}. Especially kinematic bins with low statistics show this behavior. To circumvent this problem, an \emph{unbinned fit}, based on the likelihood function for each event, can be performed. Also, no assumptions on the distribution of statistical errors have to be made since each event is taken into account individually. Yet, the event based fit does not provide any measure of goodness of fit, so that the study of toy Monte Carlo data is essential when checking the working principle of the method.
 
-In a polarized experiment the azimuthal angle distribution of events is not isotropic, but modulated by a cosine term coupling to beam asymmetry $\Sigma$ and beam polarization $p_\gamma^{\parallel/\bot}$ for each setting $\alpha^{\parallel/\bot}$, as is expressed through the respective differential cross sections in Equations \ref{eq:polcs0} and \ref{eq:polcs00}. Since the number of events is proportional to the cross section, the probability $p(\phi|\Sigma)$ to find an event under the azimuthal angle $\phi$ for a given bin of $\left(E_\gamma,\cos\theta\right)$ is \begin{equation}
-	p(\phi|\Sigma)\propto\left[1\mp p_\gamma^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right].
+In a polarized experiment the azimuthal angle distribution of events is not isotropic, but modulated by a cosine term coupling to beam asymmetry $\Sigma$ and beam polarization $p_\gamma^{\parallel/\bot}$ for each setting $\alpha^{\parallel/\bot}$, as is expressed through the respective differential cross sections in Equations \ref{eq:polcs0} and \ref{eq:polcs00}. Since the number of events is proportional to the cross section, the probability $p\left(\phi,p_\gamma^{\parallel/\bot}|\Sigma\right)$ to find an event under the azimuthal angle $\phi$ for a given bin of $\left(E_\gamma,\cos\theta\right)$ and setting $\alpha^{\parallel/\bot}$ is \footnote{Note: Normalizing $p^{\parallel/\bot}\left(\phi|\Sigma\right)$ to $2\pi$ (or any other arbitrary constant) is sufficient for the fit as long as the integral does not depend on the fit parameters. The normalization to $2\pi$ is chosen for better readability. However, to calculate actual probabilities, one must multiply Eq. \eqref{eq:prob0} by $2\pi$.} \begin{equation}
+	p\left(\phi,p_\gamma^{\parallel/\bot}\big|\Sigma\right)=\frac{\left[1\mp p_\gamma^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right]}{\frac{1}{2\pi}\int_{0}^{2\pi}\text{d}\phi\left[1\mp p_\gamma^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right] }.
+	\label{eq:prob0}
 \end{equation}
-This is only true for an idealized experiment with acceptance $\epsilon=\text{const}\forall\phi$, so that the acceptance $\epsilon(\phi)$ has to be included in the probability for each event. As demonstrated in reference \cite{hartmannphd} a \textsc{Fourier} series truncated at $4$ is sufficient to describe any occurring function
+This is only true for an idealized experiment with acceptance $\epsilon=\text{const}\forall\phi$, so that the acceptance $\epsilon(\phi)$ has to be included in the probability for each event. As demonstrated in reference \cite{hartmannphd} a \textsc{Fourier} series truncated after the fourth order is sufficient to model any occurring function $$\epsilon\left(\phi\right)=\sum_{k=0}^4a_k\sin\left( k\phi\right)+b_k\cos\left(k\phi\right),$$ where the eight detector coefficients $a_k$ and $b_k$ are determined from the fit. With this the measurable probability $\tilde{p}\left(\phi,p_\gamma^{\parallel/\bot}\big|\Sigma,a,b\right)$ is 
+\begin{align}
+	\tilde{p}\left(\phi,p_\gamma^{\parallel/\bot}\big|\Sigma,a,b\right)&\propto\left[1\mp p_\gamma^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right]\cdot\epsilon(\phi)\\&=\left[1\mp p_\gamma^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right]\cdot\left(\sum_{k=0}^4a_k\sin\left( k\phi\right)+b_k\cos\left(k\phi\right)\right),
+\end{align}
+where $a:=\{a_k\}_{k=0}^4, b:=\{b_k\}_{k=0}^4$.Finally, normalizing $\frac{1}{2\pi}\int_{0}^{2\pi}\text{d}\phi\tilde{p}\left(\phi,p_\gamma^{\parallel/\bot}\big|\Sigma,a,b\right)\overset{!}{=}1$,
 \begin{equation}
-	\epsilon(\phi)=\sum_{k=0}^4a_k\sin\left( k\phi\right)+b_k\cos\left(k\phi\right).
+	\tilde{p}\left(\phi,p_\gamma^{\parallel/\bot}\big|\Sigma,a,b\right)=\frac{\left[1\mp p_\gamma^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right]\cdot\left(\sum_{k=0}^4a_k\sin\left( k\phi\right)+b_k\cos\left(k\phi\right)\right)}{1\pm\frac{1}{2}a_2p_\gamma^{\parallel/\bot}\Sigma}.
+	\label{eq:prob}
+\end{equation}
+The respective polarization setting $\alpha^{\parallel/\bot}$ determines the sign in the normalizing constant which allows an uncorrelated estimation of the detector coefficient $a_2$ and the beam asymmetry $\Sigma$. To simplify notation and implementation, Equation \eqref{eq:prob} can be written as \emph{one} probability for all events -- irregardless of polarization setting -- if the polarization values $p_\gamma^\parallel$ are multiplied by $(-1)$ and summarized as $p_\gamma$: \begin{equation}
+	\tilde{p}\left(\phi,p_\gamma\big|\Sigma,a,b\right)=\frac{\left[1+p_\gamma\Sigma\cos\left(2\left(\alpha-\phi\right)\right)\right]\cdot\left(\sum_{k=0}^4a_k\sin\left( k\phi\right)+b_k\cos\left(k\phi\right)\right)}{1-\frac{1}{2}a_2p_\gamma\Sigma},
+	\label{eq:prob}
 \end{equation} 
+with $\alpha=\SI{-45}{\degree}$ fixed.
+
+In section \ref{sec:time} the subtraction of uncorrelated time background was discussed via a sideband subtraction. Naturally, without binning the data, this strategy is invalid and prompt peak and sideband events have to be fitted simultaneously. Hereby it is important to consider that the random time background is realized as flat distribution underneath the complete reaction time spectrum (cf. Figure \ref{fig:time_r}), \emph{including} the range of the prompt peak. The fraction of true coincident events to random coincidences is given as \begin{equation}
+	f=\frac{N_\text{prompt}-w\cdot N_\text{sideband}}{N_\text{prompt}},
+\end{equation}
+where $N_\text{prompt}$ and $N_\text{sideband}$ are the number of events where the reaction time lies within the prompt peak or sideband, respectively. $w$ is the ratio of the widths of the chosen prompt peak and sideband
+ranges, see section \ref{sec:time}. It is now assumed that the random coincidences will exhibit an asymmetry $\Sigma^\text{bkg}$ of their own and are not necessarily described by the detector coefficients $a$ and $b$ but rather by $a^\text{bkg}$ and $b^\text{bkg}$. The probability to detect a prompt peak event $p_\text{prompt}$ and the probability to measure a sideband event $p_\text{sideband}$ are then given by 
+\begin{align}
+p_\text{prompt}\left(\phi,p_\gamma,\big|\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)&=f\cdot\tilde{p}\left(\phi,p_\gamma\big|\Sigma,a,b\right)+\left(1-f\right)\cdot\tilde{p}\left(\phi,p_\gamma\big|\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)\\
+p_\text{sideband}\left(\phi,p_\gamma\big|\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)&=\tilde{p}\left(\phi,p_\gamma\big|\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right).
+\end{align}
+If there are $n$ prompt peak and $m$ sideband events, the joint likelihood of all events $\mathcal{L}$ is thus given by
+\begin{equation}
+	\mathcal{L}=\prod_{i=1}^{n}p_\text{prompt}\left(\phi_i,p_{\gamma,i}\big|\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)\prod_{j=1}^mp_\text{sideband}\left(\phi_j,p_{\gamma,j}\big|\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right),
+\end{equation}
+or, equivalently
+\begin{equation}
+\begin{aligned}
+	\ln\mathcal{L}&=\sum_{i=1}^{n}\ln p_\text{prompt}\left(\phi_i,p_{\gamma,i}\big|\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)\\&+\sum_{j=1}^m \ln p_\text{sideband}\left(\phi_j,p_{\gamma,j}\big|\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right).\label{eq:lik}
+\end{aligned}
+\end{equation}
+Eighteen\footnote{The \textsc{Fourier} series is constructed such that $a_0=0,b_0=1$} parameters have to be determined in total, either via a conventional frequentist approach or a \textsc{Bayesian} approach to this non-linear fitting problem.
 \subsubsection{Frequentist}
+Best fit estimates can be derived by maximizing the likelihood $\mathcal{L}$, or for computational convenience by minimizing $-\ln\mathcal{L}$. The \emph{ROOT} library \cite{root} offers the method \emph{TTree::UnbinnedFit} to perform an unbinned maximum likelihood fit on data filled in a \emph{TTree} \cite{runbinnedFit}, which was used to perform the fit. Minimization and statistical error calculation are performed by \emph{MINUIT} \cite{minuit}. Errors are hereby estimated either symmetrical from the paraboloid shape of $(-\ln\mathcal{L})$ using the \emph{HESSE} algorithm or asymmetric from the half-maximum values of $(-\ln\mathcal{L})$ using the \emph{MINOS} algorithm without making assumptions on the shape of the likelihood, if necessary \cite{minuit}.  
 \subsubsection{Bayesian}
+The joint posterior of all fit parameters given the data $\phi,p_\gamma$ is 
+\begin{equation}
+	p\left(\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\big|\phi,p_\gamma\right)\propto \mathcal{L}\left(\phi,p_\gamma\big|\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)\cdot\pi\left(\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right),
+\end{equation}
+where $\pi(\boldsymbol{\theta})$ denotes the combined prior of all fit parameters which factors into each individual prior since all parameters are independent:
+\begin{equation}
+	\pi\left(\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)=\pi\left(\Sigma\right)\cdot\pi\left(a\right)\cdot\pi\left(b\right)\cdot\pi\left(\Sigma^\text{bkg}\right)\cdot\pi\left(a^\text{bkg}\right)\cdot\pi\left(b^\text{bkg}\right).
+\end{equation}
+The priors for $\Xi\in\{\Sigma,\Sigma^\text{bkg}\}$ and $\xi\in\{a,b,a^\text{bkg},b^\text{bkg}\}$ are again chosen non-informative, broadly centered around 0
+\begin{align}
+	\Xi\sim\mathcal{N}(0,1)_{[-1,1]} &&\xi_k\sim\mathcal{N}(0,0.1).
+	\label{eq:priors}
+\end{align}
+This model, consisting of the likelihood in Eq. \eqref{eq:lik} and the priors in Eq. \eqref{eq:priors}, is implemented in Stan \cite{stan}, so that samples from the posterior in the physically allowed region ($\Sigma\in[-1,1]$) are again obtained via NUTS \cite{nuts}. From references \cite{farahphd,hartmannphd} it  is expected that $\xi_k\ll1$, therefore the chosen widths of the priors resemble a, relatively speaking, broad distribution.
 \subsection{Comparison of \textsc{Bayesian} and frequentist approaches}
 \label{sec:sigma_eta}
+placeholder
 \section{Determination of $\Sigma_{\eta}$ using Bayesian statistics}
+placeholder
 \subsection{Event yield asymmetries}
+placeholder
 \subsubsection{Application of method to toy Monte Carlo data}
+placeholder
 \subsubsection{Application of method to data}
+placeholder
 \subsection{Event based fit}
+placeholder
 \subsubsection{Application of method to toy Monte Carlo data}
+placeholder
 \subsubsection{Application of method to data}
+placeholder
 \subsection{Discussion}
+placeholder
 \section{Determination of $\Sigma_{\eta'}$}
+placeholder
 \subsection{Application of event based fit to toy Monte Carlo data}
+placeholder
 \subsection{Application of event based fit to data}
+placeholder
 \subsection{Systematic Error}
+placeholder
