@@ -78,12 +78,13 @@ def fit(nsamples,nbins,start): #define starting index
         currbin=f"toybin{i:04d}"
         diagnostics_df[currbin]=tmp_list
         sigma_df[currbin]=samples['sigma']
+        sigma_bkg_df[currbin]=samples['sigma_bkg']
     return diagnostics_df, sigma_df, sigma_bkg_df
 
 dfs=fit(nsamples=1000,nbins=1000,start=0)
 diagnostics=dfs[0]
 sigma=dfs[1]
 sigma_bkg=dfs[2]
-diagnostics.to_csv('new_toy_diagnostics.csv')
-sigma.to_csv('new_toy_sigma.csv')
-sigma_bkg.to_csv('new_toy_sigma_bkg.csv')
+#diagnostics.to_csv('new_toy_diagnostics.csv')
+#sigma.to_csv('new_toy_sigma.csv')
+#sigma_bkg.to_csv('new_toy_sigma_bkg.csv')
