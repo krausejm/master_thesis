@@ -232,9 +232,40 @@ Not only signal events but also contributions from random time background as wel
 		\textbf{efficiency function}&\multicolumn{3}{l}{$\epsilon\left(\phi\right)=1/10.5\cdot\left(9.3+0.28\cdot\cos\phi+0.24\cdot\sin3\phi\right)$}\\
 		\bottomrule
 	\end{tabularx}
-	\caption{Summary of the complete setting of all toy Monte Carlo experiments for the event based fit. Values and table layout adapted from \cite{farahphd}}
+	\caption{Summary of the complete setting of all toy Monte Carlo experiments for the event based fit. Values and table layout adapted from \cite{farahphd}.}
 	\label{tab:mcsum}
 \end{table}
+In total, 1000 toy Monte Carlo experiments are thrown. To evaluate the fit results only the posterior distributions are available. As before, the residuals $\Xi$ are built from all fits, now for $\Sigma$ as well as $\Sigma^\text{bkg}$. They are shown in Figure \ref{fig:toyMC_diagnostics1} together with the unnormalized posterior distributions. Also the event based fit is able to reproduce the true values within one standard deviation. Only slight bias towards smaller values of the beam asymmetry is seen, but again with negligible effect on the results in comparison to the widths of the distributions. If the total amount of posterior distributions is not too large one might also combine them in a \emph{pooled likelihood} approach. $\dots$ This is shown in Figure \ref{fig:poollik} for both determined asymmetries. Because the true asymmetries are within $1\sigma$ of the resulting distribution one can finally conclude that the event based fit estimates positions and widths of the posterior distributions correctly.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{\linewidth}
+		\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_add.pdf}
+		\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_add_raw.pdf}
+		\subcaption{Signal beam asymmetry $\Sigma$}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_add.pdf}
+		\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_add_raw.pdf}
+		\subcaption{Background beam asymmetry $\Sigma^\text{bkg}$}
+	\end{subfigure}
+	\caption{Combined posteriors for the beam asymmetries $\Sigma$ and $\Sigma^\text{bkg}$ from all 1000 event based fits. Left: Residuals $\Xi$ Right: Unnormalized posterior distributions. A \textsc{Gaussian} fit is performed on the distributions with results for mean $\mu$ and standard deviation $\sigma$ on top.}
+	
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_mul.pdf}
+	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_mul.pdf}
+	\caption{Combined posterior probabilities using the \emph{pooled likelihood} approach. Left: Signal beam asymmetry, Right: background beam asymmetry. Mean and standard deviation as obtained from a \text{Gaussian} fit are shown on top}
+	\label{fig:poollik}
+\end{figure}
+\begin{figure}[htbp]
+	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/toyMC_mcse_hist.pdf}
+	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/toyMC_rhat_hist.pdf}
+	\caption{ Left: relative error $\frac{\sigma_\text{MCSE}}{\text{median}\left[p\left(\Sigma|y\right)\right]}$ Right: $\widehat{R}$ associated with the fit parameter $\Sigma$. Both are shown for all 1000 fits. The critical values that should not be exceeded are marked by dashed lines.}
+	\label{fig:toyMC_diagnostics1}
+\end{figure}
 \subsection{Application of methods to data}
 \subsubsection{Event yield asymmetries}
 \subsubsection{Event based fit}
