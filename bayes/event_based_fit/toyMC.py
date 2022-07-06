@@ -31,6 +31,7 @@ def fit(nsamples,nbins,start): #define starting index
     cols=[f'toybin{i:04d}' for i in range(start,start+nbins)]
     diagnostics_df=pd.DataFrame(columns=cols,index=['sigma_median','mcse','rhat'])
     sigma_df=pd.DataFrame(columns=cols)
+    sigma_bkg_df=pd.DataFrame(columns=cols)
     for i in range(start,start+nbins):#no. of toy bins
         #read data
         df=pd.read_csv(f"toybins/toybin{i:04d}.txt",sep="\t")
@@ -72,15 +73,17 @@ def fit(nsamples,nbins,start): #define starting index
         #get mcmc diagnostics
         median=summary['50%']['sigma']
         mcse=(az.mcse(np.transpose(fitobj.draws(concat_chains=False)[:,:,7]),method='median'))
-        rhat=(summary['R_hat']['sigma'])
+        rhat=(az.rhat(np.transpose(fitobj.draws(concat_chains=False)[:,:,7])))
         tmp_list=[median,mcse,rhat]
         currbin=f"toybin{i:04d}"
         diagnostics_df[currbin]=tmp_list
         sigma_df[currbin]=samples['sigma']
-    return diagnostics_df, sigma_df, summary
+    return diagnostics_df, sigma_df, sigma_bkg_df
 
 dfs=fit(nsamples=1000,nbins=1000,start=0)
 diagnostics=dfs[0]
 sigma=dfs[1]
+sigma_bkg=dfs[2]
 diagnostics.to_csv('new_toy_diagnostics.csv')
 sigma.to_csv('new_toy_sigma.csv')
+sigma_bkg.to_csv('new_toy_sigma_bkg.csv')

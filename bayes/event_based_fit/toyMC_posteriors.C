@@ -21,24 +21,21 @@ void toyMC_posteriors(){
     //read sigma posteriors
     TTree* t = new TTree("t","mytree");
     TTree* d = new TTree("d","myothertree");
-    t->ReadFile("toy_sigma.csv");
-    d->ReadFile("mcse.csv","mcse");
+    t->ReadFile("new_toy_sigma.csv");
+    //d->ReadFile("mcse.csv","mcse");
     //set tree branch adresses for posteriors
-    const int nbins = 300;
+    const int nbins = 1000;
+    const int nbins_hist=80;
+    //double scale = 6278;
+    double scale = 6270;
     Float_t currentry[nbins];
     TH1F* posteriors[nbins];
-    //get mcse from other tree, mcse is second entry
-    Float_t mcse[nbins];
-    Float_t dummy;
-    d->SetBranchAddress("mcse",&dummy);
 
     for(int i=0;i<nbins;i++){
         //create corresponding histos
         t->SetBranchAddress(Form("toybin%04d",i),&currentry[i]);
-        posteriors[i]=new TH1F(Form("posterior%04d",i),";#Sigma;",150,-1,1);
+        posteriors[i]=new TH1F(Form("posterior%04d",i),";#Sigma;",nbins_hist,-1,1);
         //get mcse
-        d->GetEntry(i);
-        mcse[i]=dummy;
         //std::cout<<mcse[i]<<std::endl;
     }
     //fill histos for each branch
@@ -47,7 +44,7 @@ void toyMC_posteriors(){
         for(int j=0;j<nbins;j++){
             posteriors[j]->Fill((currentry[j]));
         }
-    }
+    }   
     //now convert each histo to log scale for better calculations
     for(int i=0;i<nbins;i++){
         for(int j=0;j<posteriors[i]->GetNbinsX();j++){
@@ -69,7 +66,7 @@ void toyMC_posteriors(){
     g->SetParameter(0,amp);
     g->SetParameter(1,mu);
     g->SetParameter(2,sigma);
-    TH1F* combinedposterior = new TH1F("combined",";#Sigma;",150,-1,1);
+    TH1F* combinedposterior = new TH1F("combined",";#Sigma;",nbins_hist,-1,1);
     //multiplication via log scale addition
     for(int i=0;i<nbins;i++){
         if(i==0){
@@ -79,12 +76,12 @@ void toyMC_posteriors(){
             combinedposterior->Add(f,-1);
         }
     }
-    TH1F* test = new TH1F("test",";#Sigma;",150,-1,1);
+    TH1F* test = new TH1F("test",";#Sigma;",nbins_hist,-1,1);
     for(int i=0;i<combinedposterior->GetNbinsX();i++){
         double tmp;
         std::cout<<"lp="<<combinedposterior->GetBinContent(i+1)<<std::endl;
         //convert back to linear scale
-        if(combinedposterior->GetBinContent(i+1)>0) tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-1680);
+        if(combinedposterior->GetBinContent(i+1)>0) tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-scale);
         else tmp = TMath::Exp(combinedposterior->GetBinContent(i+1));
         std::cout<<"exp(lp)="<<tmp<<std::endl;
         combinedposterior->SetBinContent(i+1,tmp);
@@ -92,20 +89,26 @@ void toyMC_posteriors(){
 
     }
     //fit gaus because
+    
     TF1* fitf = new TF1("fitf","gaus",-1,1);
     fitf->SetNpx(1e5);
-    test->Fit(fitf);
+    test->Fit(fitf,"","",0.45,0.55);
     //cosmetics
     gStyle->SetOptStat(0);
-    test->GetXaxis()->SetTitleFont(132);
-    test->GetXaxis()->SetLabelFont(132);
-    test->GetYaxis()->SetTitleFont(132);
-    test->GetYaxis()->SetLabelFont(132);
-    //test->GetYaxis()->SetLabelSize(0);
+    test->GetXaxis()->SetTitleFont(133);
+    test->GetXaxis()->SetLabelFont(133);
+    test->GetXaxis()->SetTitleSize(50);
+    test->GetXaxis()->SetLabelSize(50);
+    test->GetYaxis()->SetTitleFont(133);
+    test->GetYaxis()->SetLabelFont(133);
+    test->GetYaxis()->SetTitleSize(50);
+
+    test->GetYaxis()->SetRangeUser(1e-4,1.3*fitf->GetParameter(0)*1.2);
+    test->GetYaxis()->SetLabelSize(0);
     test->GetXaxis()->SetRangeUser(0.4,0.6);
-    //test->GetYaxis()->SetNdivisions(1);
-    test->GetYaxis()->SetRangeUser(0,100);
-    test->GetYaxis()->SetTitle("#it{p}(#Sigma|D) (arb. units)");
+    //test->GetYaxis()->SetNdivisions();
+    
+    test->GetYaxis()->SetTitle("#it{p}(#Sigma|#it{y}) (arb. units)");
     double fmu, fmu_err, fsigma, fsigma_err;
     fmu=fitf->GetParameter(1);
     fmu_err=fitf->GetParError(1);
@@ -114,6 +117,9 @@ void toyMC_posteriors(){
     TLatex text;
     text.SetTextAlign(22);
     test->Draw("");
-    text.DrawLatex(0.5,95,Form("#font[132]{#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}}",fmu,fmu_err,fsigma,fsigma_err));
+    //c1->SetLogy();
+    text.SetTextSize(50);
+    text.SetTextFont(133);
+    text.DrawLatex(0.5,fitf->GetParameter(0)*1.2,Form("#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}",fmu,fmu_err,fsigma,fsigma_err));
 
 }

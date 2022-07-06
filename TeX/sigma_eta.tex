@@ -111,8 +111,8 @@ In section \ref{sec:time} the subtraction of uncorrelated time background was di
 where $N_\text{prompt}$ and $N_\text{sideband}$ are the number of events where the reaction time lies within the prompt peak or sideband, respectively. $w$ is the ratio of the widths of the chosen prompt peak and sideband
 ranges, see section \ref{sec:time}. It is now assumed that the random coincidences will exhibit an asymmetry $\Sigma^\text{bkg}$ of their own and are not necessarily described by the detector coefficients $a$ and $b$ but rather by $a^\text{bkg}$ and $b^\text{bkg}$. The probability to detect a prompt peak event $p_\text{prompt}$ and the probability to measure a sideband event $p_\text{sideband}$ are then given by 
 \begin{align}
-p_\text{prompt}\left(\phi,p_\gamma,\big|\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)&=f\cdot\tilde{p}\left(\phi,p_\gamma\big|\Sigma,a,b\right)+\left(1-f\right)\cdot\tilde{p}\left(\phi,p_\gamma\big|\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)\\
-p_\text{sideband}\left(\phi,p_\gamma\big|\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)&=\tilde{p}\left(\phi,p_\gamma\big|\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right).
+p_\text{prompt}\left(\phi,p_\gamma,\big|\Sigma,a,b,\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)&=f\cdot\tilde{p}\left(\phi,p_\gamma\big|\Sigma,a,b\right)+\left(1-f\right)\cdot\tilde{p}\left(\phi,p_\gamma\big|\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)\label{eq:pprmpt}\\
+p_\text{sideband}\left(\phi,p_\gamma\big|\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)&=\tilde{p}\left(\phi,p_\gamma\big|\Sigma^\text{bkg},a^\text{bkg},b^\text{bkg}\right)\label{eq:pside}.
 \end{align}
 If there are $n$ prompt peak and $m$ sideband events, the joint likelihood of all events $\mathcal{L}$ is thus given by
 \begin{equation}
@@ -157,7 +157,7 @@ The asymmetry $A\left(\phi\right)$ is built from the event yields $N^{\parallel/
 	N^{\bot}=N_0\left[1-p_\gamma^\bot\Sigma\cos\left(2\left(\alpha^\bot-\phi\right)\right)\right],
 	\label{eq:nbot}
 \end{align}
-where the parameters are chosen as $\Sigma=0.5,p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3$. In total, $10000$ toy Monte Carlo bins are generated. In each bin the number of generated samples per setting $N_\text{total}^{\parallel/\bot}$ is given by a \textsc{Poisson} distribution
+where the parameters are chosen as $\Sigma=0.3,p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3$. In each toy Monte Carlo bin the number of generated samples per setting $N_\text{total}^{\parallel/\bot}$ is given by a \textsc{Poisson} distribution
 \begin{align}
 N_\text{total}^\parallel \sim \mathcal{P}(800) && N_\text{total}^\bot \sim \mathcal{P}(1000),
 \end{align}
@@ -214,14 +214,31 @@ It has been established that the fit produces valid results with sensible statis
 	\caption{ Left: relative error $\frac{\sigma_\text{MCSE}}{\text{median}\left[p\left(\Sigma|y\right)\right]}$ Right: $\widehat{R}$ associated with the fit parameter $\Sigma$. Both are shown for all 10000 fits. The critical values that should not be exceeded are marked by dashed lines.}
 	\label{fig:toyMC_diagnostics}
 \end{figure}
-
-
-
-
 \subsubsection{Event based fit}
+Not only signal events but also contributions from random time background as well as the imperfect detector efficiency $\epsilon(\phi)$ have to be simulated in order to test the method of event based fitting. For each polarization setting prompt peak and sideband events are drawn from the theoretical $\phi$-distributions $p_\text{prompt}$ and $p_\text{sideband}$ which are given in Equations \eqref{eq:pprmpt} and \eqref{eq:pside}. The total number of draws per setting and bin is again given by \textsc{Poisson} distributions and the ratio of prompt peak to sideband events is given by the time cut weights $\left\{w_i\right\}_{i=1}^7$ employed for the actual analysis of the $p\eta$ final state data \cite{farahphd}. This means that seven times prompt peak and sideband events need to simulated. The fraction of background events within the prompt peak $f$ was set to $f=0.95$. Further, the values $p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3,\Sigma=0.5$, $\Sigma^\text{bkg}=-0.5$ and lastly, a random efficiency function as already chosen in reference \cite{farahphd} were appointed. Table \ref{tab:mcsum} shows a summary of all toy Monte Carlo properties.
+\begin{table}[htbp]
+
+	\renewcommand{\arraystretch}{1.5}
+	\centering
+	\begin{tabularx}{\linewidth}{l|XXX}
+		\toprule
+		\textbf{chosen parameters} & \multicolumn{3}{l}{$p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3,\Sigma=0.5$, $\Sigma^\text{bkg}=-0.5$, $f=0.95$,}\\ &\multicolumn{3}{l}{$w_1=\frac{15}{210},w_2=\frac{8}{210},w_3=\frac{4}{210},w_4=\frac{10}{210},w_5=\frac{14}{210},w_6=\frac{6}{210},w_7=\frac{11}{210}$}\\
+		\hline
+		\textbf{simulation draws} &\multicolumn{3}{c}{$7\cdot N^\parallel_{\text{total},i}\sim\mathcal{P}(800)$, $7\cdot N^\bot_{\text{total},i}\sim\mathcal{P}(1000)\quad\big|_{i=1}^7$}\\
+		\cline{2-4}
+		&signal in prompt&background in prompt& sideband \\
+		&$N^{\parallel/\bot}_\text{total}\cdot f$&$N^{\parallel/\bot}_\text{total}\cdot\left(1-f\right)$&$N^{\parallel/\bot}_\text{total}\cdot\left(1-f\right)\cdot1/w_i$\\
+		\hline
+		\textbf{efficiency function}&\multicolumn{3}{l}{$\epsilon\left(\phi\right)=1/10.5\cdot\left(9.3+0.28\cdot\cos\phi+0.24\cdot\sin3\phi\right)$}\\
+		\bottomrule
+	\end{tabularx}
+	\caption{Summary of the complete setting of all toy Monte Carlo experiments for the event based fit. Values and table layout adapted from \cite{farahphd}}
+	\label{tab:mcsum}
+\end{table}
 \subsection{Application of methods to data}
 \subsubsection{Event yield asymmetries}
 \subsubsection{Event based fit}
+\subsection{Discussion}
 \section{Determination of $\Sigma_{\eta'}$}
 placeholder
 \subsection{Application of event based fit to toy Monte Carlo data}
