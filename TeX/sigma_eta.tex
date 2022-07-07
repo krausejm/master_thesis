@@ -42,7 +42,7 @@ Consider now taking the difference of equations \eqref{eq:polcs0} and \eqref{eq:
 \end{equation}
 One can further eliminate the unpolarized cross section from this equation by dividing by the polarization weighted sum of equations \eqref{eq:polcs0} and \eqref{eq:polcs}
 \begin{equation}
-	\alpha\cdot\frac{\text{d}\sigma}{\text{d}\Omega}_\text{pol}^\parallel+\beta\cdot\frac{\text{d}\sigma}{\text{d}\Omega}_\text{pol}^\bot=\frac{\text{d}\sigma}{\text{d}\Omega}_0\cdot\left[\alpha+\beta-\left(\alpha p_\gamma^\parallel-\beta p_\gamma^\bot\right)\Sigma\cos\left(2\left(\alpha^\bot-\phi\right)\right)\right]\overset{!}{=}2\frac{\text{d}\sigma}{\text{d}\Omega}_0.
+	\alpha\cdot\frac{\text{d}\sigma}{\text{d}\Omega}_\text{pol}^\bot+\beta\cdot\frac{\text{d}\sigma}{\text{d}\Omega}_\text{pol}^\parallel=\frac{\text{d}\sigma}{\text{d}\Omega}_0\cdot\left[\alpha+\beta-\left(\alpha p_\gamma^\bot-\beta p_\gamma^\parallel\right)\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right]\overset{!}{=}2\frac{\text{d}\sigma}{\text{d}\Omega}_0.
 \end{equation}
 Since $$\frac{\text{d}}{\text{d}\phi}\frac{\text{d}\sigma}{\text{d}\Omega}_0\overset{!}{=}0\forall\phi,$$ it holds \begin{align}
 	\alpha p_\gamma^\parallel-\beta p_\gamma^\bot \overset{!}{=}0 && \alpha+\beta\overset{!}{=}2,
@@ -167,7 +167,7 @@ to simulate the statistics of the $\gamma p \to p\eta$ final state as accurately
 	\begin{figure}[htbp]
 		\centering
 		\includegraphics[width=\linewidth,height=.8\textwidth]{../bayes/toyMC/plots/toyMC_ppd_checks.pdf}
-		\caption{Posterior predictive checks $p\left(A_\text{rep}\big|A\right)$ from a \textsc{Bayesian} fit to the event yield asymmetries for six toy Monte Carlo bins are shown as distributions. The black data points are the asymmetry $A\left(\phi\right)$, which was additionally fitted using a $\chi^2$ fit (solid red line). The goodness of fit is shown using $p$-values, which give the fraction $T\left(A_\text{rep}>A\right)$ of replicated samples greater than the original measured value, with propagated statistical error bars on the bottom of each plot. The expected mean value of $T\left(A_\text{rep}>A\right)=0.5$ is indicated by the dashed red line. }
+		\caption{Posterior predictive checks $p\left(A_\text{rep}\big|A\right)$ from a \textsc{Bayesian} fit to the event yield asymmetries for six toy Monte Carlo bins are shown as distributions. The data points in the upper plot are the asymmetry $A\left(\phi\right)$, which was additionally fitted using a $\chi^2$ fit (solid line). The goodness of fit is shown using $p$-values, which give the fraction $T\left(A_\text{rep}>A\right)$ of replicated samples greater than the original measured value, with propagated statistical error bars on the bottom of each plot. The expected mean value of $T\left(A_\text{rep}>A\right)=0.5$ is indicated by the dashed line. }
 		\label{fig:toymc_asym}
 	\end{figure}
 \end{landscape}
@@ -215,7 +215,7 @@ It has been established that the fit produces valid results with sensible statis
 	\label{fig:toyMC_diagnostics}
 \end{figure}
 \subsubsection{Event based fit}
-Not only signal events but also contributions from random time background as well as the imperfect detector efficiency $\epsilon(\phi)$ have to be simulated in order to test the method of event based fitting. For each polarization setting prompt peak and sideband events are drawn from the theoretical $\phi$-distributions $p_\text{prompt}$ and $p_\text{sideband}$ which are given in Equations \eqref{eq:pprmpt} and \eqref{eq:pside}. The total number of draws per setting and bin is again given by \textsc{Poisson} distributions and the ratio of prompt peak to sideband events is given by the time cut weights $\left\{w_i\right\}_{i=1}^7$ employed for the actual analysis of the $p\eta$ final state data \cite{farahphd}. This means that seven times prompt peak and sideband events need to simulated. The fraction of background events within the prompt peak $f$ was set to $f=0.95$. Further, the values $p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3,\Sigma=0.5$, $\Sigma^\text{bkg}=-0.5$ and lastly, a random efficiency function as already chosen in reference \cite{farahphd} were appointed. Table \ref{tab:mcsum} shows a summary of all toy Monte Carlo properties.
+Not only signal events but also contributions from random time background as well as the imperfect detector efficiency $\epsilon(\phi)$ have to be simulated in order to test the method of event based fitting. For each polarization setting prompt peak and sideband events are drawn from the theoretical $\phi$-distributions $p_\text{prompt}$ and $p_\text{sideband}$ which are given in Equations \eqref{eq:pprmpt} and \eqref{eq:pside}. The total number of draws per setting and bin is again given by \textsc{Poisson} distributions and the ratio of prompt peak to sideband events is given by the time cut weights $\left\{w_i\right\}_{i=1}^7$ employed for the actual analysis of the $p\eta$ final state data \cite{farahphd}. This means that seven times prompt peak and sideband events need to simulated. The fraction of background events within the prompt peak $f$ was set to $f=0.95$. Further, the values $p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3,\Sigma=0.5$, $\Sigma^\text{bkg}=-0.5$ and lastly, a random efficiency function as already chosen in reference \cite{farahphd} were appointed. Finally the hyperparameters $n_\text{chain},n_\text{samples},n_\text{warm up}$ are chosen the same as previously. Table \ref{tab:mcsum} shows a summary of all toy Monte Carlo properties.
 \begin{table}[htbp]
 
 	\renewcommand{\arraystretch}{1.5}
@@ -230,13 +230,14 @@ Not only signal events but also contributions from random time background as wel
 		&$N^{\parallel/\bot}_\text{total}\cdot f$&$N^{\parallel/\bot}_\text{total}\cdot\left(1-f\right)$&$N^{\parallel/\bot}_\text{total}\cdot\left(1-f\right)\cdot1/w_i$\\
 		\hline
 		\textbf{efficiency function}&\multicolumn{3}{l}{$\epsilon\left(\phi\right)=1/10.5\cdot\left(9.3+0.28\cdot\cos\phi+0.24\cdot\sin3\phi\right)$}\\
+		\hline
+		\textbf{hyperparameters}&\multicolumn{3}{l}{$n_\text{samples}=1000,n_\text{chain}=4,n_\text{warm up}=1000$}\\
 		\bottomrule
 	\end{tabularx}
 	\caption{Summary of the complete setting of all toy Monte Carlo experiments for the event based fit. Values and table layout adapted from \cite{farahphd}.}
 	\label{tab:mcsum}
 \end{table}
-In total, 1000 toy Monte Carlo experiments are thrown. To evaluate the fit results only the posterior distributions are available. As before, the residuals $\Xi$ are built from all fits, now for $\Sigma$ as well as $\Sigma^\text{bkg}$. They are shown in Figure \ref{fig:toyMC_diagnostics1} together with the unnormalized posterior distributions. Also the event based fit is able to reproduce the true values within one standard deviation. Only slight bias towards smaller values of the beam asymmetry is seen, but again with negligible effect on the results in comparison to the widths of the distributions. If the total amount of posterior distributions is not too large one might also combine them in a \emph{pooled likelihood} approach. $\dots$ This is shown in Figure \ref{fig:poollik} for both determined asymmetries. Because the true asymmetries are within $1\sigma$ of the resulting distribution one can finally conclude that the event based fit estimates positions and widths of the posterior distributions correctly.
-
+In total, 1000 toy Monte Carlo experiments are thrown. To evaluate the fit results only the posterior distributions are available. As before, the residuals $\Xi$ are built from all fits, now for $\Sigma$ as well as $\Sigma^\text{bkg}$. They are shown in Figure \ref{fig:toyMCposteriors} together with the unnormalized posterior distributions. 
 \begin{figure}[htbp]
 	\centering
 	\begin{subfigure}{\linewidth}
@@ -250,25 +251,80 @@ In total, 1000 toy Monte Carlo experiments are thrown. To evaluate the fit resul
 		\subcaption{Background beam asymmetry $\Sigma^\text{bkg}$}
 	\end{subfigure}
 	\caption{Combined posteriors for the beam asymmetries $\Sigma$ and $\Sigma^\text{bkg}$ from all 1000 event based fits. Left: Residuals $\Xi$ Right: Unnormalized posterior distributions. A \textsc{Gaussian} fit is performed on the distributions with results for mean $\mu$ and standard deviation $\sigma$ on top.}
-	
+	\label{fig:toyMCposteriors}
 \end{figure}
-
-
+Note that the distributions are truncated towards the tails at $\Sigma\to1$ and $\Sigma^\text{bkg}\to-1$ as implemented in the \textsc{Bayesian} fit in Stan. Also the event based fit is able to reproduce the true values within one standard deviation. Only slight bias towards smaller values of the beam asymmetry is seen, but again with negligible effect on the results in comparison to the widths of the distributions. If the total amount of posterior distributions is not too large one might also combine them in a \emph{pooled likelihood} approach (see subsection \ref{subsec:combinf}). This is shown in Figure \ref{fig:poollik} for both determined asymmetries.
 \begin{figure}[htbp]
 	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_mul.pdf}
 	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_mul.pdf}
 	\caption{Combined posterior probabilities using the \emph{pooled likelihood} approach. Left: Signal beam asymmetry, Right: background beam asymmetry. Mean and standard deviation as obtained from a \text{Gaussian} fit are shown on top}
 	\label{fig:poollik}
 \end{figure}
+ Because the true asymmetries are within $1\sigma$ of the resulting distribution one can finally conclude that the event based fit estimates positions and widths of the posterior distributions correctly. 
+ 
+ A check of the relative MCSE and $\widehat{R}$ values as shown in Figure \ref{fig:toyMC_diagnostics1} reveals also that the hyperparameters $n_\text{chain},n_\text{samples},n_\text{warm up}$ are correctly tuned.
+ \begin{figure}[htbp]
+ 	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/toyMC_mcse_hist.pdf}
+ 	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/toyMC_rhat_hist.pdf}
+ 	\caption{ Left: relative error $\frac{\sigma_\text{MCSE}}{\text{median}\left[p\left(\Sigma|y\right)\right]}$ Right: $\widehat{R}$ associated with the fit parameter $\Sigma$. Both are shown for all 1000 fits. The critical values that should not be exceeded are marked by dashed lines.}
+ 	\label{fig:toyMC_diagnostics1}
+ \end{figure}
+It is noteworthy that the event based fit creates more precise results although less Monte Carlo experiments in total were performed than for the binned fit. 
+
+Next to signal and background beam asymmetry the fit also estimates an efficiency function $\epsilon(\phi)$ that is described by a \textsc{Fourier} series. The polarization weighted sum of event yields allows to confirm whether a good description of the efficiency is achieved because it is given by the efficiency function modulated only by a constant, see previous section \ref{sec:meth} 
+\begin{equation}
+\alpha \tilde{N}^\parallel + \beta\tilde{N}^\bot = c\cdot\epsilon\left(\phi\right).
+\end{equation}
+Figure \ref{fig:toyMC_eff_func} shows the weighted sum of event yields with the same binning as used in the binned fit together with a posterior predictive check using the draws of all parameters distributions $a,b$. 
 \begin{figure}[htbp]
-	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/toyMC_mcse_hist.pdf}
-	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/toyMC_rhat_hist.pdf}
-	\caption{ Left: relative error $\frac{\sigma_\text{MCSE}}{\text{median}\left[p\left(\Sigma|y\right)\right]}$ Right: $\widehat{R}$ associated with the fit parameter $\Sigma$. Both are shown for all 1000 fits. The critical values that should not be exceeded are marked by dashed lines.}
-	\label{fig:toyMC_diagnostics1}
+	\centering
+	\includegraphics[width=\linewidth]{../bayes/event_based_fit/plots/toyMC_eff_PPC.pdf}
+	\caption{Posterior predictive check using the draws of the detector coefficients $a$ and $b$. Points with error bars are the polarization weighted sum of event yields. The dashed line is the mean of the predictive values while the solid opaque lines are representative of one simulation draw $a^{(s)},b^{(s)}$.}
+	\label{fig:toyMC_eff_func}
 \end{figure}
+As opposed to the binned fit it is not only performed at each data point but for significantly more points. This mimics a continuous function as is appropriate for an unbinned fit. However, for better visibility the posterior predictive distributions are not built at every point but the efficiency function is plotted for each set of draws $a^{(s)},b^{(s)}, s=1\dots4000$. No $p$ values are estimated since they would not be representative of the whole fit. 
 \subsection{Application of methods to data}
+Since both methods were tested successfully using toy Monte Carlo data, both are subsequently applied to real data to extract the beam asymmetry. Since the number of fits is small compared to the amount of fits performed during testing, the number of posterior draws was increased to $5000$ per chain. All other hyperparameters were left the same
+\begin{align}
+	n_\text{samples}=5000 && n_\text{chain}=4 && n_\text{warm up}=1000.
+\end{align}
 \subsubsection{Event yield asymmetries}
+In all bins of beam energy and meson polar angle the binned fit was performed. Similar to the Monte Carlo samples 12 bins in phi are built, to comply with the binning in reference \cite{farahphd} and guarantee comparability.
+\begin{landscape}
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=\linewidth,height=.8\textwidth]{../bayes/realdeal/plots/ppd_checks.pdf}
+		\caption{Posterior predictive checks $p\left(A_\text{rep}\big|A\right)$ from a \textsc{Bayesian} fit to the event yield asymmetries for all angular bins of the energy bin $\SI{1250}{\mega\eV}\leq E_\gamma<\SI{1310}{\mega\eV}$. The data points in the upper plot are the asymmetry $A\left(\phi\right)$, which was additionally fitted using a $\chi^2$ fit (solid line). The goodness of fit is shown using $p$-values, which give the fraction $T\left(A_\text{rep}>A\right)$ of replicated samples greater than the original measured value, with propagated statistical error bars on the bottom of each plot. The expected mean value of $T\left(A_\text{rep}>A\right)=0.5$ is indicated by the dashed line. }
+		\label{fig:asym}
+	\end{figure}
+\end{landscape}
+
+\begin{figure}[htbp]
+	\includegraphics[width=.49\linewidth]{../bayes/realdeal/plots/mcse_hist.pdf}
+	\includegraphics[width=.49\linewidth]{../bayes/realdeal/plots/rhat_hist.pdf}
+	\caption{ Left: relative error $\frac{\sigma_\text{MCSE}}{\text{median}\left[p\left(\Sigma|y\right)\right]}$ Right: $\widehat{R}$ associated with the fit parameter $\Sigma$. Both are shown for all $11\cdot12$ fits. The critical values that should not be exceeded are marked by dashed lines.}
+	\label{fig:diagnostics}
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../bayes/realdeal/plots/pval_hist.pdf}
+	\caption{$p$ values of all toy Monte Carlo bins. They are centered around their mean at $0.5$, which is indicated by the dashed line, and show no bias towards higher or lower values, thus confirming an adequate fit.}
+	\label{fig:pvals}
+\end{figure}
 \subsubsection{Event based fit}
+placeholder
+ \begin{figure}[htbp]
+	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/mcse_hist.pdf}
+	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/rhat_hist.pdf}
+	\caption{ Left: relative error $\frac{\sigma_\text{MCSE}}{\text{median}\left[p\left(\Sigma|y\right)\right]}$ Right: $\widehat{R}$ associated with the fit parameter $\Sigma$. Both are shown for all 1000 fits. The critical values that should not be exceeded are marked by dashed lines.}
+	\label{fig:diagnostics1}
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../bayes/event_based_fit/plots/eff_PPC.pdf}
+	\caption{Posterior predictive check using the draws of the detector coefficients $a$ and $b$. Points with error bars are the polarization weighted sum of event yields. The dashed line is the mean of the predictive values while the solid opaque lines are representative of one simulation draw $a^{(s)},b^{(s)}$.}
+	\label{fig:eff_func}
+\end{figure}
 \subsection{Discussion}
 \section{Determination of $\Sigma_{\eta'}$}
 placeholder
