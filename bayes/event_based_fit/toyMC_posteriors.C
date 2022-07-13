@@ -21,13 +21,14 @@ void toyMC_posteriors(){
     //read sigma posteriors
     TTree* t = new TTree("t","mytree");
     TTree* d = new TTree("d","myothertree");
-    t->ReadFile("new_toy_sigma.csv");
+    t->ReadFile("new_toy_sigma_bkg.csv");
     //d->ReadFile("mcse.csv","mcse");
     //set tree branch adresses for posteriors
+    //nbins_hist=80 for signal
     const int nbins = 1000;
     const int nbins_hist=80;
     //double scale = 6278;
-    double scale = 6270;
+    double scale = 6475;
     Float_t currentry[nbins];
     TH1F* posteriors[nbins];
 
@@ -77,22 +78,43 @@ void toyMC_posteriors(){
         }
     }
     TH1F* test = new TH1F("test",";#Sigma;",nbins_hist,-1,1);
+    double x[3];
+    double y[3];
+    double y_err[3];
+    int count =0;
     for(int i=0;i<combinedposterior->GetNbinsX();i++){
         double tmp;
         std::cout<<"lp="<<combinedposterior->GetBinContent(i+1)<<std::endl;
         //convert back to linear scale
-        if(combinedposterior->GetBinContent(i+1)>0) tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-scale);
+        if(combinedposterior->GetBinContent(i+1)>0){ 
+            y[count]=combinedposterior->GetBinContent(i+1);
+            y_err[count]=combinedposterior->GetBinError(i+1);
+            x[count]=combinedposterior->GetBinCenter(i+1);
+            count+=1;
+            tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-scale);
+        }
         else tmp = TMath::Exp(combinedposterior->GetBinContent(i+1));
         std::cout<<"exp(lp)="<<tmp<<std::endl;
         combinedposterior->SetBinContent(i+1,tmp);
         test->SetBinContent(i+1,combinedposterior->GetBinContent(i+1));
 
     }
+
     //fit gaus because
     
     TF1* fitf = new TF1("fitf","gaus",-1,1);
+    TF1* lfitf = new TF1("lfitf","[0]-(x-[1])*(x-[1])/[2]/[2]/2");
+    for(int i=0;i<3;i++){
+        std::cout<<"x: "<<x[i]<<"y: "<<y[i]<<"y_err: "<<y_err[i]<<"\n";
+    }
+    auto gr = new TGraphErrors(3,x,y,nullptr,y_err);
+    lfitf->SetParameters(6000,-0.5,0.005);
+    //gr->Draw("AP");
+    gr->Fit(lfitf);
+    fitf->SetParameters(TMath::Exp(lfitf->GetParameter(0)-scale),lfitf->GetParameter(1),lfitf->GetParameter(2));
     fitf->SetNpx(1e5);
-    test->Fit(fitf,"","",0.45,0.55);
+    //test->Fit(fitf,"","",0.45,0.55);
+    //test->Fit(fitf,"ML","",-0.52,-0.48);
     //cosmetics
     gStyle->SetOptStat(0);
     test->GetXaxis()->SetTitleFont(133);
@@ -102,24 +124,29 @@ void toyMC_posteriors(){
     test->GetYaxis()->SetTitleFont(133);
     test->GetYaxis()->SetLabelFont(133);
     test->GetYaxis()->SetTitleSize(50);
+    double height=TMath::Exp(lfitf->GetParameter(0)-scale);
 
-    test->GetYaxis()->SetRangeUser(1e-4,1.3*fitf->GetParameter(0)*1.2);
+    test->GetYaxis()->SetRangeUser(1e-18,1.3*height*1.2);
     test->GetYaxis()->SetLabelSize(0);
-    test->GetXaxis()->SetRangeUser(0.4,0.6);
+    //test->GetXaxis()->SetRangeUser(0.4,0.6);
+    test->GetXaxis()->SetRangeUser(-0.6,-0.4);
     //test->GetYaxis()->SetNdivisions();
     
     test->GetYaxis()->SetTitle("#it{p}(#Sigma|#it{y}) (arb. units)");
     double fmu, fmu_err, fsigma, fsigma_err;
-    fmu=fitf->GetParameter(1);
-    fmu_err=fitf->GetParError(1);
-    fsigma=fitf->GetParameter(2);
-    fsigma_err=fitf->GetParError(2);
+    fmu=lfitf->GetParameter(1);
+    fmu_err=lfitf->GetParError(1);
+    fsigma=lfitf->GetParameter(2);
+    fsigma_err=lfitf->GetParError(2);
     TLatex text;
     text.SetTextAlign(22);
     test->Draw("");
+    fitf->Draw("Same");
+
     //c1->SetLogy();
     text.SetTextSize(50);
     text.SetTextFont(133);
-    text.DrawLatex(0.5,fitf->GetParameter(0)*1.2,Form("#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}",fmu,fmu_err,fsigma,fsigma_err));
+    //text.DrawLatex(0.5,fitf->GetParameter(0)*1.2,Form("#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}",fmu,fmu_err,fsigma,fsigma_err));
+    text.DrawLatex(-0.5,height*1.2,Form("#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}",fmu,fmu_err,fsigma,fsigma_err));
 
 }
