@@ -6,6 +6,7 @@
         "toy_MC.C": "cpp",
         "unbinned_fit.C": "cpp",
         "toyMC_unbinned_fit.C": "cpp",
-        "create_csv.C": "cpp"
+        "create_csv.C": "cpp",
+        "plot_toyMC.C": "cpp"
     }
 }

@@ -108,11 +108,11 @@ void plot_toyMC(){
 	TPad *pad[Nx][Ny];
 
 	// Margins
-	Float_t lMargin = 0.12;
-	Float_t rMargin = 0.05;
-	Float_t bMargin = 0.15;
-	Float_t tMargin = 0.05;
-
+	Float_t lMargin = 0.2;
+	Float_t rMargin = 0.1;
+	Float_t bMargin = 0.2;
+	Float_t tMargin = 0.1;
+	
 	// Canvas setup
 	/*CanvasPartition(C,Nx,Ny,lMargin,rMargin,bMargin,tMargin);
 	for(int i=0;i<Nx;i++){
@@ -169,21 +169,27 @@ void plot_toyMC(){
 	double x,y;
 	TLatex t;
 	t.SetTextAlign(22);
+	t.SetTextSize(50);
+	t.SetTextFont(133);
 	const char * names[3] = {"residuals","sigma","sigma_bkg"};
 	for(int i=0;i<3;i++){
 		auto c = new TCanvas(Form("c%d",i));
 		c->cd(0);
+		c->SetLeftMargin(lMargin);
+		c->SetRightMargin(rMargin);
+		c->SetTopMargin(tMargin);
+		c->SetBottomMargin(bMargin);
 		histos[i]->Rebin(2);
 		histos[i]->Draw("");
 		auto res = histos[i]->Fit("gaus","SQ");
 		histos[i]->GetXaxis()->SetLabelFont(133);
 		histos[i]->GetXaxis()->SetTitleFont(133);
-		histos[i]->GetXaxis()->SetLabelSize(18);
-                histos[i]->GetXaxis()->SetTitleSize(20);
+		histos[i]->GetXaxis()->SetLabelSize(50);
+                histos[i]->GetXaxis()->SetTitleSize(50);
 		histos[i]->GetYaxis()->SetLabelFont(133);
                 histos[i]->GetYaxis()->SetTitleFont(133);
-                histos[i]->GetYaxis()->SetLabelSize(18);
-                histos[i]->GetYaxis()->SetTitleSize(20);
+                histos[i]->GetYaxis()->SetLabelSize(50);
+                histos[i]->GetYaxis()->SetTitleSize(50);
 		histos[i]->GetYaxis()->SetRangeUser(0,1.3*res->Parameter(0));
 		if(i==2)histos[i]->GetXaxis()->SetTitle("#Sigma_{bkg}");
 		x=0;
@@ -191,7 +197,7 @@ void plot_toyMC(){
 		//std::cout<<histos[i]->GetMaximum();
 		//y=1;
 		t.DrawLatex(x,y,Form("#color[2]{#font[132]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm%.4f}}",res->Parameter(1),res->ParError(1),res->Parameter(2),res->ParError(2)));
-		c->SaveAs(Form("./plots/%s.pdf",names[i]));
+		c->SaveAs(Form("./plots/%s.root",names[i]));
 
 
 

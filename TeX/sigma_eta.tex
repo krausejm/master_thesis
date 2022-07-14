@@ -141,7 +141,9 @@ The priors for $\Xi\in\{\Sigma,\Sigma^\text{bkg}\}$ and $\xi\in\{a,b,a^\text{bkg
 	\Xi\sim\mathcal{N}(0,1)_{[-1,1]} &&\xi_k\sim\mathcal{N}(0,0.1).
 	\label{eq:priors}
 \end{align}
-This model, consisting of the likelihood in Eq. \eqref{eq:lik} and the priors in Eq. \eqref{eq:priors}, is implemented in Stan \cite{stan}, so that samples from the posterior in the physically allowed region ($\Xi\in[-1,1]$) are again obtained via NUTS \cite{nuts}. From references \cite{farahphd,hartmannphd} it  is expected that $\xi_k\ll1$, therefore the chosen widths of the priors resemble a, relatively speaking, broad distribution.
+ From references \cite{farahphd,hartmannphd} it  is expected that $\xi_k\ll1$, therefore the chosen widths of the priors resemble a, relatively speaking, broad distribution. 
+ 
+ This model, consisting of the likelihood in Eq. \eqref{eq:lik} and the priors in Eq. \eqref{eq:priors}, is implemented in Stan \cite{stan}, so that samples from the posterior in the physically allowed region ($\Xi\in[-1,1]$) are again obtained via NUTS \cite{nuts}.
 
 
 \section{Determination of $\Sigma_{\eta}$ using Bayesian statistics}
@@ -195,9 +197,9 @@ The goodness of fit is checked via the introduced $p$-values $p=T(A_\text{rep}>A
 \end{equation}
 This criterion obviously cannot be applied in the same way to a \textsc{Bayesian} fit. The fit results are distributions and therefore lack point estimates $\Sigma^\text{fit}$ and errors $\Delta\Sigma^\text{fit}$. However, one can modify Equation \eqref{eq:res} to the needs of a \textsc{Bayesian} fit to assess its performance:
 \begin{equation}
-	\Xi=\frac{\left\{\Sigma^\text{fit}\right\}-\Sigma^\text{true}}{\text{std}\left(\left\{\Sigma^\text{fit}\right\}\right)}\sim\mathcal{N}(0,\sigma).
+	\Xi=\frac{\text{median}\left(\left\{\Sigma^\text{fit}\right\}\right)-\Sigma^\text{true}}{\text{std}\left(\left\{\Sigma^\text{fit}\right\}\right)}\sim\mathcal{N}(0,1).
 \end{equation}
-Instead of the point estimates $\Sigma^\text{fit}$ the set of all draws from the marginal posteriors $\left\{\Sigma^\text{fit}\right\}$ is shifted by the true value $\Sigma_\text{true}$ and normalized by the standard deviation as an error estimate for each fit. Although this is not a rigorously derived quantity it allows to identify possible bias if $\text{mean}\left(\Xi\right)\neq 0$. Furthermore, checking that $\sigma\approx1$ will affirm whether the width of the marginal posterior distributions is sensible. Figure \ref{fig:toymcpost} shows the combined $\Xi$-distributions of all fits and the unaltered combined posteriors shifted by the true value. As expected, both distributions are normal as a \textsc{Gaussian} fit proves.  
+Instead of the point estimates $\Sigma^\text{fit}$ the median of the set of all draws from the marginal posteriors $\left\{\Sigma^\text{fit}\right\}$ is shifted by the true value $\Sigma_\text{true}$ and normalized by the standard deviation as an error estimate for each fit. Although this is not a rigorously derived quantity it allows to identify possible bias if $\text{mean}\left(\Xi\right)\neq 0$. Furthermore, checking that $\sigma\approx1$ will affirm whether the width of the marginal posterior distributions is sensible. Figure \ref{fig:toymcpost} shows the combined $\Xi$-distributions of all fits and the unaltered combined posteriors shifted by the true value. As expected, both distributions are normal as a \textsc{Gaussian} fit proves.  
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.49\linewidth]{../bayes/toyMC/plots/combined_post_add.pdf}
@@ -253,7 +255,9 @@ In total, 1000 toy Monte Carlo experiments are thrown. To evaluate the fit resul
 	\caption{Combined posteriors for the beam asymmetries $\Sigma$ and $\Sigma^\text{bkg}$ from all 1000 event based fits. Left: Residuals $\Xi$ Right: Unnormalized posterior distributions. A \textsc{Gaussian} fit is performed on the distributions with results for mean $\mu$ and standard deviation $\sigma$ on top.}
 	\label{fig:toyMCposteriors}
 \end{figure}
-Note that the distributions are truncated towards the tails at $\Sigma\to1$ and $\Sigma^\text{bkg}\to-1$ as implemented in the \textsc{Bayesian} fit in Stan. Also the event based fit is able to reproduce the true values within one standard deviation. Only slight bias towards smaller values of the beam asymmetry is seen, but again with negligible effect on the results in comparison to the widths of the distributions. If the total amount of posterior distributions is not too large one might also combine them in a \emph{pooled likelihood} approach (see subsection \ref{subsec:combinf}). This is shown in Figure \ref{fig:poollik} for both determined asymmetries.
+Note that the distributions are truncated towards the tails at $\Sigma\to1$ and $\Sigma^\text{bkg}\to-1$ as implemented in the \textsc{Bayesian} fit in Stan. Also the event based fit is able to reproduce the true values within one standard deviation of the posterior distribution $\sigma_\text{posterior}$. Only slight bias towards smaller values of the signal beam asymmetry is seen, but again with negligible effect on the results in comparison to the widths of the distributions. Additionally, the mean of the distributions are 0 within $3\sigma$ of their statistical error and the errors are estimated correctly, since $\sigma_\text{posterior}=1$ within the statistical error. Note that the background beam asymmetry is estimated closer to its true value than the signal beam asymmetry because there are more random background events than signal events.
+
+If the total amount of posterior distributions is not too large one might also combine them in a \emph{pooled likelihood} approach (see subsection \ref{subsec:combinf}). This is shown in Figure \ref{fig:poollik} for both determined asymmetries.
 \begin{figure}[htbp]
 	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_mul.pdf}
 	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/combined_post_mul_bkg.pdf}
@@ -333,7 +337,7 @@ As opposed to the binned fit it is not only performed at each data point but for
 \end{figure}
 \subsection{Discussion}
 \label{sec:sigma_eta}
-The final results for the beam asymmetry obtained with both methods are shown in Figure \ref{fig:eta_res} for all bins in beam energy and meson polar angle. Along with the marginal posterior distributions obtained from both introduced methods point estimates from a $\chi^2$ fit and an unbinned fit \cite{farahphd} are shown. An important intermediate result is that all results agree with each other within statistical error bars or within the width of the marginal posterior distributions. Any effects that lead to slightly distinguishable point estimates from a binned or unbinned fit are propagated directly throughout the \textsc{Bayesian} fit; then each distribution is centered around the point estimate of the respective fitting method. Thus, in general, the application of \textsc{Bayesian} methods has proven to give the same results and no systematic error is introduced by the \textsc{Bayesian} approach. 
+The final results for the beam asymmetry obtained with both methods are shown in Figure \ref{fig:eta_res} for all bins in beam energy and meson polar angle. Along with the marginal posterior distributions obtained from both introduced methods point estimates from a $\chi^2$ fit and an unbinned fit \cite{farahphd} are shown. An important intermediate result is that all results agree with each other within statistical error bars or within the width of the marginal posterior distributions. Any effects that lead to slightly distinguishable point estimates from a binned or unbinned fit are propagated directly throughout the \textsc{Bayesian} fit; then each distribution is centered around the point estimate of the respective fitting method. The results from the binned and unbinned fit with error bars on average cover $68\%$ of the respective marginal posterior distributions, corresponding to a $1\sigma$ interval. Thus, in general, the application of \textsc{Bayesian} methods has proven to give the same results and no systematic error is introduced by the \textsc{Bayesian} approach. 
 
 The effort of implementing the binned or unbinned fit in a \textsc{Bayesian} approach is comparable to using standard libraries provided by e.g. \emph{python} \cite{python} or \emph{ROOT} \cite{root}. Due to the probabilistic structure of the Stan language \cite{stan} implementation of likelihood and prior models is straightforward and the sampling algorithms can be accessed or modified to ones needs intuitively. However, the \textsc{Bayesian} fit requires more careful preparation and also diagnostics. On one hand, the choice of priors has to be made. On the other hand, the fitting procedure is inherently different; not only the goodness of fit compared with data has to be checked but also the convergence of the \textsc{Markov} chains themselves. 
 
@@ -351,9 +355,32 @@ Yet, the additional effort is rewarded by the fact that the \textsc{Bayesian} fi
       
 \section{Determination of $\Sigma_{\eta'}$}
 \label{sec:sigma_etap}
+After successfully testing the application of \textsc{Bayesian} methods this section will demonstrate the extraction of new results for the beam asymmetry in $\eta'$ photoproduction off the proton obtained at the CBELSA/TAPS experiment. Only the event based fitting method is applied and the binned fitting of event yield asymmetries is discarded because on one hand the available statistics will on average give only few counts per bin $\left(E_\gamma,\cos\theta,\phi\right)$ of order $\mathcal{O}\left(10^1\right)$, naturally depending on the specific number of $\phi$-bins. This will result in very large statistical errors per bin. On the other hand this could be compensated by choosing fewer bins in $\phi$ which would in turn amplify the systematic underestimation of the beam asymmetry as is discussed in appendix \ref{app:binnedfits}.
+
+The event based fits are performed as unbinned maximum likelihood fit and as \textsc{Bayesian} fit. New toy Monte Carlo experiments are thrown adapting to the significantly decreased statistics. Also, tests regarding the background contamination of Monte Carlo samples are made.   
 \subsection{Application of event based fit to toy Monte Carlo data}
-placeholder
+\begin{table}[htbp]
+	
+	\renewcommand{\arraystretch}{1.5}
+	\centering
+	\begin{tabularx}{\linewidth}{l|XXX}
+		\toprule
+		\textbf{chosen parameters} & \multicolumn{3}{l}{$p_\gamma^\parallel=0.25,p_\gamma^\bot=0.3,\Sigma_1=0.5$, $\Sigma_2=-0.3$,$\Sigma$ $\Sigma^\text{bkg}=-0.5$, $f=0.95$, $\delta=0.2$}\\ &\multicolumn{3}{l}{$w=\frac{13}{200}$}\\
+		\hline
+		\textbf{simulation draws} &\multicolumn{3}{c}{$ N^\parallel_{\text{total}}\sim\mathcal{P}(200)$, $ N^\bot_{\text{total}}\sim\mathcal{P}(200)$}\\
+		\cline{2-4}
+		&signal in prompt&background in prompt& sideband \\
+		&$N^{\parallel/\bot}_\text{total}\cdot f$&$N^{\parallel/\bot}_\text{total}\cdot\left(1-f\right)$&$N^{\parallel/\bot}_\text{total}\cdot\left(1-f\right)\cdot1/w$\\
+		\hline
+		\textbf{efficiency function}&\multicolumn{3}{l}{$\epsilon\left(\phi\right)=1/10.5\cdot\left(9.3+0.28\cdot\cos\phi+0.24\cdot\sin3\phi\right)$}\\
+		\hline
+		\textbf{hyperparameters}&\multicolumn{3}{l}{$n_\text{samples}=1000,n_\text{chain}=4,n_\text{warm up}=1000$}\\
+		\bottomrule
+	\end{tabularx}
+	\caption{Summary of the complete setting of all toy Monte Carlo experiments for the event based fit. Table layout adapted from \cite{farahphd}.}
+	\label{tab:mcsum1}
+\end{table}
 \subsection{Application of event based fit to data}
-placeholder
+
 \subsection{Systematic Error}
 placeholder

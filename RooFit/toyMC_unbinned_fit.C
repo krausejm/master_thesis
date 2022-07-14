@@ -88,7 +88,7 @@ void toyMC_unbinned_fit(){
     TH1F* hxi = new TH1F("res",";#xi;counts",100,-10,10);
     TTree * t = new TTree("t","mytreee");
     
-    for(int i=0;i<10000;i++){
+    for(int i=0;i<1;i++){
 
     	t->Reset(); 
     	t->ReadFile(Form("../bayes/etap_event_based_fit/toybins/toybin%04d.txt",i),"pol:phi:weight");
@@ -110,7 +110,7 @@ void toyMC_unbinned_fit(){
     file->Close();
     
     
-    /*//check fit of efficiency function
+    //check fit of efficiency function
 
     TH1F* np45 = new TH1F("np45",";#phi / deg;counts",12,-180,180);
     TH1F* nm45 = new TH1F("nm45",";#phi;counts",12,-180,180);
@@ -142,24 +142,24 @@ void toyMC_unbinned_fit(){
         eff_func->FixParameter(i,f->GetParameter(i));
     }
     //cosmetics
-    eff_func->SetLineColor(kBlue);
+    eff_func->SetLineColor(kRed);
     eff_func->SetNpx(1000);
     np45->SetMarkerStyle(kFullSquare);
     np45->SetMarkerColor(kBlack);
     np45->SetLineColor(kBlack);
-    np45->GetXaxis()->SetLabelFont(132);
-    np45->GetXaxis()->SetTitleFont(132);
-    np45->GetYaxis()->SetLabelFont(132);
-    np45->GetYaxis()->SetTitleFont(132);
-    np45->GetXaxis()->SetTitleSize(.06);
-    np45->GetYaxis()->SetTitleSize(.06);
-    np45->GetXaxis()->SetLabelSize(.05);
-    np45->GetYaxis()->SetLabelSize(.05);
-
+    np45->GetXaxis()->SetLabelFont(133);
+    np45->GetXaxis()->SetTitleFont(133);
+    np45->GetYaxis()->SetLabelFont(133);
+    np45->GetYaxis()->SetTitleFont(133);
+    np45->GetXaxis()->SetTitleSize(50);
+    np45->GetYaxis()->SetTitleSize(50);
+    np45->GetXaxis()->SetLabelSize(50);
+    np45->GetYaxis()->SetLabelSize(50);
+    np45->GetYaxis()->SetTitle("#alpha #it{N}^{#perp} +#beta #it{N}^{#parallel} (arb. units)");
     gStyle->SetOptStat(0);
     np45->Draw("ep");
     gPad->SetBottomMargin(0.2);
-    np45->Fit(eff_func);*/
+    np45->Fit(eff_func);
     
     
 
