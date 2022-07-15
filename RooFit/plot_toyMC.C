@@ -87,25 +87,14 @@ void CanvasPartition(TCanvas *C,const Int_t Nx,const Int_t Ny,
 void plot_toyMC(){
 	TFile* f = new TFile("./toyMC_results_new.root","READ");
 	TH1F* hxi=(TH1F*) f->Get("res");
+	TH1F* hxi_bkg=(TH1F*) f->Get("res_bkg");
 	TH1F* hsigma=(TH1F*) f->Get("hsigma");
 	TH1F* hsigma_bkg=(TH1F*) f->Get("hsigma_bkg");
-
-	TH1F* histos[3]={hxi,hsigma,hsigma_bkg};
+	TH1F* histos[4]={hxi,hxi_bkg,hsigma,hsigma_bkg};
 	//auto res = hsigma->Fit("gaus","S");
 	
 
 	gStyle->SetOptStat(0);
-
-   	TCanvas *C = (TCanvas*) gROOT->FindObject("C");
-	if (C) delete C;
-	C = new TCanvas("C","canvas",1024,640);
-	C->SetFillStyle(4000);
-
-	// Number of PADS
-	const Int_t Nx = 1;
-	const Int_t Ny = 1;
-
-	TPad *pad[Nx][Ny];
 
 	// Margins
 	Float_t lMargin = 0.2;
@@ -171,8 +160,8 @@ void plot_toyMC(){
 	t.SetTextAlign(22);
 	t.SetTextSize(50);
 	t.SetTextFont(133);
-	const char * names[3] = {"residuals","sigma","sigma_bkg"};
-	for(int i=0;i<3;i++){
+	const char * names[4] = {"residuals","residuals_bkg","sigma","sigma_bkg"};
+	for(int i=0;i<4;i++){
 		auto c = new TCanvas(Form("c%d",i));
 		c->cd(0);
 		c->SetLeftMargin(lMargin);

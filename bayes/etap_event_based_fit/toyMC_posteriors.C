@@ -95,16 +95,20 @@ void toyMC_posteriors(){
     test->Fit(fitf);
     //cosmetics
     gStyle->SetOptStat(0);
-    test->GetXaxis()->SetTitleFont(132);
-    test->GetXaxis()->SetLabelFont(132);
-    test->GetYaxis()->SetTitleFont(132);
-    test->GetYaxis()->SetLabelFont(132);
-    test->GetYaxis()->SetRangeUser(0,1.3*fitf->GetParameter(0)*1.2);
+    test->GetXaxis()->SetTitleFont(133);
+    test->GetXaxis()->SetLabelFont(133);
+    test->GetYaxis()->SetTitleFont(133);
+    test->GetYaxis()->SetLabelFont(133);
+    test->GetYaxis()->SetRangeUser(1e-3,1.3*fitf->GetParameter(0)*1.2);
+    test->GetXaxis()->SetLabelSize(50);
     test->GetYaxis()->SetLabelSize(0);
+    test->GetXaxis()->SetTitleSize(50);
+    test->GetYaxis()->SetTitleSize(50);
+
+
     test->GetXaxis()->SetRangeUser(0.4,0.6);
-    test->GetYaxis()->SetNdivisions(1);
     
-    test->GetYaxis()->SetTitle("#it{p}(#Sigma|D) (arb. units)");
+    test->GetYaxis()->SetTitle("#it{p}(#Sigma|#it{y}) (arb. units)");
     double fmu, fmu_err, fsigma, fsigma_err;
     fmu=fitf->GetParameter(1);
     fmu_err=fitf->GetParError(1);
@@ -112,7 +116,9 @@ void toyMC_posteriors(){
     fsigma_err=fitf->GetParError(2);
     TLatex text;
     text.SetTextAlign(22);
+    text.SetTextFont(133);
+    text.SetTextSize(50);
     test->Draw("");
-    text.DrawLatex(0.5,fitf->GetParameter(0)*1.2,Form("#font[132]{#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}}",fmu,fmu_err,fsigma,fsigma_err));
+    text.DrawLatex(0.5,fitf->GetParameter(0)*1.2,Form("#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}",fmu,fmu_err,fsigma,fsigma_err));
 
 }
