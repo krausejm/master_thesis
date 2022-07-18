@@ -2,14 +2,8 @@ import cmdstanpy as sp
 import numpy as np
 from scipy.optimize import curve_fit
 import pandas as pd
-import matplotlib.pyplot as plt
-plt.ioff()
-from cycler import cycler
-import matplotlib.patches as mpatches
-import seaborn as sns
 import arviz as az
 import scipy.stats as stats
-import ROOT as r
 import arviz as az
 
 def fit(nsamples):
@@ -49,7 +43,7 @@ def fit(nsamples):
             #now the stan model and mcmc
             model=sp.CmdStanModel(stan_file='toyMC_stan.stan')
             model.compile()
-            fitobj=model.sample(data=stan_data,iter_sampling=nsamples,inits=0)
+            fitobj=model.sample(data=stan_data,iter_sampling=nsamples,inits=0,output_dir='stan_trash')
             summary=fitobj.summary()
             samples=fitobj.draws_pd()
             #get mcmc diagnostics
@@ -58,6 +52,7 @@ def fit(nsamples):
             rhat=az.rhat(np.transpose(fitobj.draws(concat_chains=False)[:,:,7]))
             tmp_list=[median,mcse,rhat]
             currbin=f"ebin{i:02d}costbin{j:02d}"
+            print(currbin)
             diagnostics_df[currbin]=tmp_list
             sigma_df[currbin]=samples['sigma']
     return diagnostics_df, sigma_df
@@ -103,5 +98,5 @@ def fit_bin(nsamples,i,j): #fit only one bin
 dfs=fit(nsamples=5000)
 diagnostics=dfs[0]
 sigma=dfs[1]
-diagnostics.to_csv('diagnostics.csv')
-sigma.to_csv('sigma.csv')
+diagnostics.to_csv('new_diagnostics.csv')
+sigma.to_csv('new_sigma.csv')
