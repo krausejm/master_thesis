@@ -21,11 +21,14 @@ void toyMC_posteriors(){
     //read sigma posteriors
     TTree* t = new TTree("t","mytree");
     TTree* d = new TTree("d","myothertree");
-    t->ReadFile("toy_sigma.csv");
+    t->ReadFile("new_toy_sigma_bkg.csv");
     //d->ReadFile("mcse.csv","mcse");
     //set tree branch adresses for posteriors
     const int nbins = 1000;
-    const int nbins_hist=90;
+    //const int nbins_hist=250;
+    int scale =7050;
+    //int scale = 7250;
+    const int nbins_hist=30;
     //nbins=300,nbins_hist=50 is a pretty combination, as well as nbins=1000,nbins_hist=80
     Float_t currentry[nbins];
     TH1F* posteriors[nbins];
@@ -81,7 +84,7 @@ void toyMC_posteriors(){
         std::cout<<"lp="<<combinedposterior->GetBinContent(i+1)<<std::endl;
         //convert back to linear scale
         int scale = combinedposterior->GetMaximum();
-        if(combinedposterior->GetBinContent(i+1)>0) tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-7050);
+        if(combinedposterior->GetBinContent(i+1)>0) tmp = TMath::Exp(combinedposterior->GetBinContent(i+1)-scale);
         else tmp = TMath::Exp(combinedposterior->GetBinContent(i+1));
         std::cout<<"exp(lp)="<<tmp<<std::endl;
         combinedposterior->SetBinContent(i+1,tmp);
@@ -106,8 +109,8 @@ void toyMC_posteriors(){
     test->GetYaxis()->SetTitleSize(50);
 
 
-    test->GetXaxis()->SetRangeUser(0.4,0.6);
-    
+    //test->GetXaxis()->SetRangeUser(0.4,0.6);
+    test->GetXaxis()->SetRangeUser(-1,1);
     test->GetYaxis()->SetTitle("#it{p}(#Sigma|#it{y}) (arb. units)");
     double fmu, fmu_err, fsigma, fsigma_err;
     fmu=fitf->GetParameter(1);
@@ -120,5 +123,7 @@ void toyMC_posteriors(){
     text.SetTextSize(50);
     test->Draw("");
     text.DrawLatex(0.5,fitf->GetParameter(0)*1.2,Form("#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}",fmu,fmu_err,fsigma,fsigma_err));
+    //text.DrawLatex(-0.5,fitf->GetParameter(0)*1.2,Form("#color[2]{#mu=%.4f#pm%.4f, #sigma=%.4f#pm %.4f}",fmu,fmu_err,fsigma,fsigma_err));
+
 
 }

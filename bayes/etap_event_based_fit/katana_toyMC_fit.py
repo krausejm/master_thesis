@@ -64,7 +64,7 @@ def fit(nsamples,nbins,start): #define starting index
         }
         print(nprmpt, total_nside)
         #now the stan model and mcmc
-        model=sp.CmdStanModel(stan_file='toyMC_stan.stan')
+        model=sp.CmdStanModel(stan_file='toyMC_stan_notrunc.stan')
         model.compile()
         fitobj=model.sample(data=stan_data,iter_sampling=nsamples,inits=0,output_dir='./stan_trash',show_progress=True)
         summary=fitobj.summary()
@@ -128,10 +128,10 @@ diagnostics=dfs[0]
 sigma=dfs[1]
 sigma_bkg=dfs[2]
 sigma_2pi0=dfs[3]
-diagnostics.to_csv('new_toy_diagnostics.csv')
-sigma.to_csv('new_toy_sigma.csv')
-sigma_bkg.to_csv('new_toy_sigma_bkg.csv')
-sigma_2pi0.to_csv('new_toy_sigma2pi0.csv')
+diagnostics.to_csv('notrunc_toy_diagnostics.csv')
+sigma.to_csv('notrunc_toy_sigma.csv')
+sigma_bkg.to_csv('notrunc_toy_sigma_bkg.csv')
+sigma_2pi0.to_csv('notrunc_toy_sigma2pi0.csv')
 
 
 #sigma_df=pd.read_csv('toy_sigma.csv',index_col=0)

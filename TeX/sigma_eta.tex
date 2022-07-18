@@ -147,6 +147,7 @@ The priors for $\Xi\in\{\Sigma,\Sigma^\text{bkg}\}$ and $\xi\in\{a,b,a^\text{bkg
 
 
 \section{Determination of $\Sigma_{\eta}$ using Bayesian statistics}
+\label{sec:sigmaeta}
 This section will now demonstrate the application of the discussed methods to obtain the beam asymmetry $\Sigma$ for $\eta$ photoproduction with selected data provided from reference \cite{farahphd}. For each method only the respective \textsc{Bayesian} approach will be used and compared to the results from \cite{farahphd} to confirm that it is a valid method. As an additional sanity check toy Monte Carlo samples are generated and analyzed. 
 \subsection{Application of methods to toy Monte Carlo data}
 \label{subsec:toyMC}
@@ -326,7 +327,7 @@ As opposed to the binned fit it is not only performed at each data point but for
  \begin{figure}[htbp]
 	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/mcse_hist.pdf}
 	\includegraphics[width=.49\linewidth]{../bayes/event_based_fit/plots/rhat_hist.pdf}
-	\caption{ Left: relative error $\frac{\sigma_\text{MCSE}}{\text{median}\left[p\left(\Sigma|y\right)\right]}$ Right: $\widehat{R}$ associated with the fit parameter $\Sigma$. Both are shown for all fits. The critical values that should not be exceeded are marked by dashed lines.}
+	\caption{ Left: relative error $\frac{\sigma_\text{MCSE}}{\text{median}\left[p\left(\Sigma|y\right)\right]}$ Right: $\widehat{R}$ associated with the fit parameter $\Sigma$. Both are shown for all $11\cdot12$ unbinned fits. The critical values that should not be exceeded are marked by dashed lines.}
 	\label{fig:diagnostics1}
 \end{figure}
 \begin{figure}[htbp]
@@ -355,7 +356,7 @@ Yet, the additional effort is rewarded by the fact that the \textsc{Bayesian} fi
       
 \section{Determination of $\Sigma_{\eta'}$}
 \label{sec:sigma_etap}
-After successfully testing the application of \textsc{Bayesian} methods this section will demonstrate the extraction of new results for the beam asymmetry in $\eta'$ photoproduction off the proton obtained at the CBELSA/TAPS experiment. Only the event based fitting method is applied and the binned fitting of event yield asymmetries is discarded because on one hand the available statistics will on average give only few counts per bin $\left(E_\gamma,\cos\theta,\phi\right)$ of order $\mathcal{O}\left(10^1\right)$, naturally depending on the specific number of $\phi$-bins. This will result in very large statistical errors per bin. On the other hand this could be compensated by choosing fewer bins in $\phi$ which would however amplify the systematic underestimation of the beam asymmetry as is discussed in appendix \ref{app:binnedfits}.
+After successfully testing the application of \textsc{Bayesian} methods this section will demonstrate the extraction of new results for the beam asymmetry in $\eta'$ photoproduction off the proton obtained at the CBELSA/TAPS experiment. Only the event based fitting method is applied and the binned fitting of event yield asymmetries is discarded because on one hand the available statistics will on average give only few counts per bin $\left(E_\gamma,\cos\theta,\phi\right)$ of order $\mathcal{O}\left(10^1\right)$, depending on the specific number of $\phi$-bins. This will result in very large statistical errors per bin. On the other hand this could be compensated by choosing fewer bins in $\phi$ which would however amplify the systematic underestimation of the beam asymmetry which is discussed in appendix \ref{app:binnedfits}.
 
 The event based fits are performed as unbinned maximum likelihood fit and as \textsc{Bayesian} fit. New toy Monte Carlo experiments are thrown adapting to the significantly decreased statistics. Also, tests regarding the background contamination of Monte Carlo samples are made.   
 \subsection{Application of event based fit to toy Monte Carlo data}
@@ -368,7 +369,7 @@ If now the fraction $\delta$ of events in the final state with beam asymmetry $\
 	\frac{\text{d}\sigma}{\text{d}\Omega}_0^{(1)}=\left(1-\delta\right)\cdot\frac{\text{d}\sigma}{\text{d}\Omega}_0&&\frac{\text{d}\sigma}{\text{d}\Omega}_0^{(2)}=\delta\cdot\frac{\text{d}\sigma}{\text{d}\Omega}_0.
 	\label{eq:delta}
 \end{align}
-Plugging Equation \eqref{eq:delta} into Equation \eqref{eq:asym1} then obviously yields
+Plugging Equation \eqref{eq:delta} into Equation \eqref{eq:asym1} then yields
 \begin{equation}
 	\frac{\text{d}\sigma}{\text{d}\Omega}_\text{pol}\left(\phi\right)=\frac{\text{d}\sigma}{\text{d}\Omega}_0\cdot\left(1-p_\gamma\left[\left(1-\delta\right)\cdot\Sigma_1+\delta\cdot\Sigma_2\right]\cos\left(2\phi\right)\right).
 \end{equation}
@@ -377,7 +378,7 @@ In the presence of background $\Sigma^\text{bkg}$\footnote{For clarity, the beam
 	\Sigma^\text{meas}=\left(1-\delta\right)\cdot\Sigma^{\text{true}}+\delta\cdot\Sigma^{\text{bkg}}.
 	\label{eq:sigmeas}
 \end{equation}
-Table \ref{tab:mcsum1} shows all characteristics of the investigated toy Monte Carlo experiments, the values for polarization and statistics per bin were chosen to match the respective average values in the selected data for the $\gamma p \to p\eta'\to p\gamma\gamma$ final state. Furthermore $\delta=20\%$ of all events were simulated as background with beam asymmetry $\Sigma_2$ while the remainder of events is simulated with beam asymmetry $\Sigma_1$. The amount of random time background in the prompt peak is set to $(1-f)=0.05$ while the sideband events are weighted by $w=\frac{13}{200}$ (see section \ref{sec:time}). The same efficiency function and hyperparameters as previously are employed.
+Table \ref{tab:mcsum1} shows all characteristics of the investigated toy Monte Carlo experiments, the values for polarization and statistics per bin were chosen to match the respective average values in the selected data for the $\gamma p \to p\eta'\to p\gamma\gamma$ final state. Furthermore $\delta=20\%$ of all events were simulated as background with beam asymmetry $\Sigma_2$ while the remainder of events is simulated with beam asymmetry $\Sigma_1$. The amount of random time background in the prompt peak is set to $(1-f)=0.05$ while the sideband events are weighted by $w=\frac{13}{200}$ (see section \ref{sec:time}). The same efficiency function and hyperparameters as previously are employed with the exception of the number of posterior draws which is raised to $n_\text{samples}=5000$ from the beginning. Because of the smaller amount of data this does not increase the computational cost irrationally.
 \begin{table}[htbp]
 	
 	\renewcommand{\arraystretch}{1.5}
@@ -393,7 +394,7 @@ Table \ref{tab:mcsum1} shows all characteristics of the investigated toy Monte C
 		\hline
 		\textbf{efficiency function}&\multicolumn{3}{l}{$\epsilon\left(\phi\right)=1/10.5\cdot\left(9.3+0.28\cdot\cos\phi+0.24\cdot\sin3\phi\right)$}\\
 		\hline
-		\textbf{hyperparameters}&\multicolumn{3}{l}{$n_\text{samples}=1000,n_\text{chain}=4,n_\text{warm up}=1000$}\\
+		\textbf{hyperparameters}&\multicolumn{3}{l}{$n_\text{samples}=5000,n_\text{chain}=4,n_\text{warm up}=1000$}\\
 		\bottomrule
 	\end{tabularx}
 	\caption{Summary of the complete setting of all toy Monte Carlo experiments for the event based fit. Table layout adapted from \cite{farahphd}.}
@@ -403,7 +404,7 @@ Table \ref{tab:mcsum1} shows all characteristics of the investigated toy Monte C
 To test the unbinned maximum likelihood fit and its response to the presence of background, 10000 toy Monte Carlo bins are created according to table \ref{tab:mcsum1}. The expected beam asymmetry is \begin{equation}
 	\Sigma^\text{meas}=0.8\cdot0.5-0.2\cdot0.3=0.34.
 \end{equation} 
-Building the normalized residuals with respect to $\Sigma^\text{meas}$ and the random time background asymmetry $\Sigma^\text{bkg}_t$ yields standard normal distributions, see Figures \ref{fig:ml_sigma} and \ref{ml_sigmat}, thus fulfilling the expectations entirely. This allows Equation \eqref{eq:sigmeas} to be applied on results obtained with this method provided the background beam asymmetry is known. Any errors on $\Sigma^\text{bkg}$ may be propagated in a \textsc{Gaussian} manner. The beam asymmetry is estimated without bias and the errors are correctly estimated as confirmed by $\mu=0$ and $\sigma=1$ for the normalized residuals within few widths of the statistical errors. Note that the unnormalized distributions are significantly broader than the ones examined in the previous section which is due to the decreased statistics in each bin which already indicates larger statistical errors. The decreased statistics also cause greater variation in the fitted efficiency function that is seen in Figure \ref{fig:toyMCeff}, which still describes the data very well.
+Building the normalized residuals with respect to $\Sigma^\text{meas}$ and the random time background asymmetry $\Sigma^\text{bkg}_t$ yields standard normal distributions, see Figures \ref{fig:ml_sigma} and \ref{fig:ml_sigmat}, thus fulfilling the expectations entirely. This allows Equation \eqref{eq:sigmeas} to be applied on results obtained with this method provided the background beam asymmetry is known. Any errors on $\Sigma^\text{bkg}$ may be propagated in a \textsc{Gaussian} manner. The beam asymmetry is estimated without bias and the errors are correctly estimated as confirmed by $\mu=0$ and $\sigma=1$ for the normalized residuals within few widths of the statistical errors. Note that the unnormalized distributions are significantly broader than the ones examined in the previous section which is due to the decreased statistics in each bin which already indicates larger statistical errors. The decreased statistics also cause greater variation in the fitted efficiency function that is seen in Figure \ref{fig:toyMCeff}, which still describes the data very well.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.49\linewidth]{../RooFit/plots/residuals.pdf}
@@ -421,12 +422,12 @@ Building the normalized residuals with respect to $\Sigma^\text{meas}$ and the r
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{../RooFit/plots/toyMC_eff_unbinned_fit.pdf}
-	\caption{Fitted efficiency function applied to the polarization weighted sum of event yields. 12 bins in $\phi$ are built for demonstration.}
+	\caption{Fitted efficiency function (red line) applied to the polarization weighted sum of event yields (data points) for one toy Monte Carlo bin. 12 bins in $\phi$ are built for demonstration.}
 	\label{fig:toyMCeff}
 \end{figure}
 \newpage
 \subsubsection{Unbinned \textsc{Bayesian} fit}
-When performing a \textsc{Bayesian} fit a systematic shift like Equation \eqref{eq:sigmeas} as result of background contributions is not easily applicable. The posterior distributions may be shifted by a constant value but including statistical errors of the background beam asymmetry is not possible. To circumvent this, the background beam asymmetry can be included inherently in the likelihood function that is part of the model being fitted. In practice $\delta$ and $\Sigma_2$ are part of the data that is fed into the probabilistic model. In general though $\Sigma_2$ will have a statistical error, which can be included in the fashion of modeling \emph{missing data} \cite{stan}. Doing so, the value for $\Sigma_2$ is regarded as an estimate for the true, unknown (or missing) value $\Sigma_2^\text{true}$. The statistical error of $\Sigma_2$, $\tau$, specifies the measurement model assuming \textsc{Gaussian} errors 
+When performing a \textsc{Bayesian} fit a systematic shift like Equation \eqref{eq:sigmeas} as result of background contributions is not easily applicable. The posterior distributions may be shifted by a constant value but including statistical errors of the background beam asymmetry is not possible. To circumvent this, the background beam asymmetry can be included inherently in the likelihood function that is part of the model being fitted. In practice, $\delta$ and $\Sigma_2$ have to be part of the data that is fed into the probabilistic model. In general though $\Sigma_2$ will have a statistical error, which can be included in the fashion of modeling \emph{missing data} \cite{stan}. Doing so, the value for $\Sigma_2$ is regarded as an estimate for the true, unknown (or missing) value $\Sigma_2^\text{true}$. The statistical error $\tau$ of $\Sigma_2$ specifies the measurement model assuming \textsc{Gaussian} errors 
 \begin{equation}
 	\Sigma_2^\text{true}\sim\mathcal{N}\left(\Sigma_2,\tau\right).
 \end{equation}
@@ -437,8 +438,43 @@ When performing a \textsc{Bayesian} fit a systematic shift like Equation \eqref{
  	\end{aligned}
  \end{equation}
 For a complete inference $\Sigma_2^\text{bkg}$ also needs to be assigned a prior, which is chosen to be uniform to keep the number of fit parameters minimal. \newpage \noindent In total, 1000 bins in accordance with Table \ref{tab:mcsum1} are fitted with the adapted model that includes a background asymmetry $\Sigma_2$ with statistical error $\tau$ which are used to estimate the additional fit parameter $\Sigma_2^\text{true}$. For the sake of the toy Monte Carlo experiments the measurement error is arbitrarily chosen to be $\tau=0.05$.
- 
-\subsection{Application of event based fit to data}
 
-\subsection{Systematic Error}
-placeholder
+
+Figure \ref{fig:toyMCpost} shows the combined posteriors for the fit parameters $\Sigma_1$ and $\Sigma_t^\text{bkg}$ of the event based \textsc{Bayesian} fit for all generated toy Monte Carlo bins. The posteriors are added up since the truncation of the posteriors biases the results when combining them in a pooled likelihood model or normalized residuals $\Xi$. Although previous experiments already proved sensible error estimation, i.e. distribution widths, when using the unbinned \textsc{Bayesian} fit, this is further confirmed by removing the truncation and repeating the investigation of posteriors. This is discussed in appendix \ref{app:trunc}. The input parameters are very well reproduced within the statistical error, which is given by the standard deviation of the \textsc{Gaussian}. The posterior distribution of $\Sigma_1$ is wider than the posterior of the background beam asymmetry $\Sigma_t^\text{bkg}$ because an additional measurement of $\Sigma_2$ with measurement error $\tau$ is used to estimate $\Sigma_1$. This is in complete analogy to shifting the point estimates $\Sigma^\text{meas}$ to their true values $\Sigma^\text{true}$,as described previously, which will also result in larger statistical error bars according to \textsc{Gaussian} error propagation.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/combined_post_add_raw.pdf}
+	\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/combined_post_add_raw_bkg.pdf}
+	\caption{Combined (added) posteriors of all 1000 fits. Left: Signal beam asymmetry $\Sigma_1$ Right: Background beam asymmetry $\Sigma_t^\text{bkg}$. A \textsc{Gaussian} fit is performed with results given on top.}
+	\label{fig:toyMCpost}
+\end{figure}
+Since the signal beam asymmetry $\Sigma_1$ was recognized correctly by the fit it is evident that the combined posterior distributions for $\Sigma_2$ are in full agreement with the expectations, see figure \ref{fig:toyMCpostalt}. Mean $\mu$ and standard deviation $\sigma$ are reproduced exactly as they were modeled as a \textsc{Gaussian} fit to the combined posteriors reveals.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\linewidth]{../bayes/etap_event_based_fit/plots/combined2pi0_post_add_raw.pdf}
+	\caption{Combined (added) posteriors of all fits for the fit parameter $\Sigma_2^\text{true}$. A \textsc{Gaussian} fit is performed which reproduces exactly the values that were used for the simulations.}
+	\label{fig:toyMCpostalt}
+\end{figure}
+
+\noindent It remains to investigate the properties of the employed \textsc{Markov} chains. First of all one observes that the accuracy of results, i.e. the relative MCSE, suffers from the available statistics which are significantly smaller in comparison with the previously investigated case for the $p\eta\to\gamma\gamma$ final state. Only $97\%$ of all unbinned fits fulfill the self set criterion of $\sigma_\text{MCSE}/\text{median}\left(p\left(\Sigma|y\right)\right)\leq0.05$ whereas for the toy Monte Carlo experiments in the previous section \ref{sec:sigmaeta} this was the case for \emph{all} unbinned fits. This observation however is not resembling a failing fit but rather the possibility for the data to mimic beam asymmetries close to zero because of the fewer available data points. In these cases the relative MCSE exceeds the threshold as has also been observed before. Convergence and full exploration of the available parameter space on the other hand is guaranteed for all fits because all $\widehat{R}$ values for all parameters and fits are within the demanded thresholds.
+
+
+ Lastly, consistency of the fit results with the data that is fitted can be checked as before by a posterior predictive check of the detector coefficients $a,b$ plugged into the efficiency function $\epsilon\left(\phi\right)=\frac{1}{c}\cdot\left(\alpha \tilde{N}^\parallel + \beta\tilde{N}^\bot\right)$ as can be seen in Figure \ref{fig:toyMC_eff}. Each draw $a^{(s)},b^{(s)},s=1,\dots,20000$ is plotted as an opaque blue line. The mean over the posterior draws is indicated by the dashed line and follows the polarization weighted sum of event yields which is shown as data points. The mean agrees within statistical error bars at each point indicating finally a successful fit in every respect. 
+ 
+It has been demonstrated that the chosen \textsc{Bayesian} model can describe data generated with two beam asymmetries very well. Note that expanding the existing model from before requires little effort since \emph{Stan} \cite{stan} allows modular implementations; only the new parameter $\Sigma_2^\text{true}$ and the new data points $(\Sigma_2,\tau,\delta)$ have to be added to give correctly centered posteriors that are not anymore systematically shifted.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/toyMC_mcse_hist.pdf}
+	\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/toyMC_rhat_hist.pdf}
+	\caption{MCMC diagnostics for the event based \textsc{Bayesian} fit. Left: MCSE, Right: $\widehat{R}$-value. The critical values not to be exceeded are marked by the dashed lines.}
+	\label{fig:toyMCdiagnostics}
+\end{figure}
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=\linewidth]{../bayes/etap_event_based_fit/plots/toyMC_eff_PPC.pdf}
+	\caption{Posterior predictive checks of one toy Monte Carlo bin using the draws from the marginal posteriors of the detector coefficients $a,b$ (opaque blue lines). The mean values are marked by the dashed line and follow the distribution of the data points which are the polarization weighted sum of event yields, using 12 $\phi$ bins.}	
+	\label{fig:toyMC_eff}
+\end{figure}
+
+\subsection{Application of event based fit to data}
+Now both previously discussed methods are applied to the selected data.

@@ -90,7 +90,7 @@ void toyMC_unbinned_fit(){
 
     TTree * t = new TTree("t","mytreee");
     
-    for(int i=0;i<10000;i++){
+    for(int i=0;i<1;i++){
 
     	t->Reset(); 
     	t->ReadFile(Form("../bayes/etap_event_based_fit/toybins/toybin%04d.txt",i),"pol:phi:weight");
@@ -114,7 +114,7 @@ void toyMC_unbinned_fit(){
     file->Close();
     
     
-    /*//check fit of efficiency function
+    //check fit of efficiency function
 
     TH1F* np45 = new TH1F("np45",";#phi / deg;counts",12,-180,180);
     TH1F* nm45 = new TH1F("nm45",";#phi;counts",12,-180,180);
@@ -148,7 +148,8 @@ void toyMC_unbinned_fit(){
     //cosmetics
     eff_func->SetLineColor(kRed);
     eff_func->SetNpx(1000);
-    np45->SetMarkerStyle(kFullSquare);
+    np45->SetMarkerStyle(kOpenCircle);
+    np45->SetMarkerSize(3);
     np45->SetMarkerColor(kBlack);
     np45->SetLineColor(kBlack);
     np45->GetXaxis()->SetLabelFont(133);
@@ -163,7 +164,7 @@ void toyMC_unbinned_fit(){
     gStyle->SetOptStat(0);
     np45->Draw("ep");
     gPad->SetBottomMargin(0.2);
-    np45->Fit(eff_func);*/
+    np45->Fit(eff_func);
     
     
 
