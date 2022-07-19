@@ -1,0 +1,2 @@
+,ebin00costbin00,ebin00costbin01,ebin00costbin02,ebin00costbin03,ebin00costbin04,ebin00costbin05,ebin01costbin00,ebin01costbin01,ebin01costbin02,ebin01costbin03,ebin01costbin04,ebin01costbin05,ebin02costbin00,ebin02costbin01,ebin02costbin02,ebin02costbin03,ebin02costbin04,ebin02costbin05
+0,0.18,0.13,0.11,0.10,0.15,0.17,0.25,0.12,0.17,0.27,0.34,0.27,0.25,0.15,0.16,0.30,0.32,0.45
