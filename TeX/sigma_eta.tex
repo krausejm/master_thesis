@@ -279,7 +279,7 @@ It is noteworthy that the event based fit creates more precise results although 
 Next to signal and background beam asymmetry the fit also estimates an efficiency function $\epsilon(\phi)$ that is described by a \textsc{Fourier} series. The polarization weighted sum of event yields allows to confirm whether a good description of the efficiency is achieved because it is given by the efficiency function modulated only by a constant, see previous section \ref{sec:meth} $\alpha \tilde{N}^\parallel + \beta\tilde{N}^\bot = c\cdot\epsilon\left(\phi\right).$ Figure \ref{fig:toyMC_eff_func} shows the weighted sum of event yields with the same binning as used in the binned fit together with a posterior predictive check using the draws of all parameters distributions $a,b$. 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\linewidth]{../bayes/event_based_fit/plots/toyMC_eff_PPC.pdf}
+	\includegraphics[width=\linewidth]{../bayes/event_based_fit/plots/toyMC_eff_PPC.png}
 	\caption{Posterior predictive check using the draws of the detector coefficients $a$ and $b$. Points with error bars are the polarization weighted sum of event yields. The dashed line is the mean of the predictive values while the solid opaque lines are representative of one simulation draw $a^{(s)},b^{(s)}$.}
 	\label{fig:toyMC_eff_func}
 \end{figure}
@@ -332,7 +332,7 @@ As opposed to the binned fit it is not only performed at each data point but for
 \end{figure}
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\linewidth]{../bayes/event_based_fit/plots/eff_PPC.pdf}
+	\includegraphics[width=\linewidth]{../bayes/event_based_fit/plots/eff_PPC.png}
 	\caption{Posterior predictive check using the draws of the detector coefficients $a$ and $b$ for the kinematic bin $\SI{1250}{\mega\eV}\leq E_\gamma<\SI{1310}{\mega\eV}, 0\leq\cos\theta<0.17$. Points with error bars are the polarization weighted sum of event yields. The dashed line is the mean of the predictive values while the solid opaque lines are representative of one simulation draw $a^{(s)},b^{(s)}$.}
 	\label{fig:eff_func}
 \end{figure}
@@ -475,7 +475,7 @@ It has been demonstrated that the chosen \textsc{Bayesian} model can describe da
 \end{figure}
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\linewidth]{../bayes/etap_event_based_fit/plots/toyMC_eff_PPC.pdf}
+	\includegraphics[width=\linewidth]{../bayes/etap_event_based_fit/plots/toyMC_eff_PPC.png}
 	\caption{Posterior predictive checks of one toy Monte Carlo bin using the draws from the marginal posteriors of the detector coefficients $a,b$ (opaque blue lines). The mean values are marked by the dashed line and follow the distribution of the data points which are the polarization weighted sum of event yields, using 12 $\phi$ bins.}	
 	\label{fig:toyMC_eff}
 \end{figure}
@@ -516,7 +516,7 @@ A last consistency check of the posterior predictive distributions of the effici
 \end{figure}
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\linewidth]{../bayes/etap_event_based_fit/plots/eff_PPC.pdf}
+	\includegraphics[width=\linewidth]{../bayes/etap_event_based_fit/plots/eff_PPC.png}
 	\caption{Posterior predictive checks of the kinematic bin $\SI{1700}{\mega\eV}\leq E_\gamma<\SI{1800}{\mega\eV}, 0.67\leq\cos\theta<1$ using the draws from the marginal posteriors of the detector coefficients $a,b$ (opaque blue lines). The mean values are marked by the dashed line and follow the distribution of the data points which are the polarization weighted sum of event yields, using 12 $\phi$ bins.}	
 	\label{fig:etap_eff}
 \end{figure}
