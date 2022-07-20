@@ -89,4 +89,5 @@ bayes/etap_event_based_fit/new_toy_sigma.csv
 bayes/etap_event_based_fit/new_toy_diagnostics.csv
 bayes/etap_event_based_fit/new_toy_sigma_bkg.csv
 bayes/etap_event_based_fit/new_toy_sigma2pi0.csv
+bayes/etap_event_based_fit/notrunc*.csv
 bayes/toyMC/py_toybins.zip
