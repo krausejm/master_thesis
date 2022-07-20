@@ -169,14 +169,14 @@ to simulate the statistics of the $\gamma p \to p\eta$ final state as accurately
 	n_\text{chain}=4 && n_\text{samples}=1000 && n_\text{warm up}=1000.
 \end{align}
 The goodness of fit is checked via the introduced $p$-values $p=T(A_\text{rep}>A)$, and are shown as black points with propagated error bars on the bottom. The optimal value of $p=0.5$ is marked by the dashed line and realizes the mean of the distribution of all $p$-values, so that one can assume good description of the data by the fits, see Figure \ref{fig:toymc_pvals}. This replaces the investigation of the $\chi^2/\text{NDF}$ distribution in the case of a frequentist fit, which should have a mean of $1$.  
-\begin{landscape}
-	\begin{figure}[htbp]
+
+	\begin{sidewaysfigure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth,height=.8\textwidth]{../bayes/toyMC/plots/toyMC_ppd_checks.pdf}
+		\includegraphics[width=\linewidth]{../bayes/toyMC/plots/toyMC_ppd_checks.pdf}
 		\caption{Posterior predictive checks $p\left(A_\text{rep}\big|A\right)$ from a \textsc{Bayesian} fit to the event yield asymmetries for six toy Monte Carlo bins are shown as distributions. The data points in the upper plot are the asymmetry $A\left(\phi\right)$, which was additionally fitted using a $\chi^2$ fit (solid line). The goodness of fit is shown using $p$-values, which give the fraction $T\left(A_\text{rep}>A\right)$ of replicated samples greater than the original measured value, with propagated statistical error bars on the bottom of each plot. The expected mean value of $T\left(A_\text{rep}>A\right)=0.5$ is indicated by the dashed line. }
 		\label{fig:toymc_asym}
-	\end{figure}
-\end{landscape}
+	\end{sidewaysfigure}
+
 
 
 
@@ -295,14 +295,14 @@ In all bins of beam energy and meson polar angle the binned fit was performed. S
 
 Figure \ref{fig:asym} shows the resulting asymmetry $A(\phi)$ for all angular bins for the energy bin $\SI{1250}{\mega\eV}\leq E_\gamma<\SI{1310}{\mega\eV}$ as orange data points with statistical error bars.  Additionally shown is a $\chi^2$ fit (orange line) to the asymmetry together with posterior predictive checks as obtained from a fully \textsc{Bayesian} fit according to the introduced model (blue distributions). The goodness of fit is checked via the introduced $p$-values $p=T(A_\text{rep}>A)$, and are shown as black points with propagated error bars on the bottom. The optimal value of $p=0.5$ is marked by the dashed line and realizes the mean of the distribution of all $p$-values, so that one can assume good description of the data by the fits, see Figure \ref{fig:pvals}. This replaces the investigation of the $\chi^2/\text{NDF}$ distribution in the case of a frequentist fit.   
 \newpage
-\begin{landscape}
-	\begin{figure}[htbp]
+
+	\begin{sidewaysfigure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth,height=.8\textwidth]{../bayes/realdeal/plots/ppd_checks.pdf}
+		\includegraphics[width=\linewidth]{../bayes/realdeal/plots/ppd_checks.pdf}
 		\caption{Posterior predictive checks $p\left(A_\text{rep}\big|A\right)$ from a \textsc{Bayesian} fit to the event yield asymmetries for all angular bins of the energy bin $\SI{1250}{\mega\eV}\leq E_\gamma<\SI{1310}{\mega\eV}$. The data points in the upper plot are the asymmetry $A\left(\phi\right)$, which was additionally fitted using a $\chi^2$ fit (solid line). The goodness of fit is shown using $p$-values, which give the fraction $T\left(A_\text{rep}>A\right)$ of replicated samples greater than the original measured value, with propagated statistical error bars on the bottom of each plot. The expected mean value of $T\left(A_\text{rep}>A\right)=0.5$ is indicated by the dashed line. }
 		\label{fig:asym}
-	\end{figure}
-\end{landscape}
+	\end{sidewaysfigure}
+
 \newpage
 
 
@@ -345,14 +345,13 @@ The effort of implementing the binned or unbinned fit in a \textsc{Bayesian} app
 The computational cost also increases greatly in comparison to the traditional frequentist approaches. Especially the unbinned \textsc{Bayesian} fit requires a lot of computation time,  where the number of data points is of order $\mathcal{O}(10^4)$ as opposed to 12 data points for the binned fit. This can be understood considering the underlying algorithms; the least squares fit and also the unbinned maximum likelihood fit both aim to minimize a given test statistic which is achievable by (numeric) differentiation. Determining marginal posterior distributions from \textsc{Bayesian} inference on the other hand requires (numeric) integration, making it the more complex task which is observable in the consumed computation time. 
 
 Yet, the additional effort is rewarded by the fact that the \textsc{Bayesian} fit will yield \emph{distributions} for all parameters as opposed to point estimates with error bars. This is especially useful for polarization observables which may be used as input for PWA calculations. Here error estimates can be derived from the distributions e.g. as (multiple) standard deviations, the full width at half maximum or similar. If furthermore a \textsc{Bayesian} approach is  pursued, also the whole distributions may be used. Another advantage of the \textsc{Bayesian} fit is the ability to truncate the posterior samples to the relevant or allowed parameter space. In the very first energy bin in Figure \ref{fig:eta_res} this is visible clearly where several point estimates exceed the physical limit of $\Sigma=1$ as opposed to the obtained marginal posteriors. Lastly, the \textsc{Bayesian} fit allows much more flexible changes to the fitted model, as will be discussed in the next section \ref{sec:sigma_etap}.
-\begin{landscape}
-	\begin{figure}[htbp]
+	\begin{sidewaysfigure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth,height=.8\textwidth]{../bayes/event_based_fit/plots/sigma_eta.pdf}
+		\includegraphics[width=\linewidth]{../bayes/event_based_fit/plots/sigma_eta.pdf}
 		\caption{Final results for the beam asymmetry $\Sigma$ in $\eta$ photoproduction off the proton for all kinematic bins obtained with \textsc{Bayesian} methods. They are compared with the results of a least squares fit and an unbinned fit as given in reference \cite{farahphd}. All results agree within statistical error bars or within the widths of marginal posterior distributions.}
 		\label{fig:eta_res}
-	\end{figure}
-\end{landscape}
+	\end{sidewaysfigure}
+
       
 \section{Determination of $\Sigma_{\eta'}$}
 \label{sec:sigma_etap}
