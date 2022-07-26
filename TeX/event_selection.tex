@@ -259,48 +259,58 @@ To evaluate the likelihood that the background contributions are made up of $2\p
 		reaction & $\sigma$ / \si{\micro\barn} & BR\cite{pdg} & $\tilde{A}$&$R$\\
 		\hline
 		$\gamma p\to p\eta'\to p\gamma\gamma$ &$\approx1$ \cite{etap_cs}& $0.022$ & $0.61$&\\
-		$\gamma p\to p2\pi^0\to p4\gamma$ &$\lesssim5$ \cite{2pi0_cs}&$0.9765$& $7\cdot 10^{-4}$&0.3\\
-		$\gamma p\to p\pi^0\eta\to p 4\gamma$ &$\lesssim3$ \cite{pi0eta_cs} &$0.3948$&$2\cdot 10^{-4}$&0.05\\
+		$\gamma p\to p2\pi^0\to p4\gamma$ &$\lesssim5$ \cite{2pi0_cs}&$0.9765$& $2\cdot10^{-3}$&0.71\\
+		$\gamma p\to p\pi^0\eta\to p 4\gamma$ &$\lesssim3$ \cite{pi0eta_cs} &$0.3948$&$1\cdot 10^{-3}$&0.08\\
 		\hline
-		$\gamma p \to p\pi^0\to p\gamma\gamma$&$\approx 5$\cite{pi0_cs2}&$0.9882$&$9.8\cdot10^{-5}$&$0.03$\\
-		$\gamma p \to p\eta\to p\gamma\gamma$&$\approx 2$ \cite{etap_cs}&$0.3996$&$4.3\cdot10^{-5}$&$0.005$\\
+		$\gamma p \to p\pi^0\to p\gamma\gamma$&$\approx 6$\cite{pi0_cs2}&$0.9882$&$8.3\cdot10^{-7}$&$4\cdot10^{-4}$\\
+		$\gamma p \to p\eta\to p\gamma\gamma$&$\approx 2$ \cite{etap_cs}&$0.3996$&$1\cdot10^{-7}$&$7\cdot10^{-6}$\\
 		$\gamma p \to p3\pi^0\to p6\gamma$&$\gtrsim 3$\cite{3pi0cs} &$0.9650$&0&0\\
-		$\gamma p \to p\omega \to p3\gamma$&$\approx 1$ \cite{omegacs}&$0.0825$&$9\cdot10^{-5}$&$5\cdot10^{-4}$\\
+		$\gamma p \to p\omega \to p3\gamma$&$\approx 1$ \cite{omegacs}&$0.0825$&$1\cdot10^{-6}$&$7\cdot10^{-6}$\\
 		$\gamma p \to p\pi^+\pi^-$&$\approx40$ \cite{pipics}&-&$1.3\cdot 10^{-6}$&$0.003$\\
 		$\gamma p \to n\pi^+$&$\approx 4$ \cite{npiplcs}&-&$1.3\cdot10^{-7}$&$3.8\cdot10^{-5}$\\
 		\bottomrule 		
 	\end{tabular}
-\caption{Total cross sections $\sigma$ in the energy range \SIrange{1500}{1800}{\mega\eV}, branching ratios (BR) to $n\gamma$ final states, maximum acceptance $\tilde{A}$ for signal and possible background contributions as well as the expected signal to background ratio $R$ and the ratio determined from a global fit $R_\text{MC}$. References \cite{2pi0_cs} and \cite{pi0eta_cs} give the cross sections only up to roughly \SI{1500}{\mega\eV}, the given values are thus upper bounds. For the same reason, from reference \cite{3pi0cs} only a lower bound can be estimated. For all other reactions a rough mean over the energy bins of interest is built. If the references provide only differential cross sections a crude integration in each angular bin is performed. Because so few charged decays pass event selection, the acceptance is built in one bin only for the respective charged decays.}
+\caption{Total cross sections $\sigma$ in the energy range \SIrange{1500}{1800}{\mega\eV}, branching ratios (BR) to $n\gamma$ final states, maximum acceptance $\tilde{A}$ for signal and possible background contributions as well as the expected signal to background ratio $R$. References \cite{2pi0_cs} and \cite{pi0eta_cs} give the cross sections only up to roughly \SI{1500}{\mega\eV}, the given values are thus upper bounds. For the same reason, from reference \cite{3pi0cs} only a lower bound can be estimated. For all other reactions a rough mean over the energy bins of interest is built. If the references provide only differential cross sections a crude integration in each angular bin is performed. In case only very few $\left(\mathcal{O}\left(10^1\right)\right)$ decays pass event selection, the acceptance is built in one global bin only for the respective reactions. This is indicated by the horizontal line.}
 \label{tab:plausmc}
 \end{table}
-\noindent Almost all reactions exceed $\eta'$ photoproduction in cross section and have a higher BR to purely photonic final states. At the same time the acceptance is almost vanishing, proving that the kinematic cuts are generally very effective. However, despite vanishing acceptance, significant background ratios are expected for $2\pi^0$ production, based on equation \eqref{eq:r}. All other reactions only contribute marginally after all cuts and can be neglected.  
+\noindent Almost all reactions exceed $\eta'$ photoproduction in cross section and have a higher BR to purely photonic final states. At the same time the acceptance is almost vanishing, proving that the kinematic cuts are generally very effective. However, despite vanishing acceptance, significant background ratios are expected for $2\pi^0$ and $\pi^0\eta$production, based on equation \eqref{eq:r}. All other reactions only contribute marginally after all cuts and their contribution towards the beam asymmetry can be neglected.  
 
-Although less than $0.1\%$ of two meson production reactions are misidentified as $\eta'$ events they make up a notable portion of background in $\eta'$ data, considering the according branching ratios and cross sections showed. Note that only maximum acceptances and approximations for the cross sections have been used for estimating the  ratio of background events to signal events. As the acceptance may vary depending on kinematic bin, also the signal to background ratio may yet vary. Especially in backwards direction the acceptance of $\gamma p \to p\eta'$ events decreases due to escaping protons while at the same time the acceptance for $\gamma p \to p\pi^0\pi^0\to p4\gamma$ and $\gamma p \to p \pi^0\eta\to p 4\gamma$ \emph{increases} in this region towards higher beam energies, see Figure \ref{fig:acc_bkg}. Nevertheless, the ratios $R$ are useful to determine the order of magnitude of background contributions. The found background percentages (Figure \ref{fig:bkg}) are thus in good agreement with the estimated expectations. This justifies the previous empirical assumption to only include $2\pi^0$ and $\pi^0\eta$ MC as background reactions in the fit to describe the data.   
+Although less than $0.2\%$ of two meson production reactions are misidentified as $\eta'$ events they make up a notable portion of background in $\eta'$ data, considering the according branching ratios and cross sections showed. Note that only maximum acceptances and approximations for the cross sections have been used for estimating the  ratio of background events to signal events. As the acceptance and cross sections may vary depending on kinematic bin, also the actual amount of background events may yet vary. Especially in backwards direction the acceptance of $\gamma p \to p\eta'$ events decreases due to escaping protons while at the same time the acceptance for $\gamma p \to p\pi^0\pi^0\to p4\gamma$ and $\gamma p \to p \pi^0\eta\to p 4\gamma$ \emph{increases} in this region towards higher beam energies, see Figure \ref{fig:acc_bkg}. 
+
+Nevertheless, the ratios $R$ are useful to determine the order of magnitude of background contributions. Furthermore the maximum determined ratio of  background events $b$ to total events $\left(s+b\right)$ (Figure \ref{fig:bkg}) and the corresponding value for $R$
+\begin{align}
+\delta=\frac{s}{s+b}=0.45&&\Leftrightarrow&&R=\frac{b}{s}=\frac{\delta}{1-\delta}=0.81
+\end{align} are in very good agreement with the estimated expectations from table \ref{tab:plausmc}. This justifies the previous empirical assumption to only include $2\pi^0$ and $\pi^0\eta$ MC as background reactions in the fit to describe the data.
+   
 \subsection{Misidentification of background reactions}
-It has been reasonably established that the main background reactions that escape the $\eta'$ event selection cuts are realized by $2\pi^0$ and $\pi^0\eta$ production. However, it remains to explain why a four-photon final state is misidentified as $\eta'$ event. In order to do so the MC simulations of the respective final states were investigated. One observes, that for those events that passed the $\eta'$ cuts the generated photon energies for two photons often were of order $E_{\gamma} \sim \mathcal{O}(\SI{e1}{\mega\eV})$ and the other two of order $E_{\gamma} \sim \mathcal{O}(\SI{e2}{\mega\eV})$\footnote{To simplify notation, from now on the four final state photons of the reactions $\gamma p \to p2\pi^0\to p4\gamma$ and $\gamma p \to p\pi^0\eta\to p 4\gamma$ are referred to as $\gamma_1\dots\gamma_4$, where the index $1$ corresponds to the highest and the index $4$ corresponds to the lowest energy photon. }. The reconstructed energies however only displayed energies of order $E_{\gamma} \sim \mathcal{O}(\SI{e2}{\mega\eV})$.  During the reconstruction of final state four momenta, a minimum energy of $\SI{20}{\mega\eV}$ per cluster is demanded. This threshold is not passed or only closely passed by $\gamma_3$ and $\gamma_4$ in $2\pi^0$ production for $\sim 60\%$ of all generated photons, see figure \ref{fig:mcgammas_a}.\begin{figure}[htbp]
+It has been reasonably established that the main background reactions that escape the $\eta'$ event selection cuts are realized by $2\pi^0$ and $\pi^0\eta$ production. However, it remains to explain why a four-photon final state is misidentified as $\eta'$ event so that background reducing cuts may be found. In order to do so the MC simulations of the respective final states were investigated. One observes, that for those events that passed the $\eta'$ cuts the generated photon energies for two photons often were of order $E_{\gamma} \sim \mathcal{O}(\SI{e1}{\mega\eV})$ and the other two of order $E_{\gamma} \sim \mathcal{O}(\SI{e2}{\mega\eV})$\footnote{To simplify notation, from now on the four final state photons of the reactions $\gamma p \to p2\pi^0\to p4\gamma$ and $\gamma p \to p\pi^0\eta\to p 4\gamma$ are referred to as $\gamma_1\dots\gamma_4$, where the ascending index corresponds to the photon energy in descending order}. The reconstructed energies however only displayed energies of order $E_{\gamma} \sim \mathcal{O}(\SI{e2}{\mega\eV})$.  During the reconstruction of final state four momenta, a minimum energy of $\SI{20}{\mega\eV}$ per cluster is demanded. This threshold is not passed or only closely passed by $\gamma_3$ and $\gamma_4$ in $2\pi^0$ production for $\sim 60\%$ of all generated photons, see figure \ref{fig:mcgammas_a}.\begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas.pdf}
-	\caption{Generated energies of  $\gamma_3$ and $\gamma_4$ in $2\pi^0$ photoproduction MC data. The threshold of $\SI{20}{\mega\eV}$ is marked by a vertical red line. $E_{\gamma_4}$ is shown on the top, $E_{\gamma_3}$ is shown on the bottom.}
-	\label{fig:mcgammas_a}			
-\end{figure}
- Similarly, $\sim70\%$ of generated $\pi^0\eta$ events have a final state photon which does not or only closely pass the threshold of $\SI{20}{\mega\eV}$. Other than in $2\pi^0$ reactions, this does only apply for $\gamma_4$ while $\gamma_3$ significantly exceeds the threshold of $\SI{20}{\mega\eV}$, see figure \ref{fig:mcgammas_b}. 
- \begin{figure}[htbp]
- 	\centering
- 	\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas_pi0eta.pdf}
- 	\caption{Generated energies of $\gamma_3$ and $\gamma_4$ in $\pi^0\eta$ photoproduction MC data. The threshold of $\SI{20}{\mega\eV}$ is marked by a vertical red line. $E_{\gamma_4}$ is shown on the top, $E_{\gamma_3}$ is shown on the bottom}
- 	\label{fig:mcgammas_b}			
+	\begin{subfigure}{\linewidth}
+		\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas.pdf}
+		\subcaption{Reaction $\gamma p\to p2\pi^0\to 4\gamma$.}
+		\label{fig:mcgammas_a}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas_pi0eta.pdf}
+		\caption{Reaction $\gamma p\to p\pi^0\eta $.}
+		\label{fig:mcgammas_b}
+	\end{subfigure}			
+ 				\caption{Generated energies of $\gamma_3$ and $\gamma_4$ in $2\pi^0$ and $\pi^0\eta$ photoproduction MC data. The threshold of $\SI{20}{\mega\eV}$ is marked by a vertical red line. $E_{\gamma_4}$ is shown on the top, $E_{\gamma_3}$ is shown on the bottom of each figure.}
  \end{figure}
+ Similarly, $\sim70\%$ of generated $\pi^0\eta$ events have a final state photon which does not or only closely pass the threshold of $\SI{20}{\mega\eV}$. Other than in $2\pi^0$ reactions, this does only apply for $\gamma_4$ while $\gamma_3$ significantly exceeds the threshold of $\SI{20}{\mega\eV}$, see figure \ref{fig:mcgammas_b}. 
+ 
  At this point it is important to note that the generated energies are in general larger than the reconstructed energies because energy may be deposited in insensitive detector material. Figures \ref{fig:mcgammas_a} and \ref{fig:mcgammas_b} thus do not necessarily resemble a good approximation of how many photons actually are lost because they simply do not pass the energy treshold during reconstruction. To get a better estimate, the generated energies $E_\gamma^\text{gen}$ of $\gamma_1$ and $\gamma_2$ are compared with the reconstructed energies $E_\gamma^\text{rec}$, see Figure \ref{fig:mcgenvsrec}. 
-  \begin{figure}
- 	$$HIERBILDVONGENVSREC$$
- 	\caption{$E_\gamma^\text{gen}$ vs. $E_\gamma^\text{rec}$ of $\gamma_1$ and $\gamma_2$ for $2\pi^0$ (left) and $\pi^0\eta$ (right) production. The slope $E_\gamma^\text{gen}=E_\gamma^\text{rec}$ is marked by a solid line.}
+  \begin{figure}[htbp]
+	\includegraphics[width=\linewidth]{../figs/hydrogen/2pi0_gammas.pdf}
+	\includegraphics[width=\linewidth]{../figs/hydrogen/pi0eta_gammas.pdf}
+ 	\caption{$E_\gamma^\text{gen}$ vs. $E_\gamma^\text{rec}$ of $\gamma_1$ and $\gamma_2$ for $2\pi^0$ (top) and $\pi^0\eta$ (bottom) production. The slope $E_\gamma^\text{gen}=E_\gamma^\text{rec}$ is marked by a solid line.}
  	\label{fig:mcgenvsrec}
  \end{figure}
-Energies that are correctly reconstructed lie on the slope of $E_\gamma^\text{gen}=E_\gamma^\text{rec}$, which is the case for nearly all events of $2\pi^0$ production. However for $\pi^0\eta$ reactions a sizable amount of events lies offside the slope towards higher reconstructed energies. This indicates on one hand that in $2\pi^0$ production, $\gamma_3$ and $\gamma_4$ nearly always do not surpass the reconstruction threshold and on the other hand that photons with an energy above threshold may still be lost during reconstruction because they are falsely combined to one cluster with either $\gamma_1$ or $\gamma_2$ resulting in too large reconstructed energies. Figure \ref{fig:mcangle} shows the polar angle difference between $\gamma_3$ and $\gamma_2$ of the MC $\pi^0\eta$ final state which clearly peaks centered at small angles, explaining why the false combination of two photons may happen during reconstruction.
+Energies that are correctly reconstructed lie on the slope of $E_\gamma^\text{gen}=E_\gamma^\text{rec}$, which is the case for nearly all events of $2\pi^0$ production. However for $\pi^0\eta$ reactions a sizable amount of events lies offside the slope towards higher reconstructed energies. This indicates on one hand that in $2\pi^0$ production, the energies of  $\gamma_3$ and $\gamma_4$ nearly always do not surpass the reconstruction threshold and on the other hand that photons with an energy above threshold may still be lost during reconstruction because they are falsely combined to one cluster with either $\gamma_1$ or $\gamma_2$ resulting in too large reconstructed energies. Too small reconstructed energies are also observed beacause energy may get los in insensitve detectro materials. Figure \ref{fig:mcangle} shows the polar angle difference between $\gamma_3$ and $\gamma_2$ of the MC $\pi^0\eta$ final state which clearly peaks centered at small angles, explaining why the false combination of two photons may happen during reconstruction.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{../figs/hydrogen/mcgammas_td_pi0eta.pdf}
-	\caption{Polar angle difference $\Delta\theta$ between the photon with second highest energy and second lowest energy of the $\pi^0\eta$ final state.}
+	\caption{Polar angle difference $\Delta\theta$ between $\gamma_2$ and $\gamma_3$ of the $\pi^0\eta$ final state.}
 	\label{fig:mcangle}
 \end{figure}
 Similar results are found with $2\pi^0$ production events but less distinct. It is evident that neither the two lost photons, nor the two reconstructed photons are correlated, i.e. decay products of the same meson ($\pi^0,\eta$).
@@ -311,7 +321,7 @@ Considering the above one can now say that $2\pi^0$ and $\pi^0\eta$ events pass 
 
 	\item one low energy photon is lost. Two of the remaining three photons are combined to one in favor of the higher energetic photon since they were emitted in the same direction. The two reconstructed photons are uncorrelated and pass the event selection randomly, as shown in figure \ref{fig:mcgammas2}.
 \end{enumerate} 
-	\begin{figure}[h]
+	\begin{figure}[htbp]
 	\centering
 	\begin{subfigure}{.49\linewidth}
 		\includegraphics[width=\linewidth]{../figs/inkscape/mcgammas1.pdf}
@@ -390,7 +400,7 @@ where $m_p$ is the proton $m_{\eta'}$ the $\eta'$ mass, $E_{\eta'}$ is the meson
 
 \section{Summary of event selection}
 \subsection{Reaction $\gamma p\to p\eta'\to p\gamma\gamma$}
-The reaction $\gamma p\to p\eta'$ could be selected successfully. combinatorial background was removed using the time information of initial and final state particles. Furthermore, the measured energies and momenta of all final state particles were utilized when applying constraints, that were derived from energy and momentum conservation, to $\gamma p\to\eta'\to\gamma\gamma$ event candidates. A significant amount of background still passes the event selection process which could be traced back to $2\pi^0$ and $\pi^0\eta$ production using Monte Carlo simulations. Very restricted possibilities to exclusively select signal from background events were found but in the end not used as they still remove sizable fractions of signal events in order to get rid of background events.
+The reaction $\gamma p\to p\eta'$ could be selected successfully. Combinatorial background was removed using the time information of initial and final state particles. Furthermore, the measured energies and momenta of all final state particles were utilized when applying constraints, that were derived from energy and momentum conservation, to $\gamma p\to\eta'\to\gamma\gamma$ event candidates. A significant amount of background still passes the event selection process which could be traced back to $2\pi^0$ and $\pi^0\eta$ production using Monte Carlo simulations. Very restricted possibilities to exclusively select signal from background events were found but in the end not used as they still remove sizable fractions of signal events in order to get rid of background events.
 
 To illustrate again the impact of all applied cuts, the invariant mass summed over all angular and energy bins of the final state photons is shown again in figure \ref{fig:invm_pretty} where the spectrum can be seen after each individual cut successively. While at first only slight structures in the invariant mass spectrum can be observed, in the end a clear, peak-like structure is visible, indicating the general success of the event selection that has been described in this chapter. The signal to background ratio is improved by each applied cut where the time cut clearly removes the most (combinatorial) background. Note that there are differences of three and two orders of magnitude in statistics for $\pi^0$ or $\eta$ meson production compared to $\eta'$ production in the neutral decay channel. 
 \begin{figure}[t]
@@ -400,3 +410,13 @@ To illustrate again the impact of all applied cuts, the invariant mass summed ov
 	\label{fig:invm_pretty}
 \end{figure}
 \subsection{Reaction $\gamma p\to p\eta\to p\gamma\gamma$}
+As has been mentioned in the beginning of this chapter, the reaction $\gamma p \to p\eta\to p\gamma\gamma$ was subject of the dissertation \cite{farahphd} and this thesis only uses the selected data to verify existing results with new fitting methods. A short summary of the event selection that is described in detail in reference \cite{farahphd} will be given in the following nevertheless.
+
+Since a three particle final state was to be investigated, the data is first of all constrained to include only 2PED, 2.5PED and 3PED events. No charge cut was applied, so that always two final state particles were combined pairwise to form a meson candidate while the remaining particle (if measured) was assigned as proton candidate. As a next step coincidence of final state particles was checked in a similar fashion to section \ref{sec:time} with the exception that depending on the hit detectors different prompt peaks and sideband ranges were selected. Afterwards the discussed kinematic variables $\Delta\theta,\Delta\phi,m_X,m_\text{meson}$ were used to further filter out candidates for $\eta$ photoproduction. Hereby a binning of $\SI{60}{\mega\eV}$ in the beam energy and $1/6$ in $\cos\theta$ was chosen. With the help of Monte Carlo simulations background contributions from single $\pi^0$ production could be recognized. They could be explained by events were one final state photon is lost and the recoil proton falsely creates two tracks and according cuts to remove these events were made. In the end, less than $7\%$ background contamination was achieved in all kinematic bins. Figure \ref{fig:eta_sel} shows the invariant mass with each cut successively applied. At first only slight structures are visible, also because no charge cut is applied to the data, which increases the amount of combinatorial background. But with each cut the contributions from meson photoproduction become more distinct, indicating all in all a successful event selection.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{figs/eta_sel.pdf}
+	\caption{Invariant mass spectrum passing different stages in the event selection process. In the end clear peaks for all possibly produced mesons are visible. Taken from \cite{farahphd}.}
+	\label{fig:eta_sel}
+\end{figure}
