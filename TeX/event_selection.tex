@@ -149,17 +149,17 @@ Let $\mathcal{C}^\chi_{\mathcal{I}}$ be the cut operator that restrains the data
 	\label{tab:mc}
 	\end{table}
 	
-	 Since the invariant mass spectrum features rich contributions from many final states, it is difficult to describe by a (sum of) gaussian function(s), especially considering the background contributions. Thus, for the invariant mass the cut ranges are obtained from gaussian fits to the scaled MC data of the $\eta'$ final state. Table \ref{tab:cuts} shows which fit function and cut range was used for each cut variable. In addition, it shows if the cut ranges were determined from MC or measured data.
+	 To minimize the influence of any background reactions, the cut ranges are determined via fits to the scaled MC data of the $\eta'$ final state. Table \ref{tab:cuts} shows which fit function and cut range was used for each cut variable.
 	\begin{table}[htbp]
 		\centering
-		\begin{tabular}{cccc}
+		\begin{tabular}{ccc}
 			\toprule
-			cut variable & fit function & interval range & obtained from\\
+			cut variable & fit function & interval range\\
 			\hline
-			$\Delta\theta$&\textsc{Gauss}&$\mathcal{I}'=[\mu-3\sigma,\mu+3\sigma]$&data points\\
-			$\Delta\phi$&\textsc{Gauss}&$\mathcal{J}'=[\mu-3\sigma,\mu+3\sigma]$&data points\\
-			$m_X$&\textsc{Novosibirsk} \cite{nov}&$\mathcal{K}'=[\mu-2\sigma,\mu+2\sigma]$&data points\\
-			$m_\text{meson}$&\textsc{Gauss}&$\mathcal{L}'=[\mu-2\sigma,\mu+2\sigma]$&MC data\\
+			$\Delta\theta$&\textsc{Gauss}&$\mathcal{I}'=[\mu-3\sigma,\mu+3\sigma]$\\
+			$\Delta\phi$&\textsc{Gauss}&$\mathcal{J}'=[\mu-3\sigma,\mu+3\sigma]$\\
+			$m_X$&\textsc{Novosibirsk} \cite{nov}&$\mathcal{K}'=[\mu-2\sigma,\mu+2\sigma]$\\
+			$m_\text{meson}$&\textsc{Gauss}&$\mathcal{L}'=[\mu-2\sigma,\mu+2\sigma]$\\
 			
 			\bottomrule
 		\end{tabular}
@@ -209,6 +209,8 @@ To finally select only $\eta'$ photoproduction event candidates the invariant ma
  	\caption{Invariant mass of the $p\eta'$ final state with all other cuts applied for the energy bin $\SI{1500}{\mega\eV}\leq E_\gamma<\SI{1600}{\mega\eV}$. The vertical dashed lines show the cut ranges obtained from a gaussian fit to the $\eta'$ MC data (solid black histogram). The open circles represent the measured data, the solid colored histograms fitted MC data from relevant photoproduction reactions: in black $\eta'$, in green $\pi^0$, in red $\eta$, in blue $\omega$, in yellow $2\pi^0$ and in magenta $\pi^0\eta$. The turquoise histogram is the sum of all MC histograms.}
  	\label{fig:invm}
 \end{figure}
+
+Appendix \ref{sec:kinv} shows all kinematic bins for each cut variable with the corresponding cut ranges.
 \subsection{Quality of event selection}
 In order to investigate the impact of the applied cuts the detector and analysis acceptance $A(E_\gamma,\cos\theta)$ can be investigated. It is defined as the ratio of reconstructed events $N^\text{rec}(E_\gamma,\cos\theta)$ to generated events $N^\text{gen}(E_\gamma,\cos\theta)$ \begin{equation}
 	A:=\frac{N^\text{rec}(E_\gamma,\cos\theta)}{N^\text{gen}(E_\gamma,\cos\theta)}

@@ -21,14 +21,14 @@ void toyMC_posteriors(){
     //read sigma posteriors
     TTree* t = new TTree("t","mytree");
     TTree* d = new TTree("d","myothertree");
-    t->ReadFile("new_toy_sigma_bkg.csv");
+    t->ReadFile("notrunc_toy_sigma.csv");
     //d->ReadFile("mcse.csv","mcse");
     //set tree branch adresses for posteriors
     const int nbins = 1000;
     //const int nbins_hist=250;
     int scale =7050;
     //int scale = 7250;
-    const int nbins_hist=30;
+    const int nbins_hist=200;
     //nbins=300,nbins_hist=50 is a pretty combination, as well as nbins=1000,nbins_hist=80
     Float_t currentry[nbins];
     TH1F* posteriors[nbins];
@@ -36,7 +36,7 @@ void toyMC_posteriors(){
     for(int i=0;i<nbins;i++){
         //create corresponding histos
         t->SetBranchAddress(Form("toybin%04d",i),&currentry[i]);
-        posteriors[i]=new TH1F(Form("posterior%04d",i),";#Sigma;",nbins_hist,-1,1);
+        posteriors[i]=new TH1F(Form("posterior%04d",i),";#Sigma;",nbins_hist,-2,2);
         //get mcse
         //std::cout<<mcse[i]<<std::endl;
     }

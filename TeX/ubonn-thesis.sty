@@ -31,6 +31,7 @@
 \RequirePackage{layouts}
 \RequirePackage{pdflscape}
 \usepackage{lineno}
+\usepackage{float}
 
 
 % ifthen package gives more possibilities than native \if
@@ -451,7 +452,7 @@
   \RequirePackage{siunitx}
   \sisetup{separate-uncertainty}
   \sisetup{range-units=single, list-units=single}
-  \sisetup{group-digits=integer, group-minimum-digits=4}
+  %\sisetup{group-digits=integer, group-minimum-digits=4}
   \sisetup{detect-all}
   \ifthenelse{\boolean{UBN@eVkern}}{%
     \typeout{ubonn-thesis: Applying kern to eV.}

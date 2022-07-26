@@ -63,6 +63,8 @@ def fit(nsamples,nbins,start): #define starting index
             'dsigma_2pi0_meas': df_2pi0['dsigma'].values[0] #w/ stat error
         }
         print(nprmpt, total_nside)
+        #print(len(weights))
+
         #now the stan model and mcmc
         model=sp.CmdStanModel(stan_file='toyMC_stan_notrunc.stan')
         model.compile()
@@ -123,15 +125,15 @@ def fit_bin(nsamples,binnr): #fit only one bin
     samples=fitobj.draws_pd()
     return samples,summary
 
-dfs=fit(nsamples=5000,nbins=1000,start=0)
+dfs=fit(nsamples=1000,nbins=1000,start=0)
 diagnostics=dfs[0]
 sigma=dfs[1]
 sigma_bkg=dfs[2]
 sigma_2pi0=dfs[3]
-diagnostics.to_csv('notrunc_toy_diagnostics.csv')
-sigma.to_csv('notrunc_toy_sigma.csv')
-sigma_bkg.to_csv('notrunc_toy_sigma_bkg.csv')
-sigma_2pi0.to_csv('notrunc_toy_sigma2pi0.csv')
+diagnostics.to_csv('new_notrunc_toy_diagnostics.csv')
+sigma.to_csv('new_notrunc_toy_sigma.csv')
+sigma_bkg.to_csv('new_notrunc_toy_sigma_bkg.csv')
+sigma_2pi0.to_csv('new_notrunc_toy_sigma2pi0.csv')
 
 
 #sigma_df=pd.read_csv('toy_sigma.csv',index_col=0)

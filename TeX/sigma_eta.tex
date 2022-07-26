@@ -296,16 +296,13 @@ Since both methods were tested successfully using toy Monte Carlo data, both are
 In all bins of beam energy and meson polar angle the binned fit was performed. Similar to the Monte Carlo samples, 12 bins in phi are built to comply with the binning in reference \cite{farahphd}, and guarantee comparability.
 
 Figure \ref{fig:asym} shows the resulting asymmetry $A(\phi)$ for all angular bins for the energy bin $\SI{1250}{\mega\eV}\leq E_\gamma<\SI{1310}{\mega\eV}$ as orange data points with statistical error bars.  Additionally shown is a $\chi^2$ fit (orange line) to the asymmetry together with posterior predictive checks as obtained from a fully \textsc{Bayesian} fit according to the introduced model (blue distributions). The goodness of fit is checked via the introduced $p$-values $p=T(A_\text{rep}>A)$, and are shown as black points with propagated error bars on the bottom. The optimal value of $p=0.5$ is marked by the dashed line and realizes the mean of the distribution of all $p$-values, so that one can assume good description of the data by the fits, see Figure \ref{fig:pvals}. This replaces the investigation of the $\chi^2/\text{NDF}$ distribution in the case of a frequentist fit.   
-\newpage
 
-	\begin{sidewaysfigure}[htbp]
+\begin{sidewaysfigure}[htbp]
 		\centering
 		\includegraphics[width=\linewidth]{../bayes/realdeal/plots/ppd_checks.pdf}
 		\caption{Posterior predictive checks $p\left(A_\text{rep}\big|A\right)$ from a \textsc{Bayesian} fit to the event yield asymmetries for all angular bins of the energy bin $\SI{1250}{\mega\eV}\leq E_\gamma<\SI{1310}{\mega\eV}$. The data points in the upper plot are the asymmetry $A\left(\phi\right)$, which was additionally fitted using a $\chi^2$ fit (solid line). The goodness of fit is shown using $p$-values, which give the fraction $T\left(A_\text{rep}>A\right)$ of replicated samples greater than the original measured value, with propagated statistical error bars on the bottom of each plot. The expected mean value of $T\left(A_\text{rep}>A\right)=0.5$ is indicated by the dashed line. }
 		\label{fig:asym}
-	\end{sidewaysfigure}
-
-\newpage
+\end{sidewaysfigure}
 
 
 \begin{figure}[htbp]
@@ -428,7 +425,6 @@ Building the normalized residuals with respect to $\Sigma^\text{meas}$ and the r
 	\caption{Fitted efficiency function (red line) applied to the polarization weighted sum of event yields (data points) for one toy Monte Carlo bin. 12 bins in $\phi$ are built for demonstration.}
 	\label{fig:toyMCeff}
 \end{figure}
-\newpage
 \subsubsection{Unbinned \textsc{Bayesian} fit}
 When performing a \textsc{Bayesian} fit a systematic shift like Equation \eqref{eq:sigmeas} as result of background contributions is not easily applicable. The posterior distributions may be shifted by a constant value but including statistical errors of the background beam asymmetry is not possible. To circumvent this, the background beam asymmetry can be included inherently in the likelihood function that is part of the model being fitted. In practice, $\delta$ and $\Sigma_2$ have to be part of the data that is fed into the probabilistic model. In general though $\Sigma_2$ will have a statistical error, which can be included in the fashion of modeling \emph{missing data} \cite{stan}. Doing so, the value for $\Sigma_2$ is regarded as an estimate for the true, unknown (or missing) value $\Sigma_2^\text{true}$. The statistical error $\tau$ of $\Sigma_2$ specifies the measurement model assuming \textsc{Gaussian} errors 
 \begin{equation}
@@ -440,10 +436,10 @@ When performing a \textsc{Bayesian} fit a systematic shift like Equation \eqref{
  		\ln\mathcal{L}&=\sum_{i=1}^{n}\ln p_\text{prompt}\left(\phi_i,p_{\gamma,i}\big|(1-\delta)\cdot\Sigma_1+\delta\cdot\Sigma_2^\text{true},a,b,\Sigma^\text{bkg}_t,a^\text{bkg},b^\text{bkg}\right)\\&+\sum_{j=1}^m \ln p_\text{sideband}\left(\phi_j,p_{\gamma,j}\big|\Sigma^\text{bkg}_t,a^\text{bkg},b^\text{bkg}\right).\label{eq:likalt}
  	\end{aligned}
  \end{equation}
-For a complete inference $\Sigma_2^\text{bkg}$ also needs to be assigned a prior, which is chosen to be uniform to keep the number of fit parameters minimal. \newpage \noindent In total, 1000 bins in accordance with Table \ref{tab:mcsum1} are fitted with the adapted model that includes a background asymmetry $\Sigma_2$ with statistical error $\tau$ which are used to estimate the additional fit parameter $\Sigma_2^\text{true}$. For the sake of the toy Monte Carlo experiments the measurement error is arbitrarily chosen to be $\tau=0.05$.
+For a complete inference $\Sigma_2^\text{bkg}$ also needs to be assigned a prior, which is chosen to be uniform to keep the number of fit parameters minimal. In total, 1000 bins in accordance with Table \ref{tab:mcsum1} are fitted with the adapted model that includes a background asymmetry $\Sigma_2$ with statistical error $\tau$ which are used to estimate the additional fit parameter $\Sigma_2^\text{true}$. For the sake of the toy Monte Carlo experiments the measurement error is arbitrarily chosen to be $\tau=0.05$.
 
 
-Figure \ref{fig:toyMCpost} shows the combined posteriors for the fit parameters $\Sigma_1$ and $\Sigma_t^\text{bkg}$ of the event based \textsc{Bayesian} fit for all generated toy Monte Carlo bins. The posteriors are added up since the truncation of the posteriors biases the results when combining them in a pooled likelihood model or normalized residuals $\Xi$. Although previous experiments already proved sensible error estimation, i.e. distribution widths, when using the unbinned \textsc{Bayesian} fit, this is further confirmed by removing the truncation and repeating the investigation of posteriors. This is discussed in appendix \ref{app:trunc}. The input parameters are very well reproduced within the statistical error, which is given by the standard deviation of the \textsc{Gaussian}. The posterior distribution of $\Sigma_1$ is wider than the posterior of the background beam asymmetry $\Sigma_t^\text{bkg}$ because an additional measurement of $\Sigma_2$ with measurement error $\tau$ is used to estimate $\Sigma_1$. This is in complete analogy to shifting the point estimates $\Sigma^\text{meas}$ to their true values $\Sigma^\text{true}$, as described previously, which will also result in larger statistical error bars according to \textsc{Gaussian} error propagation.
+Figure \ref{fig:toyMCpost} shows the combined posteriors for the fit parameters $\Sigma_1$ and $\Sigma_t^\text{bkg}$ of the event based \textsc{Bayesian} fit for all generated toy Monte Carlo bins. The posteriors are added up since the truncation of the posteriors biases the results when combining them in a pooled likelihood model or normalized residuals $\Xi$. Previous experiments already proved sensible error estimation, i.e. distribution widths, when using the unbinned \textsc{Bayesian} fit. This is discussed in appendix \ref{app:trunc}. The input parameters are very well reproduced within the statistical error, which is given by the standard deviation of the \textsc{Gaussian}. The posterior distribution of $\Sigma_1$ is wider than the posterior of the background beam asymmetry $\Sigma_t^\text{bkg}$ because an additional measurement of $\Sigma_2$ with measurement error $\tau$ is used to estimate $\Sigma_1$. This is in complete analogy to shifting the point estimates $\Sigma^\text{meas}$ to their true values $\Sigma^\text{true}$, as described previously, which will also result in larger statistical error bars according to \textsc{Gaussian} error propagation.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/combined_post_add_raw.pdf}
@@ -480,7 +476,7 @@ It has been demonstrated that the chosen \textsc{Bayesian} model can describe da
 	\caption{Posterior predictive checks of one toy Monte Carlo bin using the draws from the marginal posteriors of the detector coefficients $a,b$ (opaque blue lines). The mean values are marked by the dashed line and follow the distribution of the data points which are the polarization weighted sum of event yields, using 12 $\phi$ bins.}	
 	\label{fig:toyMC_eff}
 \end{figure}
-\newpage
+
 \subsection{Application of event based fit to data}
 Investigation of toy Monte Carlo experiments showed that the presence of polarized background events cause a systematic shift in the extracted beam asymmetry. The shift may be compensated by a modified likelihood function for the \textsc{Bayesian} fit or by reversing the shift \emph{after} obtaining intermediate results for $\Sigma^\text{meas}$ with an unbinned maximum likelihood fit. By studying Monte Carlo simulations of various mesonic final states it has been found that the main background contributions in the analysis of the final state $\gamma p \to p\eta'\to p\gamma\gamma$ is given by the false reconstruction of events $\gamma p \to p 2\pi^0\to p 4\gamma$, see chapter \ref{chap:events}. Conveniently, this includes the determination of the fraction of background events $\delta$, see Figure \ref{fig:bkg}. Furthermore, preliminary results for the beam asymmetry in double pion photoproduction at the CBELSA/TAPS experiment using the same binning as this analysis \cite{mahlbergphd} were available so that the previously discussed corrections can in fact be applied in each kinematic bin. It is hereby assumed that the \emph{entire} background is realized by $2\pi^0$ production and the fraction $\delta$ is determined by an according fit of Monte Carlo spectra. This holds only approximately for each kinematic bin and is thus a source of systematic error, which is discussed in the next subsection \ref{subsec:sys}.
 
@@ -554,4 +550,5 @@ Figure \ref{fig:etapsys} shows all results with systematic uncertainites given o
 	\centering
 	\includegraphics[width=\linewidth]{../bayes/etap_event_based_fit/plots/sigma_etap_sys.pdf}
 	\caption{Final results for the beam asymmetry $\Sigma_{\eta'}$ for all energy and angular bins. Only the corrected results from the unbinned maximum likelihood fit and distributions from the modified \textsc{Bayesian} fit are shown. The bottom of each plot indicates the systematic error as gray bars. It was determined as previously discussed.}
+	\label{fig:etapsys}
 \end{figure}

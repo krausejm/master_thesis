@@ -38,6 +38,7 @@ ofstream myfile;
 if(file==0){myfile.open (Form("./toybins/toybin%04d.txt",k));}
 if(file==1){myfile.open (Form("./test_toybins/toybin%04d.txt",k));}
 if(file==2){myfile.open (Form("./pi0_toybins/toybin%04d.txt",k));}
+if(file==3){myfile.open (Form("./etap_toybins/toybin%04d.txt",k));}
 
 myfile << "pol\tsetting\tphi\n";
 TRandom3 r(0);
@@ -65,7 +66,7 @@ for(int i=0;i<n2;i++){
 void new_toy_MC(){
     for(int k=0;k<10000;k++){
         //eta bins
-	make_bin(k,0.3,0.25,0.3,1000,800,0);
+	make_bin(k,0.3,0.3,0.3,200,200,3);
 	//test bins
 	//make_bin(k,0.3,0.3,0.3,1000,1000,1);
 	//pi0 bins
