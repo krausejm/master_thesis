@@ -136,7 +136,41 @@ Investigation of toy Monte Carlo experiments (cf. section \ref{sec:sigma_etap}) 
 \begin{equation}
 	A\left(\phi\right)=\Sigma\cdot\cos\left(2\left(\alpha^\parallel-\phi\right)\right).
 \end{equation}
-To investigate this further, the distributions $A\left(\phi\right)$ from different toy Monte Carlo experiments where fitted for several binnings in $\phi$. Three different Monte Carlo experiments were considered, each corresponding roughly to the expected statistics in one kinematic bin for $\pi^0$, $\eta$ and $\eta'$ photoproduction, respectively. For simplicity's sake, only least squares fits are shown here, although similar results were found for \textsc{Bayesian} fits also. The equivalency of \textsc{Bayesian} and least squares fit has been demonstrated sufficiently up until now. To identify the bias that is introduced by binning the data, 10000 toy Monte Carlo bins for each setting are fitted for $n=10,15,20,\dots,100$ bins. Then the dependence from the amount of bins of the mean $\mu$ of the normalized residuals $\xi$ as well as the mean $\chi^2$ value of all fits is investigated.
+To investigate this further, the distributions $A\left(\phi\right)$ from different toy Monte Carlo experiments where fitted for several binnings in $\phi$. Three different Monte Carlo experiments were considered, each corresponding roughly to the expected statistics in one kinematic bin for $\pi^0$, $\eta$ and $\eta'$ photoproduction, respectively. For simplicity's sake, only least squares fits are shown here, although similar results were found for \textsc{Bayesian} fits also. The equivalency of \textsc{Bayesian} and least squares fit has been demonstrated sufficiently up until now. To identify the bias that is introduced by binning the data, 10000 toy Monte Carlo bins for each setting are fitted for $n=10,15,20,\dots,100$ bins. Then the dependence from the amount of bins of the mean $\mu$ of the normalized residuals $\xi$ as well as the mean $\chi^2$ value of all fits is investigated. This is shown in Figure \ref{fig:appbin}; The fitted mean of the normalized posteriors $\xi$ is plotted against the number of bins (blue data points, left ordinate) as well as the mean $\chi^2$ of 10000 fits depending on the number of bins (red data points, right ordinate). Clear dependencies can be made out: while too few bins tend to underestimate the true value of the beam asymmetry, too much bins will lead to an overcompensation. For this reason, the functions $\chi^2(n)$ and $\mu(n)$ are monotonously rising with increasing number of bins $n$. An exception is realized by the samples that simulated the statistics of the $\eta'$ final state, which can be explained by the fact, that after reaching a certain number of bins, no sensible fit estimates can be made anymore because too few data points are available. A minimum deviation from the nominal value is reached with $n=10,20,30$ bins for statistics comparable to $\eta',\eta$ and $\pi^0$ production respectively. This does not coincide with a minimum $\chi^2$ necessarily, although the mean $\chi^2$ values associated with the best estimation of the input value are compatible with 1. Figure \ref{fig:appbin} however remarkably shows the influence binning has on the extraction of the beam asymmetry. Since there exist other methods, binned fits should only be used as a sanity check, but generally avoided, to circumvent the introduction of any systematics inherent to binning.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../bayes/toyMC/plots/binnedfits.pdf}
+	\caption{Fit performance in dependence of the number of bins. Left axis shows the mean $\mu$ of the distribution of the normalized residuals $\xi$, right axis shows the mean $\chi^2$ of all fits. Squares simulate fits with statistics similar to the $\gamma p \to p\eta'\to p\gamma\gamma$ final state, triangles statistics similar to the $\gamma p\to p\eta\to p\gamma\gamma$ and final state, pentagons statistics similar to the $\gamma p \to p \pi^0\to p\gamma\gamma$. Dotted red line indicates the ideal value of $\chi^2=1$, while the dashed blue line indicates the ideal mean of the normalized residuals at $\mu=0$.}
+	\label{fig:appbin}
+\end{figure}
 \chapter{Investigation of posteriors without truncation}
 \label{app:trunc}
-In section \ref{sec:sigma_etap} the investigation of posterior distributions from unbinned \textsc{Bayesian} fits was incomplete, since the normalized residuals as well as the likelihood pool could not be built with truncated posteriors. This is now supplemented here. After the fits have been repeated without implementing a truncation for the posteriors, all introduced measures to argue good fit quality can be examined.
+In section \ref{sec:sigma_etap} the investigation of posterior distributions from unbinned \textsc{Bayesian} fits was incomplete, since the normalized residuals as well as the likelihood pool could not be built with truncated posteriors. This is now supplemented here. After the fits have been repeated without implementing a truncation for the posteriors, all introduced measures to argue good fit quality can be examined. As a reminder, the data were generated with $\Sigma_1=0.5$ and $\Sigma_t=-0.5$. Figure \ref{fig:completpost} shows the combined posteriors of all fits. The left hand side shows the normalized residuals $\Xi$ and the right hand side the unnormalized combination of all posteriors. The results completely meet the expectations, the input values for the beam asymmetries are very well reproduced, and the normalized residuals follow a standard normal distribution as \textsc{Gaussian} fits show. Together with the results obtained from the independent likelihood pool (Figure \ref{fig:applik}), which is able to reproduce the input values within $1\sigma$, this suffices to conclude correct estimation of distribution widths with no inherent bias, as had already been found in section \ref{sec:sigma_eta}.
+
+\begin{figure}[htbp]
+	\begin{subfigure}{\linewidth}
+		\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/combined_post_add_notrunc.pdf}
+		\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/combined_post_add_notrunc_raw.pdf}
+		\subcaption{Beam asymmetry $\Sigma_1$}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+	\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/combined_post_add_notrunc_bkg.pdf}
+	\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/combined_post_add_notrunc_bkg_raw.pdf}
+	\subcaption{Background beam asymmetry $\Sigma_t$}
+\end{subfigure}
+	\caption{Combined posteriors of all 1000 fits without truncation for the signal beam asymmetry $\Sigma_1$ and the background beam asymmetry $\Sigma_t$. Left: normalized residuals $\Xi$, Right: unaltered added posterior distributions. \textsc{Gaussian} fits have been performed with results given on top of each plot.}
+	\label{fig:completpost}
+\end{figure}
+\begin{figure}[htbp]
+	\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/combined_post_mul.pdf}
+	\includegraphics[width=.49\linewidth]{../bayes/etap_event_based_fit/plots/combined_post_mul_bkg.pdf}
+	\caption{Posterior distributions of $\Sigma_1$ (left) and $\Sigma_t$ (right) combined in an independent likelihood pool. \textsc{Gaussian} fits to the distribution confirm the reproduction of the input values within $1\sigma$. Note that only very few datapoints were available for the fits, because the distributions overwhelmingly converge into a single bin at $\pm0.5$, hence the large errors on the fit parameters.}
+	\label{fig:applik}
+\end{figure}
+
+
+
+
+
+\paragraph{Remark:}
+It turned out that without the amount of statistics that was used in section \ref{sec:sigmaeta}, normal priors centered at $0$ for the asymmetries $\Sigma_t$ and $\Sigma$ will mislead the fit results for these parameters towards $0$ if no lower and upper boundaries are used. Instead the priors were then chosen to be uniform on the interval $[-2,2]$. This imposes boundaries, but will not truncate the posteriors because the distributions are not expected to be this wide. All distributions shown here are generated using this model to complete the full investigation of posteriors. Previous toy Monte Carlo experiments (Figure \ref{fig:toyMCpost}) as well as very good agreement between point estimates and posterior distributions (Figure \ref{fig:sigmaetap}) together with the results shown here confirm the validity of the fit used in the main part.

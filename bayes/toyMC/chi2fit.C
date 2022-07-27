@@ -33,9 +33,15 @@ void chi2fit(){
     int nbins[20]={10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
     //collect diagnostics
     ofstream myfile;
-    //myfile.open("./pi0_binning.txt");
-    //myfile<<"nbins\tchi2\tabserror\tabserror_err\tsigma_std\tmean_sigma_err\n";
-    for(int j=3;j<4;j++){ 
+    myfile.open("./etap_binning.txt");
+    myfile<<"nbins\tchi2\tabserror\tabserror_err\tsigma_std\tmean_sigma_err\n";
+    for(int j=0;j<19;j++){
+        sigma->Reset();
+        sigma_err->Reset(); 
+        sigma_p45->Reset();
+        sigma_m45->Reset();
+        chi2->Reset(); 
+        res->Reset();  
     //now create histos for the two settings
     TH1F* hp45 = new TH1F(Form("hp45_%d",j),";#phi / deg;",nbins[j],-180,180);
     TH1F* hm45 = new TH1F(Form("hm45_%d",j),";#phi / deg;",nbins[j],-180,180);
@@ -66,6 +72,7 @@ void chi2fit(){
         hm45->Reset();
         hp45e->Reset();
         hm45e->Reset();
+  
         //fp45->Reset();
         //fm45->Reset();
         t->Reset();
@@ -73,7 +80,7 @@ void chi2fit(){
         //t->ReadFile(Form("../etap_event_based_fit/toybins/toybin%04d.txt",i),"",'\t');
         //t->ReadFile(Form("../etap_event_based_fit/toybins/toybin%04d.txt",i),"pol:phi:weight");
         //t->ReadFile(Form("./test_toybins/toybin%04d.txt",i),"",'\t');
-        t->ReadFile(Form("./pi0_toybins/toybin%04d.txt",i),"",'\t');
+        t->ReadFile(Form("./etap_toybins/toybin%04d.txt",i),"",'\t');
         //t->ReadFile(Form("./py_toybins/toybin%04d.txt",i),"pol:setting:phi",',');
         float pol, setting, phi;
         t->SetBranchAddress("pol",&pol);
@@ -114,8 +121,8 @@ void chi2fit(){
         //get enumerator and nominator of the asymmetry
 		enumerator->Add(hp45,hm45,1,-1);
 			
-		hp45->Scale(0.25);
-        //hp45->Scale(0.3);
+		//hp45->Scale(0.25);
+        hp45->Scale(0.3);
 		hm45->Scale(0.3);
 		nominator->Add(hp45,hm45,1,1);
         enumerator->Divide(nominator);
@@ -127,8 +134,8 @@ void chi2fit(){
 			double n_bot_err=hp45e->GetBinError(k+1);
 			double n_par_err=hm45e->GetBinError(k+1);
 			double pol_bot = 0.3;
-			double pol_par = 0.25;
-            //double pol_par=0.3;
+			//double pol_par = 0.25;
+            double pol_par=0.3;
                         
             double delta_nbot=TMath::Sqrt(1/TMath::Power(norm_p,4)*(TMath::Power((norm_p-n_bot)*n_bot_err,2)+n_bot*n_bot*(norm_p-n_bot)));
             double delta_npar=TMath::Sqrt(1/TMath::Power(norm_m,4)*(TMath::Power((norm_m-n_par)*n_par_err,2)+n_par*n_par*(norm_m-n_par)));
@@ -158,23 +165,7 @@ void chi2fit(){
     
     }
     //auto c1= new TCanvas("c1");
-    TH1F* hlist[4]={sigma,res,sigma_p45,sigma_m45};
-    for(int i=0;i<4;i++){
-        hlist[i]->GetXaxis()->SetTitleFont(132);
-        hlist[i]->GetXaxis()->SetLabelFont(132);
-        hlist[i]->GetXaxis()->SetTitleSize(0.05);
-        hlist[i]->GetXaxis()->SetLabelSize(0.04);
-        
-        hlist[i]->GetYaxis()->SetTitleFont(132);
-        hlist[i]->GetYaxis()->SetLabelFont(132);
-        hlist[i]->GetYaxis()->SetTitleSize(0.05);
-        hlist[i]->GetYaxis()->SetLabelSize(0.04);
-
-        gStyle->SetOptStat(0);
-        gStyle->SetOptFit(1);
-    }
-
-    //c1->Divide(2,2);
+     //c1->Divide(2,2);
     //c1->cd(1);
     //sigma->Draw();
     //sigma->Fit("gaus");
@@ -184,7 +175,7 @@ void chi2fit(){
     //c1->cd(3);
     //chi2->Draw();
     //c1->SaveAs("./plots/eta_chi2_12bins.root");
-    //myfile<<10+j*5<<"\t"<<chi2->GetMean()<<"\t"<<g->GetParameter(1)<<"\t"<<g->GetParError(1)<<"\t"<<sigma->GetStdDev()<<"\t"<<sigma_err->GetMean()<<"\n";
+    myfile<<10+j*5<<"\t"<<chi2->GetMean()<<"\t"<<g->GetParameter(1)<<"\t"<<g->GetParError(1)<<"\t"<<sigma->GetStdDev()<<"\t"<<sigma_err->GetMean()<<"\n";
     }
     //sigma_p45->Draw("");
     //sigma_p45->Fit("gaus");
