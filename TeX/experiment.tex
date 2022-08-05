@@ -71,7 +71,7 @@ The (polarized) photon beam impinges on a liquid hydrogen target \cite{hammannph
 \end{figure}
 \section{Detector system}
 \label{sec:cal}
-Hadronic reactions are induced by the photon beam in the target material. As a consequence resonances are excited that decay under emission of mesons. These mesons subsequently decay to e.g. photons. The main calorimeters of the experiment, the Crystal Barrel that is complemented by the forward detector(\ref{sec:cb}) and the MiniTAPS calorimeter (\ref{sec:mt}), cover $95\%$ of the solid angle $4\pi$ and are especially suited for the detection of photons. Charged particles are identified by the inner detector (\ref{sec:in}) as well as plastic scintillators mounted in front of the forward and the MiniTAPS detector that are used as vetoes. To suppress electromagnetic reactions a \textsc{\'Cerenkov} detector is used (\ref{sec:cerenkov}). The photon flux is measured via the Gamma-Intensity-Monitor (GIM) and Flux-Monitor (FluMo) (\ref{sec:flumo}).
+Hadronic reactions are induced by the photon beam in the target material. As a consequence resonances are excited that decay under emission of mesons. These mesons subsequently decay to e.g. photons. The main calorimeters of the experiment, the Crystal Barrel that is complemented by the forward detector(\ref{sec:cb}) and the MiniTAPS calorimeter (\ref{sec:mt}), cover $95\%$ of the solid angle $4\pi$ and are especially suited for the detection of photons. Charged particles are identified by the inner detector (\ref{sec:in}) as well as plastic scintillators mounted in front of the forward and the MiniTAPS detector that are used as vetoes. To suppress electromagnetic reactions a \textsc{\v Cerenkov} detector is used (\ref{sec:cerenkov}). The photon flux is measured via the Gamma-Intensity-Monitor (GIM) and Flux-Monitor (FluMo) (\ref{sec:flumo}).
 \subsection{Inner detector}
 \label{sec:in}
 The inner detector \cite{indet,suft} encloses the target in a cylindrical geometry and consists of 513 plastic scintillation fibers that are placed in three layers. The outer layer is oriented along the beam axis while the inner layers are tilted by an angle of $\SI{-24.5}{\degree}$ and $\SI{25.8}{\degree}$, respectively, see Figure \ref{fig:indet}.
@@ -84,27 +84,50 @@ The inner detector \cite{indet,suft} encloses the target in a cylindrical geomet
 This structure allows to determine the azimuthal and polar angle of a charged particle as long as at least two layers are hit. The detector is in total $\SI{40}{\centi\meter}$ long and covers a polar angle range of $\SI{23.1}{\degree}<\theta<\SI{166}{\degree}$ with a resolution of $\SI{0.4}{\degree}$ in polar angle $\theta$ and $\SI{0.1}{\degree}$ in azimuthal angle $\phi$. The fibers consist of Polystyrene with a refractive index of $n=1.6$ and are cladded by Polymethylmetacrylat ($\text{C}_5\text{H}_8\text{O}_2$) with $n=1.49$ \cite{prop}. Charged particles passing the detector will cause the emission of scintillation light by the Polystyrene molecules which is read out with photomultipliers after passing lightguides. Short decay times ensure a fast time signal and a time resolution of $\text{FWHM}=\SI{2.093\pm0.013}{\nano\s}$ is reached \cite{hartmanndipl}.
 \subsection{Crystal Barrel and forward detector}
 \label{sec:cb}
-\subsection{MiniTAPS}
-\label{sec:mt}
-\subsection{\textsc{\'Cerenkov} detector}
-\label{sec:cerenkov}
-\subsection{Flux monitoring}
-\label{sec:flumo}
+The main calorimeter of the experiment is the Crystal Barrel detector \cite{cbdet}. It consists of 1320 CsI(Tl) crystals that are arranged in 24 rings facing the center of the target, see Figure \ref{fig:cb}.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{figs/cb_fp_in.pdf}
-	\caption{\textsc{D. Walther} in \cite{urban}}
-\end{figure}
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=.5\linewidth]{figs/faserorient.pdf}
-	\caption{\cite{cb}}
-\end{figure}
+	\caption{Crystal barrel calorimeter and forward detector are built such that they enclose the target and the inner detector. The forward detector consists of the first three rings (green base) of crystals which are additionally covered by plastic scintillators for charged particle identification. The definition of polar angle $\theta$ and azimuthal angle $\phi$ in the LAB system are indicated as well.\textsc{D. Walther} in \cite{urban}}
+	\label{fig:cb}
+\end{figure} The first three rings in forward direction contain 30 crystals each and build the forward detector, covering the polar angle range $\SI{11.18}{\degree}<\theta<\SI{27.54}{\degree}$. Also the $24^\text{th}$ ring contains 30 crystals, all other rings are made up of 60 crystals. The crystals are shaped like truncated trapezoidal pyramids that cover $\SI{6}{\degree}$ in polar angle $\theta$ and azimuthal angle $\phi$. Only in the first three and the last ring the crystals cover $\SI{12}{\degree}$ in $\phi$. Full coverage in $\phi$ and $80\%$ ($\SI{12}{\degree}<\theta<\SI{156}{\degree}$) coverage in $\theta$ are achieved by the forward detector and the Crystal Barrel. Photons from neutral mesonic decays are very high energetic and will interact with the inorganic scintillator material mainly via pair production \cite{leo}. The produced electrons and positrons will themselves interact mainly via bremsstrahlung such that usually an electromagnetic shower is created upon photon impact that may spread over several crystals. Using crystals with a length of $l=\SI{30}{\centi\meter}$ photons with an energy of up to $\SI{2}{\giga\eV}$ may deposit their entire energy in the calorimeter since the $l$ corresponds to $16.22$ radiation lengths $X_0$ \cite{cbdet}. The transversal spread of a shower is given by the \textsc{M\'oliere} radius which is $\SI{3.8}{\centi\meter}$ for CsI(Tl) \cite{cbdet}. By determining the focal point of the electromagnetic showers an angular resolution of less than $\SI{2}{\degree}$ can be achieved \cite{cbang} while the energy resolution is given by \cite{cbdet}
+\begin{equation}
+	\frac{\sigma_E}{E}=\frac{2.5\%}{\sqrt[4]{E/\si{\giga\eV}}},
+\end{equation}
+depending on the initial photon energy $E$. The energy loss of heavier charged particles, e.g. a proton, is described by the \textsc{Bethe-Bloch} formula \cite{bethe}. Depending on their mass they only deposit their full energy up to a certain threshold energy above which they are characterized as Minimal Ionizing Particles (MIP).
+
+The emitted scintillation light of crystals not belonging to the forward detector is read out using PIN photodiodes. A wavelength shifter ensures meeting the sensitive spectral range of the photodiodes. The long decay times of the scintillation light and the slow preamplifiers following the photodiodes do not allow the determination of a timing information for particles detected in the Crystal Barrel \footnote{As of 2014, the PIN photodiodes have been replaced by avalanche photodiodes (APD) \cite{honisch,urban}, allowing a fast read out that can be used to provide timing information and also as part of the trigger.}, so that the Crystal Barrel is optimized for energy measurements.
+
+Crystals belonging to the forward detector are read out using Photomultipliers. They provide a faster signal, such that timing information for forward detector hits is available with a time resolution of $\text{FWHM}=\SI{1.861\pm0.016}{\nano\s}$ \cite{hartmanndipl}. Additionally plastic scintillator plates are mounted in front \cite{wendel}, allowing the identification of charged particles with an efficiency of $72\%$ \cite{fw}. Optical fibers guide the scintillation light from the plates to photomultipliers.
+\subsection{MiniTAPS}
+\label{sec:mt}
+Since the Crystal Barrel only covers the solid angle starting at $\theta\approx\SI{12}{\degree}$. It is supplemented by the Mini-Two-Arm-Photon-Spectrometer (MiniTAPS) \cite{mt1,mt2} for polar angles $\SI{1}{\degree}<\theta<\SI{12}{\degree}$. The MiniTAPS detector is placed in a distance of $d=\SI{2.1}{\m}$ from the target and consists of 216 hexagonally shaped BaF$_2$ crystals, see Figure \ref{fig:minitaps}. Each crystal has a length of $l=\SI{25}{\centi\m}$ which is equivalent to 12 radiation lengths \cite{mtrad} and a width of $w=\SI{5.8}{\centi\meter}$. The chosen material has a high density and is able to withstand high reaction rates \cite{prop}. This is important here because most reactions will be strongly boosted in forward direction towards small $\theta$. Different mechanisms of scintillation allow to extract a fast and a slow component \cite{leo} which are read out using photomultipliers and separately used for timing and energy information, respectively. Hereby a time resolution of $\text{FWHM}=\SI{0.872\pm0.006}{\nano\s}$ \cite{hartmanndipl} and an energy resolution of \cite{mt1} \begin{equation}
+	\frac{\sigma_E}{E}=1.9\%+0.59\%\cdot\sqrt{E/\si{\giga\eV}}
+	\end{equation}
+is achieved. At the same time an angular precision of $\SI{0.2}{\degree}$ in $\theta$ is reached. 
+
+In front of each BaF$_2$ crystal, plastic scintillator plates are mounted to identify charged particles. Their scintillation light is guided towards photomultipliers using optical fibers. With these scintillators a time resolution of $\text{FWHM}=\SI{3.06\pm0.05}{\nano\second}$ is obtained \cite{hartmanndipl}. 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.5\linewidth]{figs/mini-taps.pdf}
-	\caption{\cite{cb}}
+	\caption{The MiniTAPS detector is made up of 216 BaF$_2$ crystals (grey). In front of each crystal, plastic scintillators are mounted for charged particle information. Taken from \cite{cb}.}
+	\label{fig:minitaps}
 \end{figure}
+\subsection{\textsc{\v Cerenkov} detector}
+\label{sec:cerenkov}
+When the photon beam impinges on the proton target, not only hadronic reactions are induced but also electromagnetic reactions. Because the beam energy is very high on the scale of electromagnetic interactions, any produced electrons and positrons are highly relativistic and boosted to small polar angles. To suppress these events already during data acquisition a \textsc{\u Cerenkov} detector \cite{cerenkov} is positioned between the MiniTAPS calorimeter and the Crystal Barrel, see Figure \ref{fig:cbarea}. It is filled with CO$_2$ gas where \textsc{\v Cerenkov} light is emitted by electrons or positrons above an energy of $\SI{17.4}{\mega\eV}$. This follows from the refractive index which is given as $n_{\text{CO}_2}=1.00045$ \cite{prop}. The emitted \textsc{\u Cerenkov} radiation is focused on a photodiode using a parabolic mirror. The presence of a signal can then be used as veto during data acquisition to reduce the amount of recorded electromagnetic background. Electrons and positrons are detected with an efficiency of up to $(99.72\pm0.45)\%$ \cite{cerenkov}.
+\subsection{Flux monitoring}
+\label{sec:flumo}
+The FluMo and GIM detector are used to determine the total number of photons incident on the target and are located behind the MiniTAPS detector, as is shown in Figure \ref{fig:cbarea}.
+
+The GIM detector \cite{gim} is made of 16 PbF$_2$ crystals placed in a $4\times4$ array, see Figure \ref{fig:gim}. Incoming photons will interact with the material mainly via pair production \cite{leo}. The produced electrons and positrons are highly relativistic and will emit \textsc{\v Cerenkov} light that is collected with photomultipliers. For reaction rates higher than $\SI{5}{\mega\Hz}$ the GIM detector efficiency decreases significantly. For rates above $\SI{7}{\mega\Hz}$ more than $10\%$ of events are not registered \cite{hartmanndipl}. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{flumo.pdf}
+	\caption{The two detectors FluMo and GIM are used to monitor the photon flux at different reaction rates. \textsc{D. Walther} in \cite{farahphd}.}
+	\label{fig:gim}
+\end{figure}  
+To compensate this the FluMo detector \cite{flumo} is used as soon as deadtime effects influence the performance of the GIM detector. A converter plate made of lead, two scintillators and a veto detector are part of the FluMo detector. Impinging photons may create electron positron pairs that are detected in a coincidence measurement using the two scintillators. A plastic scintillation detector is placed before the converter plate and gives a veto signal if charged particles pass through it.
 
 \section{Trigger}
 \label{sec:trig}
