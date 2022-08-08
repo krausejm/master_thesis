@@ -131,7 +131,55 @@ To compensate this the FluMo detector \cite{flumo} is used as soon as deadtime e
 
 \section{Trigger}
 \label{sec:trig}
-
+To minimize the volume of data that is saved to disk for offline analysis, data is only digitized if certain predefined patterns in the detector signals are present. The search for predefined patterns is managed by the trigger of the experiment. The analyzed data sets were acquired using the \emph{vme\_trig42c} trigger \cite{trig1,trig2}. The trigger requires configuration to be sensitive to hadronic photoproduction reactions and at the same time reject unwanted background events. This is achieved using Field Programmable Gate Arrays (FPGAs) which allows to split the trigger into two levels: At first level all detectors with a fast read out system (up to \SI{250}{\nano\s}) are checked for hits. At the second level the number of detected particles in the Crystal Barrel is determined using the Fast Cluster Encoder (FACE), which can take up to $\SI{10}{\micro\s}$ \cite{face}. It is always demanded that at least two particles are measured in either forward, MiniTAPS or Crystal Barrel detector while no veto from the \textsc{\v Cerenkov} detector is measured. Any information from the Crystal Barrel is only available in the second level because of the slow readout.
 \section{Software and Monte Carlo}
 \label{sec:mc}
+In order to proceed with the offline data analysis of CBELSA/TAPS, several software tools are used that are described briefly in the following.
+\subsection{ExPLORA}
+Within the CBELSA/TAPS collaboration an analysis software has been developed named \emph{Extended Pluggable Object-oriented Root Analysis (ExPLORA)} \cite{explora}. It is based on \emph{ROOT} \cite{root} and is used for reconstruction and analysis of acquired raw data. \emph{ROOT} has been developed at CERN to deal with a high amount of data. It makes use of \emph{C++} libraries that give it high funcitonality regarding statistical analyses, visualizations and data management. \emph{ExPLORA} is also written in \emph{C++} but is operated by the use of \emph{xml} files. This allows user specific extensions in the form of plugins that manage e.g. the application of cuts and the filling of histograms. In order to select candidates for the reaction $\gamma p\to p\eta'\to p\gamma\gamma$ a \emph{C++} plugin has been written that was embedded into a \emph{xml} file which managed the application of calibrations and reconstruction. For further anaylsis of the selected data, scripts in \emph{ROOT} and \emph{python} have been written. In appendix \ref{app:soft} an example \texttt{.xml} file is displayed.
+\subsection{Monte Carlo}
+In order to determine detector and analysis acceptances as well as possible background contributions it is convenient to simulate the according detector geometry and the interaction of particles with the material using the Monte Carlo technique \cite{mc}. Based on the CERN-developed software package \emph{Geant3} (Geometry and Tracking) \cite{g3} a simulation of the CBELSA/TAPS experiment was developed using the Virtual Monte Carlo technique \cite{kalisch}. Hereby the particles' interaction with the detector materials are modeled according to existing experimental data. Simulated datasets may then be analyzed in the same way as measured data in order to check consistency with the measured data as well as investigating detection efficiencies and background contributions. Table \ref{tab:mc} shows the simulated datasets that were used during the analysis and how many events were generated for each reaction, respectively. The reactions $\gamma p\to p2\pi^0\to p4\gamma$ $\gamma p\to p\pi^0\eta\to p4\gamma$ proved to be responsible for background contamination after the event selection (see Chapter \ref{chap:events}). These reactions were simulated while additionally weighting all events according to the production cross section determined from a BnGa fit \cite{bnga1,bnga2}.  These Monte Carlos were kindly provided by \textsc{P. Mahlberg} \cite{mahlbergphd}.
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{cc}
+		\toprule
+		Reaction & Number of events\\
+		\hline
+		$\gamma p \to p\pi^0$ & $60\cdot10^6$\\
+		$\gamma p \to p\eta$ & $30\cdot10^6$\\
+		$\gamma p \to p\omega\to p\pi^0\gamma$ & $30\cdot10^6$\\
+		$\gamma p \to p\eta'\to p\gamma\gamma$ & $30\cdot10^6$\\
+		$\gamma p \to p2\pi^0$ & $60\cdot10^6$\\
+		$\gamma p \to p\pi^0\eta$ & $60\cdot10^6$\\
+		$\gamma p \to p3\pi^0$ & $30\cdot10^6$\\
+		$\gamma p \to p2\pi^0\eta$ & $30\cdot10^6$\\
+		$\gamma p \to n\pi^+$ & $30\cdot10^6$\\
+		$\gamma p \to p\pi^+\pi^-$ & $30\cdot10^6$\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\subsection{Stan}
+All \textsc{Bayesian} fits that are presented in this thesis are performed using the progamming language \emph{Stan} \cite{stan}. \emph{Stan} is highly functional for statistical modeling and high-performance statistical computation. Full \textsc{Bayesian} statistical inferences can be made with MCMC sampling as well as approximate \textsc{Bayesian} inference with variational inference and penalized maximum likelihood estimation with optimization \cite{stan}. Stan is written in \emph{C++} and can thus handle a large amount of data very efficiently. Interfaces for different data analysis languages are available. In this thesis, the \emph{Python} \cite{python} front-end of \emph{Stan}, called \emph{CmdStanPy} was used. Hereby, the model is specified in a \texttt{.stan} file which is read and compiled from \emph{Python}. All sampling statements and results can then be accessed directly from \emph{Python}, e.g. using the package \texttt{pandas} \cite{pandas}. Appendix \ref{app:soft} shows an example of a \texttt{.stan} file that can be used for the simple example of a linear fit.
 \section{Datasets}
+The data that was analyzed in the course of this thesis was taken in the period of July 2013 to October 2013. Unpolarized electrons from ELSA were incident on a diamond radiator with $\SI{500}{\micro\meter}$ thickness with a beam energy of $E_0=\SI{3.2}{\giga\eV}$ and a beam current of roughly $\SI{1}{\nano\ampere}$. Thus, linearly polarized photons were created that impinged on a liquid hydrogen target. All beam times used the \emph{vme\_trig42c} that has been described previously.
+
+The coherent edge position was chosen at $\SI{1750}{\mega\eV}$ for the July and August beam times and at $\SI{1850}{\mega\eV}$ for the September and October beam times, enabling an analysis of the beam asymmetry $\Sigma$ in the beam energy range from $E_\gamma\approx\SI{1100}{\mega\eV}$ to $\SI{1800}{\mega\eV}$.  4919 runs were taken in total  with alternating radiator orientation $\alpha^{\parallel/\bot}=\SI{45}{\degree}$, see Figure \ref{fig:angles}. The photon beam polarization was determined as part of the work \cite{farahphd} using ANB calculations, as described in Section \ref{sec:pol}. Table \ref{tab:sumbeam} shows a summary of the key parameters of the 2013 beam time taken at the CBELSA/TAPS experiment.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{ccc}
+		\toprule
+\textbf{beamtime} & \textbf{number of runs (h)} & \textbf{coherent edge position}\\
+\hline
+July 2013 & 513 (111) & \SI{1750}{\mega\eV}\\	
+August 2013 & 1832 (396) & \SI{1750}{\mega\eV}\\		
+September 2013 & 1490 (323) & \SI{1850}{\mega\eV}\\		
+October 2013 & 1084 (235) & \SI{1850}{\mega\eV}\\			
+\bottomrule
+\end{tabular}
+\caption{Summary of the key parameters of the 2013 beam time at CBELSA/TAPS taken for the measurement of the beam asymmetry $\Sigma$. Taken from \cite{farahphd}.}
+\label{tab:sumbeam}
+\end{table}
+
+
+

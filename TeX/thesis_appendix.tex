@@ -1,4 +1,40 @@
 %------------------------------------------------------------------------------
+\chapter{Illustration of used software tools}
+\section{ExPLORA}
+Figure \ref{fig:xml} shows an example of a \texttt{.xml} file that was used to call the plugin that was written to select the reaction $\gamma p\to p\eta'\to p\gamma\gamma$. First of all, several files have to be included in order to acquire certain \emph{containers} that inhibit the raw data of the final state particles. Then the plugin is embedded with the options 
+\begin{itemize}
+	\item \texttt{MC} (bool) -- determines whether Monte Carlo or measured data are analyzed 
+	\item \texttt{PWA} (bool) -- determines whether used Monte Carlo simulation have PWA weights
+	\item \texttt{FOURGAMMAS} (bool) -- determines whether the generated final state has four photons or two
+	\item \texttt{REALGAMMAS} (bool) -- determines whether real photons are part of the decay or not (e.g. $n\pi^+$)
+	\item \texttt{allroutes} (CBTConfigString) -- gives the container that contains the routes of charged particles
+\end{itemize}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../demonstration/new_gg.png}
+	\caption{Example \texttt{.xml} file that was used to call the plugin \texttt{CBTetaprimeanalysis.cpp} (line 20) with several self defined options.}
+	\label{fig:xml}
+\end{figure}
+\section{Stan}
+The simplest regression that can be made with \emph{Stan} is of the form
+\begin{equation}
+	y=a\cdot x +b+\epsilon.
+\end{equation}
+Here $y$ is a measured quantity with \textsc{Gaussian} noise $\epsilon$, $x$ are predictors and $a$ and $b$ are slope and intercept of a linear regression. Assuming each datapoint $y_n$ is independent and exhibits an individual noise term $\epsilon_n\sim\mathcal{N}(0,\sigma_n)$, the likelihood $p(y|a,b)$ can be formulated as
+\begin{align}
+	y_n\sim\mathcal{N}(a\cdot x_n +b,\sigma_n)&&\Leftrightarrow& &p(y|a,b)=\prod_{i=1}^N\mathcal{N}(y_n|a\cdot x+b,\sigma_n),
+\end{align} 
+if there are $N$ datapoints in total. Specifying e.g. normal priors for the two regression coefficients $a$ and $b$ completes the inference
+\begin{align}
+	a\sim\mathcal{N}(0,1)&&b\sim\mathcal{N}(0,1).
+\end{align}
+Figure \ref{fig:stan} shows the implementation of the described model in \emph{Stan}. First of all, all data that is read in has to be defined. Conveniently this can be done using the \texttt{vector} class, that corresponds to a list of e.g. all $x$ values. Next, the parameters of the model are defined and lastly the likelihood and priors are specified.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../demonstration/stanfile.png}
+	\caption{Example \texttt{.stan} file that can be used to perform a simple linear fit.}
+	\label{fig:stan}
+\end{figure}
 \chapter{Additional plots and calculations}
 \label{sec:app}
 %------------------------------------------------------------------------------
