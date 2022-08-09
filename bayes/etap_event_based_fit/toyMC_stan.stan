@@ -79,10 +79,10 @@ sigma ~ normal(0,1) T[-1,1];
 sigma_bkg ~ normal(0,1) T[-1,1];
 sigma_2pi0 ~uniform(-1,1);
 //sigma_2pi0 ~ normal(mu_sigma_2pi0,std_sigma_2pi0);
-sigma_2pi0_meas ~ normal(sigma_2pi0,dsigma_2pi0_meas);
+sigma_2pi0~ normal(sigma_2pi0_meas,dsigma_2pi0_meas);
 //loop over prmpt peak events
 for(k in 1:N){
-    target+=log(f*mypdf(phi_prmpt[k],pol_prmpt[k],f_s*sigma+f_b*sigma_2pi0_meas,a,b)+(1-f)*mypdf(phi_prmpt[k],pol_prmpt[k],sigma_bkg,a_bkg,b_bkg));
+    target+=log(f*mypdf(phi_prmpt[k],pol_prmpt[k],f_s*sigma+f_b*sigma_2pi0,a,b)+(1-f)*mypdf(phi_prmpt[k],pol_prmpt[k],sigma_bkg,a_bkg,b_bkg));
 }
 //loop over sideband events
 for(k in 1:M){
