@@ -2,6 +2,7 @@
 
 %==============================================================================
 \chapter{Introduction}
+\newcommand{\btheta}{\boldsymbol{\theta}}
 \label{chap:intro}
 %This chapter will give a brief introduction into the theoretical concepts that motivate this work. First the Standard Model of Particle Physics is sketched along with characteristics of the strong interaction. Next, the photoproduction of mesons and the importance of polarization observables is explained. Lastly the particular motivation and structure of this work will be presented.
 %==============================================================================
@@ -162,7 +163,7 @@ To determine the beam asymmetry (see Chapter \ref{chap:sigma}) \textsc{Bayesian}
 \subsection{Notation}
  First of all, a probabilistic notation is introduced that will consequently be used throughout the remainder of this thesis to ease the formulation of \textsc{Bayesian} models and inferences. Hereby the \textsc{Bayesian} approach is directly applied to the context of parameter inference. 
  
- \noindent\textsc{Bayesian} parameter inference aims to draw statistical conslusions about parameters\\ $\boldsymbol{\theta}=\{\theta_1,\theta_2,...,\theta_N\}$ conditioned on observed data $y$ in the form of probability statements \cite{bayes}. The probability density of the introduced parameters $\boldsymbol{\theta}$ \emph{given} the observed data $y$ is written as 
+ \noindent\textsc{Bayesian} parameter inference aims to draw statistical conslusions about parameters\\ $\boldsymbol{\theta}=\{\theta_1,\theta_2,\dots,\theta_N\}$ conditioned on observed data $y$ in the form of probability statements \cite{bayes}. The probability density of the introduced parameters $\boldsymbol{\theta}$ \emph{given} the observed data $y$ is written as 
  \begin{equation}
  	 p(\boldsymbol{\theta}|y).
  \end{equation}
@@ -172,9 +173,35 @@ Distributions that are not conditioned on other observables, i.e. marginal or pr
 \end{equation}
 If a parameter $\theta$ follows a well known probability density function (PDF) like a \textsc{Gaussian} $\mathcal{N}$ with mean $\mu$ and standard deviation $\sigma$ or \textsc{Poisson} distribution $\mathcal{P}$ with mean $\tilde{\mu}$ this is notated as
 \begin{align}
-	bl
+	\theta\sim\mathcal{N}(\mu,\sigma) &&\Leftrightarrow&& p(\theta)=\mathcal{N}(\theta|\mu,\sigma)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(\theta-\mu)^2}{2\sigma^2}},\\
+	\tilde{\theta}\sim\mathcal{P}(\tilde{\mu})&&\Leftrightarrow&&p(\tilde{\theta})=\mathcal{P}(\tilde{\theta}|\tilde{\mu})=\frac{\tilde{\mu}^\theta}{\tilde{\theta}!}e^{-\tilde{\mu}}.
 \end{align}
 \subsection{\textsc{Bayes}' theorem}
+\textsc{Bayes'} theorem allows to link the conditional probabilities $p(\boldsymbol{\theta}|y)$ and $p(y|\boldsymbol{\theta})$ and can be formulated as \cite{bayes}
+\begin{equation}
+	p(\boldsymbol{\theta}|y)=\frac{p(y|\boldsymbol{\theta})\cdot p(\boldsymbol{\theta})}{p(y)}.
+	\label{eq:bayes}
+\end{equation}
+In this context, $p(y|\boldsymbol{\theta})$ is called the \emph{likelihood} that the data $y$ are described by the parameters $\boldsymbol{\theta}$. The second factor in the enumerator on the right hand side of Eq. \eqref{eq:bayes} is called the \emph{prior} of the parameters $\boldsymbol{\theta}$. It gives their probability density prior to acquiring any information from the model. The denominator $p(y)$ is a normalizing constant, for which it holds
+\begin{equation}
+	p(y)=\int_{\boldsymbol{\theta}}\text{d}\boldsymbol{\theta}p(y|\boldsymbol{\theta})\cdot p(\boldsymbol{\theta}).
+	\label{eq:norm}
+\end{equation}
+With increasing complexity of the investigated data and model, evaluating the integral \eqref{eq:norm} can become challenging, if not impossible. But since for a fixed dataset it is in fact only a normalizing constant, one can choose to not evaluate it to arrive at the unnormalized \emph{posterior} on the left hand side of Eq. \ref{eq:bayes} and \ref{eq:unnorm}
+\begin{equation}
+		p(\boldsymbol{\theta}|y)\propto p(y|\boldsymbol{\theta})\cdot p(\boldsymbol{\theta}).
+		\label{eq:unnorm}
+\end{equation}
+The posterior gives the probability density function of the parameters $\boldsymbol{\theta}$ conditioned on the observed data $y$.  For each parameter $\theta_n\in\boldsymbol{\theta}$ a one dimensional marginal posterior can be determined by integrating out all other parameters \cite{sivia}
+\begin{equation}
+	\label{eq:marpost}
+	p(\theta_n|y)=\int\text{d}\theta_1\dots\int\text{d}\theta_{n-1}\int\text{d}\theta_{n-1}\dots\int\text{d}\theta_Np(\theta_1\dots\theta_N|y).
+\end{equation}
+Determining marginal posteriors is the main goal of a \textsc{Bayesian} parameter inference. They give probability densities for each individual parameter based on the observed data and are the equivalent to point estimates with error bars that are e.g. determined from a $\chi^2$ parameter fit but at the same time yield full distributions as a result. The determination of marginal posteriors with the ansatz formulated in Eq. \ref{eq:marpost} can become a highly non-trivial task using analytical methods with increasing number of parameters and complexity of the investigated model, so that the use of Monte-Carlo sampling is a suitable approach.
+\subsection{\textsc{Markov}-Chain-Monte-Carlo (MCMC)}
+Consider using Eq. \eqref{eq:unnorm} to determine unnormalized marginal posteriors for all parameters $\btheta$ without carrying out the integrations \eqref{eq:marpost}. This can be achieved by approximating the multidimensional joint unnormalized posterior $p(\btheta|y)$ using a large number of simulation draws $\btheta^{(s)}$ and projecting out each parameter $\theta_n$ while ignoring all other parameters $\theta_{k\neq n}$ \cite{Trotta_2008}. Thus, to perform a parameter inference, the main task is to accomplish the drawing of samples $\btheta^{(s)}$ that follow the joint posterior in order to access the marginal posteriors.
+
+\textsc{Markov} chains are a finite sequence of  random variables $\btheta^{1},\btheta^{2}\dots\btheta^S$ where for each step $t$ the quantity $\btheta^t$ only depends on the previous $\btheta^{t-1}$ and is independent  of all other previous chain elements \cite{bayes}. Such a chain is created by starting at some initial value $\btheta^0$ and generate new draws from a transition distribution $T_t(\btheta^t\btheta^{t-1})$. The transition probabilities $T_t$ can be constructed such that the \textsc{Markov} chain reaches a stationary distribution which is the desired joint posterior \eqref{eq:unnorm} \cite{bayes,norris_1997}. A variety of algorithms exist to ensure the convergence of \textsc{Markov}
 \subsection{Comparison of \textsc{Bayesian} and Frequentist approach}
 \subsubsection{Frequentist Approach}
 The traditional approach to this fitting problem is a $\chi^2$ fit. Assume there are $N$ precise predictors $\{x_i\}$ and corresponding measurements $\{y_i\}$ with measurement errors $\{\sigma_i\}$. Additionally, the data $y$ is expected to follow a functional $y=f(x,\boldsymbol{\theta})$ with parameter(s) $\boldsymbol{\theta}$ and predictors $x$. Then the test statistic \begin{equation}
