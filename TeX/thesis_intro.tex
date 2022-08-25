@@ -201,7 +201,43 @@ Determining marginal posteriors is the main goal of a \textsc{Bayesian} paramete
 \subsection{\textsc{Markov}-Chain-Monte-Carlo (MCMC)}
 Consider using Eq. \eqref{eq:unnorm} to determine unnormalized marginal posteriors for all parameters $\btheta$ without carrying out the integrations \eqref{eq:marpost}. This can be achieved by approximating the multidimensional joint unnormalized posterior $p(\btheta|y)$ using a large number of simulation draws $\btheta^{(s)}$ and projecting out each parameter $\theta_n$ while ignoring all other parameters $\theta_{k\neq n}$ \cite{Trotta_2008}. Thus, to perform a parameter inference, the main task is to accomplish the drawing of samples $\btheta^{(s)}$ that follow the joint posterior in order to access the marginal posteriors.
 
-\textsc{Markov} chains are a finite sequence of  random variables $\btheta^{1},\btheta^{2}\dots\btheta^S$ where for each step $t$ the quantity $\btheta^t$ only depends on the previous $\btheta^{t-1}$ and is independent  of all other previous chain elements \cite{bayes}. Such a chain is created by starting at some initial value $\btheta^0$ and generate new draws from a transition distribution $T_t(\btheta^t\btheta^{t-1})$. The transition probabilities $T_t$ can be constructed such that the \textsc{Markov} chain reaches a stationary distribution which is the desired joint posterior \eqref{eq:unnorm} \cite{bayes,norris_1997}. A variety of algorithms exist to ensure the convergence of \textsc{Markov}
+\textsc{Markov} chains are a finite sequence of  random variables $\btheta^{1},\btheta^{2}\dots\btheta^S$ where for each step $t$ the quantity $\btheta^t$ only depends on the previous $\btheta^{t-1}$ and is independent  of all other previous chain elements \cite{bayes}. Such a chain is created by starting at some initial value $\btheta^0$ and generate new draws from a transition distribution $T_t(\btheta^t|\btheta^{t-1})$. The transition probabilities $T_t$ can be constructed such that the \textsc{Markov} chain reaches a stationary distribution which is the desired joint posterior \eqref{eq:unnorm} \cite{bayes,norris_1997}. A variety of algorithms exist to ensure the convergence of \textsc{Markov} chains. 
+\subsubsection{\textsc{Metropolis-Hastings} algorithm}
+A first approach is the \textsc{Metropolis-Hastings} algorithm \cite{met,methast}. Here, at step $t$ in the chain random proposals $\btheta^*$ are drawn from the transition distribution $T_t(\btheta^*|\btheta)$. To proceed in the algorithm, the ratio of posteriors
+\begin{equation}
+	r=\frac{p\left(\btheta^*|y\right)\cdot T_t\left(\btheta^{t-1}|\btheta^*\right)}{p\left(\btheta^{t-1}|y\right)\cdot  T_t\left(\btheta^*|\btheta^{t-1}\right)}
+\end{equation} 
+is considered. If the new proposal $\btheta^*$ increases the posterior density, i.e. $r>0$, it is accepted with probability $1$, such that $\btheta^t=\btheta^*$. In the case $r<0$ the update $\btheta^t=\btheta^*$ is only accepted with probability $r$ and otherwise discarded so that $\btheta^t=\btheta^{t-1}$ \cite{bayes}. The \textsc{Metropolis}-Hastings algorithm exhibits the behavior of a random walk in the parameter space \cite{bayes}. Figure \ref{fig:ex} shows an example of five independent \textsc{Markov}-chains generated with the described algorithm for a two dimensional parameter $\btheta$ with a bivariate normal distribution as posterior $\btheta\sim\mathcal{N}(0,\mathds{1}_2)$ at different stages in the simulation \cite{bayes}. It is evident that \textsc{Markov} chains require a \enquote{burn-in} period before the simulation draws are a valid approximation of the target distribution that has to be chosen in the context of the applied model \cite{bayes}.     
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{randomwalk}
+\caption{Five different MCMC simulations for a bivariate normal distribution, with starting points marked by black squares. Left: After 50 iterations no convergence is yet to be seen. Middle: After 1000 iterations the chains are closer to convergence. Right: Removing the first halve of simulation draws leaves a set of draws from the target distribution. Taken from \cite{bayes}}
+\label{fig:ex}
+\end{figure}
+\subsubsection{\textsc{Hamiltonian} Monte-Carlo (HMC) and No-U-Turn-Sampling (NUTS)}
+The random walk behavior of the \textsc{Metropolis-Hastings} algorithm can make computation of complex models very inefficient \cite{bayes}, therefore more sophisticated methods have been developed. \textsc{Hamiltonian} Monte-Carlo (HMC) \cite{hmc} is an elaborate algorithm that allows to explore the parameter space much more efficient than a simple random walk. It will be described qualitatively in the following, for a detailed discussion see e.g. reference \cite{bayes}. At the heart of the HMC algorithm lies an accept-reject step that is similar to the \textsc{Metropolis-Hastings} algorithm. To arrive at new proposals $\btheta^*$ at step $t$ in the chain however an additional auxiliary variable $\boldsymbol{\phi}$ is introduced that has the same dimension as the parameters $\btheta$ but is independent of $\btheta$ and the data $y$. Introducing the new parameters leads to the joint posterior \cite{stan} 
+\begin{equation}
+	\begin{aligned}
+		p(\btheta,\boldsymbol{\phi}|y)&=p(\btheta|y)\cdot p(\boldsymbol{\phi}|\boldsymbol{\theta},y)=p(\boldsymbol{\phi})\\
+		\Leftrightarrow-\log p(\btheta,\boldsymbol{\phi}|y)&=-\log p(\btheta|y)-\log p(\phi)\\
+		\overset{\text{Def.}}{\Leftrightarrow} H(\btheta,\boldsymbol{\phi}) &:=V(\boldsymbol{\theta})+T(\boldsymbol{\phi}), 	
+	\end{aligned}
+\end{equation} 
+where in the last step the artificial \textsc{Hamiltonian} $H$ has been introduced as a sum of kinetic energy $T$ and potential $V$. Usually, one chooses $p(\boldsymbol{\phi})$ to be a multivariate normal centered at $0$ with covariance matrix $M$ \cite{bayes}. Applying the well known equations of motion to this \textsc{Hamiltonian} one finds 
+\begin{align}
+	\frac{\text{d}\theta_i}{\text{d}t}=\frac{\partial H}{\partial \phi_i}=\frac{\partial T}{\partial \phi_i} && \frac{\text{d}\phi_i}{\text{d}t}=-\frac{\partial H}{\partial \theta_i}=-\frac{\partial V}{\partial \theta_i}.
+\end{align}
+This allows the simultaneous direct numerical integration to evolve \enquote{position} and \enquote{momentum} in $L\cdot\epsilon$ discrete time steps with the so-called \emph{Leap-Frog} algorithm \cite{leapfrog}. Consequently $L$ is called the number of Leap-Frog steps and $\epsilon$ is the scale on which the time is discretized. After performing $L$ Leap-Frog steps a proposal $\left(\btheta^*,\boldsymbol{\phi}^*\right)$ is fed into a \textsc{Metropolis-Hastings} accept-reject step that is then used to update the current parameter value in the \textsc{Markov} chain at position $t$. The auxiliary momentum is discarded because it is drawn anew at the next iteration from its posterior distribution $p(\boldsymbol{\phi})$. When tuned right, the HMC algorithm allows for a rapid exploration of the parameter space \cite{bayes}. An extension of HMC that adaptively determines the number of Leap-Frog steps, the step size $\epsilon$ and covariance matrix $M$ is given by the No-U-Turn-Sampler (NUTS) \cite{nuts}. The number of Leap-Frog steps $L$ is determined individually for each chain iteration $t$; as soon as the distance between the original set $\left(\btheta^{(t-1)},\boldsymbol{\phi}^{t-1}\right)$ and the proposals $\left(\btheta^*,\boldsymbol{\phi}^*\right)$ decreases (i.e. the trajectory makes a U-Turn in parameter space) the Leap-Frog integrator is stopped. The step size $\epsilon$ and covariance matrix $M$ are determined during the warm-up phase and then kept fixed for all iterations that are saved for posterior inference \cite{bayes}.
+\subsection{Diagnosing convergence of \textsc{Markov}-chains}
+
+\subsection{Combining inferences}
+\label{subsec:combinf}
+
+
+
+\subsection{Posterior predictive checks}
+
+\subsection{Choosing a prior}
 \subsection{Comparison of \textsc{Bayesian} and Frequentist approach}
 \subsubsection{Frequentist Approach}
 The traditional approach to this fitting problem is a $\chi^2$ fit. Assume there are $N$ precise predictors $\{x_i\}$ and corresponding measurements $\{y_i\}$ with measurement errors $\{\sigma_i\}$. Additionally, the data $y$ is expected to follow a functional $y=f(x,\boldsymbol{\theta})$ with parameter(s) $\boldsymbol{\theta}$ and predictors $x$. Then the test statistic \begin{equation}
@@ -214,7 +250,7 @@ and otherwise numerically. The minimization of $\chi^2$ to get best-fit estimate
 if one assumes \textsc{Gaussian} errors at each data point. To maximize the (log-) likelihood with respect to all parameters is then equivalent to minimizing $\chi^2$. As a byproduct, the $\chi^2$ fit also gives a goodness of fit estimate which is given by $\chi^2/\text{NDF}\approx 1$, where $\text{NDF}$ are the number of degrees of freedom. Significantly smaller or larger values indicate too small error estimates or a bad fit, respectively. \cite{statistics}
 \subsubsection{Bayesian approach}
 As an alternative
-\subsection{Combining inferences}
-\label{subsec:combinf}
+\section{Current data situation}
+
 \section{Motivation and Structure of this Thesis}
 bla
