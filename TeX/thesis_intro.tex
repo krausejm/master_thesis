@@ -218,8 +218,8 @@ is considered. If the new proposal $\btheta^*$ increases the posterior density, 
 The random walk behavior of the \textsc{Metropolis-Hastings} algorithm can make computation of complex models very inefficient \cite{bayes}, therefore more sophisticated methods have been developed. \textsc{Hamiltonian} Monte-Carlo (HMC) \cite{hmc} is an elaborate algorithm that allows to explore the parameter space much more efficient than a simple random walk. It will be described qualitatively in the following, for a detailed discussion see e.g. reference \cite{bayes}. At the heart of the HMC algorithm lies an accept-reject step that is similar to the \textsc{Metropolis-Hastings} algorithm. To arrive at new proposals $\btheta^*$ at step $t$ in the chain however an additional auxiliary variable $\boldsymbol{\phi}$ is introduced that has the same dimension as the parameters $\btheta$ but is independent of $\btheta$ and the data $y$. Introducing the new parameters leads to the joint posterior \cite{stan} 
 \begin{equation}
 	\begin{aligned}
-		p(\btheta,\boldsymbol{\phi}|y)&=p(\btheta|y)\cdot p(\boldsymbol{\phi}|\boldsymbol{\theta},y)=p(\boldsymbol{\phi})\\
-		\Leftrightarrow-\log p(\btheta,\boldsymbol{\phi}|y)&=-\log p(\btheta|y)-\log p(\phi)\\
+		p(\btheta,\boldsymbol{\phi}|y)&=p(\btheta|y)\cdot p(\boldsymbol{\phi}|\boldsymbol{\theta},y)=p(\btheta|y)\cdot p(\boldsymbol{\phi})\\
+		\Leftrightarrow-\log p(\btheta,\boldsymbol{\phi}|y)&=-\log p(\btheta|y)-\log p(\boldsymbol{\phi})\\
 		\overset{\text{Def.}}{\Leftrightarrow} H(\btheta,\boldsymbol{\phi}) &:=V(\boldsymbol{\theta})+T(\boldsymbol{\phi}), 	
 	\end{aligned}
 \end{equation} 
@@ -227,9 +227,59 @@ where in the last step the artificial \textsc{Hamiltonian} $H$ has been introduc
 \begin{align}
 	\frac{\text{d}\theta_i}{\text{d}t}=\frac{\partial H}{\partial \phi_i}=\frac{\partial T}{\partial \phi_i} && \frac{\text{d}\phi_i}{\text{d}t}=-\frac{\partial H}{\partial \theta_i}=-\frac{\partial V}{\partial \theta_i}.
 \end{align}
-This allows the simultaneous direct numerical integration to evolve \enquote{position} and \enquote{momentum} in $L\cdot\epsilon$ discrete time steps with the so-called \emph{Leap-Frog} algorithm \cite{leapfrog}. Consequently $L$ is called the number of Leap-Frog steps and $\epsilon$ is the scale on which the time is discretized. After performing $L$ Leap-Frog steps a proposal $\left(\btheta^*,\boldsymbol{\phi}^*\right)$ is fed into a \textsc{Metropolis-Hastings} accept-reject step that is then used to update the current parameter value in the \textsc{Markov} chain at position $t$. The auxiliary momentum is discarded because it is drawn anew at the next iteration from its posterior distribution $p(\boldsymbol{\phi})$. When tuned right, the HMC algorithm allows for a rapid exploration of the parameter space \cite{bayes}. An extension of HMC that adaptively determines the number of Leap-Frog steps, the step size $\epsilon$ and covariance matrix $M$ is given by the No-U-Turn-Sampler (NUTS) \cite{nuts}. The number of Leap-Frog steps $L$ is determined individually for each chain iteration $t$; as soon as the distance between the original set $\left(\btheta^{(t-1)},\boldsymbol{\phi}^{t-1}\right)$ and the proposals $\left(\btheta^*,\boldsymbol{\phi}^*\right)$ decreases (i.e. the trajectory makes a U-Turn in parameter space) the Leap-Frog integrator is stopped. The step size $\epsilon$ and covariance matrix $M$ are determined during the warm-up phase and then kept fixed for all iterations that are saved for posterior inference \cite{bayes}.
+This allows the simultaneous direct numerical integration to evolve \enquote{position} and \enquote{momentum} in $L\cdot\epsilon$ discrete time steps with the so-called \emph{Leap-Frog} algorithm \cite{leapfrog}. Consequently $L$ is called the number of Leap-Frog steps and $\epsilon$ is the scale on which the time is discretized. After performing $L$ Leap-Frog steps a proposal $\left(\btheta^*,\boldsymbol{\phi}^*\right)$ is fed into a \textsc{Metropolis-Hastings} accept-reject step that is then used to update the current parameter value in the \textsc{Markov} chain at position $t$. The auxiliary momentum is discarded because it is drawn anew at the next iteration from its posterior distribution $p(\boldsymbol{\phi})$. When tuned right, the HMC algorithm allows for a rapid exploration of the parameter space \cite{bayes}. An extension of HMC that adaptively determines the number of Leap-Frog steps, the step size $\epsilon$ and covariance matrix $M$ is given by the No-U-Turn-Sampler (NUTS) \cite{nuts}. The number of Leap-Frog steps $L$ is determined individually for each chain iteration $t$; as soon as the distance between the original set $\left(\btheta^{(t-1)},\boldsymbol{\phi}^{(t-1)}\right)$ and the proposals $\left(\btheta^*,\boldsymbol{\phi}^*\right)$ decreases (i.e. the trajectory makes a U-Turn in parameter space) the Leap-Frog integrator is stopped. The step size $\epsilon$ and covariance matrix $M$ are determined during the warm-up phase and then kept fixed for all iterations that are saved for posterior inference \cite{bayes}.
 \subsection{Diagnosing convergence of \textsc{Markov}-chains}
+In order to quantitatively monitor the convergence of a \textsc{Markov} chain, there exist several diagnostic tools. Two of them will be introduced in the following. 
+\subsubsection{Potential scale reduction statistic $\widehat{R}$}
+One way to monitor the convergence of a \textsc{Markov} chain towards its equilibrium distribution is to compare its performance to several other independent \textsc{Markov} chains \cite{stan}. Motivated by this \textsc{Gelman} and \textsc{Rubin} introduced the potential scale reduction statistic, $\widehat{R}$ \cite{rhatorig}. It measures the ratio of average variance of the samples within each chain to the variance of the pooled samples across all chains \cite{stan}. If all chains have reached their stationary distribution this ratio will be one and otherwise greater than one \cite{stan}. In practice one should tune the number of samples so that $R\lesssim1.01$ \cite{rhat}. 
 
+The $\widehat{R}$-statistic is defined for a set of $M$ \textsc{Markov} chains $\btheta_m$ with $N$ samples $\btheta_m^{(n)}$. The \emph{between-chain-variance} $B$ is estimated as \begin{equation}
+	B=\frac{N}{M-1}\sum_{m=1}^{M}\left(\bar{\btheta}_m^{(\bullet)}-\bar{\btheta}^{(\bullet)}_\bullet\right)^2,
+\end{equation}
+where
+\begin{align}
+	\bar{\btheta}_m^{(\bullet)}=\frac{1}{N}\sum_{n=1}^{N}\btheta_m^{(n)}, && \bar{\btheta}^{(\bullet)}_\bullet=\frac{1}{M}\sum_{m=1}^{M}\bar{\btheta}_m^{(\bullet)}. 
+\end{align}
+Further the \emph{within-chain variance} $W$ is averaged over all chains
+\begin{equation}
+	W=\frac{1}{M}\sum_{m=1}^{M}s_m^2,
+\end{equation}
+where \begin{equation}
+	s_m^2=\frac{1}{N-1}\sum_{n=1}^{N}\left(\btheta_m^{(n)}-\bar\btheta_m^{(\bullet)}\right)^2.
+\end{equation}
+Combining the between and within chain variances into the \emph{variance estimator}
+\begin{equation}
+	\widehat{\text{var}}^+(\btheta|y)=\frac{N-1}{N}W+\frac{1}{N}B
+\end{equation}
+one finally arrives at the \emph{potential scale reduction statistic}
+\begin{equation}
+	\widehat{R}=\sqrt{\frac{\widehat{\text{var}}^+(\btheta|y)}{W}}.
+\end{equation} 
+The previous definitions and equations can be found in a similar fashion in \cite{stan}. Advanced optimizations to the $\widehat{R}$ statistic include the splitting of all $M$ chains into two parts (split-$\widehat{R}$) to provide an additional means for detecting non-stationarity \cite{stan} and rank normalization \cite{rhat}.
+\subsubsection{Monte-Carlo Standard Error (MCSE)}
+Given $S$ independent simulation draws from a given \textsc{Markov} chain $\btheta^{(s)}$ one can estimate the accuracy of the mean obtained from the posterior distribution for each parameter $\theta_n$ as the so called \emph{Monte-Carlo standard error} (MCSE) 
+\begin{equation}
+	\text{MCSE}_{\theta_n}=\frac{\text{std}(p(\theta_n|y))}{S}=\frac{\text{std}(\theta_n^{(s)})}{S}.
+\end{equation}
+As the mean can be sensitive to few extreme outliers of the posterior distribution, the median of the posterior may provide a better statistic to summarize a parameter inference. \textsc{Vetahri et al.} \cite{rhat} propose the following method to determine a MCSE estimate for any $\alpha$-quantile for a single parameter $\theta_n$:
+\begin{enumerate}
+	\item compute $a$ and $b$ as the $16\%$ and $84\%$ quantile of 
+	\begin{equation}
+		\text{Beta}(S\alpha+1,S(\alpha-1)+1)
+	\end{equation}
+	\item determine $A$ and $B$ as the corresponding quantiles on the original scale of draws
+	\begin{align}
+		A=\theta_n^{(s')} &\text{ where } s'\leq Sa < s'+1 \\
+		B=\theta_n^ {(s'')} &\text{ where } s''-1< Sb\leq s'' 
+	\end{align}
+	\item compute the MCSE estimate of the $\alpha$-quantile as
+	\begin{equation}
+		\text{MCSE}_{\alpha}=\frac{B-A}{2}
+	\end{equation}
+\end{enumerate}
+For the remainder of this thesis the MCSE will refer to $\text{MCSE}_{\alpha=0.5}$.
+
+Each \textsc{Markov} chain element $\btheta^t$ depends on its predecessor $\btheta^{t-1}$. However the element $\btheta^{t-1}$ is derived from $\btheta^{t-2}$ and so on. This means that the elements of the constructed chain are not completely uncorrelated, which is called \emph{autocorrelation} \cite{bayes}. In all above equations $S$ was always specified as the number of \emph{independent} draws from a single chain which is referred to as the \emph{effective sample size} (ESS) in the literature \cite{bayes,rhat}. Because of autocorrelation the effective sample size does not necessarily equal the total number of posterior draws. Determining the autocorrelation allows in turn to determine the ESS from the posterior samples using fast fourier transformations \cite{gey1,gey2}. A detailed description thereof can be found in references \cite{stan,bayes}.
 \subsection{Combining inferences}
 \label{subsec:combinf}
 

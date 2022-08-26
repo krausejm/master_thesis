@@ -1,3 +1,2 @@
-eta prime:
-- event based fit in RooFit
-- calculate sigma minus 2pi0/pi0eta contribution
+update plots in chapter sigma_eta 1.05->1.01
+update Stan part in chapter experiment
