@@ -215,7 +215,9 @@ is considered. If the new proposal $\btheta^*$ increases the posterior density, 
 \label{fig:ex}
 \end{figure}
 \subsubsection{\textsc{Hamiltonian} Monte-Carlo (HMC) and No-U-Turn-Sampling (NUTS)}
-The random walk behavior of the \textsc{Metropolis-Hastings} algorithm can make computation of complex models very inefficient \cite{bayes}, therefore more sophisticated methods have been developed. \textsc{Hamiltonian} Monte-Carlo (HMC) \cite{hmc} is an elaborate algorithm that allows to explore the parameter space much more efficient than a simple random walk. It will be described qualitatively in the following, for a detailed discussion see e.g. reference \cite{bayes}. At the heart of the HMC algorithm lies an accept-reject step that is similar to the \textsc{Metropolis-Hastings} algorithm. To arrive at new proposals $\btheta^*$ at step $t$ in the chain however an additional auxiliary variable $\boldsymbol{\phi}$ is introduced that has the same dimension as the parameters $\btheta$ but is independent of $\btheta$ and the data $y$. Introducing the new parameters leads to the joint posterior \cite{stan} 
+The random walk behavior of the \textsc{Metropolis-Hastings} algorithm can make computation of complex models very inefficient \cite{bayes}, therefore more sophisticated methods have been developed. \textsc{Hamiltonian} Monte-Carlo (HMC) \cite{hmc} is an elaborate algorithm that allows to explore the parameter space much more efficient than a simple random walk. It will be described qualitatively in the following, for a detailed discussion see e.g. reference \cite{bayes}. 
+
+At the heart of the HMC algorithm lies an accept-reject step that is similar to the \textsc{Metropolis-Hastings} algorithm. To arrive at new proposals $\btheta^*$ at step $t$ in the chain however an additional auxiliary variable $\boldsymbol{\phi}$ is introduced that has the same dimension as the parameters $\btheta$ but is independent of $\btheta$ and the data $y$. Introducing the new parameters leads to the joint posterior \cite{stan} 
 \begin{equation}
 	\begin{aligned}
 		p(\btheta,\boldsymbol{\phi}|y)&=p(\btheta|y)\cdot p(\boldsymbol{\phi}|\boldsymbol{\theta},y)=p(\btheta|y)\cdot p(\boldsymbol{\phi})\\
@@ -259,39 +261,87 @@ The previous definitions and equations can be found in a similar fashion in \cit
 \subsubsection{Monte-Carlo Standard Error (MCSE)}
 Given $S$ independent simulation draws from a given \textsc{Markov} chain $\btheta^{(s)}$ one can estimate the accuracy of the mean obtained from the posterior distribution for each parameter $\theta_n$ as the so called \emph{Monte-Carlo standard error} (MCSE) 
 \begin{equation}
-	\text{MCSE}_{\theta_n}=\frac{\text{std}(p(\theta_n|y))}{S}=\frac{\text{std}(\theta_n^{(s)})}{S}.
+	\text{MCSE}_{\theta_n}=\frac{\text{std}(p(\theta_n|y))}{S}=\frac{\text{std}(\theta_n^{(s)})}{S},
 \end{equation}
-As the mean can be sensitive to few extreme outliers of the posterior distribution, the median of the posterior may provide a better statistic to summarize a parameter inference. \textsc{Vetahri et al.} \cite{rhat} propose the following method to determine a MCSE estimate for any $\alpha$-quantile for a single parameter $\theta_n$:
+where $\text{std}(x)$ is the standard deviation of the set $x$. As the mean can be sensitive to few extreme outliers of the posterior distribution, the median of the posterior may provide a better statistic to summarize a parameter inference. \textsc{Vetahri et al.} \cite{rhat} propose the following method to determine a MCSE estimate for any $\alpha$-quantile for a single parameter $\theta_n$:
 \begin{enumerate}
-	\item compute $a$ and $b$ as the $16\%$ and $84\%$ quantile of 
+	\item Compute $a$ and $b$ as the $16\%$ and $84\%$ quantile of 
 	\begin{equation}
-		\text{Beta}(S\alpha+1,S(\alpha-1)+1)
+		\text{B}(S\alpha+1,S(\alpha-1)+1),
 	\end{equation}
-	\item determine $A$ and $B$ as the corresponding quantiles on the original scale of draws
+	where $\text{B}(v,w)=\int_{0}^{1}\text{d}t t^{v-1}(1-t)^{w-1}$ is the Beta-function \cite{math}.
+	\item Determine $A$ and $B$ as the corresponding quantiles on the original scale of draws
 	\begin{align}
 		A=\theta_n^{(s')} &\text{ where } s'\leq Sa < s'+1 \\
-		B=\theta_n^ {(s'')} &\text{ where } s''-1< Sb\leq s'' 
+		B=\theta_n^ {(s'')} &\text{ where } s''-1< Sb\leq s'' ,
 	\end{align}
-	\item compute the MCSE estimate of the $\alpha$-quantile as
+where the samples $\theta_n^{(s)}$ have been sorted in ascending order.
+	\item Compute the MCSE estimate of the $\alpha$-quantile as
 	\begin{equation}
 		\text{MCSE}_{\alpha}=\frac{B-A}{2}
 	\end{equation}
 \end{enumerate}
-For the remainder of this thesis the MCSE will refer to $\text{MCSE}_{\alpha=0.5}$.
+For the remainder of this thesis the MCSE will refer to $\text{MCSE}_{\alpha=0.5}$. Note that the MCSE is only then a sensible quantity when it is compared to the magnitude of e.g. the mean or the median of the posterior draws. Therefore one can define the \emph{relative MCSE} of any posterior $p(\theta_n|y)$ as \begin{equation}
+	\text{rel. MCSE} = \frac{\text{MCSE}}{\text{median}(p(\theta_n|y))}.
+\end{equation}
 
-Each \textsc{Markov} chain element $\btheta^t$ depends on its predecessor $\btheta^{t-1}$. However the element $\btheta^{t-1}$ is derived from $\btheta^{t-2}$ and so on. This means that the elements of the constructed chain are not completely uncorrelated, which is called \emph{autocorrelation} \cite{bayes}. In all above equations $S$ was always specified as the number of \emph{independent} draws from a single chain which is referred to as the \emph{effective sample size} (ESS) in the literature \cite{bayes,rhat}. Because of autocorrelation the effective sample size does not necessarily equal the total number of posterior draws. Determining the autocorrelation allows in turn to determine the ESS from the posterior samples using fast fourier transformations \cite{gey1,gey2}. A detailed description thereof can be found in references \cite{stan,bayes}.
+Each \textsc{Markov} chain element $\btheta^t$ depends on its predecessor $\btheta^{t-1}$. However the element $\btheta^{t-1}$ is derived from $\btheta^{t-2}$ and so on. This means that the elements of the constructed chain are not completely uncorrelated, which is called \emph{autocorrelation} \cite{bayes}. In all above equations $S$ was always specified as the number of \emph{independent} draws from a single chain which is referred to as the \emph{effective sample size} (ESS) in the literature \cite{bayes,rhat}. Because of autocorrelation the effective sample size does not necessarily equal the total number of posterior draws. Determining the autocorrelation allows in turn to determine the ESS from the posterior samples using fast \textsc{Fourier} transformations \cite{gey1,gey2}. A detailed description thereof can be found in references \cite{stan,bayes}.
 \subsection{Combining inferences}
 \label{subsec:combinf}
+If there are several independent parameter inferences, i.e. posteriors $p_1\left(\btheta\big|y^{(1)}\right),p_2\left(\btheta\big|y^{(2)}\right),\dots$, there are several ways to combine the information from all posteriors into a single posterior distribution. The simplest approach is to combine the draws from all posteriors, effectively just increasing the sample size, and histogram them at once. This is the mathematical equivalent of summing all posteriors with equal weight \cite{stone}
+\begin{equation}
+	p(\btheta|y)=\sum_{i=1}^{N}p\left(\btheta\big|y^{(i)}\right).
+\end{equation}
+The resulting distribution will represent the information from all posteriors and allows to evaluate the performance of  a probabilistic model that is applied to several datasets when compared with according expectations. Suppose the combined posterior $p(\btheta|y)$ results in an unimodal \textsc{Gaussian}, then the mean and standard deviation will represent a combined estimate of all posteriors that can be used to summarize the results of all posteriors.
 
+An alternative way of combining probabilistic information is the so called \emph{independent likelihood pool} \cite{likpool} which is a fully \textsc{Bayesian} approach. Consider the combined posterior
+\begin{equation}
+	p\left(\btheta\big|y^{(1)},y^{(2)},\dots,y^{(N)}\right)=\frac{p\left(y^{(1)},y^{(2)},\dots,y^{(N)}\big|\btheta\right)\cdot p(\btheta)}{p\left(y^{(1)},y^{(2)},\dots,y^{(N)}\right)},
+\end{equation}
+where \textsc{Bayes'} theorem has been applied to write the posterior as product of likelihood and prior. Since the datasets $y^{(i)}$ are assumed independent we can write
+\begin{equation}
+	p\left(\btheta\big|y^{(1)},y^{(2)},\dots,y^{(N)}\right)=\frac{\prod_{i=1}^{N}p\left(y^{(i)}|\btheta\right)\cdot p(\btheta)}{p\left(y^{(1)},y^{(2)},\dots,y^{(N)}\right)},
+\end{equation}
+and, applying \textsc{Bayes'} theorem once more
+\begin{align}
+	p\left(\btheta\big|y^{(1)},y^{(2)},\dots,y^{(N)}\right)&=\frac{\prod_{i=1}^{N}p\left(y^{(i)}\right)}{p\left(y^{(1)},y^{(2)},\dots,y^{(N)}\right)}\cdot\frac{\prod_{i=1}^{N}p\left(\btheta |y^{(i)}\right)}{p(\btheta) ^{N-1}}\\
+	\Rightarrow p\left(\btheta\big|y^{(1)},y^{(2)},\dots,y^{(N)}\right)&\propto\frac{\prod_{i=1}^{N}p\left(\btheta |y^{(i)}\right)}{p(\btheta) ^{N-1}}.
+\end{align}
+The above calculations can be found in a similar fashion in \cite{probcomb}. To summarize, the combined posterior can be written as a product of the individual posteriors normalized by the chosen prior. This method of combination is particularly useful when the datasets $y^{(i)}$ are generated data that follow a particular function with known parameters. The combined posterior in a pooled likelihood model allows to evaluate at one glance if the expectations have been met. This includes the widths of the individual posteriors because only when they are a valid approximation of estimated parameter error the combined posterior will be centered around the expected value within its own width. The simple adding of posteriors does not inherently provide this information. However, the application of this method is challenging if the number of posteriors $N\gg1$ since the multiplication has to be carried out bin-wise; the product of posteriors is thus very sensitive to statistical fluctuations since a single empty bin will annihilate all contributions for this particular bin. The multiplication of posteriors has been implemented as a logarithmic sum. 
 
-
+Both presented methods are used in the context of toy Monte Carlo fits (see Chapter \ref{chap:sigma}). 
 \subsection{Posterior predictive checks}
+The quality of a \textsc{Bayesian} inference may be quantitatively investigated using so called \emph{posterior predictive checks}. If the chosen model fits the data, then replicated data generated using the same model should look similar to observed data \cite{bayes}. Samples $y^{\text{rep}, (s)}$ from the posterior predictive distribution
+\begin{equation}
+	p\left(y^\text{rep}|y\right)=\int\text{d}\btheta p\left(y^\text{rep}|\btheta \right)p(\btheta|y)
+\end{equation}
+can be drawn given posterior draws $\btheta^{(s)}\sim p(\btheta|y)$ by randomly generating from the sampling distribution with the parameter draw plugged in \cite{stan}
+\begin{equation}
+	\label{eq:ppd}
+	y^{\text{rep}, (s)}\sim p\left(y|\btheta^{(s)}\right).
+\end{equation}
+In a regression analysis with predictors $x$ the posterior predictive distribution \eqref{eq:ppd} can be generated for each predictor. Introducing the test-statistic $T\left(y^\text{rep}>y\right)$ allows to draw conclusions about the accuracy of the prediction and thus of the chosen model. The test statistic serves as a \textsc{Bayesian} $p$-value $p_B$ \cite{bayes} and will be defined as \begin{equation}
+	p_B=T\left(y^\text{rep}>y\right)=p(y^\text{rep}>y),
+\end{equation}
+i.e. the fraction of replicated samples that exceed the original data points. Values near $0$ or $1$ will indicate a faulty measurement or model, while $p$-values near $0.5$ are expected if the measurement and model agree well \cite{bayes}. The $p$-value is a quantitative means to identify discrepancies between data and model and to assess whether those discrepancies may have arisen by chance \cite{bayes}.
+\subsection{Example: Fitting a $\cos(x)$ distribution}
+In order to summarize the previous discussion of \textsc{Bayesian} methods and also to illustrate the application thereof, the simple example of fitting a $\cos(x)$ distribution will be discussed in the following. A Frequentist approach, as well as a \textsc{Bayesian} approach will be applied. In the end, key differences between both approaches are investigated.
 
-\subsection{Choosing a prior}
-\subsection{Comparison of \textsc{Bayesian} and Frequentist approach}
+Assume there are $N$ precise predictors $\{x_i\}$ and corresponding measurements $\{y_i\}$ with measurement errors $\{\sigma_i\}$. Additionally, the data $y$ is expected to follow a functional $y=f(x;\boldsymbol{\theta})$ with parameters $\boldsymbol{\theta}$. Figure \ref{fig:data} shows $N=15$ datapoints that follow the function $f(x;\btheta):=\theta_1\cdot\cos(x)+\theta_2$ with \textsc{Gaussian} noise $\epsilon$ 
+\begin{align}
+	y=f(x;(\theta_1=1,\theta_2=1)) +\epsilon	&& \epsilon\sim\mathcal{N}(0,\sigma) && \sigma\sim\mathcal{N}(0.25,0.05).
+	\label{eq:data}
+\end{align}
+From the noisy data, the parameters $\btheta$ shall be recovered in the following.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../bayes/noisy_model/data.pdf}
+	\caption{Randomly generated data with \textsc{Gaussian} noise (errorbars) following the function $y(x)=1\cdot\cos(x)+1$ (red line).}
+	\label{fig:data}
+\end{figure}
 \subsubsection{Frequentist Approach}
-The traditional approach to this fitting problem is a $\chi^2$ fit. Assume there are $N$ precise predictors $\{x_i\}$ and corresponding measurements $\{y_i\}$ with measurement errors $\{\sigma_i\}$. Additionally, the data $y$ is expected to follow a functional $y=f(x,\boldsymbol{\theta})$ with parameter(s) $\boldsymbol{\theta}$ and predictors $x$. Then the test statistic \begin{equation}
-	\chi^2=\sum_{i=1}^{N}\left[\frac{y_i-f(x_i;\boldsymbol{\theta})}{\sigma_i^2}\right]
+The traditional approach to this fitting problem is a $\chi^2$ fit. Then the test statistic \begin{equation}
+	\chi^2=\sum_{i=1}^{N}\left[\frac{y_i-f(x_i;\boldsymbol{\theta})}{\sigma_i}\right]^2
 \end{equation}
 can be minimized with respect to the parameters $\boldsymbol{\theta}$ giving according estimates with error bars which are calculated using error propagation from the original data points $\{y_i\}$. The minimization can be solved analytically in the case of linear functions by solving the equation system $$\frac{\text{d}}{\text{d}\boldsymbol{\theta}}\chi^2=0$$
 and otherwise numerically. The minimization of $\chi^2$ to get best-fit estimates for the desired parameters can be motivated if one considers the likelihood $\mathcal{L}$ that the data follow the function $f$. It is given by \begin{equation}
@@ -299,7 +349,41 @@ and otherwise numerically. The minimization of $\chi^2$ to get best-fit estimate
 \end{equation}
 if one assumes \textsc{Gaussian} errors at each data point. To maximize the (log-) likelihood with respect to all parameters is then equivalent to minimizing $\chi^2$. As a byproduct, the $\chi^2$ fit also gives a goodness of fit estimate which is given by $\chi^2/\text{NDF}\approx 1$, where $\text{NDF}$ are the number of degrees of freedom. Significantly smaller or larger values indicate too small error estimates or a bad fit, respectively. \cite{statistics}
 \subsubsection{Bayesian approach}
-As an alternative
+To gather samples from the marginal posteriors $p(\theta_1|y)$ and $p(\theta_2|y)$ likelihood and priors have to be specified. In order to introduce intentionally vague priors that do not give significant information \footnote{This, of course, requires knowledge of the order of magnitude the fit parameters will take.} both parameters are assigned a standard normal distribution as a prior
+\begin{align}
+	\theta_1\sim\mathcal{N}(0,1) &&\theta_2\sim\mathcal{N}(0,1).
+\end{align}
+The likelihood is determined using
+\begin{align}
+	\epsilon_n = y_i-f(x_i;\btheta)\sim\mathcal{N}(0,\sigma_i), 
+\end{align}
+see Eq. \eqref{eq:data}, and the independence of all datapoints such that the likelihood evaluates to the product
+\begin{equation}
+	p(y|\btheta)=\prod_{i=1}^N\mathcal{N}(f(x_i;\btheta)|y_i,\sigma_i).
+\end{equation}
+With prior and likelihood specified, samples from the joint posterior $p(\btheta|y)$ can now be generated using MCMC. \cite{stan}
+
+Figure \ref{fig:kde} shows the fit results from a \textsc{Bayesian} fit using MCMC sampling and also from a $\chi^2$ fit for the parameters $\btheta$. The point estimates with error bars correspond to a $1\sigma$ interval of the unimodal posterior distributions. The true values underlying the simulated data are recovered by both fits.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../bayes/noisy_model/posterior_2_params.pdf}
+	\caption{Marginal posteriors of the parameters $\theta_1$ and $\theta_2$ as obtained from MCMC sampling. The histograms represent the posterior draws, the black solid line shows a Kernel-Density-Estimate (KDE) to smooth the distribution. The solid vertical red line shows the most probable value determined from the KDE, while the dashed red vertical lines show a $1\sigma$ interval around the mean $\mu$. The blue error bars show the results obtained from a $\chi^2$ fit.}
+	\label{fig:kde}
+\end{figure}
+
+Concerning the goodness of fit, the $\chi^2$ exhibits a value of $\chi^2/\text{NDF}=1.3$ which is close to $1$ but also significantly greater than one, indicating only moderate success of the fit due to the few number of datapoints. This issue is discussed further in chapter \ref{chap:sigma} and the appendix \ref{app:binned_fits}. For the \textsc{Bayesian} fit, a posterior predictive check is made, see Figure \ref{fig:ppc}. The $p$ values are scattered around $0.5$ indicating a successful and unbiased fit.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../bayes/noisy_model/ppd_2_params.pdf}
+	\caption{Posterior predictive check of the fitted model. For each drawn sample of $\btheta$ a random number according to the sampling distribution $p(y|\btheta)$ is drawn for every predictor $x_i$. The $p$ value is then determined from the posterior predictive distribution.}
+	\label{fig:ppc}
+\end{figure}
+The MCMC diagnostics have to be monitored for each parameter separately. In this particular example 1000 samples from the posterior have been drawn in four independent chains. This leads to
+\begin{align}
+	\widehat{R}_1 = 1.001 && \widehat{R}_2 = 1.0004\\
+	\frac{\text{MCSE}_1}{\text{median}(p(\theta_1|y))}=0.002 &&\frac{\text{MCSE}_2}{\text{median}(p(\theta_2|y))}=0.001,
+\end{align}
+indicating good within and between chain convergence as well as good accuracy regarding the median of the marginal distributions.
 \section{Current data situation}
 
 \section{Motivation and Structure of this Thesis}

@@ -16,10 +16,8 @@ model {
 }
 generated quantities {
 	real y_tilde[n] = normal_rng(b + a * cos(x),dy);
-	vector[n] log_lik;
-	vector[n] mu;
-	mu=b+a*cos(x);
-	for (k in 1:n){
-    	log_lik[k]=normal_lpdf(y[k]|mu[k], dy[k]);
-    }
 }
+
+
+
+
