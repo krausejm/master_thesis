@@ -1,2 +1,1 @@
 update plots in chapter sigma_eta 1.05->1.01
-update Stan part in chapter experiment

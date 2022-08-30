@@ -140,7 +140,7 @@ where $W$ is the center of mass energy. Inserting the partial wave expansion of 
 \label{tab:pol}
 \end{table}
 
-\noindent The CBELSA/TAPS experiment is able to produce a linearly or circularly polarized photon beam as well as a longitudinally or transersely polarized target. This introduces dependencies on the azimuthal angle into the differential cross section that couple to polarization observables $\Sigma,T,P,E,F,G,H$ and the linear or circular polarization degrees of the photon beam $p_\gamma^\text{lin},p_\gamma^\text{circ}$ as well as the target polarization $p_x,p_y,p_z$\cite{san}
+\noindent The CBELSA/TAPS experiment is able to produce a linearly or circularly polarized photon beam as well as a longitudinally or transversely polarized target. This introduces dependencies on the azimuthal angle into the differential cross section that couple to polarization observables $\Sigma,T,P,E,F,G,H$ and the linear or circular polarization degrees of the photon beam $p_\gamma^\text{lin},p_\gamma^\text{circ}$ as well as the target polarization $p_x,p_y,p_z$\cite{san}
 \begin{equation}
 	\begin{aligned}
 		\frac{d \sigma}{d \Omega}\left(E_\gamma, \theta, \varphi\right) &=\frac{d \sigma}{d \Omega}\left(E_\gamma, \theta\right)\left[1-p_{\gamma}^{\operatorname{lin}} \mathbf{\Sigma} \cos (2 \varphi)+p_{x}\left(p_{\gamma}^{\operatorname{lin}} \mathbf{H} \sin (2 \varphi)+p_{\gamma}^{\text {circ }} \mathbf{F}\right)\right.\\
@@ -156,7 +156,7 @@ which allows the determination of the beam asymmetry $\Sigma$, as is described i
 \begin{equation}
 	\widehat{\Sigma}=\Sigma\cdot\left(\frac{\text{d}\sigma}{\text{d}\Omega}\right)_0\propto\frac{\sin^2(\theta)}{2}\Re \left[\left|F_3\right|^2+\left|F_4\right|^2+2\left(F_1^*F_4+F_2^*F_3+\cos\theta F_3^*F_4\right)\right].
 \end{equation}
-Unlike the unpolarized cross section, the beam asymmetry, or rather polarization observables in general, is sensitive not only to the absolute values of the photoproduction multipoles squared but is also sensitive to interference terms thereof \cite{farahphd,Wunderlich_2017}. Ultimately the photoproduction multipoles can be linked to resonance properties like mass $M$ and width $\Gamma$ using (model dependent) partial wave analyses that consider many observables in different final states at once. Expanding the database of polarization observables helps to further eliminate ambiguities in the photoproduction multipoles, which are used to identify contributing resonances, and thus adds to the understanding of the strong interaction in the non perturbative regime.
+Unlike the unpolarized cross section, the beam asymmetry, or rather polarization observables in general, is sensitive not only to the absolute values of the photoproduction multipoles squared but is also sensitive to interference terms thereof \cite{farahphd,Wunderlich_2017}. Ultimately the photoproduction multipoles can be linked to resonance properties like mass $M$ and width $\Gamma$ using (model dependent) partial wave analyses that consider many observables in different final states at once. PWA calculations are also able to give predictions for polarization observables not yet measured. Expanding the database of polarization observables helps to further eliminate ambiguities in the photoproduction multipoles, which are used to identify contributing resonances, and thus adds to the understanding of the strong interaction in the non perturbative regime.
 \section{Introduction to \textsc{Bayesian} statistics}
 \label{sec:bayes}
 To determine the beam asymmetry (see Chapter \ref{chap:sigma}) \textsc{Bayesian} methods are applied. This section will give a short introduction of the used concepts regarding \textsc{Bayesian} inference and the implementation of such a \textsc{Bayesian} analysis.
@@ -371,7 +371,7 @@ Figure \ref{fig:kde} shows the fit results from a \textsc{Bayesian} fit using MC
 	\label{fig:kde}
 \end{figure}
 
-Concerning the goodness of fit, the $\chi^2$ exhibits a value of $\chi^2/\text{NDF}=1.3$ which is close to $1$ but also significantly greater than one, indicating only moderate success of the fit due to the few number of datapoints. This issue is discussed further in chapter \ref{chap:sigma} and the appendix \ref{app:binned_fits}. For the \textsc{Bayesian} fit, a posterior predictive check is made, see Figure \ref{fig:ppc}. The $p$ values are scattered around $0.5$ indicating a successful and unbiased fit.
+Concerning the goodness of fit, the $\chi^2$ exhibits a value of $\chi^2/\text{NDF}=1.3$ which is close to $1$ but also significantly greater than one, indicating only moderate goodness of the fit due to the few number of datapoints. This issue is discussed further in chapter \ref{chap:sigma} and the appendix \ref{app:binned_fits}. For the \textsc{Bayesian} fit, a posterior predictive check is made, see Figure \ref{fig:ppc}. The $p$ values are scattered around $0.5$ indicating a successful and unbiased fit.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{../bayes/noisy_model/ppd_2_params.pdf}
@@ -384,7 +384,32 @@ The MCMC diagnostics have to be monitored for each parameter separately. In this
 	\frac{\text{MCSE}_1}{\text{median}(p(\theta_1|y))}=0.002 &&\frac{\text{MCSE}_2}{\text{median}(p(\theta_2|y))}=0.001,
 \end{align}
 indicating good within and between chain convergence as well as good accuracy regarding the median of the marginal distributions.
-\section{Current data situation}
 
+Both fits give similar results, yet the approaches are inherently different; The Frequentist approach assigns probabilities based on the observed data conditioned on fixed parameters as a long-run relative frequency, the likelihood $\mathcal{L}=p(y|\btheta)$ is thus the main quantity of interest. However from a \textsc{Bayesian} perspective the complete inference is given by the posterior distribution(s) $p(\btheta|y)$ that connects prior and likelihood. Furthermore, in a Frequentist ansatz the parameters that are to be estimated are seen as unknown constants whereas in a \textsc{Bayesian} fit the parameters are in fact unknown \emph{distributions}. Table \ref{tab:sum} summarizes the core differences between a Frequentist and a \textsc{Bayesian} approach to parameter inference. \cite{bayes1}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{c|cc}
+		\toprule
+		&\textbf{Frequentist statistics} &\textbf{\textsc{Bayesian} statistics}\\
+		\hline
+		quantity of interest & $p(y|\btheta)$ & $p(\btheta|y)$\\
+		parameters are & unknown constants& unknown distributions\\
+		probability associated with & data & parameters and data \\
+		\bottomrule
+	\end{tabular}
+\caption{Key differences between \textsc{Bayesian} statistics and Frequentist statistics, contents taken from \cite{bayes1}}
+\label{tab:sum}
+\end{table}
+\section{Current data situation}
+The data base of observables regarding $\eta$ photoproduction off the proton has recently been expanded with a high precision measurement of the beam asymmetry at the CBELSA/TAPS experiment \cite{farahphd,eta}. This measurement will serve as reference for testing a \textsc{Bayesian} approach when determining the beam asymmetry from CBELSA/TAPS data. A detailed description of the current data situation regarding $\eta$ photoproduction off the proton can be found in reference \cite{farahphd}.
+
+The data base regarding $\eta'$ photoproduction is scarce; the differential cross section has been measured with the CEBAF Large Acceptance Spectrometer (CLAS) at JLAB \cite{etap_cs1} and also by the CBELSA/TAPS collaboration \cite{etap_cs} covering a large range in polar angle and beam energy. Additionally, two measurements of the beam asymmetry in $\eta'$ photoproduction off the proton exist covering an energy range up to $\SI{1836}{\giga\eV}$ \cite{thresh,collins}.
+
+Within the CBELSA/TAPS collaboration, so far no attempt has been made to determine any polarization observable using \textsc{Bayesian} statistics. However, in the context of truncated partial wave analyses, which takes polarization observables as input data to determine photoproduction multipoles, there have been first approaches \cite{jean_msc,philipp_phd}.
 \section{Motivation and Structure of this Thesis}
-bla
+This work aims on the one hand to determine the beam asymmetry $\Sigma$ in $\eta$ photoproduction off the proton in the energy range $\SI{1100}{\giga\eV}$ to $\SI{1800}{\giga\eV}$ that has been reported by the measurement \cite{farahphd} using \textsc{Bayesian} statistics. Therefore, the same selected data are fed into the \textsc{Bayesian} analysis that were used to determine the beam asymmetry with the traditional Frequentist methods so that the results are directly comparable. Determing polarization observables via \textsc{Bayesian} statistics increases the amount of information gained from the fit result as distributions instead of point estimates become available. This is desirable since polarization observables serve as input for further analysis.
+
+On the other hand the scarce data base regarding $\eta'$ photoproduction is to be expanded by an additional measurement of the beam asymmetry in the beam energy range $\SI{1500}{\giga\eV}$ to $\SI{1800}{\giga\eV}$. Hereby traditional Frequentist methods as well as a \textsc{Bayesian} approach are pursued.
+
+The thesis is structured as follows: Chapter \ref{chap:exp} will introduce the CBELSA/TAPS experiment that was used to collect the data from which the measurements of the beam asymmetry are derived. The next chapter \ref{chap:events} will illustrate the process of event selection of the reaction $\gamma p \to p\eta'\to p\gamma\gamma$ and summarize the event selection of the reaction $\gamma p \to p\eta\to p\gamma\gamma$ that is reported in reference \cite{farahphd}. With the selected data the beam asymmetries for both reactions are then determined in chapter \ref{chap:sigma}. Lastly, the results are discussed in chapter \ref{chap:disc}.   
