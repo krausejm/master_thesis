@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="34.311646mm"
+   height="37.886597mm"
+   viewBox="0 0 34.311646 37.886597"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   sodipodi:docname="confused_man.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.7083358"
+     inkscape:cx="69.365755"
+     inkscape:cy="52.097487"
+     inkscape:window-width="2048"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-59.824407,-73.785398)">
+    <rect
+       style="fill:#120000;fill-opacity:1;stroke-width:0.208756"
+       id="rect846"
+       width="17.582399"
+       height="20.433599"
+       x="68.428802"
+       y="91.238396"
+       ry="5.2658463" />
+    <rect
+       style="fill:#120000;fill-opacity:1;stroke-width:0.208756"
+       id="rect1060"
+       width="4.3365793"
+       height="9.9121809"
+       x="108.88206"
+       y="29.242302"
+       ry="2.1682897"
+       transform="rotate(39.574774)" />
+    <rect
+       style="fill:#120000;fill-opacity:1;stroke-width:0.208756"
+       id="rect1060-9"
+       width="4.3365765"
+       height="9.9121828"
+       x="-7.5047331"
+       y="115.4645"
+       ry="2.1682901"
+       transform="matrix(0.82545549,-0.56446721,0.5644654,0.82545673,0,0)" />
+    <rect
+       style="fill:#120000;fill-opacity:1;stroke-width:0.200739"
+       id="rect1060-6"
+       width="4.1382341"
+       height="9.6047821"
+       x="-15.187371"
+       y="128.35921"
+       ry="2.1010463"
+       transform="matrix(-0.74450209,0.66762013,0.60600234,0.79546286,0,0)" />
+    <rect
+       style="fill:#120000;fill-opacity:1;stroke-width:0.200707"
+       id="rect1060-9-8"
+       width="4.1082954"
+       height="9.6716938"
+       x="-133.7914"
+       y="23.509483"
+       ry="2.1156831"
+       transform="matrix(-0.80310888,-0.5958323,-0.53321155,0.84598194,0,0)" />
+    <circle
+       style="fill:#120000;fill-opacity:1;stroke-width:0.296897"
+       id="path1693"
+       cx="76.509644"
+       cy="85.182816"
+       r="4.9560905" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.47739px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';stroke-width:0.186935"
+       x="88.912331"
+       y="67.216972"
+       id="text2261"
+       transform="matrix(1.04909,0.20582092,-0.18007834,0.9178775,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan2259"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Bold';stroke-width:0.186935"
+         x="88.912331"
+         y="67.216972">?</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';stroke-width:0.264583"
+       x="48.675426"
+       y="94.965744"
+       id="text2261-6"
+       transform="rotate(-12.210247)"><tspan
+         sodipodi:role="line"
+         id="tspan2259-0"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Bold';stroke-width:0.264583"
+         x="48.675426"
+         y="94.965744">?</tspan></text>
+  </g>
+</svg>
