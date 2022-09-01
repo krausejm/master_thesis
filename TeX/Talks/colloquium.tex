@@ -319,57 +319,97 @@
 		\end{minipage}
 		\begin{minipage}{\linewidth}
 			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Methods}]
+				\begin{center}
+					Remember: $\frac{\text{d}\sigma}{\text{d}\Omega}(E_\gamma,\cos\theta,\varphi)=\frac{\text{d}\sigma}{\text{d}\Omega}_0(E_\gamma,\cos\theta)\cdot\left[1-p_\gamma^{\text{lin}}\boldsymbol{\Sigma}\cos(2\varphi)\right]$
+				\end{center}
 				
-			
+
+					\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Binned fit to event yield asymmetries}]
+					fit to event yield asymmetries\\ $A(E_\gamma,\theta,\phi)=\frac{N^\bot(E_\gamma,\theta,\phi)-N^\parallel(E_\gamma,\theta,\phi)}{p_\gamma^\parallel N^\bot(E_\gamma,\theta,\phi) + p_\gamma^\bot N^\parallel(E_\gamma,\theta,\phi)}=\Sigma(E_\gamma,\theta)\cos\left(2\left(\alpha^\parallel-\phi\right)\right)$
+							
+					\end{tcolorbox}		
+					
 			\end{tcolorbox}
 		\end{minipage}
 	\end{frame}
 	\begin{frame}[noframenumbering]{Confirming pre-published results for $\Sigma_\eta$}
-		\begin{minipage}{\linewidth}
-			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta$)}]
-				analysis performed in 11x12 bins of $(E_\gamma,\cos\theta)$ by \cites{eta}
-			\end{tcolorbox}
-		\end{minipage}
-		\begin{minipage}{\linewidth}
-			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Method}]
-				\begin{itemize}
-					\item fit to event yield asymmetries using \textsc{bayesian} inference
-					\item \textsc{Bayes'} theorem: $p(\theta|y)\propto\mathcal{L}(y|\theta)\cdot\pi(\theta)$
-					\begin{itemize}
-						\item \emph{marginal posteriors:} $p(\theta_j|y)=\prod_{i\neq j}\int\text{d}\theta_i p(\theta|y)$
-						\item obtained using \textsc{Markov}-chain-Monte-Carlo (MCMC)
-						
-					\end{itemize} 
-				\end{itemize}
-				\begin{flushright}
-					sampling algorithms: STAN \includegraphics[width=.1\linewidth]{figs/logo-tm.png}\\
-					\cites{stan}
-				\end{flushright}
-			\end{tcolorbox}
-		\end{minipage}
-		
-		\AddToShipoutPictureFG*{%
-			\begin{tikzpicture}[remember picture,overlay]
-				\node at (current page.center) {\includegraphics[width=.8\linewidth]{box.pdf}};
-			\end{tikzpicture}
-		}
+	
+	\begin{minipage}{\linewidth}
+		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta$)}]
+			analysis performed in 11x12 bins of $(E_\gamma,\cos\theta)$ by {\cites{eta}}
+		\end{tcolorbox}
+	\end{minipage}
+	\begin{minipage}{\linewidth}
+		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Methods}]
+			\begin{center}
+				Remember: $\frac{\text{d}\sigma}{\text{d}\Omega}(E_\gamma,\cos\theta,\varphi)=\frac{\text{d}\sigma}{\text{d}\Omega}_0(E_\gamma,\cos\theta)\cdot\left[1-p_\gamma^{\text{lin}}\boldsymbol{\Sigma}\cos(2\varphi)\right]$
+			\end{center}
+			
+			
+			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Unbinned maximum likelihood fit}]
+				Consider likelihood of each individual event
+				\begin{equation*}
+					\tilde{p}(\phi,\Sigma)=\frac{\left(1+p_\gamma\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right)\cdot\epsilon\left(\phi\right)}{C}
+				\end{equation*}
+			\end{tcolorbox}		
+			
+		\end{tcolorbox}
+	\end{minipage}
+\end{frame}
+	\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
+		Applying \textsc{Bayesian} approach to event yield asymmetries:
+		\begin{itemize}
+			\item assume \textsc{Gaussian} errors, i.e.
+			$$A(\phi)=\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)+\epsilon$$ where $\epsilon\sim\mathcal{N}(0,\sigma)$
+			\item likelihood $p(A|\Sigma)$ of each datapoint given by $$y\sim\mathcal{N}\left(\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right),\sigma\right)$$
+			\item prior: $$p(\Sigma)\sim\mathcal{N}(0,1)_{[-1,1]}$$
+		\end{itemize}
+	Sample from posterior $p(\Sigma|A)\propto p(A|\Sigma)\cdot p(\Sigma)$ !
+	\end{frame}
+		\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
+		Applying \textsc{Bayesian} approach to unbinned fit:
+		\begin{itemize}
+			\item event based likelihood given by product of all single-event likelihoods 
+			\item assign priors for all fit parameters (18 in total)
+			\item choose weakly  informative, normal priors.
+			\item truncate beam asymmetry to allowed region $[-1,1]$
+			\item perform toy Monte Carlo experiments
+		\end{itemize}
+		Sample from posterior !
 	\end{frame}
 	
-	
+	\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
+		\begin{itemize}
+			\item All \textsc{Bayesian} fits performed using the \emph{Python} frontend of \emph{Stan}
+			\item MCMC-sampling: adaptive \textsc{Hamiltonian} Monte-Carlo (HMC), i.e. No-U-Turn-Sampling (NUTS)
+			\begin{itemize}
+				\item generate samples $\theta^{(1)},\theta^{(2)},\dots,\theta^{(S)}$ where each $\theta^{(t)}$ depends only on $\theta^{(t-1)}$
+				\item simulate draws from the posterior by updating at point $t$ such that the posterior increases (importance sampling)
+			\end{itemize}
+		\item diagnosing convergence of MCMC:
+		\begin{itemize}
+			\item potential scale reduction statistic $1.00\lesssim\widehat{R}\lesssim1.01$
+			\item Monte Carlo standard error (MCSE) \enquote{small}
+		\end{itemize}
+		\end{itemize}
+
+	\begin{flushright}
+		\includegraphics[width=.1\linewidth]{figs/logo-tm.png}\\
+		\cites{stan,nuts}
+	\end{flushright}
+	\end{frame}
+\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
+	\begin{figure}
+		\centering
+		\includegraphics[width=.8\linewidth]{../../bayes/event_based_fit/plots/sigma_eta_bin.pdf}
+	\end{figure}
+	Distinct advantage: sample only in physically allowed parameter space
+\end{frame}
 	\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
 		\begin{figure}
 			\centering
-			%\includegraphics[width=.79\linewidth]{../bayes/realdeal/sigma_eta_alt.pdf}
-			\caption*{Beam asymmetry $\Sigma$ for all energy and angle bins}
+			\includegraphics[width=.95\linewidth]{../../bayes/event_based_fit/plots/sigma_eta.pdf}
 		\end{figure}
-	\end{frame}
-	\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
-		\begin{figure}
-			\centering
-			\includegraphics[width=\linewidth]{sigma_eta_bin.pdf}
-			\caption*{Beam asymmetry $\Sigma$ for one energy and all angle bins}
-		\end{figure}
-		Additional advantage: sample only in physically allowed parameter space
 	\end{frame}
 	
 	
@@ -466,7 +506,22 @@
 		\LARGE
 		\color{\thecolor}\textsc{Backup \& References}
 	\end{frame}
-	
+	\begin{frame}{Full PDF for unbinned maximum likelihood fit}
+		
+		\begin{align*}
+			-\ln\mathcal{L}=&\sum_{i=1}^{n}-\ln(p_\text{prompt}(\phi_i,p_{\gamma,i},\Sigma,a_1\dots a_4,b_1\dots b_4))+\\
+			&\sum_{j=1}^{m}-\ln\left(p_\text{sideband}(\phi_j,p_{\gamma,j},\Sigma^\text{bkg},a_1^\text{bkg}\dots a_4^\text{bkg},b_1^\text{bkg}\dots b_4^\text{bkg})\right)
+		\end{align*}
+		where
+		\begin{align*}
+			p_\text{prompt}&=f_{\text{sig}}\cdot\tilde{p}(\phi,p_\gamma,\Sigma,a_1\dots a_4, b_1\dots b_4)\\ &+ \left(1-f_\text{sig}\right)\cdot\tilde{p}(\phi,p_\gamma,\Sigma^\text{bkg},a_1^\text{bkg}\dots a_4^\text{bkg}, b_1^\text{bkg}\dots b_4^\text{bkg})\\
+			p_\text{sideband}&=\tilde{p}(\phi,p_\gamma,\Sigma^\text{bkg},a_1^\text{bkg}\dots a_4^\text{bkg}, b_1^\text{bkg}\dots b_4^\text{bkg})
+		\end{align*}
+		and \begin{equation*}
+			\tilde{p}(\phi,\Sigma)=\frac{\left(1+p_\gamma\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right)\cdot\left(\sum_{k=0}^{4}a_k\sin(k\phi)+b_k\cos(k\phi)\right)}{1-\frac{1}{2}a_2p_\gamma\Sigma}
+		\end{equation*}
+		
+	\end{frame}
 	\begin{frame}{Additional theoretical basics}
 		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=Unpolarized differential cross section]
 			
