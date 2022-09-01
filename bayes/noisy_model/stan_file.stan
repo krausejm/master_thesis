@@ -1,21 +1,22 @@
 data {
-	int<lower=0> n;
-	vector[n] x;
-	vector[n] y;
-	vector[n] dy;
+	int<lower=0> n; //number of data points
+	vector[n] x; //predictors
+	vector[n] y; //measurements with
+	vector[n] dy; //corresponding errors
 }
 parameters {
-	real a;
+	real a; //amplitude and offset parameters
 	real b;
 }
 
 model {
-	y ~ normal(b + a * cos(x), dy);
-	a ~ normal(0,1);
-	b ~ normal(0,1);
+	y ~ normal(b + a * cos(x), dy); //likelihood
+	a ~ normal(0,1); // prior
+	b ~ normal(0,1); // prior
 }
 generated quantities {
-	real y_tilde[n] = normal_rng(b + a * cos(x),dy);
+	//posterior predictive check
+	real y_tilde[n] = normal_rng(b + a * cos(x),dy); 
 }
 
 

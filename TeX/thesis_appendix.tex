@@ -17,19 +17,19 @@ Figure \ref{fig:xml} shows an example of a \texttt{.xml} file that was used to c
 	\label{fig:xml}
 \end{figure}
 \section{Stan}
-The simplest regression that can be made with \emph{Stan} is of the form
+In chapter \ref{chap:intro} an example fit using \emph{Stan} was shown. Data was fitted that followed a cosine distribution
 \begin{equation}
-	y=a\cdot x +b+\epsilon.
+	y=a\cdot \cos x +b+\epsilon.
 \end{equation}
-Here $y$ is a measured quantity with \textsc{Gaussian} noise $\epsilon$, $x$ are predictors and $a$ and $b$ are slope and intercept of a linear regression. Assuming each datapoint $y_n$ is independent and exhibits an individual noise term $\epsilon_n\sim\mathcal{N}(0,\sigma_n)$, the likelihood $p(y|a,b)$ can be formulated as
+Here $y$ is a measured quantity with \textsc{Gaussian} noise $\epsilon$, $x$ are predictors and $a$ and $b$ are fit parameters. Assuming each datapoint $y_n$ is independent and exhibits an individual noise term $\epsilon_n\sim\mathcal{N}(0,\sigma_n)$, the likelihood $p(y|a,b)$ can be formulated as
 \begin{align}
-	y_n\sim\mathcal{N}(a\cdot x_n +b,\sigma_n)&&\Leftrightarrow& &p(y|a,b)=\prod_{i=1}^N\mathcal{N}(y_n|a\cdot x+b,\sigma_n),
+	y_n\sim\mathcal{N}(a\cdot\cos(x_n) +b,\sigma_n)&&\Leftrightarrow& &p(y|a,b)=\prod_{i=1}^N\mathcal{N}(y_n|a\cdot\cos(x_n)+b,\sigma_n),
 \end{align} 
 if there are $N$ datapoints in total. Specifying e.g. normal priors for the two regression coefficients $a$ and $b$ completes the inference
 \begin{align}
 	a\sim\mathcal{N}(0,1)&&b\sim\mathcal{N}(0,1).
 \end{align}
-Figure \ref{fig:stan} shows the implementation of the described model in \emph{Stan}. First of all, all data that is read in has to be defined. Conveniently this can be done using the \texttt{vector} class, that corresponds to a list of e.g. all $x$ values. Next, the parameters of the model are defined and lastly the likelihood and priors are specified.
+Figure \ref{fig:stan} shows the implementation of the described model in \emph{Stan}. First of all, all data that is read in has to be defined. Conveniently this can be done using the \texttt{vector} class, that corresponds to a list of e.g. all $x$ values. Next, the parameters of the model are defined and the likelihood and priors are specified. Samples from the posterior predictive distribution are randomly sampled using all simulation draws in a last step.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{../demonstration/stanfile.png}
