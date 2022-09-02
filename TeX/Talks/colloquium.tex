@@ -314,7 +314,7 @@
 		
 		\begin{minipage}{\linewidth}
 			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta$)}]
-				analysis performed in 11x12 bins of $(E_\gamma,\cos\theta)$ by {\cites{eta}}
+				analysis performed in 11x12 bins of $(E_\gamma,\cos\theta)$ for $\gamma p\to p\eta\to p\gamma\gamma$ by {\cites{eta}}
 			\end{tcolorbox}
 		\end{minipage}
 		\begin{minipage}{\linewidth}
@@ -325,7 +325,7 @@
 				
 
 					\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Binned fit to event yield asymmetries}]
-					fit to event yield asymmetries\\ $A(E_\gamma,\theta,\phi)=\frac{N^\bot(E_\gamma,\theta,\phi)-N^\parallel(E_\gamma,\theta,\phi)}{p_\gamma^\parallel N^\bot(E_\gamma,\theta,\phi) + p_\gamma^\bot N^\parallel(E_\gamma,\theta,\phi)}=\Sigma(E_\gamma,\theta)\cos\left(2\left(\alpha^\parallel-\phi\right)\right)$
+					fit to event yield asymmetries $A(E_\gamma,\theta,\phi)$\\ $$=\frac{N^\bot(E_\gamma,\theta,\phi)-N^\parallel(E_\gamma,\theta,\phi)}{p_\gamma^\parallel N^\bot(E_\gamma,\theta,\phi) + p_\gamma^\bot N^\parallel(E_\gamma,\theta,\phi)}=\Sigma(E_\gamma,\theta)\cos\left(2\left(\alpha^\parallel-\phi\right)\right)$$
 							
 					\end{tcolorbox}		
 					
@@ -335,9 +335,9 @@
 	\begin{frame}[noframenumbering]{Confirming pre-published results for $\Sigma_\eta$}
 	
 	\begin{minipage}{\linewidth}
-		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta$)}]
-			analysis performed in 11x12 bins of $(E_\gamma,\cos\theta)$ by {\cites{eta}}
-		\end{tcolorbox}
+			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta$)}]
+		analysis performed in 11x12 bins of $(E_\gamma,\cos\theta)$ for $\gamma p\to p\eta\to p\gamma\gamma$ by {\cites{eta}}
+	\end{tcolorbox}
 	\end{minipage}
 	\begin{minipage}{\linewidth}
 		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Methods}]
@@ -348,9 +348,9 @@
 			
 			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Unbinned maximum likelihood fit}]
 				Consider likelihood of each individual event
-				\begin{equation*}
-					\tilde{p}(\phi,\Sigma)=\frac{\left(1+p_\gamma\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right)\cdot\epsilon\left(\phi\right)}{C}
-				\end{equation*}
+
+					$$\tilde{p}(\phi,\Sigma)=\frac{\left(1+p_\gamma\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right)\cdot\epsilon\left(\phi\right)}{C}$$
+				
 			\end{tcolorbox}		
 			
 		\end{tcolorbox}
@@ -371,7 +371,6 @@
 		\begin{itemize}
 			\item event based likelihood given by product of all single-event likelihoods 
 			\item assign priors for all fit parameters (18 in total)
-			\item choose weakly  informative, normal priors.
 			\item truncate beam asymmetry to allowed region $[-1,1]$
 			\item perform toy Monte Carlo experiments
 		\end{itemize}
@@ -416,48 +415,143 @@
 	
 	
 	\subsection{Determination of $\Sigma_{\eta'}$}
-	\begin{frame}{Event selection of the $\eta'\to\gamma\gamma$ final state}
+	
+	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+		First, perform event selection regarding $\eta'$ photoproduction
+		\begin{table}
+\centering
+\begin{tabular}{cc}
+	\toprule
+	\multicolumn{2}{c}{$\eta'$}\\
+	\hline
+	Decay mode&Branching ratio\\
+	\hline
+	$\pi^+\pi^-\eta$&42.6\%\\
+	$\rho^0\gamma(\to\pi^+\pi^-\gamma)$ &28.9\% (28.9\%)\\
+	$\pi^0\pi^0\eta(\to6\gamma$) & 22.8\% (8.8\%)\\
+	$\omega\gamma(\to \pi^+\pi^-\pi^0\gamma/\pi^0\gamma\gamma)$&2.52\% (2.2\%/0.21\%)\\
+	$\gamma\gamma$&2.3\%\\
+	\bottomrule
+\end{tabular}
+		\end{table}
+		\begin{flushright}
+			\cites{pdg}
+		\end{flushright}
+	\end{frame}
+	\begin{frame}[noframenumbering]{Determining the beam asymmetry in $\eta'$ photoproduction}
+	First, perform event selection regarding $\eta'$ photoproduction
+	\begin{table}
+		\centering
+		\begin{tabular}{cc}
+			\toprule
+			\multicolumn{2}{c}{$\eta'$}\\
+			\hline
+			Decay mode&Branching ratio\\
+			\hline
+			$\pi^+\pi^-\eta$&42.6\%\\
+			$\rho^0\gamma(\to\pi^+\pi^-\gamma)$ &28.9\% (28.9\%)\\
+			$\pi^0\pi^0\eta(\to6\gamma$) & 22.8\% (8.8\%)\\
+			$\omega\gamma(\to \pi^+\pi^-\pi^0\gamma/\pi^0\gamma\gamma)$&2.52\% (2.2\%/0.21\%)\\
+			\arrayrulecolor{red}
+			\hline
+			\multicolumn{1}{!{\color{red}\vline}c}{$\gamma\gamma$}&\multicolumn{1}{c!{\color{red}\vline}}{2.3\%}\\
+			\hline
+			\arrayrulecolor{black}
+			\bottomrule
+		\end{tabular}
+	\begin{flushright}
+		\cites{pdg}
+	\end{flushright}
+	\end{table}
+	
+\end{frame}	
+
+\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+	\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta'$)}]
+		analysis performed in 3x6 bins of $(E_\gamma,\cos\theta)$ for $\gamma p\to p\eta'\to p\gamma\gamma$,\\ $E_\gamma\in[1500,1800]$ MeV
+		\vspace{-0.5cm}
+		\begin{align*}
+			&p_\gamma + p_p &&= p_{\eta'}+p_\text{recoil}& &=\underbrace{p_{\gamma_1}+p_{\gamma_2}}_{=p_{\eta'}}+p_\text{recoil}\\
+			&p_\gamma + p_p &&= p_{\eta'}+p_X &&=\underbrace{p_{\gamma_1}+p_{\gamma_2}}_{=p_{\eta'}} + p_X
+		\end{align*}
+		\vspace{-0.7cm}
+		\begin{itemize}
+			\item one charged, two uncharged detector hits in coincidence with beam $\gamma$
+			\item Coplanarity $\Delta\phi=\phi_{\eta'}-\phi_\text{recoil}\overset{!}{=}\SI{180}{\degree}$
+			\item Polar angle $\theta_X\overset{!}{=}\theta_\text{recoil}$
+			\item Missing mass $m_X\overset{!}{=}m_p$
+			\item Invariant mass $m_{\gamma\gamma}\overset{!}{=}m_{\eta'}$
+		\end{itemize}
+	\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+	\vspace{-0.95cm}
+	\includegraphics[width=.95\linewidth]{../../figs/hydrogen/bin_cuts/mismcut_ebin1.pdf}
+	data points: $m_X$, turquoise: total MC, black: $\eta'$ MC, yellow: $2\pi^0$ MC, magenta: $\pi^0\eta$ MC
+\end{frame}
+\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+	\vspace{-0.95cm}
+	\includegraphics[width=.95\linewidth]{../../figs/hydrogen/bin_cuts/invcut_ebin1.pdf}
+	data points: $m_{\gamma\gamma}$, turquoise: total MC, black: $\eta'$ MC, yellow: $2\pi^0$ MC, magenta: $\pi^0\eta$ MC, blue: $\omega$ MC
+\end{frame}
+\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+	\includegraphics[width=\linewidth]{../../figs/hydrogen/invm_global.pdf}
+\end{frame}
+\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+	Why these contributions from $4\gamma$ final states $2\pi^0$ (and $\pi^0\eta$)??
+	
+	\includegraphics[width=.49\linewidth]{../../figs/inkscape/mcgammas1.pdf}
+	\includegraphics[width=.49\linewidth]{../../figs/inkscape/mcgammas2.pdf}
+	\emph{acceptance} for $2\pi^0$ events is almost vanishing $A(E_\gamma,\cos\theta)<2\cdot10^{-3}$, yet $$R=\frac{\sigma_{2\pi^0}\cdot\text{BR}_{2\pi^0\to\gamma\gamma}\cdot\tilde{A}_{2\pi^0}}{\sigma_{\eta'}\cdot\text{BR}_{\eta'\to\gamma\gamma}\cdot\tilde{A}_{\eta'}}=\frac{\SI{5}{\micro\barn}\cdot0.9765\cdot2\cdot10^{-3}}{\SI{1}{\micro\barn}\cdot0.023\cdot0.61}\approx0.7!$$
+	explains high background contributions of up to $45\%$
+	\begin{flushright}
+		\cites{pdg,etap_cs,2pi0_cs}
+	\end{flushright}
+\end{frame}
+
+\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+	How do we get rid of background contributions?
+	\begin{itemize}
+		\pause
+		\item simple: we don't
+		\item real photons mimic a two-photon final state, no sensible additional cuts have been found
+		\pause
+		\item main background from $2\pi^0$ photoproduction
+		\item beam asymmetry for this reaction determined by {\cites{mahlbergphd}}
+		\item correct estimates for $\Sigma$ according to the amount of background
+		$$\Sigma^\text{meas}=\delta\cdot\Sigma_{\eta'}+(1-\delta)\Sigma_{2\pi^0}$$
+	\end{itemize}
+\end{frame}
+	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
 		
 		
 		\begin{minipage}{0.49\linewidth}
-			Analysis performed in 3x6 bins of $(E_\gamma,\cos\theta_{\eta'}^\text{CMS})$, $E_\gamma\in[1500,1800]$ MeV
-			\begin{itemize}
-				
-				\item 3 detector hits, 2 uncharged, 1 charged
-				\item coincident detector hits
-				\item kinematic cuts derived from energy-momentum conservation $p_\gamma + p_p = p_p'+p_{\eta'}$
-				\item additional cuts to reduce background contributions
-			\end{itemize}
 			total: $\sim 8000$ $\eta'\to\gamma\gamma$ events
+			\begin{itemize}
+				\item perform unbinned fit as maximum likelihood fit and \textsc{Bayesian} fit
+				\item \textsc{Bayesian} fit: modify likelihood
+					 \begin{align*}
+					 	\tilde{p}\left(\phi,\Sigma\right)&\to\tilde{p}\left(\phi,\delta\Sigma_1+(1-\delta)\Sigma_2^\text{true}\right)\\
+					 	\Sigma_2^\text{true}&\sim\mathcal{N}(\Sigma_2^\text{meas},\tau)
+					 \end{align*}
+
+			\item unbinned maximum likelihood fit: shift point estimates \emph{after fit}
+			\end{itemize}
 		\end{minipage}
-		\begin{minipage}{.5\linewidth}
+		\begin{minipage}{.49\linewidth}
 			\begin{figure}
 				\centering
-				\includegraphics[width=1.05\linewidth]{figs/inv_mass_pretty.pdf}
+				\includegraphics[width=1.05\linewidth]{../../figs/hydrogen/inc_mass_pretty_talk.pdf}
 			\end{figure}
 		\end{minipage}
-		
-		
-		
 		
 	\end{frame}
 	
 	
-	\begin{frame}{Extraction method for $\Sigma_{\eta'}$}
-		
-		\begin{itemize}
-			\item measure in 2 distinct orthogonal polarization settings $\bot,\parallel$
-			\item $\chi^2$-fit to event yield asymmetries $A(E_\gamma,\theta,\phi)=\frac{N^\bot(E_\gamma,\theta,\phi)-N^\parallel(E_\gamma,\theta,\phi)}{p_\gamma^\parallel N^\bot(E_\gamma,\theta,\phi) + p_\gamma^\bot N^\parallel(E_\gamma,\theta,\phi)}=\Sigma(E_\gamma,\theta)\cos\left(2\left(\alpha^\parallel-\phi\right)\right)$
-			%\item unbinned fit $\mathcal{L}\propto\prod_i\left[ 1\mp p_{\gamma_i}^{\parallel/\bot}\Sigma\cos\left(2\left(\alpha^\parallel-\phi_i\right)\right)\right]\cdot\epsilon(\phi_i)$
-			\item fit from $\sim 800$ $\eta'\to\gamma\gamma$ events
-		\end{itemize}
-		\vspace{-0.1cm}
-		\begin{figure}
-			\centering
-			\includegraphics[width=.66\linewidth]{asym_bin}
-		\end{figure}
-		
-		
+	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+		\centering
+		\includegraphics[width=.5\linewidth]{../../bayes/etap_event_based_fit/plots/sigma_etap.pdf}
 	\end{frame}
 	
 	
