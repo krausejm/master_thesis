@@ -390,6 +390,7 @@
 			\item potential scale reduction statistic $1.00\lesssim\widehat{R}\lesssim1.01$
 			\item Monte Carlo standard error (MCSE) \enquote{small}
 		\end{itemize}
+			\item Goodness of fit: posterior predictive checks (PPC)
 		\end{itemize}
 
 	\begin{flushright}
@@ -397,6 +398,16 @@
 		\cites{stan,nuts}
 	\end{flushright}
 	\end{frame}
+\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
+	PPC for \emph{binned} \textsc{Bayesian} fit:
+	\centering
+	\includegraphics[width=.9\linewidth]{../../bayes/realdeal/plots/ppd_checks.pdf}
+\end{frame}
+\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
+	PPC for \emph{unbinned} \textsc{Bayesian} fit:
+	\centering
+	\includegraphics[width=.9\linewidth]{../../bayes/event_based_fit/plots/eff_PPC.png}
+\end{frame}
 \begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
 	\begin{figure}
 		\centering
@@ -500,9 +511,10 @@
 \end{frame}
 \begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
 	Why these contributions from $4\gamma$ final states $2\pi^0$ (and $\pi^0\eta$)??
-	
+	\pause
 	\includegraphics[width=.49\linewidth]{../../figs/inkscape/mcgammas1.pdf}
 	\includegraphics[width=.49\linewidth]{../../figs/inkscape/mcgammas2.pdf}
+	\pause
 	\emph{acceptance} for $2\pi^0$ events is almost vanishing $A(E_\gamma,\cos\theta)<2\cdot10^{-3}$, yet $$R=\frac{\sigma_{2\pi^0}\cdot\text{BR}_{2\pi^0\to\gamma\gamma}\cdot\tilde{A}_{2\pi^0}}{\sigma_{\eta'}\cdot\text{BR}_{\eta'\to\gamma\gamma}\cdot\tilde{A}_{\eta'}}=\frac{\SI{5}{\micro\barn}\cdot0.9765\cdot2\cdot10^{-3}}{\SI{1}{\micro\barn}\cdot0.023\cdot0.61}\approx0.7!$$
 	explains high background contributions of up to $45\%$
 	\begin{flushright}
@@ -520,7 +532,7 @@
 		\item main background from $2\pi^0$ photoproduction
 		\item beam asymmetry for this reaction determined by {\cites{mahlbergphd}}
 		\item correct estimates for $\Sigma$ according to the amount of background
-		$$\Sigma^\text{meas}=\delta\cdot\Sigma_{\eta'}+(1-\delta)\Sigma_{2\pi^0}$$
+		$$\Sigma^\text{meas}=(1-\delta)\cdot\Sigma_{\eta'}+\delta\Sigma_{2\pi^0}$$
 	\end{itemize}
 \end{frame}
 	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
@@ -532,7 +544,7 @@
 				\item perform unbinned fit as maximum likelihood fit and \textsc{Bayesian} fit
 				\item \textsc{Bayesian} fit: modify likelihood
 					 \begin{align*}
-					 	\tilde{p}\left(\phi,\Sigma\right)&\to\tilde{p}\left(\phi,\delta\Sigma_1+(1-\delta)\Sigma_2^\text{true}\right)\\
+					 	\tilde{p}\left(\phi,\Sigma\right)&\to\tilde{p}\left(\phi,(1-\delta)\Sigma_1+\delta\Sigma_2^\text{true}\right)\\
 					 	\Sigma_2^\text{true}&\sim\mathcal{N}(\Sigma_2^\text{meas},\tau)
 					 \end{align*}
 
@@ -551,21 +563,48 @@
 	
 	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
 		\centering
-		\includegraphics[width=.5\linewidth]{../../bayes/etap_event_based_fit/plots/sigma_etap.pdf}
+		\includegraphics[width=.8\linewidth]{../../bayes/etap_event_based_fit/plots/sigma_etap_talk.pdf}
 	\end{frame}
 	
 	
 	
 	
 	
-	\begin{frame}{Preliminary results for $\Sigma_{\eta'}$}
-		\begin{figure}
-			\centering
-			\includegraphics[width=.99\linewidth]{sigma}
-			\caption*{Beam asymmetry $\Sigma_{\eta'}$ for all energy and angle bins, compared with results of \cites{clas}}
-		\end{figure}
+	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+	Systematic error: $
+		\Delta\Sigma_{\eta'}^\text{sys}=\sqrt{\left(\frac{\Delta p_\gamma}{p_\gamma}\Sigma_{\eta'}\right)^2+\left(\Delta\Sigma_{\eta'}\right)^2}.$
+	\begin{itemize}
+		\item polarization degree \begin{equation*}
+			\frac{\Delta p_\gamma}{p_\gamma}=\begin{cases}
+				0.05 & E_\gamma<\SI{1600}{\mega\eV},\\ 
+				0.08 & \text{ otherwise }\\
+			\end{cases}
+		\end{equation*}
+	\item background contributions
+	\begin{equation*}
+		\Sigma^\text{meas}=\left(1-\delta_1-\delta_2\right)\cdot\Sigma_{\eta'}+\delta_1\Sigma_{2\pi^0}+\delta_2\Sigma^\text{r bkg},
+	\end{equation*}
+	thus:
+	\begin{equation*}
+		\Delta\Sigma_{\eta'}=\text{max}\left[\left|\frac{\Sigma^\text{meas}-\delta_1\cdot\Sigma_{2\pi^0}\pm\delta_2\cdot1}{1-\delta_1-\delta_2}-\frac{\Sigma^\text{meas}-\delta\cdot\Sigma_{2\pi^0}}{1-\delta}\right|\right]
+	\end{equation*}
+	\begin{flushright}
+		\cites{farahphd,eberhardt_phd}
+	\end{flushright}
+	\end{itemize}
 	\end{frame}
-	
+	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+		\begin{minipage}{.8\linewidth}
+			\includegraphics[width=\linewidth]{../../bayes/etap_event_based_fit/plots/sigma_etap_pwa_data_talk.pdf}
+		\end{minipage}
+		\begin{minipage}{.19\linewidth}
+			\begin{itemize}
+				{\scriptsize\item measurement at CLAS \cites{collins}: (black points),
+				\item etaMAID PWA \cites{etaMAID}: (black, dashed lines),
+				\item BnGa PWA \cites{etap_bnga}: (red, dashed lines)}
+			\end{itemize}
+		\end{minipage}
+	\end{frame}
 
 	
 	
@@ -577,7 +616,7 @@
 				\begin{itemize}
 					\item $\Sigma$ extracted for $\eta$ and $\eta'$ final state
 					\item $\eta$ results obtained with \textsc{bayesian} fit agree with previous results 
-					\item $\eta'$ results agree with previous results
+					\item $\eta'$ results agree with previous measurements
 				\end{itemize}
 			\end{tcolorbox}
 		\end{minipage}
@@ -585,9 +624,9 @@
 			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Outlook}]
 				\begin{itemize}
 					
-					\item extract $\Sigma$ using unbinned maximum likelihood fit for $\eta/\eta'$
-					\item apply \textsc{bayesian} approach to above method
-					\item consider bkg contaminations in results of $\Sigma_{\eta'}$
+					\item use posterior \emph{distributions} for PWA calculations
+					\item increase precision of existing data , i.e. investigate $\eta'\to\pi^0\pi^0\eta$
+					\item measurement of observables near $\eta'$ production threshold
 					
 				\end{itemize}
 			\end{tcolorbox}
@@ -634,31 +673,7 @@
 		$\frac{\text{d}\sigma}{\text{d}\Omega}\in\mathbb{R}$, not sufficient do determine $\mathcal{F}$ unambiguously\\
 		$\rightarrow$ Polarization Observables can be related to $F_i$
 	\end{frame}
-	\begin{frame}{Background estimation using Monte-Carlo simulations}
-		\centering
-		\includegraphics[width=.8\linewidth]{figs/inv_mass_bin.pdf}\vspace{-0.5cm}\\
-		bkg contamination $\sim 27\%$
-	\end{frame}
-	\begin{frame}{Background estimation using Monte-Carlo simulations}
-		$2\pi^0/\pi^0\eta$ events pass event selection, because $E_{\gamma_{i}}\lesssim 20$ MeV, or $\theta_{\gamma_{i}}\approx\theta_{\gamma_{j}}$ 
-		\begin{minipage}{.4\linewidth}
-			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Background reducing cuts}]
-				\begin{itemize}
-					\item $p$ in MT for $E_\gamma<1500$ MeV
-					\item $E_{\gamma_{i}}<1500$ MeV
-					\item 1 PED/Cluster for $\gamma_i$
-					\item Clustersize$(p)<6$
-					\item Clustersize($\gamma_{i}$) in FW
-				\end{itemize}
-			\end{tcolorbox}
-		\end{minipage}
-		\begin{minipage}{.59\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{inv_mass_bin_cuts}\\
-			bkg contamination $\sim 13\%$
-		\end{minipage}
-		
-	\end{frame}
+
 	\begin{frame}{Diagnostics of a \textsc{bayesian} fit}
 		\begin{itemize}
 			\item $\hat{R}$: measure of convergence for chains
