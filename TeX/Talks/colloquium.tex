@@ -18,13 +18,13 @@
 \newcommand{\theshortauthor}{\textsc{J. Krause} for CBELSA/TAPS}
 \newcommand{\authormail}{krause@hiskp.uni-bonn.de}
 \newcommand{\authorgit}{krausejm}
-\newcommand{\thetitle}{Determination of the beam asymmetry $\Sigma$  in $\eta$- and $\eta'$-photoproduction off the proton using Bayesian statistics}
+\newcommand{\thetitle}{Determination of the beam asymmetry $\Sigma$  in $\eta$- and $\eta'$-photoproduction using Bayesian statistics}
 \newcommand{\theshorttitle}{$\Sigma$ in $\eta$- and $\eta'$ photoproduction}
 \newcommand{\thecolor}{black!70!blue}
 \newcommand{\thecolorr}{black!60!blue}
 \newcommand{\thecolorrr}{black!50!blue}
 \newcommand{\thesubtitle}{Master thesis for the CBELSA/TAPS collaboration}
-\newcommand{\thedate}{September 8/9 2022}
+\newcommand{\thedate}{September 22, 2022}
 \makeatletter
 \patchcmd{\beamer@calculateheadfoot}{\advance\footheight by 4pt}{\advance\footheight by 20pt}{}{}
 \makeatother
@@ -117,7 +117,7 @@
 			\begin{itemize}
 				\item matter consists of 12 (anti-)\emph{fermions}
 				\item quarks interact via \emph{strong interaction} 
-				\item form bound states: mesons ($q\bar{q}$) and baryons ($qqq$)
+				\item form bound states: mesons (e.g. $q\bar{q}$) and baryons (e.g. $qqq$)
 			\end{itemize} 
 		\end{tcolorbox}
 		baryon spectroscopy (photoproduction) gives insight in strong interaction
@@ -130,7 +130,7 @@
 		
 	\end{frame}
 	\begin{frame}{Setting the scene}
-		Observe resonances $N^*/\Delta^*$ in the cross sections $\sigma(\gamma p\to p M)$
+		observe resonances $N^*/\Delta^*$ in the cross sections $\sigma(\gamma p\to p M)$
 		\vspace{-0.5cm}
 		\begin{figure}
 			\centering
@@ -177,7 +177,7 @@
 		
 		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=Beam asymmetry $\boldsymbol{\Sigma}$]
 			$$\frac{\text{d}\sigma}{\text{d}\Omega}(E_\gamma,\cos\theta,\varphi)=\frac{\text{d}\sigma}{\text{d}\Omega}_0(E_\gamma,\cos\theta)\cdot\left[1-p_\gamma^{\text{lin}}\boldsymbol{\Sigma}\cos(2\varphi)\right]$$
-			polarization angle $\varphi$, polarization degree $p_\gamma^{\text{lin}}$
+			polarization angle $\varphi=\alpha-\phi$ with $\alpha=\alpha^{\bot/\parallel}=\pm\SI{45}{\degree}$, polarization degree $p_\gamma^{\text{lin}}$
 			\begin{flushright}
 				{\scriptsize[\cite{san}]}
 			\end{flushright}
@@ -191,8 +191,8 @@
 	\end{frame}
 	\begin{frame}{Theoretical basics II}
 	\begin{itemize}
-		\item Polarization observables are input for further analysis
-		\item Idea: increase amount of information gained from results using \textsc{Bayesian} inference 
+		\item polarization observables are input for further analysis
+		\item idea: increase amount of information gained from results using \textsc{Bayesian} inference 
 	\end{itemize}
 	\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=\textsc{Bayes'} theorem]
 		\begin{align*}
@@ -211,8 +211,8 @@
 	\begin{frame}{Theoretical basics II}
 		\addtocounter{framenumber}{-1}
 	\begin{itemize}
-		\item Polarization observables are input for further analysis
-		\item Idea: increase amount of information gained from results using \textsc{Bayesian} inference 
+		\item polarization observables are input for further analysis
+		\item idea: increase amount of information gained from results using \textsc{Bayesian} inference 
 	\end{itemize}
 	\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=\textsc{Bayes'} theorem]
 		\begin{align*}
@@ -235,10 +235,9 @@
 	\end{frame}
 
 \begin{frame}{Theoretical basics II}
-			\addtocounter{framenumber}{-1}
 	$$p(\theta|y)\propto p(y|\theta)\cdot p(\theta)$$
 		\begin{itemize}
-			\item prior $p(\theta)$ and likelihood $p(y|\theta)$ can easily be specified \\
+			\item prior $p(\theta)$ and likelihood $p(y|\theta)$ can be specified once the model is known \\
 			$\to$ gain \emph{distributions} $p(\theta|y)$ instead of point estimates with error bars
 		\end{itemize}
 		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=\textsc{Bayesian} parameter inference]
@@ -254,36 +253,43 @@
 		\end{tcolorbox}
 	\end{frame}
 	\begin{frame}{Theoretical basics II}
-		$$p(\theta|y)\propto p(y|\theta)\cdot p(\theta)$$
+	\begin{itemize}
+		
+		\item<1-> all \textsc{Bayesian} fits performed using the \emph{Python} frontend of \emph{Stan}
+		\vspace{0.2cm}
+		\item<2-> MCMC-sampling: adaptive \textsc{Hamiltonian} Monte-Carlo (HMC), i.e. No-U-Turn-Sampling (NUTS)
 		\begin{itemize}
-			\item prior $p(\theta)$ and likelihood $p(y|\theta)$ can easily specified \\
-			$\to$ gain \emph{distributions} $p(\theta|y)$ instead of point estimates with error bars
+			\item generate samples $\theta^{(1)},\theta^{(2)},\dots,\theta^{(S)}$ where each $\theta^{(t)}$ depends only on $\theta^{(t-1)}$
+			\item simulate draws from the posterior by updating at point $t$ such that the posterior increases (importance sampling)
 		\end{itemize}
-		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=\textsc{Bayesian} parameter inference]
-			For each parameter $\theta_n\in\theta$ we gain \emph{marginal posteriors}
-			\begin{equation*}
-				\label{eq:marpost}
-				p(\theta_n|y)=\int\text{d}\theta_1\dots\int\text{d}\theta_{n-1}\int\text{d}\theta_{n-1}\dots\int\text{d}\theta_Np(\theta_1\dots\theta_N|y).
-			\end{equation*}
-			usually approximated using \textsc{Markov}-Chain Monte Carlo (MCMC) draws $\theta^{(s)}$
-			\begin{flushright}
-				{\scriptsize[\cite{sivia}]}
-			\end{flushright}
-		\end{tcolorbox}
-	\AddToShipoutPictureFG*{%
-		\begin{tikzpicture}[remember picture,overlay]
-			\node at (current page.center) {\includegraphics[width=.4\linewidth]{idea_man}};
-		\end{tikzpicture}
-	}
-	\end{frame}
+		\vspace{0.2cm}
+		\item<3-> diagnosing convergence of MCMC:
+		\begin{itemize}
+			\item potential scale reduction statistic $1.00\lesssim\widehat{R}\lesssim1.01$
+			\item Monte Carlo standard error (MCSE) \enquote{small}, \\e.g. for mean $\mu$ $\text{MCSE}=\frac{\text{std}(\{\theta^{(s)}\})}{S}$
+		\end{itemize}
+	\vspace{0.2cm}
+		\item<4-> goodness of fit: posterior predictive checks (PPC)
+		\begin{itemize}
+			\item $p(y^\text{rep}|y)=\int\text{d}\theta p(y^\text{rep}|\theta)p(\theta|y)$
+			\item in practice: $y^{\text{rep}, (s)}\sim p(y|\theta^{(s)})$
+		\end{itemize}
+	\end{itemize}
+	
+	\begin{flushright}
+		\vspace{-0.6cm}
+		\includegraphics[width=.1\linewidth]{figs/logo-tm.png}\\
+		\cites{stan,nuts}
+	\end{flushright}
+\end{frame}
 	\section{Experimental Setup}
 	\begin{frame}{CBELSA/TAPS experiment}
 		\begin{minipage}{.3\linewidth}
 			{\small
 				\begin{itemize}
 					\item generate photon beam from accelerated electrons via bremsstrahlung, with $E_\gamma\leq\SI{3.2}{\giga\eV}$ 
-					\item photon beam impinges on liquid hydrogen target: $\gamma p \to p M\to p X$
-					\item measure decay products $X$ of different final states: $M=\pi^0/\eta/\eta'/\dots$
+					\item photon beam impinges on liquid hydrogen target: $\gamma p \to p X\to p M$
+					\item  $M=\pi^0/\eta/\eta'/\dots$
 					\item data set: July-October 2013, 1065 h beam time
 				\end{itemize}
 			}
@@ -304,7 +310,7 @@
 	\subsection{Determination of $\Sigma_\eta$ using \textsc{Bayesian} statistics}
 		\begin{frame}{Confirming pre-published results of $\Sigma_\eta$}
 		\begin{itemize}
-			\item Polarization observables are needed for different final states ($\pi^0,{\color{red}\eta},\eta',\dots$)
+			\item polarization observables are needed for different final states ($\pi^0,{\color{red}\eta},\eta',\dots$)
 			\item high precision measurement of beam asymmetry for $\eta$ production recently published {\cites{eta}}
 			\item goal: confirm results using \textsc{Bayesian} fitting methods
 		\end{itemize}
@@ -324,10 +330,8 @@
 				\end{center}
 				
 
-					\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Binned fit to event yield asymmetries}]
-					fit to event yield asymmetries $A(E_\gamma,\theta,\phi)$\\ $$=\frac{N^\bot(E_\gamma,\theta,\phi)-N^\parallel(E_\gamma,\theta,\phi)}{p_\gamma^\parallel N^\bot(E_\gamma,\theta,\phi) + p_\gamma^\bot N^\parallel(E_\gamma,\theta,\phi)}=\Sigma(E_\gamma,\theta)\cos\left(2\left(\alpha^\parallel-\phi\right)\right)$$
-							
-					\end{tcolorbox}		
+					\textbf{binned fit to event yield asymmetries:}
+					$$A(E_\gamma,\theta,\phi)=\frac{N^\bot(E_\gamma,\theta,\phi)-N^\parallel(E_\gamma,\theta,\phi)}{p_\gamma^\parallel N^\bot(E_\gamma,\theta,\phi) + p_\gamma^\bot N^\parallel(E_\gamma,\theta,\phi)}=\Sigma(E_\gamma,\theta)\cos\left(2\left(\alpha^\parallel-\phi\right)\right)$$
 					
 			\end{tcolorbox}
 		\end{minipage}
@@ -342,32 +346,39 @@
 	\begin{minipage}{\linewidth}
 		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Methods}]
 			\begin{center}
-				Remember: $\frac{\text{d}\sigma}{\text{d}\Omega}(E_\gamma,\cos\theta,\varphi)=\frac{\text{d}\sigma}{\text{d}\Omega}_0(E_\gamma,\cos\theta)\cdot\left[1-p_\gamma^{\text{lin}}\boldsymbol{\Sigma}\cos(2\varphi)\right]$
+				remember: $\frac{\text{d}\sigma}{\text{d}\Omega}(E_\gamma,\cos\theta,\varphi)=\frac{\text{d}\sigma}{\text{d}\Omega}_0(E_\gamma,\cos\theta)\cdot\left[1-p_\gamma^{\text{lin}}\boldsymbol{\Sigma}\cos(2\varphi)\right]$
 			\end{center}
 			
 			
-			\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Unbinned maximum likelihood fit}]
-				Consider likelihood of each individual event
+				\textbf{unbinned maximum likelihood fit:}
 
 					$$\tilde{p}(\phi,\Sigma)=\frac{\left(1+p_\gamma\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)\right)\cdot\epsilon\left(\phi\right)}{C}$$
 				
-			\end{tcolorbox}		
 			
 		\end{tcolorbox}
 	\end{minipage}
 \end{frame}
 	\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
-		Applying \textsc{Bayesian} approach to event yield asymmetries:
+\textbf{		applying \textsc{Bayesian} approach to event yield asymmetries:}
 		\begin{itemize}
 			\item assume \textsc{Gaussian} errors, i.e.
 			$$A(\phi)=\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right)+\epsilon$$ where $\epsilon\sim\mathcal{N}(0,\sigma)$
-			\item likelihood $p(A|\Sigma)$ of each datapoint given by $$y\sim\mathcal{N}\left(\Sigma\cos\left(2\left(\alpha^\parallel-\phi\right)\right),\sigma\right)$$
+			\item likelihood $p(A|\Sigma)$ of given by
+			\begin{align*}
+				y_i\sim\mathcal{N}\left(\Sigma\cos\left(2\left(\alpha^\parallel-\phi_i\right)\right),\sigma_i\right)&&\mathcal{L}=\prod_i p(y_i|\theta)
+		\end{align*}
 			\item prior: $$p(\Sigma)\sim\mathcal{N}(0,1)_{[-1,1]}$$
 		\end{itemize}
 	Sample from posterior $p(\Sigma|A)\propto p(A|\Sigma)\cdot p(\Sigma)$ !
+
 	\end{frame}
+	\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
+	PPC for \emph{binned} \textsc{Bayesian} fit:
+	\centering
+	\includegraphics[width=.9\linewidth]{../../bayes/realdeal/plots/ppd_checks.pdf}
+\end{frame}
 		\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
-		Applying \textsc{Bayesian} approach to unbinned fit:
+\textbf{		applying \textsc{Bayesian} approach to unbinned fit:}
 		\begin{itemize}
 			\item event based likelihood given by product of all single-event likelihoods 
 			\item assign priors for all fit parameters (18 in total)
@@ -377,32 +388,8 @@
 		Sample from posterior !
 	\end{frame}
 	
-	\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
-		\begin{itemize}
-			\item All \textsc{Bayesian} fits performed using the \emph{Python} frontend of \emph{Stan}
-			\item MCMC-sampling: adaptive \textsc{Hamiltonian} Monte-Carlo (HMC), i.e. No-U-Turn-Sampling (NUTS)
-			\begin{itemize}
-				\item generate samples $\theta^{(1)},\theta^{(2)},\dots,\theta^{(S)}$ where each $\theta^{(t)}$ depends only on $\theta^{(t-1)}$
-				\item simulate draws from the posterior by updating at point $t$ such that the posterior increases (importance sampling)
-			\end{itemize}
-		\item diagnosing convergence of MCMC:
-		\begin{itemize}
-			\item potential scale reduction statistic $1.00\lesssim\widehat{R}\lesssim1.01$
-			\item Monte Carlo standard error (MCSE) \enquote{small}
-		\end{itemize}
-			\item Goodness of fit: posterior predictive checks (PPC)
-		\end{itemize}
 
-	\begin{flushright}
-		\includegraphics[width=.1\linewidth]{figs/logo-tm.png}\\
-		\cites{stan,nuts}
-	\end{flushright}
-	\end{frame}
-\begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
-	PPC for \emph{binned} \textsc{Bayesian} fit:
-	\centering
-	\includegraphics[width=.9\linewidth]{../../bayes/realdeal/plots/ppd_checks.pdf}
-\end{frame}
+
 \begin{frame}{Confirming pre-published results for $\Sigma_\eta$}
 	PPC for \emph{unbinned} \textsc{Bayesian} fit:
 	\centering
@@ -426,7 +413,11 @@
 	
 	
 	\subsection{Determination of $\Sigma_{\eta'}$}
-	
+	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
+		\textbf{existing database:}
+		{\centering
+		\includegraphics[width=\linewidth]{etap_bildchen}}
+	\end{frame}
 	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
 		First, perform event selection regarding $\eta'$ photoproduction
 		\begin{table}
@@ -478,7 +469,7 @@
 \end{frame}	
 
 \begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
-	\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title={Event selection ($\eta'$)}]
+\textbf{event selection:}\\
 		analysis performed in 3x6 bins of $(E_\gamma,\cos\theta)$ for $\gamma p\to p\eta'\to p\gamma\gamma$,\\ $E_\gamma\in[1500,1800]$ MeV
 		\vspace{-0.5cm}
 		\begin{align*}
@@ -493,30 +484,29 @@
 			\item Missing mass $m_X\overset{!}{=}m_p$
 			\item Invariant mass $m_{\gamma\gamma}\overset{!}{=}m_{\eta'}$
 		\end{itemize}
-	\end{tcolorbox}
 \end{frame}
 
 \begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
-	\vspace{-0.95cm}
+	\vspace{-0.5cm}
 	\includegraphics[width=.95\linewidth]{../../figs/hydrogen/bin_cuts/mismcut_ebin1.pdf}
-	data points: $m_X$, turquoise: total MC, black: $\eta'$ MC, yellow: $2\pi^0$ MC, magenta: $\pi^0\eta$ MC
+	data points: $m_X$, MC histograms: {\color{Turquoise}total}, $p\eta'$, {\color{yellow} $p2\pi^0$ }, {\color{magenta} $p\pi^0\eta$}
 \end{frame}
 \begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
-	\vspace{-0.95cm}
+	\vspace{-0.5cm}
 	\includegraphics[width=.95\linewidth]{../../figs/hydrogen/bin_cuts/invcut_ebin1.pdf}
-	data points: $m_{\gamma\gamma}$, turquoise: total MC, black: $\eta'$ MC, yellow: $2\pi^0$ MC, magenta: $\pi^0\eta$ MC, blue: $\omega$ MC
+	data points: $m_{\gamma\gamma}$, data points: $m_X$, MC histograms: {\color{Turquoise}total}, $p\eta'$, {\color{yellow} $p2\pi^0$ }, {\color{magenta} $p\pi^0\eta$}, {\color{blue}$p\omega$}
 \end{frame}
 \begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
 	\includegraphics[width=\linewidth]{../../figs/hydrogen/invm_global.pdf}
 \end{frame}
 \begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
-	Why these contributions from $4\gamma$ final states $2\pi^0$ (and $\pi^0\eta$)??
+	why these contributions from $4\gamma$ final states $2\pi^0$ (and $\pi^0\eta$)??
 	\pause
 	\includegraphics[width=.49\linewidth]{../../figs/inkscape/mcgammas1.pdf}
 	\includegraphics[width=.49\linewidth]{../../figs/inkscape/mcgammas2.pdf}
 	\pause
 	\emph{acceptance} for $2\pi^0$ events is almost vanishing $A(E_\gamma,\cos\theta)<2\cdot10^{-3}$, yet $$R=\frac{\sigma_{2\pi^0}\cdot\text{BR}_{2\pi^0\to\gamma\gamma}\cdot\tilde{A}_{2\pi^0}}{\sigma_{\eta'}\cdot\text{BR}_{\eta'\to\gamma\gamma}\cdot\tilde{A}_{\eta'}}=\frac{\SI{5}{\micro\barn}\cdot0.9765\cdot2\cdot10^{-3}}{\SI{1}{\micro\barn}\cdot0.023\cdot0.61}\approx0.7!$$
-	explains high background contributions of up to $45\%$
+	explains high background contributions of up to $45\%$ (background to total)
 	\begin{flushright}
 		\cites{pdg,etap_cs,2pi0_cs}
 	\end{flushright}
@@ -525,8 +515,6 @@
 \begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
 	How do we get rid of background contributions?
 	\begin{itemize}
-		\pause
-		\item simple: we don't
 		\item real photons mimic a two-photon final state, no sensible additional cuts have been found
 		\pause
 		\item main background from $2\pi^0$ photoproduction
@@ -563,7 +551,7 @@
 	
 	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
 		\centering
-		\includegraphics[width=.8\linewidth]{../../bayes/etap_event_based_fit/plots/sigma_etap_talk.pdf}
+		\includegraphics[width=.78\linewidth]{../../bayes/etap_event_based_fit/plots/sigma_etap_talk.pdf}
 	\end{frame}
 	
 	
@@ -595,14 +583,12 @@
 	\end{frame}
 	\begin{frame}{Determining the beam asymmetry in $\eta'$ photoproduction}
 		\begin{minipage}{.8\linewidth}
-			\includegraphics[width=\linewidth]{../../bayes/etap_event_based_fit/plots/sigma_etap_pwa_data_talk.pdf}
+			\includegraphics[width=.97\linewidth]{../../bayes/etap_event_based_fit/plots/sigma_etap_pwa_data_talk.pdf}
 		\end{minipage}
 		\begin{minipage}{.19\linewidth}
-			\begin{itemize}
-				{\scriptsize\item measurement at CLAS \cites{collins}: (black points),
-				\item etaMAID PWA \cites{etaMAID}: (black, dashed lines),
-				\item BnGa PWA \cites{etap_bnga}: (red, dashed lines)}
-			\end{itemize}
+				{\scriptsize $\blacksquare$ measurement at CLAS \cites{collins} ,\\
+				\textbf{- - -} etaMAID PWA \cites{etaMAID},\\
+			 {\color{red}\textbf{- - -}} BnGa PWA\\ \cites{etap_bnga} }
 		\end{minipage}
 	\end{frame}
 
