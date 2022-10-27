@@ -5,8 +5,12 @@ This repository includes analysis scripts as well as the TeX-sources for the the
 * `DPG2022` - Subscription and Talk held at the 2022 DPG conference
 * `RooFit` - Scripts and plots used to perform an unbinned fit on selected data in $\eta'$ photoproduction, using Root
 * `TeX` - All TeX sources for talks and the final thesis. The template used to create the thesis is [ubonnthesis](https://www.pi.uni-bonn.de/lehre/uni-bonn-thesis).
-* `bayes` - Summarazies all Bayesian fits that were performed during the thesis using [Stan](https://mc-stan.org)
-  -
+* `bayes` - Summarizes all Bayesian fits that were performed during the thesis using [Stan](https://mc-stan.org)
+    - `etap_event_based_fit` - Event based fit using data from $\eta'$ photoproduction
+    - `event_based_fit` - Event based fit using data from $\eta$ photoproduction (provided by [Farah Afzal](https://bonndoc.ulb.uni-bonn.de/xmlui/handle/20.500.11811/8064)
+    - `realdeal` - Binned fit using data from $\eta$ photoproduction (provided by [Farah Afzal](https://bonndoc.ulb.uni-bonn.de/xmlui/handle/20.500.11811/8064)
+    - `toyMC` - Toy data sets with known parameters used to test the employed methods
+  
 * `demonstration` - Short snippets of code used for demonstration in the thesis
 * `etap_PWA` - PWA predictions for the polarization observable $\Sigma$ in $\eta'$ photoproduction
 * `figs` - Plots and graphs generated during the analysis of data acquired at CBELSA/TAPS for $\eta'$ photoproduction
