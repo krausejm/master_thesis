@@ -625,6 +625,29 @@
 		\LARGE
 		\color{\thecolor}\textsc{Backup \& References}
 	\end{frame}
+	\begin{frame}{Additional theoretical basics}
+	\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=Unpolarized differential cross section]
+		
+		$$\frac{\text{d}\sigma}{\text{d}\Omega}=\frac{1}{4}\rho\sum_{\text{spins}}|\braket{f|\mathcal{F}|i}|^2\\,$$
+		where
+		$$\mathcal{F}=i(\vec{\sigma}\cdot\vec{\epsilon})F_1+(\vec{\sigma}\cdot\hat{q})(\vec{\sigma}\cdot(\hat{k}\times\vec{\epsilon}))F_2+i(\vec{\sigma}\cdot\hat{k})(\hat{q}\cdot\vec{\epsilon})F_3+i(\vec{\sigma}\cdot\hat{q})(\hat{q}\cdot\vec{\epsilon})F_4$$
+		\begin{flushright}
+			$F_i:$ complex CGLN Amplitudes
+		\end{flushright}
+		
+		
+		\begin{flushright}
+			{\scriptsize[\cite{cgln}]}
+		\end{flushright}
+	\end{tcolorbox}
+	$\frac{\text{d}\sigma}{\text{d}\Omega}\in\mathbb{R}$, not sufficient do determine $\mathcal{F}$ unambiguously\\
+	$\rightarrow$ Polarization Observables can be related to $F_i$
+\end{frame}
+
+\begin{frame}{Time cut}
+	\includegraphics[width=\linewidth]{../../figs/hydrogen/time/reaction_time.pdf}
+\end{frame}
+
 	\begin{frame}{Full PDF for unbinned maximum likelihood fit}
 		
 		\begin{align*}
@@ -641,35 +664,56 @@
 		\end{equation*}
 		
 	\end{frame}
-	\begin{frame}{Additional theoretical basics}
-		\begin{tcolorbox}[colback=blue!5,colframe=\thecolor,title=Unpolarized differential cross section]
-			
-			$$\frac{\text{d}\sigma}{\text{d}\Omega}=\frac{1}{4}\rho\sum_{\text{spins}}|\braket{f|\mathcal{F}|i}|^2\\,$$
-			where
-			$$\mathcal{F}=i(\vec{\sigma}\cdot\vec{\epsilon})F_1+(\vec{\sigma}\cdot\hat{q})(\vec{\sigma}\cdot(\hat{k}\times\vec{\epsilon}))F_2+i(\vec{\sigma}\cdot\hat{k})(\hat{q}\cdot\vec{\epsilon})F_3+i(\vec{\sigma}\cdot\hat{q})(\hat{q}\cdot\vec{\epsilon})F_4$$
-			\begin{flushright}
-				$F_i:$ complex CGLN Amplitudes
-			\end{flushright}
-			
-			
-			\begin{flushright}
-				{\scriptsize[\cite{cgln}]}
-			\end{flushright}
-		\end{tcolorbox}
-		$\frac{\text{d}\sigma}{\text{d}\Omega}\in\mathbb{R}$, not sufficient do determine $\mathcal{F}$ unambiguously\\
-		$\rightarrow$ Polarization Observables can be related to $F_i$
+	\begin{frame}{Hamiltonian Monte Carlo}
+		Introduce artificial "momentum" $\boldsymbol{\phi}$
+		\begin{equation*}
+			\begin{aligned}
+				p(\btheta,\boldsymbol{\phi}|y)&=p(\btheta|y)\cdot p(\boldsymbol{\phi}|\boldsymbol{\theta},y)=p(\btheta|y)\cdot p(\boldsymbol{\phi})\\
+				\Leftrightarrow-\log p(\btheta,\boldsymbol{\phi}|y)&=-\log p(\btheta|y)-\log p(\boldsymbol{\phi})\\
+				\overset{\text{Def.}}{\Leftrightarrow} H(\btheta,\boldsymbol{\phi}) &:=V(\boldsymbol{\theta})+T(\boldsymbol{\phi}), 	
+			\end{aligned}
+		\end{equation*} 
+	Applying the well known equations of motion to this \textsc{Hamiltonian} one finds 
+	\begin{align*}
+		\frac{\text{d}\theta_i}{\text{d}t}=\frac{\partial H}{\partial \phi_i}=\frac{\partial T}{\partial \phi_i} && \frac{\text{d}\phi_i}{\text{d}t}=-\frac{\partial H}{\partial \theta_i}=-\frac{\partial V}{\partial \theta_i}.
+	\end{align*}
+Integrate to arrive at proposals $\boldsymbol{\theta^*},\boldsymbol{\phi^*}$ fed into \textsc{Metropolis-Hastings} accept-reject step
 	\end{frame}
 
-	\begin{frame}{Diagnostics of a \textsc{bayesian} fit}
-		\begin{itemize}
-			\item $\hat{R}$: measure of convergence for chains
-			\item Monte-Carlo-Standard-Error: measure for adequate sample size
-			\item \emph{posterior predictive checks}: "goodness of fit"\\
-			
-		\end{itemize}
-		\centering
-		%\includegraphics[width=.85\linewidth]{../bayes/realdeal/ppd_checks_alt/ebin6costbin1.pdf}
-	\end{frame}
+	\begin{frame}[allowframebreaks]{Diagnostics of a \textsc{bayesian} fit}
+	The $\widehat{R}$-statistic is defined for a set of $M$ \textsc{Markov} chains $\btheta_m$ with $N$ samples $\btheta_m^{(n)}$. The \emph{between-chain-variance} $B$ is estimated as \begin{equation*}
+		B=\frac{N}{M-1}\sum_{m=1}^{M}\left(\bar{\btheta}_m^{(\bullet)}-\bar{\btheta}^{(\bullet)}_\bullet\right)^2,
+	\end{equation*}
+	where
+	\begin{align*}
+		\bar{\btheta}_m^{(\bullet)}=\frac{1}{N}\sum_{n=1}^{N}\btheta_m^{(n)}, && \bar{\btheta}^{(\bullet)}_\bullet=\frac{1}{M}\sum_{m=1}^{M}\bar{\btheta}_m^{(\bullet)}. 
+	\end{align*}
+	Further the \emph{within-chain variance} $W$ is averaged over all chains
+	\begin{equation*}
+		W=\frac{1}{M}\sum_{m=1}^{M}s_m^2,
+	\end{equation*}
+	where \begin{equation*}
+		s_m^2=\frac{1}{N-1}\sum_{n=1}^{N}\left(\btheta_m^{(n)}-\bar\btheta_m^{(\bullet)}\right)^2.
+	\end{equation*}
+	Combining the between and within chain variances into the \emph{variance estimator}
+	\begin{equation*}
+		\widehat{\text{var}}^+(\btheta|y)=\frac{N-1}{N}W+\frac{1}{N}B
+	\end{equation*}
+	one finally arrives at the \emph{potential scale reduction statistic}
+	\begin{equation*}
+		\widehat{R}=\sqrt{\frac{\widehat{\text{var}}^+(\btheta|y)}{W}}.
+	\end{equation*} 
+\end{frame}
+\begin{frame}{Diagnosis of the unbinned \textsc{Bayesian} fit}
+	\includegraphics[width=.49\linewidth]{../../bayes/event_based_fit/plots/mcse_hist.pdf}
+		\includegraphics[width=.49\linewidth]{../../bayes/event_based_fit/plots/rhat_hist.pdf}
+\end{frame}
+\begin{frame}{Systematic effects of binned fitting}
+	\includegraphics[width=\linewidth]{../../bayes/toyMC/plots/binnedfits.pdf}
+\end{frame}
+\begin{frame}{$\cos\theta(4\gamma)$ vs. $\cos\theta(2\gamma)$}
+	\includegraphics[width=\linewidth]{../../figs/hydrogen/mcgammas_ct.pdf}
+\end{frame}
 	\begin{frame}[allowframebreaks]{References}
 		\printbibliography
 		
